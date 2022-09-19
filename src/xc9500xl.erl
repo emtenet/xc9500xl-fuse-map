@@ -2,18 +2,18 @@
 
 -export([devices/0]).
 -export([device_name/1]).
--export([io_count/1]).
+-export([device_core/1]).
+-export([device_package/1]).
+-export([device_io_count/1]).
 -export([io_pins/1]).
 -export([global_io_pins/1]).
 
 -export([cores/0]).
--export([core/1]).
--export([fb_count/1]).
--export([fuse_count/1]).
+-export([core_fb_count/1]).
+-export([core_fuse_count/1]).
 
 -export([packages/0]).
--export([package/1]).
--export([pin_count/1]).
+-export([package_pin_count/1]).
 
 devices() ->
     [
@@ -48,20 +48,50 @@ device_name(xc95288xl_bg256) -> "xc95288xl-10-BG256";
 device_name(xc95288xl_cs280) -> "xc95288xl-10-CS280";
 device_name(xc95288xl_fg256) -> "xc95288xl-10-FG256".
 
-io_count(xc9536xl_cs48) -> 36;
-io_count(xc9536xl_vq44) -> 34;
-io_count(xc9536xl_vq64) -> 36;
-io_count(xc9572xl_cs48) -> 38;
-io_count(xc9572xl_tq100) -> 72;
-io_count(xc9572xl_vq44) -> 34;
-io_count(xc9572xl_vq64) -> 52;
-io_count(xc95144xl_cs144) -> 117;
-io_count(xc95144xl_tq100) -> 81;
-io_count(xc95144xl_tq144) -> 117;
-io_count(xc95288xl_tq144) -> 117;
-io_count(xc95288xl_bg256) -> 192;
-io_count(xc95288xl_cs280) -> 192;
-io_count(xc95288xl_fg256) -> 192.
+device_core(xc9536xl_cs48) -> xc9536xl;
+device_core(xc9536xl_vq44) -> xc9536xl;
+device_core(xc9536xl_vq64) -> xc9536xl;
+device_core(xc9572xl_cs48) -> xc9572xl;
+device_core(xc9572xl_tq100) -> xc9572xl;
+device_core(xc9572xl_vq44) -> xc9572xl;
+device_core(xc9572xl_vq64) -> xc9572xl;
+device_core(xc95144xl_cs144) -> xc95144xl;
+device_core(xc95144xl_tq100) -> xc95144xl;
+device_core(xc95144xl_tq144) -> xc95144xl;
+device_core(xc95288xl_tq144) -> xc95288xl;
+device_core(xc95288xl_bg256) -> xc95288xl;
+device_core(xc95288xl_cs280) -> xc95288xl;
+device_core(xc95288xl_fg256) -> xc95288xl.
+
+device_package(xc9536xl_cs48) -> cs48;
+device_package(xc9536xl_vq44) -> vq44;
+device_package(xc9536xl_vq64) -> vq64;
+device_package(xc9572xl_cs48) -> cs48;
+device_package(xc9572xl_tq100) -> tq100;
+device_package(xc9572xl_vq44) -> vq44;
+device_package(xc9572xl_vq64) -> vq64;
+device_package(xc95144xl_cs144) -> cs144;
+device_package(xc95144xl_tq100) -> tq100;
+device_package(xc95144xl_tq144) -> tq144;
+device_package(xc95288xl_tq144) -> tq144;
+device_package(xc95288xl_bg256) -> bg256;
+device_package(xc95288xl_cs280) -> cs280;
+device_package(xc95288xl_fg256) -> fg256.
+
+device_io_count(xc9536xl_cs48) -> 36;
+device_io_count(xc9536xl_vq44) -> 34;
+device_io_count(xc9536xl_vq64) -> 36;
+device_io_count(xc9572xl_cs48) -> 38;
+device_io_count(xc9572xl_tq100) -> 72;
+device_io_count(xc9572xl_vq44) -> 34;
+device_io_count(xc9572xl_vq64) -> 52;
+device_io_count(xc95144xl_cs144) -> 117;
+device_io_count(xc95144xl_tq100) -> 81;
+device_io_count(xc95144xl_tq144) -> 117;
+device_io_count(xc95288xl_tq144) -> 117;
+device_io_count(xc95288xl_bg256) -> 192;
+device_io_count(xc95288xl_cs280) -> 192;
+device_io_count(xc95288xl_fg256) -> 192.
 
 cores() ->
     [
@@ -71,34 +101,19 @@ cores() ->
         xc95288xl
     ].
 
-core(xc9536xl_cs48) -> xc9536xl;
-core(xc9536xl_vq44) -> xc9536xl;
-core(xc9536xl_vq64) -> xc9536xl;
-core(xc9572xl_cs48) -> xc9572xl;
-core(xc9572xl_tq100) -> xc9572xl;
-core(xc9572xl_vq44) -> xc9572xl;
-core(xc9572xl_vq64) -> xc9572xl;
-core(xc95144xl_cs144) -> xc95144xl;
-core(xc95144xl_tq100) -> xc95144xl;
-core(xc95144xl_tq144) -> xc95144xl;
-core(xc95288xl_tq144) -> xc95288xl;
-core(xc95288xl_bg256) -> xc95288xl;
-core(xc95288xl_cs280) -> xc95288xl;
-core(xc95288xl_fg256) -> xc95288xl.
+core_fb_count(xc9536xl) -> 2;
+core_fb_count(xc9572xl) -> 4;
+core_fb_count(xc95144xl) -> 8;
+core_fb_count(xc95288xl) -> 16;
+core_fb_count(Device) ->
+    core_fb_count(device_core(Device)).
 
-fb_count(xc9536xl) -> 2;
-fb_count(xc9572xl) -> 4;
-fb_count(xc95144xl) -> 8;
-fb_count(xc95288xl) -> 16;
-fb_count(Device) ->
-    fb_count(core(Device)).
-
-fuse_count(xc9536xl) -> 23328;
-fuse_count(xc9572xl) -> 46656;
-fuse_count(xc95144xl) -> 93312;
-fuse_count(xc95288xl) -> 186624;
-fuse_count(Device) ->
-    fuse_count(core(Device)).
+core_fuse_count(xc9536xl) -> 23328;
+core_fuse_count(xc9572xl) -> 46656;
+core_fuse_count(xc95144xl) -> 93312;
+core_fuse_count(xc95288xl) -> 186624;
+core_fuse_count(Device) ->
+    core_fuse_count(device_core(Device)).
 
 packages() ->
     [
@@ -113,32 +128,17 @@ packages() ->
         vq64
     ].
 
-package(xc9536xl_cs48) -> cs48;
-package(xc9536xl_vq44) -> vq44;
-package(xc9536xl_vq64) -> vq64;
-package(xc9572xl_cs48) -> cs48;
-package(xc9572xl_tq100) -> tq100;
-package(xc9572xl_vq44) -> vq44;
-package(xc9572xl_vq64) -> vq64;
-package(xc95144xl_cs144) -> cs144;
-package(xc95144xl_tq100) -> tq100;
-package(xc95144xl_tq144) -> tq144;
-package(xc95288xl_tq144) -> tq144;
-package(xc95288xl_bg256) -> bg256;
-package(xc95288xl_cs280) -> cs280;
-package(xc95288xl_fg256) -> fg256.
-
-pin_count(bg256) -> 256;
-pin_count(cs48) -> 48;
-pin_count(cs144) -> 144;
-pin_count(cs280) -> 280;
-pin_count(fg256) -> 256;
-pin_count(tq100) -> 100;
-pin_count(tq144) -> 144;
-pin_count(vq44) -> 44;
-pin_count(vq64) -> 64;
-pin_count(Device) ->
-    pin_count(package(Device)).
+package_pin_count(bg256) -> 256;
+package_pin_count(cs48) -> 48;
+package_pin_count(cs144) -> 144;
+package_pin_count(cs280) -> 280;
+package_pin_count(fg256) -> 256;
+package_pin_count(tq100) -> 100;
+package_pin_count(tq144) -> 144;
+package_pin_count(vq44) -> 44;
+package_pin_count(vq64) -> 64;
+package_pin_count(Device) ->
+    package_pin_count(device_package(Device)).
 
 io_pins(xc9536xl_cs48) ->
     [<<"A3">>,<<"A4">>,<<"A6">>,<<"A7">>,<<"B1">>,<<"B2">>,<<"B4">>,<<"B5">>,

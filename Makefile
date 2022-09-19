@@ -16,4 +16,6 @@ ERLC_OPTS = -Werror \
  +warn_unused_vars \
  +debug_info
 
+DIALYZER_PLT_OPTS += --no_native
+
 include erlang.mk
