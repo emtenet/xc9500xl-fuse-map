@@ -1,0 +1,711 @@
+-- 
+--  BSDL File created/edited by XILINX bsdl.pl script
+-- 
+--Package: tq100 
+--RCS:$Header: /tools/xicad/bsdl/master/xc9kxl/RCS/xc95144xl_tq100.bsd,v 1.2 2002/01/29 18:40:17 terry Exp $ 
+--BSDE:$Revision: 1.2 $ 
+--BSDE: Xilinx xc95144xl_tq100 macrocell FastFlash ISP CPLD
+-- 
+--For technical support, contact Xilinx as follows: 
+-- North America 1-800-255-7778 hotline@xilinx.com 
+-- United Kingdom +44 870 7350 610 eurosupport@xilinx.com
+-- France  (33) 1 3463 0100 eurosupport@xilinx.com
+-- Germany  (49) 89 991 54930 eurosupport@xilinx.com
+-- Japan  (81) 3-3297-9163 jhotline@xilinx.com
+-- 
+entity xc95144xl_tq100 is
+
+
+generic (PHYSICAL_PIN_MAP : string := "tq100" );
+
+port ( 
+	PB00_01: inout bit; 
+	PB00_02: inout bit; 
+	PB00_04: inout bit; 
+	PB00_05: inout bit; 
+	PB00_07: inout bit; 
+	PB00_08: inout bit; 
+	PB00_10: inout bit; 
+	PB00_11: inout bit; 
+	PB00_13: inout bit; 
+	PB00_14: inout bit; 
+	PB00_16: inout bit; 
+	PB01_01: inout bit; 
+	PB01_04: inout bit; 
+	PB01_05: inout bit; 
+	PB01_07: inout bit; 
+	PB01_08: inout bit; 
+	PB01_10: inout bit; 
+	PB01_11: inout bit; 
+	PB01_13: inout bit; 
+	PB01_14: inout bit; 
+	PB01_16: inout bit; 
+	PB02_01: inout bit; 
+	PB02_04: inout bit; 
+	PB02_05: inout bit; 
+	PB02_07: inout bit; 
+	PB02_08: inout bit; 
+	PB02_10: inout bit; 
+	PB02_11: inout bit; 
+	PB02_13: inout bit; 
+	PB02_14: inout bit; 
+	PB02_16: inout bit; 
+	PB03_01: inout bit; 
+	PB03_04: inout bit; 
+	PB03_05: inout bit; 
+	PB03_07: inout bit; 
+	PB03_08: inout bit; 
+	PB03_10: inout bit; 
+	PB03_11: inout bit; 
+	PB03_13: inout bit; 
+	PB03_14: inout bit; 
+	PB03_16: inout bit; 
+	PB04_01: inout bit; 
+	PB04_04: inout bit; 
+	PB04_05: inout bit; 
+	PB04_07: inout bit; 
+	PB04_08: inout bit; 
+	PB04_10: inout bit; 
+	PB04_11: inout bit; 
+	PB04_13: inout bit; 
+	PB04_14: inout bit; 
+	PB04_16: inout bit; 
+	PB05_01: inout bit; 
+	PB05_04: inout bit; 
+	PB05_05: inout bit; 
+	PB05_07: inout bit; 
+	PB05_08: inout bit; 
+	PB05_10: inout bit; 
+	PB05_11: inout bit; 
+	PB05_13: inout bit; 
+	PB05_14: inout bit; 
+	PB05_16: inout bit; 
+	PB06_01: inout bit; 
+	PB06_04: inout bit; 
+	PB06_05: inout bit; 
+	PB06_07: inout bit; 
+	PB06_08: inout bit; 
+	PB06_10: inout bit; 
+	PB06_11: inout bit; 
+	PB06_13: inout bit; 
+	PB06_14: inout bit; 
+	PB06_16: inout bit; 
+	PB07_01: inout bit; 
+	PB07_04: inout bit; 
+	PB07_05: inout bit; 
+	PB07_07: inout bit; 
+	PB07_08: inout bit; 
+	PB07_10: inout bit; 
+	PB07_11: inout bit; 
+	PB07_13: inout bit; 
+	PB07_14: inout bit; 
+	PB07_16: inout bit; 
+	TCK: in bit; 
+	TDI: in bit; 
+	TDO: out bit; 
+	TMS: in bit; 
+	Vccint_1: linkage bit; 
+	Vccint_2: linkage bit; 
+	VccInt_Vpp: linkage bit; 
+	Vccio_1: linkage bit; 
+	Vccio_2: linkage bit; 
+	Vccio_3: linkage bit; 
+	Vccio_4: linkage bit; 
+	Vssint_1: linkage bit; 
+	Vssint_2: linkage bit; 
+	Vssint_3: linkage bit; 
+	Vssio_1: linkage bit; 
+	Vssio_2: linkage bit; 
+	Vssio_3: linkage bit; 
+	Vssio_4: linkage bit; 
+	Vssio_5: linkage bit );
+
+use STD_1149_1_1994.all;
+
+attribute COMPONENT_CONFORMANCE of xc95144xl_tq100 : entity is "STD_1149_1_1993";
+
+attribute PIN_MAP of xc95144xl_tq100 : entity is PHYSICAL_PIN_MAP;
+
+constant tq100: PIN_MAP_STRING:=
+	"PB00_01:11," & 
+	"PB00_02:12," & 
+	"PB00_04:13," & 
+	"PB00_05:14," & 
+	"PB00_07:15," & 
+	"PB00_08:16," & 
+	"PB00_10:17," & 
+	"PB00_11:18," & 
+	"PB00_13:19," & 
+	"PB00_14:20," & 
+	"PB00_16:22," & 
+	"PB01_01:99," & 
+	"PB01_04:1," & 
+	"PB01_05:2," & 
+	"PB01_07:3," & 
+	"PB01_08:4," & 
+	"PB01_10:6," & 
+	"PB01_11:7," & 
+	"PB01_13:8," & 
+	"PB01_14:9," & 
+	"PB01_16:10," & 
+	"PB02_01:23," & 
+	"PB02_04:24," & 
+	"PB02_05:25," & 
+	"PB02_07:27," & 
+	"PB02_08:28," & 
+	"PB02_10:29," & 
+	"PB02_11:30," & 
+	"PB02_13:32," & 
+	"PB02_14:33," & 
+	"PB02_16:34," & 
+	"PB03_01:87," & 
+	"PB03_04:89," & 
+	"PB03_05:90," & 
+	"PB03_07:91," & 
+	"PB03_08:92," & 
+	"PB03_10:93," & 
+	"PB03_11:94," & 
+	"PB03_13:95," & 
+	"PB03_14:96," & 
+	"PB03_16:97," & 
+	"PB04_01:35," & 
+	"PB04_04:36," & 
+	"PB04_05:37," & 
+	"PB04_07:39," & 
+	"PB04_08:40," & 
+	"PB04_10:41," & 
+	"PB04_11:42," & 
+	"PB04_13:43," & 
+	"PB04_14:46," & 
+	"PB04_16:49," & 
+	"PB05_01:74," & 
+	"PB05_04:76," & 
+	"PB05_05:77," & 
+	"PB05_07:78," & 
+	"PB05_08:79," & 
+	"PB05_10:80," & 
+	"PB05_11:81," & 
+	"PB05_13:82," & 
+	"PB05_14:85," & 
+	"PB05_16:86," & 
+	"PB06_01:50," & 
+	"PB06_04:52," & 
+	"PB06_05:53," & 
+	"PB06_07:54," & 
+	"PB06_08:55," & 
+	"PB06_10:56," & 
+	"PB06_11:58," & 
+	"PB06_13:59," & 
+	"PB06_14:60," & 
+	"PB06_16:61," & 
+	"PB07_01:63," & 
+	"PB07_04:64," & 
+	"PB07_05:65," & 
+	"PB07_07:66," & 
+	"PB07_08:67," & 
+	"PB07_10:68," & 
+	"PB07_11:70," & 
+	"PB07_13:71," & 
+	"PB07_14:72," & 
+	"PB07_16:73," & 
+	"TCK:48," & 
+	"TDI:45," & 
+	"TDO:83," & 
+	"TMS:47," & 
+	"Vccint_1:57," & 
+	"Vccint_2:98," & 
+	"VccInt_Vpp:5," & 
+	"Vccio_1:26," & 
+	"Vccio_2:38," & 
+	"Vccio_3:51," & 
+	"Vccio_4:88," & 
+	"Vssint_1:21," & 
+	"Vssint_2:44," & 
+	"Vssint_3:62," & 
+	"Vssio_1:31," & 
+	"Vssio_2:69," & 
+	"Vssio_3:75," & 
+	"Vssio_4:84," & 
+	"Vssio_5:100";
+
+attribute TAP_SCAN_IN    of TDI : signal is true;
+attribute TAP_SCAN_OUT   of TDO : signal is true;
+attribute TAP_SCAN_MODE  of TMS : signal is true;
+attribute TAP_SCAN_CLOCK of TCK : signal is (1.00e+07, BOTH);
+attribute INSTRUCTION_LENGTH of xc95144xl_tq100 : entity is 8;
+
+attribute INSTRUCTION_OPCODE of xc95144xl_tq100 : entity is
+	"BYPASS ( 11111111)," &
+	"CLAMP ( 11111010)," &
+	"ISPEX ( 11110000)," &
+	"EXTEST ( 00000000),"&
+	"FBLANK ( 11100101),"& 
+	"FBULK ( 11101101),"&
+	"FERASE ( 11101100),"&
+	"FPGM ( 11101010)," &
+	"FPGMI ( 11101011)," &
+	"FVFY ( 11101110)," &
+	"FVFYI ( 11101111)," &
+	"HIGHZ ( 11111100),"&
+	"IDCODE ( 11111110),"&
+	"INTEST ( 00000010),"&
+	"ISPEN ( 11101000)," &
+	"ISPENC ( 11101001)," &
+	"SAMPLE ( 00000001)," &
+	"USERCODE ( 11111101)"; 
+
+attribute INSTRUCTION_CAPTURE of xc95144xl_tq100: entity is "000XXX01";
+
+attribute IDCODE_REGISTER of xc95144xl_tq100: entity is
+        "XXXX" &               -- version
+        "1001011000001000" &    -- part number
+        "00001001001" &         -- manufacturer's id
+        "1";                    -- required by standard
+ 
+attribute USERCODE_REGISTER of xc95144xl_tq100: entity is
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+
+
+attribute REGISTER_ACCESS of xc95144xl_tq100 : entity is
+        "BYPASS ( ISPEX, HIGHZ, CLAMP )," &
+        "ISCENABLE[6] ( ISPEN, ISPENC )," &
+        "ISDATA[66] (  FPGMI, FVFYI ),"&
+        "ISADDRESS[18] ( FERASE, FBULK, FBLANK ),"& 
+        "ISCONFIGURATION[82] (  FPGM, FVFY )";
+attribute BOUNDARY_LENGTH of xc95144xl_tq100 : entity is 432; 
+
+attribute BOUNDARY_REGISTER of xc95144xl_tq100 : entity is
+	"   431 (BC_1, *, internal, X)," &
+	"   430 (BC_1, *, internal, X)," &
+	"   429 (BC_1, *, internal, X)," &
+	"   428 (BC_1, PB00_01, input, X), "  &
+	"   427 (BC_1, PB00_01, output3, X, 426, 0, Z)," &
+	"   426 (BC_1, *, controlr, 0)," &
+	"   425 (BC_1, PB00_02, input, X), "  &
+	"   424 (BC_1, PB00_02, output3, X, 423, 0, Z)," &
+	"   423 (BC_1, *, controlr, 0)," &
+	"   422 (BC_1, *, internal, X)," &
+	"   421 (BC_1, *, internal, X)," &
+	"   420 (BC_1, *, internal, X)," &
+	"   419 (BC_1, PB00_04, input, X), "  &
+	"   418 (BC_1, PB00_04, output3, X, 417, 0, Z)," &
+	"   417 (BC_1, *, controlr, 0)," &
+	"   416 (BC_1, PB00_05, input, X), "  &
+	"   415 (BC_1, PB00_05, output3, X, 414, 0, Z)," &
+	"   414 (BC_1, *, controlr, 0)," &
+	"   413 (BC_1, *, internal, X)," &
+	"   412 (BC_1, *, internal, X)," &
+	"   411 (BC_1, *, internal, X)," &
+	"   410 (BC_1, PB00_07, input, X), "  &
+	"   409 (BC_1, PB00_07, output3, X, 408, 0, Z)," &
+	"   408 (BC_1, *, controlr, 0)," &
+	"   407 (BC_1, PB00_08, input, X), "  &
+	"   406 (BC_1, PB00_08, output3, X, 405, 0, Z)," &
+	"   405 (BC_1, *, controlr, 0)," &
+	"   404 (BC_1, *, internal, X)," &
+	"   403 (BC_1, *, internal, X)," &
+	"   402 (BC_1, *, internal, X)," &
+	"   401 (BC_1, PB00_10, input, X), "  &
+	"   400 (BC_1, PB00_10, output3, X, 399, 0, Z)," &
+	"   399 (BC_1, *, controlr, 0)," &
+	"   398 (BC_1, PB00_11, input, X), "  &
+	"   397 (BC_1, PB00_11, output3, X, 396, 0, Z)," &
+	"   396 (BC_1, *, controlr, 0)," &
+	"   395 (BC_1, *, internal, X)," &
+	"   394 (BC_1, *, internal, X)," &
+	"   393 (BC_1, *, internal, X)," &
+	"   392 (BC_1, PB00_13, input, X), "  &
+	"   391 (BC_1, PB00_13, output3, X, 390, 0, Z)," &
+	"   390 (BC_1, *, controlr, 0)," &
+	"   389 (BC_1, PB00_14, input, X), "  &
+	"   388 (BC_1, PB00_14, output3, X, 387, 0, Z)," &
+	"   387 (BC_1, *, controlr, 0)," &
+	"   386 (BC_1, *, internal, X)," &
+	"   385 (BC_1, *, internal, X)," &
+	"   384 (BC_1, *, internal, X)," &
+	"   383 (BC_1, PB00_16, input, X), "  &
+	"   382 (BC_1, PB00_16, output3, X, 381, 0, Z)," &
+	"   381 (BC_1, *, controlr, 0)," &
+	"   380 (BC_1, *, internal, X)," &
+	"   379 (BC_1, *, internal, X)," &
+	"   378 (BC_1, *, internal, X)," &
+	"   377 (BC_1, *, internal, X)," &
+	"   376 (BC_1, *, internal, X)," &
+	"   375 (BC_1, *, internal, X)," &
+	"   374 (BC_1, PB01_01, input, X), "  &
+	"   373 (BC_1, PB01_01, output3, X, 372, 0, Z)," &
+	"   372 (BC_1, *, controlr, 0)," &
+	"   371 (BC_1, *, internal, X)," &
+	"   370 (BC_1, *, internal, X)," &
+	"   369 (BC_1, *, internal, X)," &
+	"   368 (BC_1, *, internal, X)," &
+	"   367 (BC_1, *, internal, X)," &
+	"   366 (BC_1, *, internal, X)," &
+	"   365 (BC_1, PB01_04, input, X), "  &
+	"   364 (BC_1, PB01_04, output3, X, 363, 0, Z)," &
+	"   363 (BC_1, *, controlr, 0)," &
+	"   362 (BC_1, PB01_05, input, X), "  &
+	"   361 (BC_1, PB01_05, output3, X, 360, 0, Z)," &
+	"   360 (BC_1, *, controlr, 0)," &
+	"   359 (BC_1, *, internal, X)," &
+	"   358 (BC_1, *, internal, X)," &
+	"   357 (BC_1, *, internal, X)," &
+	"   356 (BC_1, PB01_07, input, X), "  &
+	"   355 (BC_1, PB01_07, output3, X, 354, 0, Z)," &
+	"   354 (BC_1, *, controlr, 0)," &
+	"   353 (BC_1, PB01_08, input, X), "  &
+	"   352 (BC_1, PB01_08, output3, X, 351, 0, Z)," &
+	"   351 (BC_1, *, controlr, 0)," &
+	"   350 (BC_1, *, internal, X)," &
+	"   349 (BC_1, *, internal, X)," &
+	"   348 (BC_1, *, internal, X)," &
+	"   347 (BC_1, PB01_10, input, X), "  &
+	"   346 (BC_1, PB01_10, output3, X, 345, 0, Z)," &
+	"   345 (BC_1, *, controlr, 0)," &
+	"   344 (BC_1, PB01_11, input, X), "  &
+	"   343 (BC_1, PB01_11, output3, X, 342, 0, Z)," &
+	"   342 (BC_1, *, controlr, 0)," &
+	"   341 (BC_1, *, internal, X)," &
+	"   340 (BC_1, *, internal, X)," &
+	"   339 (BC_1, *, internal, X)," &
+	"   338 (BC_1, PB01_13, input, X), "  &
+	"   337 (BC_1, PB01_13, output3, X, 336, 0, Z)," &
+	"   336 (BC_1, *, controlr, 0)," &
+	"   335 (BC_1, PB01_14, input, X), "  &
+	"   334 (BC_1, PB01_14, output3, X, 333, 0, Z)," &
+	"   333 (BC_1, *, controlr, 0)," &
+	"   332 (BC_1, *, internal, X)," &
+	"   331 (BC_1, *, internal, X)," &
+	"   330 (BC_1, *, internal, X)," &
+	"   329 (BC_1, PB01_16, input, X), "  &
+	"   328 (BC_1, PB01_16, output3, X, 327, 0, Z)," &
+	"   327 (BC_1, *, controlr, 0)," &
+	"   326 (BC_1, *, internal, X)," &
+	"   325 (BC_1, *, internal, X)," &
+	"   324 (BC_1, *, internal, X)," &
+	"   323 (BC_1, *, internal, X)," &
+	"   322 (BC_1, *, internal, X)," &
+	"   321 (BC_1, *, internal, X)," &
+	"   320 (BC_1, PB02_01, input, X), "  &
+	"   319 (BC_1, PB02_01, output3, X, 318, 0, Z)," &
+	"   318 (BC_1, *, controlr, 0)," &
+	"   317 (BC_1, *, internal, X)," &
+	"   316 (BC_1, *, internal, X)," &
+	"   315 (BC_1, *, internal, X)," &
+	"   314 (BC_1, *, internal, X)," &
+	"   313 (BC_1, *, internal, X)," &
+	"   312 (BC_1, *, internal, X)," &
+	"   311 (BC_1, PB02_04, input, X), "  &
+	"   310 (BC_1, PB02_04, output3, X, 309, 0, Z)," &
+	"   309 (BC_1, *, controlr, 0)," &
+	"   308 (BC_1, PB02_05, input, X), "  &
+	"   307 (BC_1, PB02_05, output3, X, 306, 0, Z)," &
+	"   306 (BC_1, *, controlr, 0)," &
+	"   305 (BC_1, *, internal, X)," &
+	"   304 (BC_1, *, internal, X)," &
+	"   303 (BC_1, *, internal, X)," &
+	"   302 (BC_1, PB02_07, input, X), "  &
+	"   301 (BC_1, PB02_07, output3, X, 300, 0, Z)," &
+	"   300 (BC_1, *, controlr, 0)," &
+	"   299 (BC_1, PB02_08, input, X), "  &
+	"   298 (BC_1, PB02_08, output3, X, 297, 0, Z)," &
+	"   297 (BC_1, *, controlr, 0)," &
+	"   296 (BC_1, *, internal, X)," &
+	"   295 (BC_1, *, internal, X)," &
+	"   294 (BC_1, *, internal, X)," &
+	"   293 (BC_1, PB02_10, input, X), "  &
+	"   292 (BC_1, PB02_10, output3, X, 291, 0, Z)," &
+	"   291 (BC_1, *, controlr, 0)," &
+	"   290 (BC_1, PB02_11, input, X), "  &
+	"   289 (BC_1, PB02_11, output3, X, 288, 0, Z)," &
+	"   288 (BC_1, *, controlr, 0)," &
+	"   287 (BC_1, *, internal, X)," &
+	"   286 (BC_1, *, internal, X)," &
+	"   285 (BC_1, *, internal, X)," &
+	"   284 (BC_1, PB02_13, input, X), "  &
+	"   283 (BC_1, PB02_13, output3, X, 282, 0, Z)," &
+	"   282 (BC_1, *, controlr, 0)," &
+	"   281 (BC_1, PB02_14, input, X), "  &
+	"   280 (BC_1, PB02_14, output3, X, 279, 0, Z)," &
+	"   279 (BC_1, *, controlr, 0)," &
+	"   278 (BC_1, *, internal, X)," &
+	"   277 (BC_1, *, internal, X)," &
+	"   276 (BC_1, *, internal, X)," &
+	"   275 (BC_1, PB02_16, input, X), "  &
+	"   274 (BC_1, PB02_16, output3, X, 273, 0, Z)," &
+	"   273 (BC_1, *, controlr, 0)," &
+	"   272 (BC_1, *, internal, X)," &
+	"   271 (BC_1, *, internal, X)," &
+	"   270 (BC_1, *, internal, X)," &
+	"   269 (BC_1, *, internal, X)," &
+	"   268 (BC_1, *, internal, X)," &
+	"   267 (BC_1, *, internal, X)," &
+	"   266 (BC_1, PB03_01, input, X), "  &
+	"   265 (BC_1, PB03_01, output3, X, 264, 0, Z)," &
+	"   264 (BC_1, *, controlr, 0)," &
+	"   263 (BC_1, *, internal, X)," &
+	"   262 (BC_1, *, internal, X)," &
+	"   261 (BC_1, *, internal, X)," &
+	"   260 (BC_1, *, internal, X)," &
+	"   259 (BC_1, *, internal, X)," &
+	"   258 (BC_1, *, internal, X)," &
+	"   257 (BC_1, PB03_04, input, X), "  &
+	"   256 (BC_1, PB03_04, output3, X, 255, 0, Z)," &
+	"   255 (BC_1, *, controlr, 0)," &
+	"   254 (BC_1, PB03_05, input, X), "  &
+	"   253 (BC_1, PB03_05, output3, X, 252, 0, Z)," &
+	"   252 (BC_1, *, controlr, 0)," &
+	"   251 (BC_1, *, internal, X)," &
+	"   250 (BC_1, *, internal, X)," &
+	"   249 (BC_1, *, internal, X)," &
+	"   248 (BC_1, PB03_07, input, X), "  &
+	"   247 (BC_1, PB03_07, output3, X, 246, 0, Z)," &
+	"   246 (BC_1, *, controlr, 0)," &
+	"   245 (BC_1, PB03_08, input, X), "  &
+	"   244 (BC_1, PB03_08, output3, X, 243, 0, Z)," &
+	"   243 (BC_1, *, controlr, 0)," &
+	"   242 (BC_1, *, internal, X)," &
+	"   241 (BC_1, *, internal, X)," &
+	"   240 (BC_1, *, internal, X)," &
+	"   239 (BC_1, PB03_10, input, X), "  &
+	"   238 (BC_1, PB03_10, output3, X, 237, 0, Z)," &
+	"   237 (BC_1, *, controlr, 0)," &
+	"   236 (BC_1, PB03_11, input, X), "  &
+	"   235 (BC_1, PB03_11, output3, X, 234, 0, Z)," &
+	"   234 (BC_1, *, controlr, 0)," &
+	"   233 (BC_1, *, internal, X)," &
+	"   232 (BC_1, *, internal, X)," &
+	"   231 (BC_1, *, internal, X)," &
+	"   230 (BC_1, PB03_13, input, X), "  &
+	"   229 (BC_1, PB03_13, output3, X, 228, 0, Z)," &
+	"   228 (BC_1, *, controlr, 0)," &
+	"   227 (BC_1, PB03_14, input, X), "  &
+	"   226 (BC_1, PB03_14, output3, X, 225, 0, Z)," &
+	"   225 (BC_1, *, controlr, 0)," &
+	"   224 (BC_1, *, internal, X)," &
+	"   223 (BC_1, *, internal, X)," &
+	"   222 (BC_1, *, internal, X)," &
+	"   221 (BC_1, PB03_16, input, X), "  &
+	"   220 (BC_1, PB03_16, output3, X, 219, 0, Z)," &
+	"   219 (BC_1, *, controlr, 0)," &
+	"   218 (BC_1, *, internal, X)," &
+	"   217 (BC_1, *, internal, X)," &
+	"   216 (BC_1, *, internal, X)," &
+	"   215 (BC_1, *, internal, X)," &
+	"   214 (BC_1, *, internal, X)," &
+	"   213 (BC_1, *, internal, X)," &
+	"   212 (BC_1, PB04_01, input, X), "  &
+	"   211 (BC_1, PB04_01, output3, X, 210, 0, Z)," &
+	"   210 (BC_1, *, controlr, 0)," &
+	"   209 (BC_1, *, internal, X)," &
+	"   208 (BC_1, *, internal, X)," &
+	"   207 (BC_1, *, internal, X)," &
+	"   206 (BC_1, *, internal, X)," &
+	"   205 (BC_1, *, internal, X)," &
+	"   204 (BC_1, *, internal, X)," &
+	"   203 (BC_1, PB04_04, input, X), "  &
+	"   202 (BC_1, PB04_04, output3, X, 201, 0, Z)," &
+	"   201 (BC_1, *, controlr, 0)," &
+	"   200 (BC_1, PB04_05, input, X), "  &
+	"   199 (BC_1, PB04_05, output3, X, 198, 0, Z)," &
+	"   198 (BC_1, *, controlr, 0)," &
+	"   197 (BC_1, *, internal, X)," &
+	"   196 (BC_1, *, internal, X)," &
+	"   195 (BC_1, *, internal, X)," &
+	"   194 (BC_1, PB04_07, input, X), "  &
+	"   193 (BC_1, PB04_07, output3, X, 192, 0, Z)," &
+	"   192 (BC_1, *, controlr, 0)," &
+	"   191 (BC_1, PB04_08, input, X), "  &
+	"   190 (BC_1, PB04_08, output3, X, 189, 0, Z)," &
+	"   189 (BC_1, *, controlr, 0)," &
+	"   188 (BC_1, *, internal, X)," &
+	"   187 (BC_1, *, internal, X)," &
+	"   186 (BC_1, *, internal, X)," &
+	"   185 (BC_1, PB04_10, input, X), "  &
+	"   184 (BC_1, PB04_10, output3, X, 183, 0, Z)," &
+	"   183 (BC_1, *, controlr, 0)," &
+	"   182 (BC_1, PB04_11, input, X), "  &
+	"   181 (BC_1, PB04_11, output3, X, 180, 0, Z)," &
+	"   180 (BC_1, *, controlr, 0)," &
+	"   179 (BC_1, *, internal, X)," &
+	"   178 (BC_1, *, internal, X)," &
+	"   177 (BC_1, *, internal, X)," &
+	"   176 (BC_1, PB04_13, input, X), "  &
+	"   175 (BC_1, PB04_13, output3, X, 174, 0, Z)," &
+	"   174 (BC_1, *, controlr, 0)," &
+	"   173 (BC_1, PB04_14, input, X), "  &
+	"   172 (BC_1, PB04_14, output3, X, 171, 0, Z)," &
+	"   171 (BC_1, *, controlr, 0)," &
+	"   170 (BC_1, *, internal, X)," &
+	"   169 (BC_1, *, internal, X)," &
+	"   168 (BC_1, *, internal, X)," &
+	"   167 (BC_1, PB04_16, input, X), "  &
+	"   166 (BC_1, PB04_16, output3, X, 165, 0, Z)," &
+	"   165 (BC_1, *, controlr, 0)," &
+	"   164 (BC_1, *, internal, X)," &
+	"   163 (BC_1, *, internal, X)," &
+	"   162 (BC_1, *, internal, X)," &
+	"   161 (BC_1, *, internal, X)," &
+	"   160 (BC_1, *, internal, X)," &
+	"   159 (BC_1, *, internal, X)," &
+	"   158 (BC_1, PB05_01, input, X), "  &
+	"   157 (BC_1, PB05_01, output3, X, 156, 0, Z)," &
+	"   156 (BC_1, *, controlr, 0)," &
+	"   155 (BC_1, *, internal, X)," &
+	"   154 (BC_1, *, internal, X)," &
+	"   153 (BC_1, *, internal, X)," &
+	"   152 (BC_1, *, internal, X)," &
+	"   151 (BC_1, *, internal, X)," &
+	"   150 (BC_1, *, internal, X)," &
+	"   149 (BC_1, PB05_04, input, X), "  &
+	"   148 (BC_1, PB05_04, output3, X, 147, 0, Z)," &
+	"   147 (BC_1, *, controlr, 0)," &
+	"   146 (BC_1, PB05_05, input, X), "  &
+	"   145 (BC_1, PB05_05, output3, X, 144, 0, Z)," &
+	"   144 (BC_1, *, controlr, 0)," &
+	"   143 (BC_1, *, internal, X)," &
+	"   142 (BC_1, *, internal, X)," &
+	"   141 (BC_1, *, internal, X)," &
+	"   140 (BC_1, PB05_07, input, X), "  &
+	"   139 (BC_1, PB05_07, output3, X, 138, 0, Z)," &
+	"   138 (BC_1, *, controlr, 0)," &
+	"   137 (BC_1, PB05_08, input, X), "  &
+	"   136 (BC_1, PB05_08, output3, X, 135, 0, Z)," &
+	"   135 (BC_1, *, controlr, 0)," &
+	"   134 (BC_1, *, internal, X)," &
+	"   133 (BC_1, *, internal, X)," &
+	"   132 (BC_1, *, internal, X)," &
+	"   131 (BC_1, PB05_10, input, X), "  &
+	"   130 (BC_1, PB05_10, output3, X, 129, 0, Z)," &
+	"   129 (BC_1, *, controlr, 0)," &
+	"   128 (BC_1, PB05_11, input, X), "  &
+	"   127 (BC_1, PB05_11, output3, X, 126, 0, Z)," &
+	"   126 (BC_1, *, controlr, 0)," &
+	"   125 (BC_1, *, internal, X)," &
+	"   124 (BC_1, *, internal, X)," &
+	"   123 (BC_1, *, internal, X)," &
+	"   122 (BC_1, PB05_13, input, X), "  &
+	"   121 (BC_1, PB05_13, output3, X, 120, 0, Z)," &
+	"   120 (BC_1, *, controlr, 0)," &
+	"   119 (BC_1, PB05_14, input, X), "  &
+	"   118 (BC_1, PB05_14, output3, X, 117, 0, Z)," &
+	"   117 (BC_1, *, controlr, 0)," &
+	"   116 (BC_1, *, internal, X)," &
+	"   115 (BC_1, *, internal, X)," &
+	"   114 (BC_1, *, internal, X)," &
+	"   113 (BC_1, PB05_16, input, X), "  &
+	"   112 (BC_1, PB05_16, output3, X, 111, 0, Z)," &
+	"   111 (BC_1, *, controlr, 0)," &
+	"   110 (BC_1, *, internal, X)," &
+	"   109 (BC_1, *, internal, X)," &
+	"   108 (BC_1, *, internal, X)," &
+	"   107 (BC_1, *, internal, X)," &
+	"   106 (BC_1, *, internal, X)," &
+	"   105 (BC_1, *, internal, X)," &
+	"   104 (BC_1, PB06_01, input, X), "  &
+	"   103 (BC_1, PB06_01, output3, X, 102, 0, Z)," &
+	"   102 (BC_1, *, controlr, 0)," &
+	"   101 (BC_1, *, internal, X)," &
+	"   100 (BC_1, *, internal, X)," &
+	"   99 (BC_1, *, internal, X)," &
+	"   98 (BC_1, *, internal, X)," &
+	"   97 (BC_1, *, internal, X)," &
+	"   96 (BC_1, *, internal, X)," &
+	"   95 (BC_1, PB06_04, input, X), "  &
+	"   94 (BC_1, PB06_04, output3, X, 93, 0, Z)," &
+	"   93 (BC_1, *, controlr, 0)," &
+	"   92 (BC_1, PB06_05, input, X), "  &
+	"   91 (BC_1, PB06_05, output3, X, 90, 0, Z)," &
+	"   90 (BC_1, *, controlr, 0)," &
+	"   89 (BC_1, *, internal, X)," &
+	"   88 (BC_1, *, internal, X)," &
+	"   87 (BC_1, *, internal, X)," &
+	"   86 (BC_1, PB06_07, input, X), "  &
+	"   85 (BC_1, PB06_07, output3, X, 84, 0, Z)," &
+	"   84 (BC_1, *, controlr, 0)," &
+	"   83 (BC_1, PB06_08, input, X), "  &
+	"   82 (BC_1, PB06_08, output3, X, 81, 0, Z)," &
+	"   81 (BC_1, *, controlr, 0)," &
+	"   80 (BC_1, *, internal, X)," &
+	"   79 (BC_1, *, internal, X)," &
+	"   78 (BC_1, *, internal, X)," &
+	"   77 (BC_1, PB06_10, input, X), "  &
+	"   76 (BC_1, PB06_10, output3, X, 75, 0, Z)," &
+	"   75 (BC_1, *, controlr, 0)," &
+	"   74 (BC_1, PB06_11, input, X), "  &
+	"   73 (BC_1, PB06_11, output3, X, 72, 0, Z)," &
+	"   72 (BC_1, *, controlr, 0)," &
+	"   71 (BC_1, *, internal, X)," &
+	"   70 (BC_1, *, internal, X)," &
+	"   69 (BC_1, *, internal, X)," &
+	"   68 (BC_1, PB06_13, input, X), "  &
+	"   67 (BC_1, PB06_13, output3, X, 66, 0, Z)," &
+	"   66 (BC_1, *, controlr, 0)," &
+	"   65 (BC_1, PB06_14, input, X), "  &
+	"   64 (BC_1, PB06_14, output3, X, 63, 0, Z)," &
+	"   63 (BC_1, *, controlr, 0)," &
+	"   62 (BC_1, *, internal, X)," &
+	"   61 (BC_1, *, internal, X)," &
+	"   60 (BC_1, *, internal, X)," &
+	"   59 (BC_1, PB06_16, input, X), "  &
+	"   58 (BC_1, PB06_16, output3, X, 57, 0, Z)," &
+	"   57 (BC_1, *, controlr, 0)," &
+	"   56 (BC_1, *, internal, X)," &
+	"   55 (BC_1, *, internal, X)," &
+	"   54 (BC_1, *, internal, X)," &
+	"   53 (BC_1, *, internal, X)," &
+	"   52 (BC_1, *, internal, X)," &
+	"   51 (BC_1, *, internal, X)," &
+	"   50 (BC_1, PB07_01, input, X), "  &
+	"   49 (BC_1, PB07_01, output3, X, 48, 0, Z)," &
+	"   48 (BC_1, *, controlr, 0)," &
+	"   47 (BC_1, *, internal, X)," &
+	"   46 (BC_1, *, internal, X)," &
+	"   45 (BC_1, *, internal, X)," &
+	"   44 (BC_1, *, internal, X)," &
+	"   43 (BC_1, *, internal, X)," &
+	"   42 (BC_1, *, internal, X)," &
+	"   41 (BC_1, PB07_04, input, X), "  &
+	"   40 (BC_1, PB07_04, output3, X, 39, 0, Z)," &
+	"   39 (BC_1, *, controlr, 0)," &
+	"   38 (BC_1, PB07_05, input, X), "  &
+	"   37 (BC_1, PB07_05, output3, X, 36, 0, Z)," &
+	"   36 (BC_1, *, controlr, 0)," &
+	"   35 (BC_1, *, internal, X)," &
+	"   34 (BC_1, *, internal, X)," &
+	"   33 (BC_1, *, internal, X)," &
+	"   32 (BC_1, PB07_07, input, X), "  &
+	"   31 (BC_1, PB07_07, output3, X, 30, 0, Z)," &
+	"   30 (BC_1, *, controlr, 0)," &
+	"   29 (BC_1, PB07_08, input, X), "  &
+	"   28 (BC_1, PB07_08, output3, X, 27, 0, Z)," &
+	"   27 (BC_1, *, controlr, 0)," &
+	"   26 (BC_1, *, internal, X)," &
+	"   25 (BC_1, *, internal, X)," &
+	"   24 (BC_1, *, internal, X)," &
+	"   23 (BC_1, PB07_10, input, X), "  &
+	"   22 (BC_1, PB07_10, output3, X, 21, 0, Z)," &
+	"   21 (BC_1, *, controlr, 0)," &
+	"   20 (BC_1, PB07_11, input, X), "  &
+	"   19 (BC_1, PB07_11, output3, X, 18, 0, Z)," &
+	"   18 (BC_1, *, controlr, 0)," &
+	"   17 (BC_1, *, internal, X)," &
+	"   16 (BC_1, *, internal, X)," &
+	"   15 (BC_1, *, internal, X)," &
+	"   14 (BC_1, PB07_13, input, X), "  &
+	"   13 (BC_1, PB07_13, output3, X, 12, 0, Z)," &
+	"   12 (BC_1, *, controlr, 0)," &
+	"   11 (BC_1, PB07_14, input, X), "  &
+	"   10 (BC_1, PB07_14, output3, X, 9, 0, Z)," &
+	"   9 (BC_1, *, controlr, 0)," &
+	"   8 (BC_1, *, internal, X)," &
+	"   7 (BC_1, *, internal, X)," &
+	"   6 (BC_1, *, internal, X)," &
+	"   5 (BC_1, PB07_16, input, X), "  &
+	"   4 (BC_1, PB07_16, output3, X, 3, 0, Z)," &
+	"   3 (BC_1, *, controlr, 0)," &
+	"   2 (BC_1, *, internal, X)," &
+	"   1 (BC_1, *, internal, X)," &
+	"   0 (BC_1, *, internal, X)";
+
+end xc95144xl_tq100;

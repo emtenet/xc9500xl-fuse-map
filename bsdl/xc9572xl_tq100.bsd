@@ -1,0 +1,477 @@
+-- 
+--  BSDL File created/edited by XILINX bsdl.pl script
+-- 
+--Package: tq100 
+--RCS:$Header: /tools/xicad/bsdl/master/xc9kxl/RCS/xc9572xl_tq100.bsd,v 1.2 2002/01/29 18:40:23 terry Exp $ 
+--BSDE:$Revision: 1.2 $ 
+--BSDE: Xilinx xc9572xl_tq100 macrocell FastFlash ISP CPLD
+-- 
+--For technical support, contact Xilinx as follows: 
+-- North America 1-800-255-7778 hotline@xilinx.com 
+-- United Kingdom +44 870 7350 610 eurosupport@xilinx.com
+-- France  (33) 1 3463 0100 eurosupport@xilinx.com
+-- Germany  (49) 89 991 54930 eurosupport@xilinx.com
+-- Japan  (81) 3-3297-9163 jhotline@xilinx.com
+-- 
+entity xc9572xl_tq100 is
+
+
+generic (PHYSICAL_PIN_MAP : string := "tq100" );
+
+port ( 
+	PB00_00: inout bit; 
+	PB00_01: inout bit; 
+	PB00_02: inout bit; 
+	PB00_03: inout bit; 
+	PB00_04: inout bit; 
+	PB00_05: inout bit; 
+	PB00_06: inout bit; 
+	PB00_07: inout bit; 
+	PB00_08: inout bit; 
+	PB00_09: inout bit; 
+	PB00_10: inout bit; 
+	PB00_11: inout bit; 
+	PB00_12: inout bit; 
+	PB00_13: inout bit; 
+	PB00_14: inout bit; 
+	PB00_15: inout bit; 
+	PB00_16: inout bit; 
+	PB00_17: inout bit; 
+	PB01_00: inout bit; 
+	PB01_01: inout bit; 
+	PB01_02: inout bit; 
+	PB01_03: inout bit; 
+	PB01_04: inout bit; 
+	PB01_05: inout bit; 
+	PB01_06: inout bit; 
+	PB01_07: inout bit; 
+	PB01_08: inout bit; 
+	PB01_09: inout bit; 
+	PB01_10: inout bit; 
+	PB01_11: inout bit; 
+	PB01_12: inout bit; 
+	PB01_13: inout bit; 
+	PB01_14: inout bit; 
+	PB01_15: inout bit; 
+	PB01_16: inout bit; 
+	PB01_17: inout bit; 
+	PB02_00: inout bit; 
+	PB02_01: inout bit; 
+	PB02_02: inout bit; 
+	PB02_03: inout bit; 
+	PB02_04: inout bit; 
+	PB02_05: inout bit; 
+	PB02_06: inout bit; 
+	PB02_07: inout bit; 
+	PB02_08: inout bit; 
+	PB02_09: inout bit; 
+	PB02_10: inout bit; 
+	PB02_11: inout bit; 
+	PB02_12: inout bit; 
+	PB02_13: inout bit; 
+	PB02_14: inout bit; 
+	PB02_15: inout bit; 
+	PB02_16: inout bit; 
+	PB02_17: inout bit; 
+	PB03_00: inout bit; 
+	PB03_01: inout bit; 
+	PB03_02: inout bit; 
+	PB03_03: inout bit; 
+	PB03_04: inout bit; 
+	PB03_05: inout bit; 
+	PB03_06: inout bit; 
+	PB03_07: inout bit; 
+	PB03_08: inout bit; 
+	PB03_09: inout bit; 
+	PB03_10: inout bit; 
+	PB03_11: inout bit; 
+	PB03_12: inout bit; 
+	PB03_13: inout bit; 
+	PB03_14: inout bit; 
+	PB03_15: inout bit; 
+	PB03_16: inout bit; 
+	PB03_17: inout bit; 
+	TCK: in bit; 
+	TDI: in bit; 
+	TDO: out bit; 
+	TMS: in bit; 
+	Vccint_1: linkage bit; 
+	Vccint_2: linkage bit; 
+	VccInt_Vpp: linkage bit; 
+	Vccio_1: linkage bit; 
+	Vccio_2: linkage bit; 
+	Vccio_3: linkage bit; 
+	Vccio_4: linkage bit; 
+	Vssint_1: linkage bit; 
+	Vssint_2: linkage bit; 
+	Vssint_3: linkage bit; 
+	Vssio_1: linkage bit; 
+	Vssio_2: linkage bit; 
+	Vssio_3: linkage bit; 
+	Vssio_4: linkage bit; 
+	Vssio_5: linkage bit);
+
+use STD_1149_1_1994.all;
+
+attribute COMPONENT_CONFORMANCE of xc9572xl_tq100 : entity is "STD_1149_1_1993";
+
+attribute PIN_MAP of xc9572xl_tq100 : entity is PHYSICAL_PIN_MAP;
+
+constant tq100: PIN_MAP_STRING:=
+	"PB00_00:16," & 
+	"PB00_01:13," & 
+	"PB00_02:18," & 
+	"PB00_03:20," & 
+	"PB00_04:14," & 
+	"PB00_05:15," & 
+	"PB00_06:25," & 
+	"PB00_07:17," & 
+	"PB00_08:22," & 
+	"PB00_09:28," & 
+	"PB00_10:23," & 
+	"PB00_11:33," & 
+	"PB00_12:36," & 
+	"PB00_13:27," & 
+	"PB00_14:29," & 
+	"PB00_15:39," & 
+	"PB00_16:30," & 
+	"PB00_17:40," & 
+	"PB01_00:87," & 
+	"PB01_01:94," & 
+	"PB01_02:91," & 
+	"PB01_03:93," & 
+	"PB01_04:95," & 
+	"PB01_05:96," & 
+	"PB01_06:3," & 
+	"PB01_07:97," & 
+	"PB01_08:99," & 
+	"PB01_09:1," & 
+	"PB01_10:4," & 
+	"PB01_11:6," & 
+	"PB01_12:8," & 
+	"PB01_13:9," & 
+	"PB01_14:11," & 
+	"PB01_15:10," & 
+	"PB01_16:12," & 
+	"PB01_17:92," & 
+	"PB02_00:41," & 
+	"PB02_01:32," & 
+	"PB02_02:49," & 
+	"PB02_03:50," & 
+	"PB02_04:35," & 
+	"PB02_05:53," & 
+	"PB02_06:54," & 
+	"PB02_07:37," & 
+	"PB02_08:42," & 
+	"PB02_09:60," & 
+	"PB02_10:52," & 
+	"PB02_11:61," & 
+	"PB02_12:63," & 
+	"PB02_13:55," & 
+	"PB02_14:56," & 
+	"PB02_15:64," & 
+	"PB02_16:58," & 
+	"PB02_17:59," & 
+	"PB03_00:65," & 
+	"PB03_01:67," & 
+	"PB03_02:71," & 
+	"PB03_03:72," & 
+	"PB03_04:68," & 
+	"PB03_05:76," & 
+	"PB03_06:77," & 
+	"PB03_07:70," & 
+	"PB03_08:66," & 
+	"PB03_09:81," & 
+	"PB03_10:74," & 
+	"PB03_11:82," & 
+	"PB03_12:85," & 
+	"PB03_13:78," & 
+	"PB03_14:89," & 
+	"PB03_15:86," & 
+	"PB03_16:90," & 
+	"PB03_17:79," & 
+	"TCK:48," & 
+	"TDI:45," & 
+	"TDO:83," & 
+	"TMS:47," & 
+	"Vccint_1:57," & 
+	"Vccint_2:98," & 
+	"VccInt_Vpp:5," & 
+	"Vccio_1:26," & 
+	"Vccio_2:38," & 
+	"Vccio_3:51," & 
+	"Vccio_4:88," & 
+	"Vssint_1:21," & 
+	"Vssint_2:44," & 
+	"Vssint_3:62," & 
+	"Vssio_1:31," & 
+	"Vssio_2:69," & 
+	"Vssio_3:75," & 
+	"Vssio_4:84," & 
+	"Vssio_5:100";
+
+attribute TAP_SCAN_IN    of TDI : signal is true;
+attribute TAP_SCAN_OUT   of TDO : signal is true;
+attribute TAP_SCAN_MODE  of TMS : signal is true;
+attribute TAP_SCAN_CLOCK of TCK : signal is (1.00e+07, BOTH);
+attribute INSTRUCTION_LENGTH of xc9572xl_tq100 : entity is 8;
+
+attribute INSTRUCTION_OPCODE of xc9572xl_tq100 : entity is
+	"BYPASS ( 11111111)," &
+	"CLAMP ( 11111010)," &
+	"ISPEX ( 11110000)," &
+	"EXTEST ( 00000000),"&
+	"FBLANK ( 11100101),"& 
+	"FBULK ( 11101101),"&
+	"FERASE ( 11101100),"&
+	"FPGM ( 11101010)," &
+	"FPGMI ( 11101011)," &
+	"FVFY ( 11101110)," &
+	"FVFYI ( 11101111)," &
+	"HIGHZ ( 11111100),"&
+	"IDCODE ( 11111110),"&
+	"INTEST ( 00000010),"&
+	"ISPEN ( 11101000)," &
+	"ISPENC ( 11101001)," &
+	"SAMPLE ( 00000001)," &
+	"USERCODE ( 11111101)"; 
+
+attribute INSTRUCTION_CAPTURE of xc9572xl_tq100: entity is "000XXX01";
+
+attribute IDCODE_REGISTER of xc9572xl_tq100: entity is
+        "XXXX" &               -- version
+        "1001011000000100" &    -- part number
+        "00001001001" &         -- manufacturer's id
+        "1";                    -- required by standard
+ 
+attribute USERCODE_REGISTER of xc9572xl_tq100: entity is
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+
+
+attribute REGISTER_ACCESS of xc9572xl_tq100 : entity is
+        "BYPASS ( ISPEX, HIGHZ, CLAMP )," &
+        "ISPENABLE[6] ( ISPEN, ISPENC )," &
+        "ISDATA[34] (  FPGMI, FVFYI ),"&
+        "ISADDRESS[18] ( FERASE, FBULK, FBLANK ),"& 
+        "ISCONFIGURATION[50] (  FPGM, FVFY )";
+attribute BOUNDARY_LENGTH of xc9572xl_tq100 : entity is 216; 
+
+attribute BOUNDARY_REGISTER of xc9572xl_tq100 : entity is
+	"   215 (BC_1, PB00_00, input, X), "  &
+	"   214 (BC_1, PB00_00, output3, X, 213, 0, Z)," &
+	"   213 (BC_1, *, controlr, 0)," &
+	"   212 (BC_1, PB00_01, input, X), "  &
+	"   211 (BC_1, PB00_01, output3, X, 210, 0, Z)," &
+	"   210 (BC_1, *, controlr, 0)," &
+	"   209 (BC_1, PB00_02, input, X), "  &
+	"   208 (BC_1, PB00_02, output3, X, 207, 0, Z)," &
+	"   207 (BC_1, *, controlr, 0)," &
+	"   206 (BC_1, PB00_03, input, X), "  &
+	"   205 (BC_1, PB00_03, output3, X, 204, 0, Z)," &
+	"   204 (BC_1, *, controlr, 0)," &
+	"   203 (BC_1, PB00_04, input, X), "  &
+	"   202 (BC_1, PB00_04, output3, X, 201, 0, Z)," &
+	"   201 (BC_1, *, controlr, 0)," &
+	"   200 (BC_1, PB00_05, input, X), "  &
+	"   199 (BC_1, PB00_05, output3, X, 198, 0, Z)," &
+	"   198 (BC_1, *, controlr, 0)," &
+	"   197 (BC_1, PB00_06, input, X), "  &
+	"   196 (BC_1, PB00_06, output3, X, 195, 0, Z)," &
+	"   195 (BC_1, *, controlr, 0)," &
+	"   194 (BC_1, PB00_07, input, X), "  &
+	"   193 (BC_1, PB00_07, output3, X, 192, 0, Z)," &
+	"   192 (BC_1, *, controlr, 0)," &
+	"   191 (BC_1, PB00_08, input, X), "  &
+	"   190 (BC_1, PB00_08, output3, X, 189, 0, Z)," &
+	"   189 (BC_1, *, controlr, 0)," &
+	"   188 (BC_1, PB00_09, input, X), "  &
+	"   187 (BC_1, PB00_09, output3, X, 186, 0, Z)," &
+	"   186 (BC_1, *, controlr, 0)," &
+	"   185 (BC_1, PB00_10, input, X), "  &
+	"   184 (BC_1, PB00_10, output3, X, 183, 0, Z)," &
+	"   183 (BC_1, *, controlr, 0)," &
+	"   182 (BC_1, PB00_11, input, X), "  &
+	"   181 (BC_1, PB00_11, output3, X, 180, 0, Z)," &
+	"   180 (BC_1, *, controlr, 0)," &
+	"   179 (BC_1, PB00_12, input, X), "  &
+	"   178 (BC_1, PB00_12, output3, X, 177, 0, Z)," &
+	"   177 (BC_1, *, controlr, 0)," &
+	"   176 (BC_1, PB00_13, input, X), "  &
+	"   175 (BC_1, PB00_13, output3, X, 174, 0, Z)," &
+	"   174 (BC_1, *, controlr, 0)," &
+	"   173 (BC_1, PB00_14, input, X), "  &
+	"   172 (BC_1, PB00_14, output3, X, 171, 0, Z)," &
+	"   171 (BC_1, *, controlr, 0)," &
+	"   170 (BC_1, PB00_15, input, X), "  &
+	"   169 (BC_1, PB00_15, output3, X, 168, 0, Z)," &
+	"   168 (BC_1, *, controlr, 0)," &
+	"   167 (BC_1, PB00_16, input, X), "  &
+	"   166 (BC_1, PB00_16, output3, X, 165, 0, Z)," &
+	"   165 (BC_1, *, controlr, 0)," &
+	"   164 (BC_1, PB00_17, input, X), "  &
+	"   163 (BC_1, PB00_17, output3, X, 162, 0, Z)," &
+	"   162 (BC_1, *, controlr, 0)," &
+	"   161 (BC_1, PB01_00, input, X), "  &
+	"   160 (BC_1, PB01_00, output3, X, 159, 0, Z)," &
+	"   159 (BC_1, *, controlr, 0)," &
+	"   158 (BC_1, PB01_01, input, X), "  &
+	"   157 (BC_1, PB01_01, output3, X, 156, 0, Z)," &
+	"   156 (BC_1, *, controlr, 0)," &
+	"   155 (BC_1, PB01_02, input, X), "  &
+	"   154 (BC_1, PB01_02, output3, X, 153, 0, Z)," &
+	"   153 (BC_1, *, controlr, 0)," &
+	"   152 (BC_1, PB01_03, input, X), "  &
+	"   151 (BC_1, PB01_03, output3, X, 150, 0, Z)," &
+	"   150 (BC_1, *, controlr, 0)," &
+	"   149 (BC_1, PB01_04, input, X), "  &
+	"   148 (BC_1, PB01_04, output3, X, 147, 0, Z)," &
+	"   147 (BC_1, *, controlr, 0)," &
+	"   146 (BC_1, PB01_05, input, X), "  &
+	"   145 (BC_1, PB01_05, output3, X, 144, 0, Z)," &
+	"   144 (BC_1, *, controlr, 0)," &
+	"   143 (BC_1, PB01_06, input, X), "  &
+	"   142 (BC_1, PB01_06, output3, X, 141, 0, Z)," &
+	"   141 (BC_1, *, controlr, 0)," &
+	"   140 (BC_1, PB01_07, input, X), "  &
+	"   139 (BC_1, PB01_07, output3, X, 138, 0, Z)," &
+	"   138 (BC_1, *, controlr, 0)," &
+	"   137 (BC_1, PB01_08, input, X), "  &
+	"   136 (BC_1, PB01_08, output3, X, 135, 0, Z)," &
+	"   135 (BC_1, *, controlr, 0)," &
+	"   134 (BC_1, PB01_09, input, X), "  &
+	"   133 (BC_1, PB01_09, output3, X, 132, 0, Z)," &
+	"   132 (BC_1, *, controlr, 0)," &
+	"   131 (BC_1, PB01_10, input, X), "  &
+	"   130 (BC_1, PB01_10, output3, X, 129, 0, Z)," &
+	"   129 (BC_1, *, controlr, 0)," &
+	"   128 (BC_1, PB01_11, input, X), "  &
+	"   127 (BC_1, PB01_11, output3, X, 126, 0, Z)," &
+	"   126 (BC_1, *, controlr, 0)," &
+	"   125 (BC_1, PB01_12, input, X), "  &
+	"   124 (BC_1, PB01_12, output3, X, 123, 0, Z)," &
+	"   123 (BC_1, *, controlr, 0)," &
+	"   122 (BC_1, PB01_13, input, X), "  &
+	"   121 (BC_1, PB01_13, output3, X, 120, 0, Z)," &
+	"   120 (BC_1, *, controlr, 0)," &
+	"   119 (BC_1, PB01_14, input, X), "  &
+	"   118 (BC_1, PB01_14, output3, X, 117, 0, Z)," &
+	"   117 (BC_1, *, controlr, 0)," &
+	"   116 (BC_1, PB01_15, input, X), "  &
+	"   115 (BC_1, PB01_15, output3, X, 114, 0, Z)," &
+	"   114 (BC_1, *, controlr, 0)," &
+	"   113 (BC_1, PB01_16, input, X), "  &
+	"   112 (BC_1, PB01_16, output3, X, 111, 0, Z)," &
+	"   111 (BC_1, *, controlr, 0)," &
+	"   110 (BC_1, PB01_17, input, X), "  &
+	"   109 (BC_1, PB01_17, output3, X, 108, 0, Z)," &
+	"   108 (BC_1, *, controlr, 0)," &
+	"   107 (BC_1, PB02_00, input, X), "  &
+	"   106 (BC_1, PB02_00, output3, X, 105, 0, Z)," &
+	"   105 (BC_1, *, controlr, 0)," &
+	"   104 (BC_1, PB02_01, input, X), "  &
+	"   103 (BC_1, PB02_01, output3, X, 102, 0, Z)," &
+	"   102 (BC_1, *, controlr, 0)," &
+	"   101 (BC_1, PB02_02, input, X), "  &
+	"   100 (BC_1, PB02_02, output3, X, 99, 0, Z)," &
+	"   99 (BC_1, *, controlr, 0)," &
+	"   98 (BC_1, PB02_03, input, X), "  &
+	"   97 (BC_1, PB02_03, output3, X, 96, 0, Z)," &
+	"   96 (BC_1, *, controlr, 0)," &
+	"   95 (BC_1, PB02_04, input, X), "  &
+	"   94 (BC_1, PB02_04, output3, X, 93, 0, Z)," &
+	"   93 (BC_1, *, controlr, 0)," &
+	"   92 (BC_1, PB02_05, input, X), "  &
+	"   91 (BC_1, PB02_05, output3, X, 90, 0, Z)," &
+	"   90 (BC_1, *, controlr, 0)," &
+	"   89 (BC_1, PB02_06, input, X), "  &
+	"   88 (BC_1, PB02_06, output3, X, 87, 0, Z)," &
+	"   87 (BC_1, *, controlr, 0)," &
+	"   86 (BC_1, PB02_07, input, X), "  &
+	"   85 (BC_1, PB02_07, output3, X, 84, 0, Z)," &
+	"   84 (BC_1, *, controlr, 0)," &
+	"   83 (BC_1, PB02_08, input, X), "  &
+	"   82 (BC_1, PB02_08, output3, X, 81, 0, Z)," &
+	"   81 (BC_1, *, controlr, 0)," &
+	"   80 (BC_1, PB02_09, input, X), "  &
+	"   79 (BC_1, PB02_09, output3, X, 78, 0, Z)," &
+	"   78 (BC_1, *, controlr, 0)," &
+	"   77 (BC_1, PB02_10, input, X), "  &
+	"   76 (BC_1, PB02_10, output3, X, 75, 0, Z)," &
+	"   75 (BC_1, *, controlr, 0)," &
+	"   74 (BC_1, PB02_11, input, X), "  &
+	"   73 (BC_1, PB02_11, output3, X, 72, 0, Z)," &
+	"   72 (BC_1, *, controlr, 0)," &
+	"   71 (BC_1, PB02_12, input, X), "  &
+	"   70 (BC_1, PB02_12, output3, X, 69, 0, Z)," &
+	"   69 (BC_1, *, controlr, 0)," &
+	"   68 (BC_1, PB02_13, input, X), "  &
+	"   67 (BC_1, PB02_13, output3, X, 66, 0, Z)," &
+	"   66 (BC_1, *, controlr, 0)," &
+	"   65 (BC_1, PB02_14, input, X), "  &
+	"   64 (BC_1, PB02_14, output3, X, 63, 0, Z)," &
+	"   63 (BC_1, *, controlr, 0)," &
+	"   62 (BC_1, PB02_15, input, X), "  &
+	"   61 (BC_1, PB02_15, output3, X, 60, 0, Z)," &
+	"   60 (BC_1, *, controlr, 0)," &
+	"   59 (BC_1, PB02_16, input, X), "  &
+	"   58 (BC_1, PB02_16, output3, X, 57, 0, Z)," &
+	"   57 (BC_1, *, controlr, 0)," &
+	"   56 (BC_1, PB02_17, input, X), "  &
+	"   55 (BC_1, PB02_17, output3, X, 54, 0, Z)," &
+	"   54 (BC_1, *, controlr, 0)," &
+	"   53 (BC_1, PB03_00, input, X), "  &
+	"   52 (BC_1, PB03_00, output3, X, 51, 0, Z)," &
+	"   51 (BC_1, *, controlr, 0)," &
+	"   50 (BC_1, PB03_01, input, X), "  &
+	"   49 (BC_1, PB03_01, output3, X, 48, 0, Z)," &
+	"   48 (BC_1, *, controlr, 0)," &
+	"   47 (BC_1, PB03_02, input, X), "  &
+	"   46 (BC_1, PB03_02, output3, X, 45, 0, Z)," &
+	"   45 (BC_1, *, controlr, 0)," &
+	"   44 (BC_1, PB03_03, input, X), "  &
+	"   43 (BC_1, PB03_03, output3, X, 42, 0, Z)," &
+	"   42 (BC_1, *, controlr, 0)," &
+	"   41 (BC_1, PB03_04, input, X), "  &
+	"   40 (BC_1, PB03_04, output3, X, 39, 0, Z)," &
+	"   39 (BC_1, *, controlr, 0)," &
+	"   38 (BC_1, PB03_05, input, X), "  &
+	"   37 (BC_1, PB03_05, output3, X, 36, 0, Z)," &
+	"   36 (BC_1, *, controlr, 0)," &
+	"   35 (BC_1, PB03_06, input, X), "  &
+	"   34 (BC_1, PB03_06, output3, X, 33, 0, Z)," &
+	"   33 (BC_1, *, controlr, 0)," &
+	"   32 (BC_1, PB03_07, input, X), "  &
+	"   31 (BC_1, PB03_07, output3, X, 30, 0, Z)," &
+	"   30 (BC_1, *, controlr, 0)," &
+	"   29 (BC_1, PB03_08, input, X), "  &
+	"   28 (BC_1, PB03_08, output3, X, 27, 0, Z)," &
+	"   27 (BC_1, *, controlr, 0)," &
+	"   26 (BC_1, PB03_09, input, X), "  &
+	"   25 (BC_1, PB03_09, output3, X, 24, 0, Z)," &
+	"   24 (BC_1, *, controlr, 0)," &
+	"   23 (BC_1, PB03_10, input, X), "  &
+	"   22 (BC_1, PB03_10, output3, X, 21, 0, Z)," &
+	"   21 (BC_1, *, controlr, 0)," &
+	"   20 (BC_1, PB03_11, input, X), "  &
+	"   19 (BC_1, PB03_11, output3, X, 18, 0, Z)," &
+	"   18 (BC_1, *, controlr, 0)," &
+	"   17 (BC_1, PB03_12, input, X), "  &
+	"   16 (BC_1, PB03_12, output3, X, 15, 0, Z)," &
+	"   15 (BC_1, *, controlr, 0)," &
+	"   14 (BC_1, PB03_13, input, X), "  &
+	"   13 (BC_1, PB03_13, output3, X, 12, 0, Z)," &
+	"   12 (BC_1, *, controlr, 0)," &
+	"   11 (BC_1, PB03_14, input, X), "  &
+	"   10 (BC_1, PB03_14, output3, X, 9, 0, Z)," &
+	"   9 (BC_1, *, controlr, 0)," &
+	"   8 (BC_1, PB03_15, input, X), "  &
+	"   7 (BC_1, PB03_15, output3, X, 6, 0, Z)," &
+	"   6 (BC_1, *, controlr, 0)," &
+	"   5 (BC_1, PB03_16, input, X), "  &
+	"   4 (BC_1, PB03_16, output3, X, 3, 0, Z)," &
+	"   3 (BC_1, *, controlr, 0)," &
+	"   2 (BC_1, PB03_17, input, X), "  &
+	"   1 (BC_1, PB03_17, output3, X, 0, 0, Z)," &
+	"   0 (BC_1, *, controlr, 0)";
+
+end xc9572xl_tq100;
