@@ -27,10 +27,10 @@ devices() ->
         xc95144xl_cs144,
         xc95144xl_tq100,
         xc95144xl_tq144,
-        xc95288xl_tq144,
         xc95288xl_bg256,
         xc95288xl_cs280,
-        xc95288xl_fg256
+        xc95288xl_fg256,
+        xc95288xl_tq144
     ].
 
 device_name(xc9536xl_cs48) -> "xc9536xl-10-CS48";
@@ -43,10 +43,10 @@ device_name(xc9572xl_vq64) -> "xc9572xl-10-VQ64";
 device_name(xc95144xl_cs144) -> "xc95144xl-10-CS144";
 device_name(xc95144xl_tq100) -> "xc95144xl-10-TQ100";
 device_name(xc95144xl_tq144) -> "xc95144xl-10-TQ144";
-device_name(xc95288xl_tq144) -> "xc95288xl-10-TQ144";
 device_name(xc95288xl_bg256) -> "xc95288xl-10-BG256";
 device_name(xc95288xl_cs280) -> "xc95288xl-10-CS280";
-device_name(xc95288xl_fg256) -> "xc95288xl-10-FG256".
+device_name(xc95288xl_fg256) -> "xc95288xl-10-FG256";
+device_name(xc95288xl_tq144) -> "xc95288xl-10-TQ144".
 
 device_core(xc9536xl_cs48) -> xc9536xl;
 device_core(xc9536xl_vq44) -> xc9536xl;
@@ -58,10 +58,10 @@ device_core(xc9572xl_vq64) -> xc9572xl;
 device_core(xc95144xl_cs144) -> xc95144xl;
 device_core(xc95144xl_tq100) -> xc95144xl;
 device_core(xc95144xl_tq144) -> xc95144xl;
-device_core(xc95288xl_tq144) -> xc95288xl;
 device_core(xc95288xl_bg256) -> xc95288xl;
 device_core(xc95288xl_cs280) -> xc95288xl;
-device_core(xc95288xl_fg256) -> xc95288xl.
+device_core(xc95288xl_fg256) -> xc95288xl;
+device_core(xc95288xl_tq144) -> xc95288xl.
 
 device_package(xc9536xl_cs48) -> cs48;
 device_package(xc9536xl_vq44) -> vq44;
@@ -73,10 +73,10 @@ device_package(xc9572xl_vq64) -> vq64;
 device_package(xc95144xl_cs144) -> cs144;
 device_package(xc95144xl_tq100) -> tq100;
 device_package(xc95144xl_tq144) -> tq144;
-device_package(xc95288xl_tq144) -> tq144;
 device_package(xc95288xl_bg256) -> bg256;
 device_package(xc95288xl_cs280) -> cs280;
-device_package(xc95288xl_fg256) -> fg256.
+device_package(xc95288xl_fg256) -> fg256;
+device_package(xc95288xl_tq144) -> tq144.
 
 device_io_count(xc9536xl_cs48) -> 36;
 device_io_count(xc9536xl_vq44) -> 34;
@@ -88,10 +88,10 @@ device_io_count(xc9572xl_vq64) -> 52;
 device_io_count(xc95144xl_cs144) -> 117;
 device_io_count(xc95144xl_tq100) -> 81;
 device_io_count(xc95144xl_tq144) -> 117;
-device_io_count(xc95288xl_tq144) -> 117;
 device_io_count(xc95288xl_bg256) -> 192;
 device_io_count(xc95288xl_cs280) -> 192;
-device_io_count(xc95288xl_fg256) -> 192.
+device_io_count(xc95288xl_fg256) -> 192;
+device_io_count(xc95288xl_tq144) -> 117.
 
 cores() ->
     [
