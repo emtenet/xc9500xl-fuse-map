@@ -7,9 +7,12 @@
 
 -include_lib("kernel/include/file.hrl").
 
-%--------------------------------------------------------------------
+%%====================================================================
+%% run
+%%====================================================================
 
-run(With = #{device := Device}) ->
+run(With0 = #{device := Device}) ->
+    With = maps:merge(with_defaults(), With0),
     Dir = dir(),
     make_dir(Dir),
     clear_dir(Dir),
@@ -36,31 +39,57 @@ run(With = #{device := Device}) ->
         "-p", device:name(Device),
         "-ofmt", "vhdl",
         "-loc", "on",
-        "-slew", "fast",
-        "-init", "low",
+        "-slew", with_slew(With),
+        "-init", with_init(With),
         "-inputs", "54",
+        "-keepio",
         "-pterms", "50",
-        "-unused", "float",
+        "-unused", with_unused(With),
         "-power", "std",
-        "-terminate", "keeper"
+        "-terminate", with_terminate(With)
     ]),
-    case With of
-        #{usercode := UserCode} ->
-            ok = exec(Dir, "hprep6", [
-                "-s", "IEEE1149",
-                "-n", UserCode,
-                "-i", "experiment.vm6"
-            ]);
-
-        _ ->
-            ok = exec(Dir, "hprep6", [
-                "-s", "IEEE1149",
-                "-i", "experiment.vm6"
-            ])
-    end,
+    ok = exec(Dir, "hprep6", [
+        "-s", "IEEE1149",
+        "-n", maps:get(usercode, With),
+        "-i", "experiment.vm6"
+    ]),
     ok.
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
+
+with_defaults() ->
+    #{
+        init => low,
+        slew => fast,
+        terminate => keeper,
+        unused => float,
+        usercode => <<"@@@@">>
+    }.
+
+%%--------------------------------------------------------------------
+
+with_init(#{init := high}) -> "high";
+with_init(#{init := low}) -> "low".
+
+%%--------------------------------------------------------------------
+
+with_slew(#{slew := auto}) -> "auto";
+with_slew(#{slew := fast}) -> "fast";
+with_slew(#{slew := slow}) -> "slow".
+
+%%--------------------------------------------------------------------
+
+with_terminate(#{terminate := float}) -> "float";
+with_terminate(#{terminate := keeper}) -> "keeper".
+
+%%--------------------------------------------------------------------
+
+with_unused(#{unused := float}) -> "float";
+with_unused(#{unused := ground}) -> "ground".
+
+%%====================================================================
+%% pins
+%%====================================================================
 
 pins() ->
     File = filename:join(dir(), "experiment_pad.csv"),
@@ -68,15 +97,21 @@ pins() ->
     Lines = binary:split(Data, <<"\n">>, [global]),
     pins(Lines).
 
+%%--------------------------------------------------------------------
+
 pins([<<"Pin Number,Signal Name,Pin Usage,Pin Name,Direction,", _/binary>> | Lines]) ->
     pins(Lines, []);
 pins([_ | Lines]) ->
     pins(Lines).
 
+%%--------------------------------------------------------------------
+
 pins([<<>> | _], Pads) ->
     lists:reverse(Pads);
 pins([Line | Lines], Pads) ->
     pins(Lines, [pin(Line) | Pads]).
+
+%%--------------------------------------------------------------------
 
 pin(Line) ->
     Fields = binary:split(Line, <<",">>, [global]),
@@ -89,13 +124,17 @@ pin(Line) ->
         direction => Direction
     }.
 
-%--------------------------------------------------------------------
+%%====================================================================
+%% fuse_count
+%%====================================================================
 
 fuse_count() ->
     File = filename:join(dir(), "experiment.jed"),
     {ok, Data} = file:read_file(File),
     Lines = binary:split(Data, <<"\n">>, [global]),
     fuse_count(Lines, 0).
+
+%%--------------------------------------------------------------------
 
 fuse_count([], Max) ->
     Max;
@@ -104,6 +143,8 @@ fuse_count([<<"L", Fuse_:7/binary, " ", Line/binary>> | Lines], _) ->
     fuse_count(Fuse, Line, Lines);
 fuse_count([_ | Lines], Max) ->
     fuse_count(Lines, Max).
+
+%%--------------------------------------------------------------------
 
 fuse_count(Fuse, <<"*">>, Lines) ->
     fuse_count(Lines, Fuse);
@@ -114,13 +155,17 @@ fuse_count(Fuse, <<"0", Line/binary>>, Lines) ->
 fuse_count(Fuse, <<"1", Line/binary>>, Lines) ->
     fuse_count(Fuse + 1, Line, Lines).
 
-%--------------------------------------------------------------------
+%%====================================================================
+%% jed
+%%====================================================================
 
 jed() ->
     File = filename:join(dir(), "experiment.jed"),
     {ok, Data} = file:read_file(File),
     Lines = binary:split(Data, <<"\n">>, [global]),
     jed(Lines, []).
+
+%%--------------------------------------------------------------------
 
 jed([], Fuses) ->
     lists:reverse(Fuses);
@@ -129,6 +174,8 @@ jed([<<"L", Fuse_:7/binary, " ", Line/binary>> | Lines], Fuses) ->
     jed(Fuse, Line, Lines, Fuses);
 jed([_ | Lines], Fuses) ->
     jed(Lines, Fuses).
+
+%%--------------------------------------------------------------------
 
 jed(_, <<"*">>, Lines, Fuses) ->
     jed(Lines, Fuses);
@@ -139,13 +186,17 @@ jed(Fuse, <<"0", Line/binary>>, Lines, Fuses) ->
 jed(Fuse, <<"1", Line/binary>>, Lines, Fuses) ->
     jed(Fuse + 1, Line, Lines, [Fuse | Fuses]).
 
-%--------------------------------------------------------------------
+%%====================================================================
+%% helpers
+%%====================================================================
 
 clear_dir(Dir) ->
     {ok, Names} = file:list_dir_all(Dir),
     lists:foreach(fun (Name) ->
         clear_file(filename:join(Dir, Name))
     end, Names).
+
+%%--------------------------------------------------------------------
 
 clear_file(File) ->
     case file:read_link_info(File) of
@@ -157,14 +208,14 @@ clear_file(File) ->
             ok = file:delete(File)
     end.
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 dir() ->
     %{ok, Dir} = file:get_cwd(),
     %filename:join(Dir, "experiment").
     "experiment".
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 exec(Dir, Arg0, Args) ->
     Path = "/home/Xilinx/12.4/ISE_DS/ISE/bin/lin64",
@@ -190,6 +241,8 @@ exec(Dir, Arg0, Args) ->
             error
     end.
 
+%%--------------------------------------------------------------------
+
 exec(Port, Out) ->
     receive
         {Port, eof} ->
@@ -208,7 +261,7 @@ exec(Port, Out) ->
             exec(Port, [Data | Out])
     end.
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 make_dir(Dir) ->
     case file:make_dir(Dir) of
@@ -219,35 +272,35 @@ make_dir(Dir) ->
             ok
     end.
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 make_file(Dir, Name, Data) ->
     File = filename:join(Dir, Name),
     ok = file:write_file(File, Data).
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 make_prj(Dir) ->
     make_file(Dir, "experiment.prj", <<
         "vhdl work experiment.vhd\n"
     >>).
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 make_tmp(Dir) ->
     ok = file:make_dir(filename:join(Dir, "tmp")).
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 make_ucf(Dir, #{ucf := UCF}) ->
     make_file(Dir, "experiment.ucf", UCF).
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 make_vhdl(Dir, #{vhdl := VHDL}) ->
     make_file(Dir, "experiment.vhd", VHDL).
 
-%--------------------------------------------------------------------
+%%--------------------------------------------------------------------
 
 make_xst(Dir) ->
     make_file(Dir, "experiment.xst", <<
