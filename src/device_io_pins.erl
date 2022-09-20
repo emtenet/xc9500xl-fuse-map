@@ -64,14 +64,20 @@ pin_number(L, <<A, B, C, _/binary>>, Cell)
         when ?IS_DIGIT(A) andalso
              ?IS_DIGIT(B) andalso
              ?IS_DIGIT(C) ->
-    {binary_to_atom(<<L, A, B, C>>), binary_to_atom(<<L, A, B, C>>), Cell};
+    {binary_to_atom(<<L, A, B, C>>, latin1),
+     binary_to_atom(<<L, A, B, C>>, latin1),
+     Cell};
 pin_number(L, <<A, B, _/binary>>, Cell)
         when ?IS_DIGIT(A) andalso
              ?IS_DIGIT(B) ->
-    {binary_to_atom(<<L, $0, A, B>>), binary_to_atom(<<L, A, B>>), Cell};
+    {binary_to_atom(<<L, $0, A, B>>, latin1),
+     binary_to_atom(<<L, A, B>>, latin1),
+     Cell};
 pin_number(L, <<A, _/binary>>, Cell)
         when ?IS_DIGIT(A) ->
-    {binary_to_atom(<<L, $0, $0, A>>), binary_to_atom(<<L, A>>), Cell}.
+    {binary_to_atom(<<L, $0, $0, A>>, latin1),
+     binary_to_atom(<<L, A>>, latin1),
+     Cell}.
 
 %%--------------------------------------------------------------------
 
