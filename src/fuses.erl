@@ -31,16 +31,16 @@ diff(Before, [A | After], Add, Del) ->
 %%====================================================================
 
 report() ->
-    lists:foreach(fun report/1, device:list()).
+    lists:foreach(fun report/1, density:list()).
 
 %%--------------------------------------------------------------------
 
-report(Device) ->
-    Max = density:fuse_count(Device),
-    {ok, [_, Numbers0]} = file:consult(data_file(Device)),
+report(Density) ->
+    Max = density:fuse_count(Density),
+    {ok, [_, Numbers0]} = file:consult(data_file(Density)),
     Numbers = lists:sort(maps:to_list(Numbers0)),
     Data = report(0, Numbers, [], Max),
-    ok = file:write_file(report_file(Device), Data).
+    ok = file:write_file(report_file(Density), Data).
 
 %%--------------------------------------------------------------------
 
@@ -62,8 +62,9 @@ report(Fuse, [{Fuse, Name} | Fuses], Lines, Max) ->
 
 update(_, []) ->
     ok;
-update(Device, AddNames) ->
-    File = data_file(Device),
+update(DensityOrDevice, AddNames) ->
+    Density = density:or_device(DensityOrDevice),
+    File = data_file(Density),
     case file:consult(File) of
         {ok, [Names, Numbers]} ->
             update(File, Names, Numbers, AddNames);
@@ -85,11 +86,11 @@ update(File, Names0, Numbers0, AddNames) ->
 %% helpers
 %%====================================================================
 
-data_file(Device) ->
-    lists:flatten(io_lib:format("fuses/~s.data", [Device])).
+data_file(Density) ->
+    lists:flatten(io_lib:format("fuses/~s.data", [Density])).
 
 %%--------------------------------------------------------------------
 
-report_file(Device) ->
-    lists:flatten(io_lib:format("fuses/~s.txt", [Device])).
+report_file(Density) ->
+    lists:flatten(io_lib:format("fuses/~s.txt", [Density])).
 

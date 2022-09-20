@@ -9,12 +9,13 @@
 %%====================================================================
 
 run() ->
-    lists:foreach(fun run/1, device:list()).
+    lists:foreach(fun run/1, density:list()).
 
 %%--------------------------------------------------------------------
 
-run(Device) ->
-    io:format(" => user-bits ~s~n", [Device]),
+run(Density) ->
+    [Device | _] = density:devices(Density),
+    io:format(" => user-bits ~s~n", [Density]),
     Base = {Device, ?BASE, experiment(Device, ?BASE)},
     U28 = add1(Base, <<"P@@@">>),
     U29 = add1(Base, <<"`@@@">>),
