@@ -160,8 +160,9 @@ clear_file(File) ->
 %--------------------------------------------------------------------
 
 dir() ->
-    {ok, Dir} = file:get_cwd(),
-    filename:join(Dir, "experiment").
+    %{ok, Dir} = file:get_cwd(),
+    %filename:join(Dir, "experiment").
+    "experiment".
 
 %--------------------------------------------------------------------
 
