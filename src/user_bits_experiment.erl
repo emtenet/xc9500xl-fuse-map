@@ -4,12 +4,18 @@
 
 -define(BASE, <<"@@@@">>).
 
+%%====================================================================
+%% run
+%%====================================================================
+
 run() ->
     lists:foreach(fun run/1, device:list()).
 
+%%--------------------------------------------------------------------
+
 run(Device) ->
     io:format(" => user-bits ~s~n", [Device]),
-    Base = {Device, ?BASE, fuses(Device, ?BASE)},
+    Base = {Device, ?BASE, experiment(Device, ?BASE)},
     U28 = add1(Base, <<"P@@@">>),
     U29 = add1(Base, <<"`@@@">>),
     U30 = del1_add2(Base, <<"0@@@">>, U28, U29),
@@ -81,32 +87,19 @@ run(Device) ->
         {user_00, U00}
     ]).
 
+%%--------------------------------------------------------------------
+
 run({Device, Base, BaseFuses}, Diff) ->
-    DiffFuses = fuses(Device, Diff),
+    DiffFuses = experiment(Device, Diff),
     {Add, Del} = fuses:diff(BaseFuses, DiffFuses),
     io:format("~s -> ~s | add ~p del ~p~n", [Base, Diff, Add, Del]),
     {Add, Del}.
 
-%run(Device) ->
-%    experiment:run(#{
-%        device => Device,
-%        ucf => <<>>,
-%        vhdl => <<
-%            "library IEEE;\n"
-%            "use IEEE.STD_LOGIC_1164.ALL;\n"
-%            "\n"
-%            "entity experiment is\n"
-%            "  Port ( output : out STD_LOGIC );\n"
-%            "end experiment;\n"
-%            "\n"
-%            "architecture Behavioral of experiment is begin\n"
-%            "  output <= '1';\n"
-%            "end Behavioral;\n"
-%        >>
-%    }),
-%    experiment:jed().
+%%====================================================================
+%% experiment
+%%====================================================================
 
-fuses(Device, UserCode) ->
+experiment(Device, UserCode) ->
     experiment:run(#{
         device => Device,
         ucf => <<>>,
@@ -126,13 +119,21 @@ fuses(Device, UserCode) ->
     }),
     experiment:jed().
 
+%%====================================================================
+%% helpers
+%%====================================================================
+
 add1(Base, Diff) ->
     {[Add], []} = run(Base, Diff),
     Add.
 
+%%--------------------------------------------------------------------
+
 add1_del1(Base, Diff, Del) ->
     {[Add], [Del]} = run(Base, Diff),
     Add.
+
+%%--------------------------------------------------------------------
 
 del1_add2(Base, Diff, A, B) ->
     case run(Base, Diff) of
