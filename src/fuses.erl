@@ -77,8 +77,8 @@ update(DensityOrDevice, AddNames) ->
 
 update(File, Names0, Numbers0, AddNames) ->
     AddNumbers = [{Number, Name} || {Name, Number} <- AddNames],
-    Names = maps:merge(maps:from_list(AddNames), Names0),
-    Numbers = maps:merge(maps:from_list(AddNumbers), Numbers0),
+    Names = maps:merge(Names0, maps:from_list(AddNames)),
+    Numbers = maps:merge(Numbers0, maps:from_list(AddNumbers)),
     Data = io_lib:format("~p.~n~p.~n", [Names, Numbers]),
     ok = file:write_file(File, Data).
 
