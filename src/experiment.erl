@@ -1,6 +1,7 @@
 -module(experiment).
 
 -export([run/1]).
+-export([cache/1]).
 -export([pins/0]).
 -export([fuse_count/0]).
 -export([jed/0]).
@@ -8,11 +9,10 @@
 -include_lib("kernel/include/file.hrl").
 
 %%====================================================================
-%% run
+%% internal
 %%====================================================================
 
-run(With0 = #{device := Device}) ->
-    With = maps:merge(with_defaults(), With0),
+internal(With = #{device := Device}) ->
     Dir = dir(),
     make_dir(Dir),
     clear_dir(Dir),
@@ -45,7 +45,7 @@ run(With0 = #{device := Device}) ->
         "-keepio",
         "-pterms", "50",
         "-unused", with_unused(With),
-        "-power", "std",
+        "-power", with_power(With),
         "-terminate", with_terminate(With)
     ]),
     ok = exec(Dir, "hprep6", [
@@ -57,19 +57,26 @@ run(With0 = #{device := Device}) ->
 
 %%--------------------------------------------------------------------
 
-with_defaults() ->
-    #{
+with_defaults(With) ->
+    maps:merge(#{
         init => low,
+        power => std,
         slew => fast,
         terminate => keeper,
         unused => float,
         usercode => <<"@@@@">>
-    }.
+    }, With).
 
 %%--------------------------------------------------------------------
 
 with_init(#{init := high}) -> "high";
 with_init(#{init := low}) -> "low".
+
+%%--------------------------------------------------------------------
+
+with_power(#{power := auto}) -> "auto";
+with_power(#{power := low}) -> "low";
+with_power(#{power := std}) -> "std".
 
 %%--------------------------------------------------------------------
 
@@ -86,6 +93,96 @@ with_terminate(#{terminate := keeper}) -> "keeper".
 
 with_unused(#{unused := float}) -> "float";
 with_unused(#{unused := ground}) -> "ground".
+
+%%====================================================================
+%% run
+%%====================================================================
+
+run(With) ->
+    internal(with_defaults(With)).
+
+%%====================================================================
+%% cache
+%%====================================================================
+
+cache(With0) ->
+    With = with_defaults(With0),
+    Query = cache_query(With),
+    Dir = cache_dir(Query),
+    case cache_read_query(Dir) of
+        {ok, Query} ->
+            cache_read_jed(Dir);
+
+        {error, enoent} ->
+            internal(With),
+            cache_copy(Dir, "experiment.jed"),
+            cache_copy(Dir, "experiment_pad.csv"),
+            cache_copy(Dir, "experiment.rpt"),
+            cache_copy(Dir, "experiment.vm6"),
+            JED = jed(),
+            cache_write_jed(Dir, JED),
+            cache_write_query(Dir, Query),
+            JED
+    end.
+
+%%--------------------------------------------------------------------
+
+cache_query(With) ->
+    iolist_to_binary(io_lib:format("~p.", [With])).
+
+%%--------------------------------------------------------------------
+
+cache_dir(Query) ->
+    Hash = crypto:hash(sha256, Query),
+    Base64 = base64url:encode(Hash),
+    cache_make_dir("cache"),
+    cache_make_dir(filename:join(["cache", "db"])),
+    cache_make_dir(filename:join(["cache", "db", Base64])).
+
+%%--------------------------------------------------------------------
+
+cache_make_dir(Dir) ->
+    case file:make_dir(Dir) of
+        ok ->
+            Dir;
+
+        {error, eexist} ->
+            Dir
+    end.
+
+%%--------------------------------------------------------------------
+
+cache_read_query(Dir) ->
+    File = filename:join(Dir, "with"),
+    file:read_file(File).
+
+%%--------------------------------------------------------------------
+
+cache_read_jed(Dir) ->
+    File = filename:join(Dir, "jed"),
+    {ok, [JED]} = file:consult(File),
+    JED.
+
+%%--------------------------------------------------------------------
+
+cache_copy(Dir, Name) ->
+    Source = filename:join(dir(), Name),
+    Destination = filename:join(Dir, Name),
+    {ok, _} = file:copy(Source, Destination),
+    ok.
+
+%%--------------------------------------------------------------------
+
+cache_write_jed(Dir, JED) ->
+    File = filename:join(Dir, "jed"),
+    Data = io_lib:format("~p.", [JED]),
+    ok = file:write_file(File, Data).
+
+%%--------------------------------------------------------------------
+
+cache_write_query(Dir, Query) ->
+    File = filename:join(Dir, "with"),
+    ok = file:write_file(File, Query).
 
 %%====================================================================
 %% pins
