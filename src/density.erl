@@ -2,6 +2,7 @@
 
 -export([list/0]).
 -export([devices/1]).
+-export([largest_device/1]).
 -export([function_block_count/1]).
 -export([function_blocks/1]).
 -export([fuse_count/1]).
@@ -49,6 +50,15 @@ devices(xc95288xl) ->
         xc95288xl_fg256,
         xc95288xl_tq144
     ].
+
+%%====================================================================
+%% largest_device
+%%====================================================================
+
+largest_device(xc9536xl) -> xc9536xl_cs48; % 36 io pins
+largest_device(xc9572xl) -> xc9572xl_tq100; % 72 io pins
+largest_device(xc95144xl) -> xc95144xl_cs144; % 117 io pins
+largest_device(xc95288xl) -> xc95288xl_cs280. % 192 io pins
 
 %%====================================================================
 %% function_block_count
