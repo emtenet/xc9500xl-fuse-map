@@ -5,6 +5,7 @@
 -export([largest_device/1]).
 -export([function_block_count/1]).
 -export([function_blocks/1]).
+-export([macro_cell_count/1]).
 -export([fuse_count/1]).
 -export([or_device/1]).
 
@@ -85,6 +86,17 @@ function_blocks(xc95288xl) ->
     [fb1, fb2, fb3, fb4, fb5, fb6, fb7, fb8, fb9, fb10, fb11, fb12, fb13, fb14, fb15, fb16];
 function_blocks(Device) ->
     function_blocks(device:density(Device)).
+
+%%====================================================================
+%% macro_cell_count
+%%====================================================================
+
+macro_cell_count(xc9536xl) -> 36;
+macro_cell_count(xc9572xl) -> 72;
+macro_cell_count(xc95144xl) -> 144;
+macro_cell_count(xc95288xl) -> 288;
+macro_cell_count(Device) ->
+    macro_cell_count(device:density(Device)).
 
 %%====================================================================
 %% fuse_count
