@@ -1,6 +1,9 @@
 -module(fuses).
 
 -export([diff/2]).
+-export([union/2]).
+-export([subtract/2]).
+-export([matrix/1]).
 -export([report/0]).
 -export([update/2]).
 
@@ -25,6 +28,178 @@ diff([B | Before], After = [A | _], Add, Del) when B < A ->
     diff(Before, After, Add, [B | Del]);
 diff(Before, [A | After], Add, Del) ->
     diff(Before, After, [A | Add], Del).
+
+%%====================================================================
+%% union
+%%====================================================================
+
+union(Left, Right) ->
+    lists:umerge(Left, Right).
+
+%%====================================================================
+%% subtract
+%%====================================================================
+
+subtract([], _) ->
+    [];
+subtract(Fuses, []) ->
+    Fuses;
+subtract(Fs, [S | Ss]) ->
+    subtract(Fs, S, Ss, []).
+
+%%--------------------------------------------------------------------
+
+subtract([], _, _, Ks) ->
+    lists:reverse(Ks);
+subtract(Fs = [F | _], S, [], Ks) when S < F ->
+    lists:reverse(Ks, Fs);
+subtract(Fs = [F | _], S, [Sh | Ss], Ks) when S < F ->
+    subtract(Fs, Sh, Ss, Ks);
+subtract([F | Fs], S, [], Ks) when S =:= F ->
+    lists:reverse(Ks, Fs);
+subtract([F | Fs], S, [Sh | Ss], Ks) when S =:= F ->
+    subtract(Fs, Sh, Ss, Ks);
+subtract([F | Fs], S, Ss, Ks) ->
+    subtract(Fs, S, Ss, [F | Ks]).
+
+%%====================================================================
+%% matrix
+%%====================================================================
+
+matrix(Experiments) ->
+    Fuses0 = [],
+    Matches0 = [ [] || _ <- Experiments ],
+    Results = [ Result || {_, Result} <- Experiments ],
+    {Fuses, Matches} = matrix_diff(Results, Fuses0, Matches0),
+    Matrix = lists:zipwith(fun matrix_zip/2, Experiments, Matches),
+    matrix_header(Fuses),
+    matrix_rows(Matrix),
+    ok.
+
+%%--------------------------------------------------------------------
+
+matrix_diff([[] | _], Fuses, Matches) ->
+    {lists:reverse(Fuses), [ lists:reverse(Match) || Match <- Matches ]};
+matrix_diff(Results, Fuses, Matches) ->
+    case matrix_min_max(Results) of
+        {Fuse, Fuse} ->
+            matrix_diff(matrix_drop(Results, Fuse), Fuses, Matches);
+
+        {Fuse, _} ->
+            matrix_diff(
+                matrix_drop(Results, Fuse),
+                [Fuse | Fuses],
+                matrix_match(Results, Fuse, Matches)
+             )
+    end.
+
+%%--------------------------------------------------------------------
+
+matrix_min_max([[Fuse | _] | Results]) ->
+    matrix_min_max(Results, Fuse, Fuse).
+
+%%--------------------------------------------------------------------
+
+matrix_min_max([], Min, Max) ->
+    {Min, Max};
+matrix_min_max([[Fuse | _] | Results], Min, Max) ->
+    matrix_min_max(Results, min(Min, Fuse), max(Max, Fuse)).
+
+%%--------------------------------------------------------------------
+
+matrix_drop(Results, Drop) ->
+    matrix_drop(Results, Drop, []).
+
+%%--------------------------------------------------------------------
+
+matrix_drop([], _, Tails) ->
+    lists:reverse(Tails);
+matrix_drop([[Drop | Tail] | Heads], Drop, Tails) ->
+    matrix_drop(Heads, Drop, [Tail | Tails]);
+matrix_drop([Tail | Heads], Drop, Tails) ->
+    matrix_drop(Heads, Drop, [Tail | Tails]).
+
+%%--------------------------------------------------------------------
+
+matrix_match(Results, Fuse, Matches) ->
+    matrix_match(Results, Fuse, Matches, []).
+
+%%--------------------------------------------------------------------
+
+matrix_match([], _, [], Outs) ->
+    lists:reverse(Outs);
+matrix_match([[Fuse | _] | Results], Fuse, [In | Ins], Outs) ->
+    matrix_match(Results, Fuse, Ins, [[true | In] | Outs]);
+matrix_match([_ | Results], Fuse, [In | Ins], Outs) ->
+    matrix_match(Results, Fuse, Ins, [[false | In] | Outs]).
+
+%%--------------------------------------------------------------------
+
+matrix_zip({Name, _Result}, Matches) ->
+    {Name, Matches}.
+
+%%--------------------------------------------------------------------
+
+matrix_header(Fuses) ->
+    case lists:max(Fuses) of
+        Max when Max > 99999 ->
+            matrix_header(Fuses, 100000);
+
+        Max when Max > 9999 ->
+            matrix_header(Fuses, 10000);
+
+        Max when Max > 999 ->
+            matrix_header(Fuses, 1000);
+
+        Max when Max > 99 ->
+            matrix_header(Fuses, 100);
+
+        Max when Max > 9 ->
+            matrix_header(Fuses, 10);
+
+        _ ->
+            matrix_header(Fuses, 1)
+    end.
+
+%%--------------------------------------------------------------------
+
+matrix_header(Fuses, Depth = 1) ->
+    matrix_header_row(Fuses, Depth);
+matrix_header(Fuses, Depth) ->
+    matrix_header_row(Fuses, Depth),
+    matrix_header(Fuses, Depth div 10).
+
+%%--------------------------------------------------------------------
+
+matrix_header_row([], _) ->
+    io:format("~n", []);
+matrix_header_row([Fuse | Fuses], Depth) when Fuse < Depth ->
+    io:format("  ", []),
+    matrix_header_row(Fuses, Depth);
+matrix_header_row([Fuse | Fuses], Depth) ->
+    Digit = (Fuse div Depth) rem 10,
+    io:format("~b ", [Digit]),
+    matrix_header_row(Fuses, Depth).
+
+%%--------------------------------------------------------------------
+
+matrix_rows([]) ->
+    ok;
+matrix_rows([{Name, Fuses} | Rows]) ->
+    matrix_fuses(Fuses),
+    io:format(" ~s~n", [Name]),
+    matrix_rows(Rows).
+
+%%--------------------------------------------------------------------
+
+matrix_fuses([]) ->
+    ok;
+matrix_fuses([true | Fuses]) ->
+    io:format("*|", []),
+    matrix_fuses(Fuses);
+matrix_fuses([false | Fuses]) ->
+    io:format(" |", []),
+    matrix_fuses(Fuses).
 
 %%====================================================================
 %% report
