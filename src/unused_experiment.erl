@@ -63,7 +63,7 @@ unused([_], _, Answers) ->
 unused([{MC, _, {_, G1}} | Es = [{_, _, {_, G2}} | _]], Unused, Answers) ->
     Grounds = fuses:union(G1, G2),
     [Fuse] = fuses:subtract(Unused, Grounds),
-    Name = list_to_atom(io_lib:format("~s_io_ground", [MC])),
+    Name = list_to_atom(io_lib:format("~s_ground", [MC])),
     Answer = {Name, Fuse},
     unused(Es, Unused, [Answer | Answers]).
 
