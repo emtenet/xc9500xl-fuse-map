@@ -1,11 +1,18 @@
 -module(fuses).
 
+%% operations
 -export([diff/2]).
 -export([union/2]).
 -export([subtract/2]).
+
+%% visual aids
 -export([matrix/1]).
+
+%% database
 -export([report/0]).
 -export([update/2]).
+-export([read/1]).
+-export([name_if_known/2]).
 
 %%====================================================================
 %% diff
@@ -232,7 +239,7 @@ report(Fuse, [{Fuse, Name} | Fuses], Lines, Max) ->
     report(Fuse + 1, Fuses, [Line | Lines], Max).
 
 %%====================================================================
-%% list
+%% update
 %%====================================================================
 
 update(_, []) ->
@@ -256,6 +263,36 @@ update(File, Names0, Numbers0, AddNames) ->
     Numbers = maps:merge(Numbers0, maps:from_list(AddNumbers)),
     Data = io_lib:format("~p.~n~p.~n", [Names, Numbers]),
     ok = file:write_file(File, Data).
+
+%%====================================================================
+%% read
+%%====================================================================
+
+read(DensityOrDevice) ->
+    Density = density:or_device(DensityOrDevice),
+    File = data_file(Density),
+    case file:consult(File) of
+        {ok, [Names, Numbers]} ->
+            {fuses, Density, Names, Numbers};
+
+        {error, enoent} ->
+            {fuses, Density, #{}, #{}}
+    end.
+
+%%====================================================================
+%% name_if_known
+%%====================================================================
+
+name_if_known(Fuses, {fuses, _, _, FuseToName}) ->
+    lists:map(fun (Fuse) ->
+        case FuseToName of
+            #{Fuse := Name} ->
+                Name;
+
+            _ ->
+                Fuse
+        end
+    end, Fuses).
 
 %%====================================================================
 %% helpers
