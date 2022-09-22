@@ -6,6 +6,7 @@
 -export([subtract/2]).
 
 %% visual aids
+-export([print/1]).
 -export([matrix/1]).
 
 %% database
@@ -70,8 +71,22 @@ subtract([F | Fs], S, Ss, Ks) ->
     subtract(Fs, S, Ss, [F | Ks]).
 
 %%====================================================================
+%% print
+%%====================================================================
+
+print({matrix, Fuses, Matrix}) ->
+    matrix_header(Fuses),
+    matrix_rows(Matrix),
+    ok.
+
+%%====================================================================
 %% matrix
 %%====================================================================
+
+-type fuse() :: pos_integer().
+-type name() :: atom() | binary() | string().
+-type experiment() :: {name(), [fuse()]}.
+-spec matrix([experiment()]) -> {matrix, [fuse()], [{name(), [on | off]}]}.
 
 matrix(Experiments) ->
     Fuses0 = [],
@@ -79,9 +94,7 @@ matrix(Experiments) ->
     Results = [ Result || {_, Result} <- Experiments ],
     {Fuses, Matches} = matrix_diff(Results, Fuses0, Matches0),
     Matrix = lists:zipwith(fun matrix_zip/2, Experiments, Matches),
-    matrix_header(Fuses),
-    matrix_rows(Matrix),
-    ok.
+    {matrix, Fuses, Matrix}.
 
 %%--------------------------------------------------------------------
 
@@ -136,9 +149,9 @@ matrix_match(Results, Fuse, Matches) ->
 matrix_match([], _, [], Outs) ->
     lists:reverse(Outs);
 matrix_match([[Fuse | _] | Results], Fuse, [In | Ins], Outs) ->
-    matrix_match(Results, Fuse, Ins, [[true | In] | Outs]);
+    matrix_match(Results, Fuse, Ins, [[on | In] | Outs]);
 matrix_match([_ | Results], Fuse, [In | Ins], Outs) ->
-    matrix_match(Results, Fuse, Ins, [[false | In] | Outs]).
+    matrix_match(Results, Fuse, Ins, [[off | In] | Outs]).
 
 %%--------------------------------------------------------------------
 
@@ -201,10 +214,10 @@ matrix_rows([{Name, Fuses} | Rows]) ->
 
 matrix_fuses([]) ->
     ok;
-matrix_fuses([true | Fuses]) ->
+matrix_fuses([on | Fuses]) ->
     io:format("*|", []),
     matrix_fuses(Fuses);
-matrix_fuses([false | Fuses]) ->
+matrix_fuses([off | Fuses]) ->
     io:format(" |", []),
     matrix_fuses(Fuses).
 
