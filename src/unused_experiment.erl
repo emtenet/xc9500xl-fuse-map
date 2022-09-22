@@ -2,25 +2,17 @@
 
 -export([run/0]).
 
--export([internal/0]).
-
 %%====================================================================
 %% run
 %%====================================================================
 
 run() ->
-    {ok, _} = c:c(?MODULE),
-    ?MODULE:internal().
-
-%%--------------------------------------------------------------------
-
-internal() ->
-    lists:foreach(fun internal/1, density:list()),
+    lists:foreach(fun run/1, density:list()),
     ok.
 
 %%--------------------------------------------------------------------
 
-internal(Density) ->
+run(Density) ->
     io:format(" => unused ~s~n", [Density]),
     Device = density:largest_device(Density),
     MC_count = density:macro_cell_count(Density),
@@ -66,27 +58,6 @@ unused([{MC, _, {_, G1}} | Es = [{_, _, {_, G2}} | _]], Unused, Answers) ->
     Name = list_to_atom(io_lib:format("~s_ground", [MC])),
     Answer = {Name, Fuse},
     unused(Es, Unused, [Answer | Answers]).
-
-%%--------------------------------------------------------------------
-
-%internal(Density) ->
-%    Device = density:largest_device(Density),
-%    IO = [
-%        fb01_01,
-%        fb01_02,
-%        fb01_04,
-%        fb02_01,
-%        fb02_04
-%    ],
-%    Experiments = [
-%        experiment(Device, Output, Input, Unused)
-%        ||
-%        Output <- IO,
-%        Input <- IO,
-%        Input =/= Output,
-%        Unused <- [float, ground]
-%    ],
-%    fuses:matrix(Experiments).
 
 %%====================================================================
 %% experiment
