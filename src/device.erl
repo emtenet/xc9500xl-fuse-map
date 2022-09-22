@@ -12,6 +12,7 @@
 -export([gts_macro_cells/1]).
 -export([io_count/1]).
 -export([io_pins/1]).
+-export([io_macro_cells/1]).
 
 %%====================================================================
 %% list
@@ -200,6 +201,14 @@ io_count(xc95288xl_tq144) -> 117.
 pin_to_macro_cell(Pin, Pins) ->
     {_, MC} = lists:keyfind(Pin, 1, Pins),
     MC.
+
+%%====================================================================
+%% io_macro_cells
+%%====================================================================
+
+io_macro_cells(Device) ->
+    Pins = io_pins(Device),
+    lists:sort([ MC || {_, MC} <- Pins ]).
 
 %%====================================================================
 %% io_pins
