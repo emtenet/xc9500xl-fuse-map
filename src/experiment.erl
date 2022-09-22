@@ -13,10 +13,11 @@
 %% compile
 %%====================================================================
 
+-type oe() :: atom() | {atom(), low}.
 -type logic() ::
     {Net :: atom(), Loc :: atom()} |
     {Net :: atom(), Loc :: atom(), Logic :: binary()} |
-    {Net :: atom(), Loc :: atom(), Logic :: binary(), OE :: atom()}.
+    {Net :: atom(), Loc :: atom(), Logic :: binary(), OE :: oe()}.
 -spec compile([logic()]) -> {binary(), binary()}.
 
 compile(Pins) ->
@@ -72,6 +73,10 @@ compile_vhdl({_, _}) ->
 compile_vhdl({Net_, _, Logic}) ->
     Net = atom_to_binary(Net_, latin1),
     <<"  ", Net/binary, " <= ", Logic/binary, ";\n">>;
+compile_vhdl({Net_, _, Logic, {OE_, low}}) ->
+    Net = atom_to_binary(Net_, latin1),
+    OE = atom_to_binary(OE_, latin1),
+    <<"  ", Net/binary, " <= (", Logic/binary, ") when (", OE/binary, " = '0') else 'Z';\n">>;
 compile_vhdl({Net_, _, Logic, OE_}) ->
     Net = atom_to_binary(Net_, latin1),
     OE = atom_to_binary(OE_, latin1),
