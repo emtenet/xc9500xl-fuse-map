@@ -1,5 +1,6 @@
 -module(experiment).
 
+-export([compile/1]).
 -export([run/1]).
 -export([cache/1]).
 -export([pins/0]).
@@ -7,6 +8,74 @@
 -export([jed/0]).
 
 -include_lib("kernel/include/file.hrl").
+
+%%====================================================================
+%% compile
+%%====================================================================
+
+-type logic() ::
+    {Net :: atom(), Loc :: atom()} |
+    {Net :: atom(), Loc :: atom(), Logic :: binary()} |
+    {Net :: atom(), Loc :: atom(), Logic :: binary(), OE :: atom()}.
+-spec compile([logic()]) -> {binary(), binary()}.
+
+compile(Pins) ->
+    UCF = iolist_to_binary([ compile_ucf(Pin) || Pin <- Pins ]),
+    VHDL = iolist_to_binary([<<
+        "library IEEE;\n"
+        "use IEEE.STD_LOGIC_1164.ALL;\n"
+        "\n"
+        "entity experiment is\n"
+        "  port (\n">>,
+        lists:join(<<";\n">>, [ compile_port(Pin) || Pin <- Pins ]), <<"\n"
+        "  );\n"
+        "end experiment;\n"
+        "\n"
+        "architecture behavioral of experiment is begin\n">>,
+        [ compile_vhdl(Pin) || Pin <- Pins ], <<
+        "end behavioral;\n"
+    >>]),
+    {UCF, VHDL}.
+
+%%--------------------------------------------------------------------
+
+compile_ucf({Net, Loc}) ->
+    compile_ucf(atom_to_binary(Net, latin1), macro_cell:name(Loc));
+compile_ucf({Net, Loc, _}) ->
+    compile_ucf(atom_to_binary(Net, latin1), macro_cell:name(Loc));
+compile_ucf({Net, Loc, _, _}) ->
+    compile_ucf(atom_to_binary(Net, latin1), macro_cell:name(Loc)).
+
+%%--------------------------------------------------------------------
+
+compile_ucf(Net, Loc) ->
+    <<"NET \"", Net/binary, "\" LOC = \"", Loc/binary, "\";\n">>.
+
+%%--------------------------------------------------------------------
+
+compile_port({Net, _}) ->
+    compile_port(atom_to_binary(Net, latin1), <<"in">>);
+compile_port({Net, _, _}) ->
+    compile_port(atom_to_binary(Net, latin1), <<"out">>);
+compile_port({Net, _, _, _}) ->
+    compile_port(atom_to_binary(Net, latin1), <<"out">>).
+
+%%--------------------------------------------------------------------
+
+compile_port(Net, Dir) ->
+    <<"    ", Net/binary, " : ", Dir/binary, "  STD_LOGIC">>.
+
+%%--------------------------------------------------------------------
+
+compile_vhdl({_, _}) ->
+    <<>>;
+compile_vhdl({Net_, _, Logic}) ->
+    Net = atom_to_binary(Net_, latin1),
+    <<"  ", Net/binary, " <= ", Logic/binary, ";\n">>;
+compile_vhdl({Net_, _, Logic, OE_}) ->
+    Net = atom_to_binary(Net_, latin1),
+    OE = atom_to_binary(OE_, latin1),
+    <<"  ", Net/binary, " <= (", Logic/binary, ") when (", OE/binary, " = '1') else 'Z';\n">>.
 
 %%====================================================================
 %% internal
