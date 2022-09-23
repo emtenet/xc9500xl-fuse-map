@@ -255,27 +255,40 @@ report(Fuse, [{Fuse, Name} | Fuses], Lines, Max) ->
 %% update
 %%====================================================================
 
+-spec update(Density :: atom(), [{Fuse :: integer(), Name :: term()}]) -> ok.
+
 update(_, []) ->
     ok;
-update(DensityOrDevice, AddNames) ->
+update(DensityOrDevice, AddNumbers) ->
+    update_validate(AddNumbers),
     Density = density:or_device(DensityOrDevice),
     File = data_file(Density),
     case file:consult(File) of
         {ok, [Names, Numbers]} ->
-            update(File, Names, Numbers, AddNames);
+            update(File, Names, Numbers, AddNumbers);
 
         {error, enoent} ->
-            update(File, #{}, #{}, AddNames)
+            update(File, #{}, #{}, AddNumbers)
     end.
 
 %%--------------------------------------------------------------------
 
-update(File, Names0, Numbers0, AddNames) ->
-    AddNumbers = [{Number, Name} || {Name, Number} <- AddNames],
-    Names = maps:merge(Names0, maps:from_list(AddNames)),
+update(File, _Names0, Numbers0, AddNumbers) ->
     Numbers = maps:merge(Numbers0, maps:from_list(AddNumbers)),
+    Names = maps:from_list([
+        {Name, Number}
+        ||
+        {Number, Name} <- maps:to_list(Numbers)
+    ]),
     Data = io_lib:format("~p.~n~p.~n", [Names, Numbers]),
     ok = file:write_file(File, Data).
+
+%%--------------------------------------------------------------------
+
+update_validate([]) ->
+    ok;
+update_validate([{Fuse, _Name} | Fuses]) when is_integer(Fuse) ->
+    update_validate(Fuses).
 
 %%====================================================================
 %% read

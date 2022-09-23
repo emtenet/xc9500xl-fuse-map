@@ -170,5 +170,5 @@ fuses(MC, {matrix,
 %%--------------------------------------------------------------------
 
 fuse(Fuse, MC, Extra) ->
-    {list_to_atom(io_lib:format("~s_~s", [MC, Extra])), Fuse}.
+    {Fuse, list_to_atom(io_lib:format("~s_~s", [MC, Extra]))}.
 

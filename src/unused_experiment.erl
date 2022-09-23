@@ -50,14 +50,14 @@ union([{_, {_, Float}, {_, Ground}} | Experiments], Floats0, Grounds0) ->
 
 %%--------------------------------------------------------------------
 
-unused([_], _, Answers) ->
-    lists:reverse(Answers);
-unused([{MC, _, {_, G1}} | Es = [{_, _, {_, G2}} | _]], Unused, Answers) ->
+unused([_], _, Updates) ->
+    lists:reverse(Updates);
+unused([{MC, _, {_, G1}} | Es = [{_, _, {_, G2}} | _]], Unused, Updates) ->
     Grounds = fuses:union(G1, G2),
     [Fuse] = fuses:subtract(Unused, Grounds),
     Name = list_to_atom(io_lib:format("~s_ground", [MC])),
-    Answer = {Name, Fuse},
-    unused(Es, Unused, [Answer | Answers]).
+    Update = {Fuse, Name},
+    unused(Es, Unused, [Update | Updates]).
 
 %%====================================================================
 %% experiment

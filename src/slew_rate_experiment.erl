@@ -26,22 +26,22 @@ run(Density) ->
     io:format(" => slew-rate ~s~n", [Density]),
     Device = density:largest_device(Density),
     IOs = io_pairs(Device),
-    Answers = run(IOs, Device, []),
+    Updates = run(IOs, Device, []),
     io:format("~n", []),
-    fuses:update(Density, Answers).
+    fuses:update(Density, Updates).
 
 %%--------------------------------------------------------------------
 
-run([_], _, Answers) ->
-    lists:reverse(Answers);
-run([Input | IOs = [Output | _]], Device, Answers) ->
+run([_], _, Updates) ->
+    lists:reverse(Updates);
+run([Input | IOs = [Output | _]], Device, Updates) ->
     Fast = experiment(Device, Output, Input, fast),
     Slow = experiment(Device, Output, Input, slow),
     % turn on FUSE to go from SLOW to FAST
     {[Fuse], []} = fuses:diff(Slow, Fast),
     Name = list_to_atom(io_lib:format("~s_slew_rate", [Output])),
-    Answer = {Name, Fuse},
-    run(IOs, Device, [Answer | Answers]).
+    Update = {Fuse, Name},
+    run(IOs, Device, [Update | Updates]).
 
 %%--------------------------------------------------------------------
 
