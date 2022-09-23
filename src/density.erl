@@ -77,13 +77,13 @@ function_block_count(Device) ->
 %%====================================================================
 
 function_blocks(xc9536xl) ->
-    [fb1, fb2];
+    [fb01, fb02];
 function_blocks(xc9572xl) ->
-    [fb1, fb2, fb3, fb4];
+    [fb01, fb02, fb03, fb04];
 function_blocks(xc95144xl) ->
-    [fb1, fb2, fb3, fb4, fb5, fb6, fb7, fb8];
+    [fb01, fb02, fb03, fb04, fb05, fb06, fb07, fb08];
 function_blocks(xc95288xl) ->
-    [fb1, fb2, fb3, fb4, fb5, fb6, fb7, fb8, fb9, fb10, fb11, fb12, fb13, fb14, fb15, fb16];
+    [fb01, fb02, fb03, fb04, fb05, fb06, fb07, fb08, fb09, fb10, fb11, fb12, fb13, fb14, fb15, fb16];
 function_blocks(Device) ->
     function_blocks(device:density(Device)).
 
