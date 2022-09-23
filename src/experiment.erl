@@ -13,74 +13,284 @@
 %% compile
 %%====================================================================
 
--type oe() :: atom() | {atom(), low}.
--type logic() ::
+-type cell() :: #{
+        init => 0 | 1,
+        type => d | t,
+        clk => logic(),
+        ce => logic(),
+        s => logic(),
+        r => logic(),
+        oe => logic()
+    }.
+-type logic() :: atom() | {low, atom()} | binary().
+-type oe() :: logic().
+-type signal() ::
+    % input
     {Net :: atom(), Loc :: atom()} |
-    {Net :: atom(), Loc :: atom(), Logic :: binary()} |
-    {Net :: atom(), Loc :: atom(), Logic :: binary(), OE :: oe()}.
--spec compile([logic()]) -> {binary(), binary()}.
+    % output
+    {Net :: atom(), Loc :: atom(), Logic :: logic()} |
+    {Net :: atom(), Loc :: atom(), Logic :: logic(), Cell :: oe() | cell()} |
+    % internal
+    {Net :: atom(), Logic :: logic(), Cell :: cell()}.
+-spec compile([signal()]) -> {binary(), binary()}.
 
-compile(Pins) ->
-    UCF = iolist_to_binary([ compile_ucf(Pin) || Pin <- Pins ]),
+compile(Signals) ->
+    UCF = iolist_to_binary([
+        compile_ucf(Signal)
+        ||
+        Signal <- Signals,
+        not compile_internal(Signal)
+    ]),
+    Ports = [
+        compile_port(Signal)
+        ||
+        Signal <- Signals,
+        not compile_internal(Signal)
+    ],
+    Library = compile_library(Signals),
     VHDL = iolist_to_binary([<<
         "library IEEE;\n"
-        "use IEEE.STD_LOGIC_1164.ALL;\n"
+        "use IEEE.STD_LOGIC_1164.ALL;\n">>,
+        Library, <<
         "\n"
         "entity experiment is\n"
         "  port (\n">>,
-        lists:join(<<";\n">>, [ compile_port(Pin) || Pin <- Pins ]), <<"\n"
+        lists:join(<<";\n">>, Ports), <<"\n"
         "  );\n"
         "end experiment;\n"
         "\n"
         "architecture behavioral of experiment is begin\n">>,
-        [ compile_vhdl(Pin) || Pin <- Pins ], <<
+        [ compile_vhdl(Signal) || Signal <- Signals ], <<
         "end behavioral;\n"
     >>]),
     {UCF, VHDL}.
 
 %%--------------------------------------------------------------------
 
-compile_ucf({Net, Loc}) ->
-    compile_ucf(atom_to_binary(Net, latin1), macro_cell:name(Loc));
-compile_ucf({Net, Loc, _}) ->
-    compile_ucf(atom_to_binary(Net, latin1), macro_cell:name(Loc));
-compile_ucf({Net, Loc, _, _}) ->
-    compile_ucf(atom_to_binary(Net, latin1), macro_cell:name(Loc)).
+compile_library([]) ->
+    <<>>;
+compile_library([{_, _} | Signals]) ->
+    compile_library(Signals);
+compile_library([{_, _, Logic} | Signals]) when not is_map(Logic) ->
+    compile_library(Signals);
+compile_library(_) ->
+    <<
+        "library UNISIM;\n"
+        "use UNISIM.vcomponents.ALL;\n"
+    >>.
 
 %%--------------------------------------------------------------------
 
-compile_ucf(Net, Loc) ->
+compile_net(Net) ->
+    atom_to_binary(Net, latin1).
+
+%%--------------------------------------------------------------------
+
+compile_internal({_, _, #{}}) ->
+    true;
+compile_internal(_) ->
+    false.
+
+%%--------------------------------------------------------------------
+
+compile_ucf({Net, Loc}) ->
+    compile_ucf(Net, Loc);
+compile_ucf({Net, Loc, Logic}) when not is_map(Logic) ->
+    compile_ucf(Net, Loc);
+compile_ucf({Net, Loc, _, _}) ->
+    compile_ucf(Net, Loc).
+
+%%--------------------------------------------------------------------
+
+compile_ucf(Net_, Loc_) ->
+    Net = compile_net(Net_),
+    Loc = macro_cell:name(Loc_),
     <<"NET \"", Net/binary, "\" LOC = \"", Loc/binary, "\";\n">>.
 
 %%--------------------------------------------------------------------
 
 compile_port({Net, _}) ->
-    compile_port(atom_to_binary(Net, latin1), <<"in">>);
-compile_port({Net, _, _}) ->
-    compile_port(atom_to_binary(Net, latin1), <<"out">>);
+    compile_port(Net, <<"in">>);
+compile_port({Net, _, Logic}) when not is_map(Logic) ->
+    compile_port(Net, <<"out">>);
 compile_port({Net, _, _, _}) ->
-    compile_port(atom_to_binary(Net, latin1), <<"out">>).
+    compile_port(Net, <<"out">>).
 
 %%--------------------------------------------------------------------
 
-compile_port(Net, Dir) ->
-    <<"    ", Net/binary, " : ", Dir/binary, "  STD_LOGIC">>.
+compile_port(Net_, Dir) ->
+    Net = compile_net(Net_),
+    <<"    ", Net/binary, " : ", Dir/binary, " STD_LOGIC">>.
 
 %%--------------------------------------------------------------------
 
 compile_vhdl({_, _}) ->
     <<>>;
-compile_vhdl({Net_, _, Logic}) ->
-    Net = atom_to_binary(Net_, latin1),
-    <<"  ", Net/binary, " <= ", Logic/binary, ";\n">>;
-compile_vhdl({Net_, _, Logic, {OE_, low}}) ->
-    Net = atom_to_binary(Net_, latin1),
-    OE = atom_to_binary(OE_, latin1),
-    <<"  ", Net/binary, " <= (", Logic/binary, ") when (", OE/binary, " = '0') else 'Z';\n">>;
-compile_vhdl({Net_, _, Logic, OE_}) ->
-    Net = atom_to_binary(Net_, latin1),
-    OE = atom_to_binary(OE_, latin1),
-    <<"  ", Net/binary, " <= (", Logic/binary, ") when (", OE/binary, " = '1') else 'Z';\n">>.
+compile_vhdl({Output_, _, Logic_}) ->
+    Output = compile_net(Output_),
+    Logic = compile_logic(Logic_),
+    <<"  ", Output/binary, " <= ", Logic/binary, ";\n">>;
+compile_vhdl({Output_, _, Logic_, FF = #{clk := Clk_}}) ->
+    Output = compile_net(Output_),
+    Logic = compile_logic(Logic_),
+    Clk = compile_logic(Clk_),
+    Init = compile_init(FF),
+    {Buffer, Q} = compile_ff_oe(Output, FF),
+    case compile_ff_type(FF) of
+        {d, Type, S, R, CE} ->
+            <<
+                Buffer/binary,
+                "  ", Output/binary, "_FF: ", Type/binary,
+                    " generic map (", Init/binary, ")"
+                    " port map (\n",
+                S/binary, R/binary, CE/binary,
+                "    D => ", Logic/binary, ",\n"
+                "    Q => ", Q/binary, ",\n"
+                "    C => ", Clk/binary, "\n"
+                "  );\n"
+            >>;
+
+        {t, Type, S, R, CE} ->
+            <<
+                Buffer/binary,
+                "  ", Output/binary, "_FF: ", Type/binary,
+                    " generic map (", Init/binary, ")"
+                    " port map (\n",
+                S/binary, R/binary, CE/binary,
+                "    T => ", Logic/binary, ",\n"
+                "    Q => ", Q/binary, ",\n"
+                "    C => ", Clk/binary, "\n"
+                "  );\n"
+            >>
+    end;
+compile_vhdl({Output_, _, Logic, X = #{oe := OE}}) when map_size(X) =:= 1 ->
+    Output = compile_net(Output_),
+    compile_oe(Output, Logic, Output, OE);
+compile_vhdl({Output_, _, Logic, OE}) when not is_map(OE) ->
+    Output = compile_net(Output_),
+    compile_oe(Output, Logic, Output, OE).
+
+%%--------------------------------------------------------------------
+
+compile_logic(Net) when is_atom(Net) ->
+    compile_net(Net);
+compile_logic({low, Net}) when is_atom(Net) ->
+    <<"NOT ", (compile_net(Net))/binary>>;
+compile_logic(Logic) when is_binary(Logic) ->
+    Logic.
+
+%%--------------------------------------------------------------------
+
+compile_init(#{init := Init}) ->
+    case Init of
+        0 -> <<"'0'">>;
+        1 -> <<"'1'">>
+    end;
+compile_init(#{}) ->
+    <<"'0'">>.
+
+%%--------------------------------------------------------------------
+
+compile_ff_oe(Output, #{oe := OE_}) ->
+    Signal = <<Output/binary, "_Q">>,
+    OE = compile_oe(Output, Signal, Output, OE_),
+    Buffer = <<
+        "  signal ", Signal/binary, " : STD_LOGIC;\n",
+        OE/binary
+    >>,
+    {Buffer, Signal};
+compile_ff_oe(Output, _) ->
+    {<<>>, Output}.
+
+%%--------------------------------------------------------------------
+
+compile_oe(Name, Input_, Output_, OE_) ->
+    Input = compile_logic(Input_),
+    Output = compile_logic(Output_),
+    OE = compile_logic(OE_),
+    <<
+        "  ", Name/binary, "_OE: OBUFE port map (\n"
+        "    I => ", Input/binary, "_Q,\n"
+        "    O => ", Output/binary, ",\n"
+        "    E => ", OE/binary, "\n"
+        "  );\n"
+    >>.
+
+%%--------------------------------------------------------------------
+
+compile_ff_type(FF = #{type := Type}) ->
+    case Type of
+        d -> compile_d_type(FF);
+        t -> compile_t_type(FF)
+    end;
+compile_ff_type(FF) ->
+    compile_d_type(FF).
+
+%%--------------------------------------------------------------------
+
+compile_d_type(#{s := S_, r := R_, ce := CE_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {d, <<"FDCPE">>, S, R, CE};
+compile_d_type(#{s := S_, r := R_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    {d, <<"FDCP">>, S, R, <<>>};
+compile_d_type(#{s := S_, ce := CE_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {d, <<"FDPE">>, S, <<>>, CE};
+compile_d_type(#{s := S_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    {d, <<"FDP">>, S, <<>>, <<>>};
+compile_d_type(#{r := R_, ce := CE_}) ->
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {d, <<"FDCE">>, <<>>, R, CE};
+compile_d_type(#{r := R_}) ->
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    {d, <<"FDC">>, <<>>, R, <<>>};
+compile_d_type(#{ce := CE_}) ->
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {d, <<"FDE">>, <<>>, <<>>, CE};
+compile_d_type(#{}) ->
+    {d, <<"FD">>, <<>>, <<>>, <<>>}.
+
+%%--------------------------------------------------------------------
+
+compile_t_type(#{s := S_, r := R_, ce := CE_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {t, <<"FTCPE">>, S, R, CE};
+compile_t_type(#{s := S_, r := R_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    {t, <<"FTCP">>, S, R, <<>>};
+compile_t_type(#{s := S_, ce := CE_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {t, <<"FTPE">>, S, <<>>, CE};
+compile_t_type(#{s := S_}) ->
+    S = <<"    PRE => ", (compile_logic(S_))/binary, ",\n">>,
+    {t, <<"FTP">>, S, <<>>, <<>>};
+compile_t_type(#{r := R_, ce := CE_}) ->
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {t, <<"FTCE">>, <<>>, R, CE};
+compile_t_type(#{r := R_}) ->
+    S = <<"    PRE => '0',\n">>,
+    R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
+    {t, <<"FTCP">>, S, R, <<>>};
+compile_t_type(#{ce := CE_}) ->
+    R = <<"    CLR => '0',\n">>,
+    CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
+    {t, <<"FTCE">>, <<>>, R, CE};
+compile_t_type(#{}) ->
+    S = <<"    PRE => '0',\n">>,
+    R = <<"    CLR => '0',\n">>,
+    {t, <<"FTCP">>, S, R, <<>>}.
 
 %%====================================================================
 %% internal
