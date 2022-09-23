@@ -33,7 +33,6 @@ run(Density) ->
         MC <- MCs,
         MC =/= GSR
     ]),
-    io:format("update ~p~n", [Fuses]),
     fuses:update(Density, Fuses).
 
 %%--------------------------------------------------------------------
