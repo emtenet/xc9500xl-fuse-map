@@ -66,7 +66,7 @@ unused([{MC, _, {_, G1}} | Es = [{_, _, {_, G2}} | _]], Unused, Updates) ->
 experiment(Device, Output, Input, Unused) ->
     io:format(".", []),
     %io:format(" => unused ~s ~s = ~s (~s)~n", [Device, Output, Input, Unused]),
-    Fuses = experiment:cache(#{
+    Cache = experiment:cache(#{
         device => Device,
         ucf => <<
             "NET \"input\" LOC = \"", (macro_cell:name(Input))/binary, "\";\n"
@@ -93,5 +93,5 @@ experiment(Device, Output, Input, Unused) ->
         "~s <= ~s, ~s",
         [Output, Input, Unused]
     )),
-    {Name, Fuses}.
+    {Name, experiment:cached_jed(Cache)}.
 

@@ -55,7 +55,7 @@ io_pairs(Device) ->
 
 experiment(Device, Output, Input, Slew) ->
     io:format(".", []),
-    Fuses = experiment:cache(#{
+    Cache = experiment:cache(#{
         device => Device,
         slew => Slew,
         ucf => <<
@@ -78,5 +78,5 @@ experiment(Device, Output, Input, Slew) ->
             "end behavioral;\n"
         >>
     }),
-    Fuses.
+    experiment:cached_jed(Cache).
 

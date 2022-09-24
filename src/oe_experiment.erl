@@ -132,12 +132,13 @@ source(GTS, Low, MC, Input, OEs) ->
 experiment(Device, MC, {Name, Pins}) ->
     {UCF, VHDL} = experiment:compile(Pins),
     io:format(" => oe ~s ~s ~s~n", [Device, MC, Name]),
-    {Name, experiment:cache(#{
+    Cache = experiment:cache(#{
         device => Device,
         usercode => <<"@@@@">>,
         ucf => UCF,
         vhdl => VHDL
-    })}.
+    }),
+    {Name, experiment:cached_jed(Cache)}.
 
 %%--------------------------------------------------------------------
 

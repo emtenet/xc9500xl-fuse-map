@@ -3,6 +3,7 @@
 -export([compile/1]).
 -export([run/1]).
 -export([cache/1]).
+-export([cached_jed/1]).
 -export([pins/0]).
 -export([fuse_count/0]).
 -export([jed/0]).
@@ -395,7 +396,7 @@ cache(With0) ->
     Dir = cache_dir(Query),
     case cache_read_query(Dir) of
         {ok, Query} ->
-            cache_read_jed(Dir);
+            {cache, hit, With, Dir};
 
         {error, enoent} ->
             internal(With),
@@ -406,7 +407,7 @@ cache(With0) ->
             JED = jed(),
             cache_write_jed(Dir, JED),
             cache_write_query(Dir, Query),
-            JED
+            {cache, miss, With, Dir, JED}
     end.
 
 %%--------------------------------------------------------------------
@@ -442,13 +443,6 @@ cache_read_query(Dir) ->
 
 %%--------------------------------------------------------------------
 
-cache_read_jed(Dir) ->
-    File = filename:join(Dir, "jed"),
-    {ok, [JED]} = file:consult(File),
-    JED.
-
-%%--------------------------------------------------------------------
-
 cache_copy(Dir, Name) ->
     Source = filename:join(dir(), Name),
     Destination = filename:join(Dir, Name),
@@ -467,6 +461,17 @@ cache_write_jed(Dir, JED) ->
 cache_write_query(Dir, Query) ->
     File = filename:join(Dir, "with"),
     ok = file:write_file(File, Query).
+
+%%====================================================================
+%% cached_jed
+%%====================================================================
+
+cached_jed({cache, hit, _With, Dir}) ->
+    File = filename:join(Dir, "jed"),
+    {ok, [JED]} = file:consult(File),
+    JED;
+cached_jed({cache, miss, _With, _Dir, JED}) ->
+    JED.
 
 %%====================================================================
 %% pins

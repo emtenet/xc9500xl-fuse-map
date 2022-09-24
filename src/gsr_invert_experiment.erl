@@ -81,10 +81,11 @@ signal({FB, MC}, Reset) ->
 experiment(Device, {Name, Signals}) ->
     {UCF, VHDL} = experiment:compile(Signals),
     io:format(" => gsr-invert ~s ~s~n", [Device, Name]),
-    experiment:cache(#{
+    Cache = experiment:cache(#{
         device => Device,
         usercode => <<"@@@@">>,
         ucf => UCF,
         vhdl => VHDL
-    }).
+    }),
+    experiment:cached_jed(Cache).
 

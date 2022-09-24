@@ -114,12 +114,13 @@ source(GCK, MC, Input, Controls_) ->
 experiment(Device, MC, {Name, Signals}) ->
     {UCF, VHDL} = experiment:compile(Signals),
     io:format(" => gck ~s ~s ~s~n", [Device, MC, Name]),
-    {Name, experiment:cache(#{
+    Cache = experiment:cache(#{
         device => Device,
         usercode => <<"@@@@">>,
         ucf => UCF,
         vhdl => VHDL
-    })}.
+    }),
+    {Name, experiment:cached_jed(Cache)}.
 
 %%--------------------------------------------------------------------
 
