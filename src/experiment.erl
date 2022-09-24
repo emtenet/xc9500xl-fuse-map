@@ -3,9 +3,11 @@
 -export([compile/1]).
 -export([run/1]).
 -export([cache/1]).
+-export([cached_imux/1]).
 -export([cached_jed/1]).
 -export([pins/0]).
 -export([fuse_count/0]).
+-export([imux/0]).
 -export([jed/0]).
 
 -include_lib("kernel/include/file.hrl").
@@ -463,6 +465,23 @@ cache_write_query(Dir, Query) ->
     ok = file:write_file(File, Query).
 
 %%====================================================================
+%% cached_dir
+%%====================================================================
+
+cached_dir({cache, hit, _With, Dir}) ->
+    Dir;
+cached_dir({cache, miss, _With, Dir, _JED}) ->
+    Dir.
+
+%%====================================================================
+%% cached_imux
+%%====================================================================
+
+cached_imux(Cache) ->
+    File = filename:join(cached_dir(Cache), "experiment.vm6"),
+    experiment_vm6:imux(File).
+
+%%====================================================================
 %% cached_jed
 %%====================================================================
 
@@ -540,6 +559,14 @@ fuse_count(Fuse, <<"0", Line/binary>>, Lines) ->
     fuse_count(Fuse + 1, Line, Lines);
 fuse_count(Fuse, <<"1", Line/binary>>, Lines) ->
     fuse_count(Fuse + 1, Line, Lines).
+
+%%====================================================================
+%% imux
+%%====================================================================
+
+imux() ->
+    File = filename:join(dir(), "experiment.vm6"),
+    experiment_vm6:imux(File).
 
 %%====================================================================
 %% jed
