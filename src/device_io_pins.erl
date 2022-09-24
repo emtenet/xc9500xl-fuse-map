@@ -48,7 +48,7 @@ macro_cell(FB_, MC_) ->
     FB = binary_to_integer(FB_),
     MC = binary_to_integer(MC_),
     % BSDL files are 0-based, convert to 1-base
-    list_to_atom(io_lib:format("fb~2..0b_~2..0b", [FB + 1, MC + 1])).
+    list_to_atom(io_lib:format("mc~2..0b_~2..0b", [FB + 1, MC + 1])).
 
 %%--------------------------------------------------------------------
 
