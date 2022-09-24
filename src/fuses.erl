@@ -2,6 +2,7 @@
 
 %% operations
 -export([diff/2]).
+-export([intersect/2]).
 -export([union/2]).
 -export([subtract/2]).
 
@@ -36,6 +37,26 @@ diff([B | Before], After = [A | _], Add, Del) when B < A ->
     diff(Before, After, Add, [B | Del]);
 diff(Before, [A | After], Add, Del) ->
     diff(Before, After, [A | Add], Del).
+
+%%====================================================================
+%% intersect
+%%====================================================================
+
+intersect(As, Bs) ->
+    intersect(As, Bs, []).
+
+%%--------------------------------------------------------------------
+
+intersect([], _, Is) ->
+    lists:reverse(Is);
+intersect(_, [], Is) ->
+    lists:reverse(Is);
+intersect([I | As], [I | Bs], Is) ->
+    intersect(As, Bs, [I | Is]);
+intersect([A | As], Bs = [B | _], Is) when A < B ->
+    intersect(As, Bs, Is);
+intersect(As, [_ | Bs], Is) ->
+    intersect(As, Bs, Is).
 
 %%====================================================================
 %% union
