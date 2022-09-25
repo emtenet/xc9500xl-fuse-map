@@ -255,8 +255,9 @@ compile_d_type(#{r := R_}) ->
     R = <<"    CLR => ", (compile_logic(R_))/binary, ",\n">>,
     {d, <<"FDC">>, <<>>, R, <<>>};
 compile_d_type(#{ce := CE_}) ->
+    R = <<"    CLR => '0',\n">>,
     CE = <<"    CE => ", (compile_logic(CE_))/binary, ",\n">>,
-    {d, <<"FDE">>, <<>>, <<>>, CE};
+    {d, <<"FDCE">>, <<>>, R, CE};
 compile_d_type(#{}) ->
     {d, <<"FD">>, <<>>, <<>>, <<>>}.
 
