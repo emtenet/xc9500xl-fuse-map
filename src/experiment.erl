@@ -62,7 +62,9 @@ compile(Signals) ->
         "  );\n"
         "end experiment;\n"
         "\n"
-        "architecture behavioral of experiment is begin\n">>,
+        "architecture behavioral of experiment is">>,
+        compile_signals(Signals), <<
+        "begin\n">>,
         [ compile_vhdl(Signal) || Signal <- Signals ], <<
         "end behavioral;\n"
     >>]),
@@ -194,14 +196,32 @@ compile_init(#{}) ->
 
 %%--------------------------------------------------------------------
 
+compile_signals(Signals) ->
+    case lists:filtermap(fun compile_signal/1, Signals) of
+        [] ->
+            <<" ">>;
+
+        Code ->
+            [<<"\n">> | Code]
+    end.
+
+%%--------------------------------------------------------------------
+
+compile_signal({Output_, _, _, #{clk := _, oe := _}}) ->
+    Output = compile_net(Output_),
+    Signal = <<Output/binary, "_Q">>,
+    {true, <<
+        "  signal ", Signal/binary, " : STD_LOGIC;\n"
+    >>};
+compile_signal(_) ->
+    false.
+
+%%--------------------------------------------------------------------
+
 compile_ff_oe(Output, #{oe := OE_}) ->
     Signal = <<Output/binary, "_Q">>,
     OE = compile_oe(Output, Signal, Output, OE_),
-    Buffer = <<
-        "  signal ", Signal/binary, " : STD_LOGIC;\n",
-        OE/binary
-    >>,
-    {Buffer, Signal};
+    {OE, Signal};
 compile_ff_oe(Output, _) ->
     {<<>>, Output}.
 
@@ -213,7 +233,7 @@ compile_oe(Name, Input_, Output_, OE_) ->
     OE = compile_logic(OE_),
     <<
         "  ", Name/binary, "_OE: OBUFE port map (\n"
-        "    I => ", Input/binary, "_Q,\n"
+        "    I => ", Input/binary, ",\n"
         "    O => ", Output/binary, ",\n"
         "    E => ", OE/binary, "\n"
         "  );\n"
