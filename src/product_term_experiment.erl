@@ -125,6 +125,22 @@ run() ->
             {o, O, d, #{clk => {low, t}}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
+        {clock_inv, [
+            {clk, GCK},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, {low, d}, #{clk => t}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {clock_not_inv, [
+            {clk, GCK},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, {low, d}, #{clk => {low, t}}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
         {ce, [
             {clk, GCK},
             {d, D},
@@ -171,6 +187,22 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => {low, t}, r => s}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {oe, [
+            {clk, GCK},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => clk, oe => t}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {oe_not, [
+            {clk, GCK},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => clk, oe => {low, t}}},
             {z, Z, d, #{clk => clk, s => s}}
         ]}
     ]))).
