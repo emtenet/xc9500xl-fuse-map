@@ -52,31 +52,52 @@ imux_instance([<<"FB_INSTANCE | INPUTPINS_", _/binary>> | Lines], Pins) ->
 imux_instance([Line = <<"FB_INSTANCE ", _/binary>> | Lines], Pins) ->
     % FB_INSTANCE | FOOBAR1_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
     [_, FB_ | _] = binary:split(Line, <<" | ">>, [global]),
-    {_, FBNumber} = imux_fb(FB_),
+    FBNumber = imux_fb_number(FB_),
     imux_pins(Lines, FBNumber, Pins);
 imux_instance([_ | Lines], Pins) ->
     imux_instance(Lines, Pins).
 
 %%--------------------------------------------------------------------
 
-imux_fb(<<"FOOBAR1_">>) -> {fb01, 1};
-imux_fb(<<"FOOBAR2_">>) -> {fb02, 2};
-imux_fb(<<"FOOBAR3_">>) -> {fb03, 3};
-imux_fb(<<"FOOBAR4_">>) -> {fb04, 4};
-imux_fb(<<"FOOBAR5_">>) -> {fb05, 5};
-imux_fb(<<"FOOBAR6_">>) -> {fb06, 6};
-imux_fb(<<"FOOBAR7_">>) -> {fb07, 7};
-imux_fb(<<"FOOBAR8_">>) -> {fb08, 8};
-imux_fb(<<"FOOBAR9_">>) -> {fb09, 9};
-imux_fb(<<"FOOBAR10_">>) -> {fb10, 10};
-imux_fb(<<"FOOBAR11_">>) -> {fb11, 11};
-imux_fb(<<"FOOBAR12_">>) -> {fb12, 12};
-imux_fb(<<"FOOBAR13_">>) -> {fb13, 13};
-imux_fb(<<"FOOBAR14_">>) -> {fb14, 14};
-imux_fb(<<"FOOBAR15_">>) -> {fb15, 15};
-imux_fb(<<"FOOBAR16_">>) -> {fb16, 16};
-imux_fb(<<"FOOBAR17_">>) -> {fb17, 17};
-imux_fb(<<"FOOBAR18_">>) -> {fb18, 18}.
+imux_fb(<<"FOOBAR1_">>) -> fb01;
+imux_fb(<<"FOOBAR2_">>) -> fb02;
+imux_fb(<<"FOOBAR3_">>) -> fb03;
+imux_fb(<<"FOOBAR4_">>) -> fb04;
+imux_fb(<<"FOOBAR5_">>) -> fb05;
+imux_fb(<<"FOOBAR6_">>) -> fb06;
+imux_fb(<<"FOOBAR7_">>) -> fb07;
+imux_fb(<<"FOOBAR8_">>) -> fb08;
+imux_fb(<<"FOOBAR9_">>) -> fb09;
+imux_fb(<<"FOOBAR10_">>) -> fb10;
+imux_fb(<<"FOOBAR11_">>) -> fb11;
+imux_fb(<<"FOOBAR12_">>) -> fb12;
+imux_fb(<<"FOOBAR13_">>) -> fb13;
+imux_fb(<<"FOOBAR14_">>) -> fb14;
+imux_fb(<<"FOOBAR15_">>) -> fb15;
+imux_fb(<<"FOOBAR16_">>) -> fb16;
+imux_fb(<<"FOOBAR17_">>) -> fb17;
+imux_fb(<<"FOOBAR18_">>) -> fb18.
+
+%%--------------------------------------------------------------------
+
+imux_fb_number(<<"FOOBAR1_">>) -> 1;
+imux_fb_number(<<"FOOBAR2_">>) -> 2;
+imux_fb_number(<<"FOOBAR3_">>) -> 3;
+imux_fb_number(<<"FOOBAR4_">>) -> 4;
+imux_fb_number(<<"FOOBAR5_">>) -> 5;
+imux_fb_number(<<"FOOBAR6_">>) -> 6;
+imux_fb_number(<<"FOOBAR7_">>) -> 7;
+imux_fb_number(<<"FOOBAR8_">>) -> 8;
+imux_fb_number(<<"FOOBAR9_">>) -> 9;
+imux_fb_number(<<"FOOBAR10_">>) -> 10;
+imux_fb_number(<<"FOOBAR11_">>) -> 11;
+imux_fb_number(<<"FOOBAR12_">>) -> 12;
+imux_fb_number(<<"FOOBAR13_">>) -> 13;
+imux_fb_number(<<"FOOBAR14_">>) -> 14;
+imux_fb_number(<<"FOOBAR15_">>) -> 15;
+imux_fb_number(<<"FOOBAR16_">>) -> 16;
+imux_fb_number(<<"FOOBAR17_">>) -> 17;
+imux_fb_number(<<"FOOBAR18_">>) -> 18.
 
 %%--------------------------------------------------------------------
 
