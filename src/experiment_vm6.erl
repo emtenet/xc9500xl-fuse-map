@@ -109,10 +109,17 @@ imux_mc(FBNumber, MC) ->
 
 imux_pins([Line = <<"FBPIN ", _/binary>> | Lines], FBNumber, Pins) ->
     % FBPIN | 14 | NULL | 0 | d_IBUF | 1 | NULL | 0 | E2 | 49152
-    [_, MC_, _, _, _, _, _, _, Pin, _]
+    % FBPIN | 15 | hidden | 1 | NULL | 0 | NULL | 0 | C2 | 49152
+    [_, MC_, Name, _, _, _, _, _, Pin, _]
         = binary:split(Line, <<" | ">>, [global]),
     MC = imux_mc(FBNumber, MC_),
-    imux_pins(Lines, FBNumber, Pins#{Pin => MC});
+    case Name of
+        <<"NULL">> ->
+            imux_pins(Lines, FBNumber, Pins#{Pin => MC});
+
+        _ ->
+            imux_pins(Lines, FBNumber, Pins#{Pin => MC, Name => MC})
+    end;
 imux_pins([<<>> | Lines], _, Pins) ->
     imux_instance(Lines, Pins).
 
@@ -132,20 +139,28 @@ imux_inputs([_ | Lines], FBs, Pins) ->
 
 imux_inputs([], _, FBs, _) ->
     FBs;
+imux_inputs([Index_, Name, <<"NULL">> | Inputs], FB, FBs, Pins) ->
+    % convert index from 0-based to 1-based
+    Index = 1 + binary_to_integer(Index_),
+    #{Name := MC} = Pins,
+    imux_inputs(Inputs, FB, imux_input(FB, mc, MC, Index, FBs), Pins);
 imux_inputs([Index_, _Name, Pin | Inputs], FB, FBs, Pins) ->
     % convert index from 0-based to 1-based
     Index = 1 + binary_to_integer(Index_),
     #{Pin := MC} = Pins,
-    imux_inputs(Inputs, FB, imux_input(FB, MC, Index, FBs), Pins).
+    imux_inputs(Inputs, FB, imux_input(FB, io, MC, Index, FBs), Pins).
 
 %%--------------------------------------------------------------------
 
-imux_input(FB, MC, Index, FBs) ->
+imux_input(FB, Type, MC, Index, FBs) ->
     case FBs of
-        #{FB := MCs} ->
-            FBs#{FB => MCs#{MC => Index}};
+        #{FB := Types = #{Type := MCs}} ->
+            FBs#{FB => Types#{Type => MCs#{MC => Index}}};
+
+        #{FB := Types} ->
+            FBs#{FB => Types#{Type => #{MC => Index}}};
 
         _ ->
-            FBs#{FB => #{MC => Index}}
+            FBs#{FB => #{Type => #{MC => Index}}}
     end.
 
