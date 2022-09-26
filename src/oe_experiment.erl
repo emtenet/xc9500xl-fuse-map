@@ -94,21 +94,21 @@ sources([{GTS, _, _, _} | Options], MC, Input, OEs, Sources) ->
 source(GTS, Low, MC, Input, OEs) ->
     Detect = case GTS of
         on ->
-            {v, MC, <<"a">>};
+            {v, MC, a};
 
         _ when Low =:= low ->
-            {v, MC, <<"a">>, {GTS, low}};
+            {v, MC, a, #{oe => {low, GTS}}};
 
         _ ->
-            {v, MC, <<"a">>, GTS}
+            {v, MC, a, #{oe => GTS}}
     end,
     Enables = [
-        {OE, Loc}
+        {OE, Loc, #{global => gts}}
         ||
         {OE, Loc, _, _} <- OEs
     ],
     Controls = [
-        {Net, Loc, <<"a">>, OE}
+        {Net, Loc, a, #{oe => OE}}
         ||
         {OE, _, Net, Loc} <- OEs
     ],
@@ -264,5 +264,5 @@ fuses(MC, {matrix,
 %%--------------------------------------------------------------------
 
 fuse(Fuse, MC, Extra) ->
-    {Fuse, list_to_atom(io_lib:format("~s_~s", [MC, Extra]))}.
+    {Fuse, fuse:macro_cell(MC, Extra)}.
 
