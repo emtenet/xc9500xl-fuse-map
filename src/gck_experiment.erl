@@ -14,7 +14,15 @@
 %%    * GCK3
 %%    * a product-term
 %%
-%%  We do not attempt to detect a product-term clock.
+%%  NOTE: We do not attempt to detect a product-term clock.
+%%
+%%  Two-bit selection of the 4 global clock pins.
+%%
+%%      gck_1 gck_0 -> pin
+%%        0     0      gck2
+%%        0     1      gck1
+%%        1     0      gck3
+%%        1     1      product-term?
 
 %%====================================================================
 %% run
@@ -76,8 +84,8 @@ controls([GMC | GMCs], [GName | GNames], [Name | Names], MC, Avail0, Used, Contr
 %%--------------------------------------------------------------------
 
 sources([], MC, Input, Controls, Sources) ->
-    Source = source(on, MC, Input, Controls),
-    [Source | lists:reverse(Sources)];
+    Bypass = source(on, MC, Input, Controls),
+    [Bypass | lists:reverse(Sources)];
 sources([{GCK, _, _, _} | Clocks], MC, Input, Controls, Sources) ->
     Source = source(GCK, MC, Input, Controls),
     sources(Clocks, MC, Input, Controls, [Source | Sources]).
@@ -93,7 +101,7 @@ source(GCK, MC, Input, Controls_) ->
             {o, MC, i, #{clk => GCK}}
     end,
     Clocks = [
-        {Net, Loc}
+        {Net, Loc, #{global => gck}}
         ||
         {Net, Loc, _, _} <- Controls_
     ],
@@ -132,9 +140,9 @@ fuses(MC, {matrix,
             {gck3, [off, on , off]}
            ]
           }) ->
-    [fuse(BYPASS, MC, ff_bypass),
-     fuse(GCK1, MC, ff_gck1),
-     fuse(GCK3, MC, ff_gck3)
+    [fuse(BYPASS, MC, bypass),
+     fuse(GCK1, MC, gck_0),
+     fuse(GCK3, MC, gck_1)
     ];
 fuses(MC, {matrix,
            [BYPASS, GCK3],
@@ -143,8 +151,8 @@ fuses(MC, {matrix,
             {gck3, [off, on ]}
            ]
           }) ->
-    [fuse(BYPASS, MC, ff_bypass),
-     fuse(GCK3, MC, ff_gck3)
+    [fuse(BYPASS, MC, bypass),
+     fuse(GCK3, MC, gck_1)
     ];
 fuses(MC, {matrix,
            [BYPASS, GCK3, GCK1],
@@ -153,9 +161,9 @@ fuses(MC, {matrix,
             {gck3, [off, on , off]}
            ]
           }) ->
-    [fuse(BYPASS, MC, ff_bypass),
-     fuse(GCK1, MC, ff_gck1),
-     fuse(GCK3, MC, ff_gck3)
+    [fuse(BYPASS, MC, bypass),
+     fuse(GCK1, MC, gck_0),
+     fuse(GCK3, MC, gck_1)
     ];
 fuses(MC, {matrix,
            [BYPASS, GCK1],
@@ -164,12 +172,12 @@ fuses(MC, {matrix,
             {gck2, [off, off]}
            ]
           }) ->
-    [fuse(BYPASS, MC, ff_bypass),
-     fuse(GCK1, MC, ff_gck1)
+    [fuse(BYPASS, MC, bypass),
+     fuse(GCK1, MC, gck_0)
     ].
 
 %%--------------------------------------------------------------------
 
-fuse(Fuse, MC, Extra) ->
-    {Fuse, list_to_atom(io_lib:format("~s_~s", [MC, Extra]))}.
+fuse(Fuse, MC, Name) ->
+    {Fuse, fuse:macro_cell(MC, Name)}.
 
