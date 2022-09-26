@@ -55,8 +55,7 @@ unused([_], _, Updates) ->
 unused([{MC, _, {_, G1}} | Es = [{_, _, {_, G2}} | _]], Unused, Updates) ->
     Grounds = fuses:union(G1, G2),
     [Fuse] = fuses:subtract(Unused, Grounds),
-    Name = list_to_atom(io_lib:format("~s_ground", [MC])),
-    Update = {Fuse, Name},
+    Update = {Fuse, fuse:macro_cell(MC, ground)},
     unused(Es, Unused, [Update | Updates]).
 
 %%====================================================================
@@ -65,29 +64,15 @@ unused([{MC, _, {_, G1}} | Es = [{_, _, {_, G2}} | _]], Unused, Updates) ->
 
 experiment(Device, Output, Input, Unused) ->
     io:format(".", []),
-    %io:format(" => unused ~s ~s = ~s (~s)~n", [Device, Output, Input, Unused]),
+    {UCF, VHDL} = experiment:compile([
+        {input, Input},
+        {output, Output, input}
+    ]),
     Cache = experiment:cache(#{
         device => Device,
-        ucf => <<
-            "NET \"input\" LOC = \"", (macro_cell:name(Input))/binary, "\";\n"
-            "NET \"output\" LOC = \"", (macro_cell:name(Output))/binary, "\";\n"
-        >>,
+        ucf => UCF,
         unused => Unused,
-        vhdl => <<
-            "library IEEE;\n"
-            "use IEEE.STD_LOGIC_1164.ALL;\n"
-            "\n"
-            "entity experiment is\n"
-            "  port (\n"
-            "    input : in  STD_LOGIC;\n"
-            "    output : out STD_LOGIC\n"
-            "  );\n"
-            "end experiment;\n"
-            "\n"
-            "architecture behavioral of experiment is begin\n"
-            "  output <= input;\n"
-            "end behavioral;\n"
-        >>
+        vhdl => VHDL
     }),
     Name = iolist_to_binary(io_lib:format(
         "~s <= ~s, ~s",
