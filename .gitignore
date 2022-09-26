@@ -1,7 +1,6 @@
 .erlang.mk/
 .xc9500xl.plt
-cache
+cache/*
 ebin/
 experiment/
-fuses/*.txt
 xc9500xl.d

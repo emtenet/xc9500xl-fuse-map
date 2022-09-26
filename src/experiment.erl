@@ -443,9 +443,7 @@ cache_query(With) ->
 cache_dir(Query) ->
     Hash = crypto:hash(sha256, Query),
     Base64 = base64url:encode(Hash),
-    cache_make_dir("cache"),
-    cache_make_dir(filename:join(["cache", "db"])),
-    cache_make_dir(filename:join(["cache", "db", Base64])).
+    cache_make_dir(filename:join("cache", Base64)).
 
 %%--------------------------------------------------------------------
 
