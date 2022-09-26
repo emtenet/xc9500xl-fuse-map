@@ -39,8 +39,7 @@ run([Input | IOs = [Output | _]], Device, Updates) ->
     Slow = experiment(Device, Output, Input, slow),
     % turn on FUSE to go from SLOW to FAST
     {[Fuse], []} = fuses:diff(Slow, Fast),
-    Name = list_to_atom(io_lib:format("~s_slew_rate", [Output])),
-    Update = {Fuse, Name},
+    Update = {Fuse, fuse:macro_cell(Output, fast)},
     run(IOs, Device, [Update | Updates]).
 
 %%--------------------------------------------------------------------
@@ -55,28 +54,15 @@ io_pairs(Device) ->
 
 experiment(Device, Output, Input, Slew) ->
     io:format(".", []),
+    {UCF, VHDL} = experiment:compile([
+        {input, Input},
+        {output, Output, input}
+    ]),
     Cache = experiment:cache(#{
         device => Device,
         slew => Slew,
-        ucf => <<
-            "NET \"input\" LOC = \"", (macro_cell:name(Input))/binary, "\";\n"
-            "NET \"output\" LOC = \"", (macro_cell:name(Output))/binary, "\";\n"
-        >>,
-        vhdl => <<
-            "library IEEE;\n"
-            "use IEEE.STD_LOGIC_1164.ALL;\n"
-            "\n"
-            "entity experiment is\n"
-            "  port (\n"
-            "    input : in  STD_LOGIC;\n"
-            "    output : out STD_LOGIC\n"
-            "  );\n"
-            "end experiment;\n"
-            "\n"
-            "architecture behavioral of experiment is begin\n"
-            "  output <= input;\n"
-            "end behavioral;\n"
-        >>
+        ucf => UCF,
+        vhdl => VHDL
     }),
     experiment:cached_jed(Cache).
 

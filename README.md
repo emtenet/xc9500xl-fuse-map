@@ -5,7 +5,7 @@
 
  - [x] `user_bits_experiment` - 32 user bits
  - [x] `unused_experiment` - ground unused IO pins
- - [ ] `slew_rate_experiment` - slow / fast slew-rate
+ - [x] `slew_rate_experiment` - slow / fast slew-rate
  - [ ] `oe_experiment` - GTS1 / GTS2 / GTS3 / GTS3 / invert
  - [x] `ff_experiment` - bypass / d-type / t-type flip flops
  - [ ] `gck_experiment` - GCK1 / GCK2 / GCK3
