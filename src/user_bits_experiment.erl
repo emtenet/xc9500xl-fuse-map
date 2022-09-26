@@ -16,7 +16,8 @@ run() ->
 run(Density) ->
     [Device | _] = density:devices(Density),
     io:format(" => user-bits ~s~n", [Density]),
-    Base = {Device, ?BASE, experiment(Device, ?BASE)},
+    With = experimient_for(Device),
+    Base = {With, ?BASE, experiment(With, ?BASE)},
     U28 = add1(Base, <<"P@@@">>),
     U29 = add1(Base, <<"`@@@">>),
     U30 = del1_add2(Base, <<"0@@@">>, U28, U29),
@@ -54,44 +55,44 @@ run(Density) ->
     U00 = add1(Base, <<"@@@H">>),
     %
     fuses:update(Device, [
-        {U31, user_31},
-        {U30, user_30},
-        {U29, user_29},
-        {U28, user_28},
-        {U27, user_27},
-        {U26, user_26},
-        {U25, user_25},
-        {U24, user_24},
-        {U23, user_23},
-        {U22, user_22},
-        {U21, user_21},
-        {U20, user_20},
-        {U19, user_19},
-        {U18, user_18},
-        {U17, user_17},
-        {U16, user_16},
-        {U15, user_15},
-        {U14, user_14},
-        {U13, user_13},
-        {U12, user_12},
-        {U11, user_11},
-        {U10, user_10},
-        {U09, user_09},
-        {U08, user_08},
-        {U07, user_07},
-        {U06, user_06},
-        {U05, user_05},
-        {U04, user_04},
-        {U03, user_03},
-        {U02, user_02},
-        {U01, user_01},
-        {U00, user_00}
+        {U31, user31},
+        {U30, user30},
+        {U29, user29},
+        {U28, user28},
+        {U27, user27},
+        {U26, user26},
+        {U25, user25},
+        {U24, user24},
+        {U23, user23},
+        {U22, user22},
+        {U21, user21},
+        {U20, user20},
+        {U19, user19},
+        {U18, user18},
+        {U17, user17},
+        {U16, user16},
+        {U15, user15},
+        {U14, user14},
+        {U13, user13},
+        {U12, user12},
+        {U11, user11},
+        {U10, user10},
+        {U09, user09},
+        {U08, user08},
+        {U07, user07},
+        {U06, user06},
+        {U05, user05},
+        {U04, user04},
+        {U03, user03},
+        {U02, user02},
+        {U01, user01},
+        {U00, user00}
     ]).
 
 %%--------------------------------------------------------------------
 
-run({Device, Base, BaseFuses}, Diff) ->
-    DiffFuses = experiment(Device, Diff),
+run({With, Base, BaseFuses}, Diff) ->
+    DiffFuses = experiment(With, Diff),
     {Add, Del} = fuses:diff(BaseFuses, DiffFuses),
     io:format("~s -> ~s | add ~p del ~p~n", [Base, Diff, Add, Del]),
     {Add, Del}.
@@ -100,11 +101,10 @@ run({Device, Base, BaseFuses}, Diff) ->
 %% experiment
 %%====================================================================
 
-experiment(Device, UserCode) ->
-    experiment:run(#{
+experimient_for(Device) ->
+    #{
         device => Device,
         ucf => <<>>,
-        usercode => UserCode,
         vhdl => <<
             "library IEEE;\n"
             "use IEEE.STD_LOGIC_1164.ALL;\n"
@@ -117,8 +117,15 @@ experiment(Device, UserCode) ->
             "  output <= '1';\n"
             "end Behavioral;\n"
         >>
+    }.
+
+%%--------------------------------------------------------------------
+
+experiment(With, UserCode) ->
+    Cache = experiment:cache(With#{
+        usercode => UserCode
     }),
-    experiment:jed().
+    experiment:cached_jed(Cache).
 
 %%====================================================================
 %% helpers
