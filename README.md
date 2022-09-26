@@ -12,6 +12,7 @@
  - [ ] `gsr_experiment` - set via GSR / reset via GSR
  - [x] `gsr_invert_experiment` - global GSR invert
 
+
 ## Fuses
 
 ### `{user##}`
@@ -22,21 +23,30 @@ User signature bits in the range 0..31.
 
 Invert the global GSR signal.
 
+### `{fb##, mc##, ground}`
+
+Ground pin to help reduce system noise, i.e when pin is unused.
+
+### `{fb##, mc##, fast}`
+
+Change the slew-rage of an output from slow to fast.
+
 ### `{fb##, mc##, bypass}`
 
 Bypass the flip-flop and output the XOR signal directly.
+
 
 ## Glossary
 
 ### `fb##`
 
 Function Block with `##` in the range:
-   - 1..2 for XC9526XL
-   - 1..4 for XC9572XL
-   - 1..8 for XC95144XL
-   - 1..16 for XC95288XL
+   - 1 to 2 for XC9526XL,
+   - 1 to 4 for XC9572XL,
+   - 1 to 8 for XC95144XL,
+   - 1 to 16 for XC95288XL.
 
 ### `mc##`
 
-Macro Cell with `##` in the range 1..18 
+Macro Cell with `##` in the range 1 to 18.
 
