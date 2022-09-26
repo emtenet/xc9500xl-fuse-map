@@ -333,9 +333,9 @@ read_line(<<FuseBinary:6/binary, ": ", NameBinary/binary>>) ->
 %% name_if_known
 %%====================================================================
 
-name_if_known(Fuses, {fuses, _, Fuses}) ->
+name_if_known(Fuses, {fuses, _, FuseToName}) ->
     lists:map(fun (Fuse) ->
-        case Fuses of
+        case FuseToName of
             #{Fuse := Name} ->
                 Name;
 
