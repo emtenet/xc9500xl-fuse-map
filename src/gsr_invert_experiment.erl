@@ -65,8 +65,8 @@ source(Name, GSR, GCK, I, Os) ->
     end,
     {Name, [
         {i, I},
-        {gck, GCK},
-        {gsr, GSR}
+        {gck, GCK, #{global => gck}},
+        {gsr, GSR, #{global => gsr}}
         |
         [ signal(O, Reset) || O <- Os ]
     ]}.

@@ -10,5 +10,5 @@
  - [x] `ff_experiment` - bypass / d-type / t-type flip flops
  - [ ] `gck_experiment` - GCK1 / GCK2 / GCK3
  - [ ] `gsr_experiment` - set via GSR / reset via GSR
- - [ ] `gsr_invert_experiment` - invert GSR per function-block
+ - [x] `gsr_invert_experiment` - global GSR invert
 
