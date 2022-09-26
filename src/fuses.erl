@@ -11,7 +11,6 @@
 -export([matrix/1]).
 
 %% database
--export([report/0]).
 -export([update/2]).
 -export([read/1]).
 -export([name_if_known/2]).
@@ -243,36 +242,6 @@ matrix_fuses([off | Fuses]) ->
     matrix_fuses(Fuses).
 
 %%====================================================================
-%% report
-%%====================================================================
-
-report() ->
-    lists:foreach(fun report/1, density:list()).
-
-%%--------------------------------------------------------------------
-
-report(Density) ->
-    Max = density:fuse_count(Density),
-    {ok, [_, Numbers0]} = file:consult(data_file(Density)),
-    Numbers = lists:sort(maps:to_list(Numbers0)),
-    Data = report(0, Numbers, [], Max),
-    ok = file:write_file(report_file(Density), Data).
-
-%%--------------------------------------------------------------------
-
-report(Fuse, [], Lines, Max) when Fuse =:= Max ->
-    lists:reverse(Lines);
-report(Fuse, [], Lines, Max) when Fuse < Max ->
-    Line = io_lib:format("~6..0b:~n", [Fuse]),
-    report(Fuse + 1, [], [Line | Lines], Max);
-report(Fuse, Fuses = [{Next, _} | _], Lines, Max) when Fuse < Next ->
-    Line = io_lib:format("~6..0b:~n", [Fuse]),
-    report(Fuse + 1, Fuses, [Line | Lines], Max);
-report(Fuse, [{Fuse, Name} | Fuses], Lines, Max) ->
-    Line = io_lib:format("~6..0b: ~p~n", [Fuse, Name]),
-    report(Fuse + 1, Fuses, [Line | Lines], Max).
-
-%%====================================================================
 %% update
 %%====================================================================
 
@@ -280,36 +249,37 @@ report(Fuse, [{Fuse, Name} | Fuses], Lines, Max) ->
 
 update(_, []) ->
     ok;
-update(DensityOrDevice, AddNumbers) ->
-    update_validate(AddNumbers),
+update(DensityOrDevice, UpdateList) ->
+    update_check(UpdateList),
+    UpdateMap = maps:from_list(UpdateList),
     Density = density:or_device(DensityOrDevice),
-    File = data_file(Density),
-    case file:consult(File) of
-        {ok, [Names, Numbers]} ->
-            update(File, Names, Numbers, AddNumbers);
+    File = database_file(Density),
+    Fuses = case read_file(File) of
+        {ok, ExistingMap} ->
+            maps:merge(ExistingMap, UpdateMap);
 
-        {error, enoent} ->
-            update(File, #{}, #{}, AddNumbers)
-    end.
-
-%%--------------------------------------------------------------------
-
-update(File, _Names0, Numbers0, AddNumbers) ->
-    Numbers = maps:merge(Numbers0, maps:from_list(AddNumbers)),
-    Names = maps:from_list([
-        {Name, Number}
-        ||
-        {Number, Name} <- maps:to_list(Numbers)
-    ]),
-    Data = io_lib:format("~p.~n~p.~n", [Names, Numbers]),
-    ok = file:write_file(File, Data).
+        false ->
+            UpdateMap
+    end,
+    update_file(File, Fuses).
 
 %%--------------------------------------------------------------------
 
-update_validate([]) ->
+update_check([]) ->
     ok;
-update_validate([{Fuse, _Name} | Fuses]) when is_integer(Fuse) ->
-    update_validate(Fuses).
+update_check([{Fuse, _Name} | Fuses]) when is_integer(Fuse) ->
+    update_check(Fuses).
+
+%%--------------------------------------------------------------------
+
+update_file(File, Fuses) ->
+    Sorted = lists:sort(maps:to_list(Fuses)),
+    Lines = [
+        io_lib:format("~6..0b: ~p~n", [Fuse, Name])
+        ||
+        {Fuse, Name} <- Sorted
+    ],
+    ok = file:write_file(File, Lines).
 
 %%====================================================================
 %% read
@@ -317,22 +287,55 @@ update_validate([{Fuse, _Name} | Fuses]) when is_integer(Fuse) ->
 
 read(DensityOrDevice) ->
     Density = density:or_device(DensityOrDevice),
-    File = data_file(Density),
-    case file:consult(File) of
-        {ok, [Names, Numbers]} ->
-            {fuses, Density, Names, Numbers};
+    File = database_file(Density),
+    case read_file(File) of
+        {ok, Fuses} ->
+            {fuses, Density, Fuses};
+
+        false ->
+            {fuses, Density, #{}}
+    end.
+
+%%--------------------------------------------------------------------
+
+read_file(File) ->
+    case file:read_file(File) of
+        {ok, Binary} ->
+            Lines = binary:split(Binary, <<"\n">>, [global]),
+            read_lines(Lines, -1, #{});
 
         {error, enoent} ->
-            {fuses, Density, #{}, #{}}
+            false
     end.
+
+%%--------------------------------------------------------------------
+
+read_lines([], _, Fuses) ->
+    {ok, Fuses};
+read_lines([<<>>], _, Fuses) ->
+    {ok, Fuses};
+read_lines([Line | Lines], Previous, Fuses) ->
+    case read_line(Line) of
+        {Fuse, Name} when Fuse > Previous ->
+            read_lines(Lines, Fuse, Fuses#{Fuse => Name})
+    end.
+
+%%--------------------------------------------------------------------
+
+read_line(<<FuseBinary:6/binary, ": ", NameBinary/binary>>) ->
+    Fuse = binary_to_integer(FuseBinary),
+    NameString = binary_to_list(<<NameBinary/binary, ".">>),
+    {ok, NameTokens, _} = erl_scan:string(NameString),
+    {ok, Name} = erl_parse:parse_term(NameTokens),
+    {Fuse, Name}.
 
 %%====================================================================
 %% name_if_known
 %%====================================================================
 
-name_if_known(Fuses, {fuses, _, _, FuseToName}) ->
+name_if_known(Fuses, {fuses, _, Fuses}) ->
     lists:map(fun (Fuse) ->
-        case FuseToName of
+        case Fuses of
             #{Fuse := Name} ->
                 Name;
 
@@ -345,11 +348,6 @@ name_if_known(Fuses, {fuses, _, _, FuseToName}) ->
 %% helpers
 %%====================================================================
 
-data_file(Density) ->
-    lists:flatten(io_lib:format("fuses/~s.data", [Density])).
-
-%%--------------------------------------------------------------------
-
-report_file(Density) ->
-    lists:flatten(io_lib:format("fuses/~s.txt", [Density])).
+database_file(Density) ->
+    lists:flatten(io_lib:format("database/~s.fuses", [Density])).
 
