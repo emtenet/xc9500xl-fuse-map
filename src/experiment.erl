@@ -167,6 +167,8 @@ compile_port({Net, _, #{global := gsr}}) ->
     compile_port(Net, <<"in">>);
 compile_port({Net, _, #{global := gts}}) ->
     compile_port(Net, <<"in">>);
+compile_port({Net, _, #{}}) ->
+    compile_port(Net, <<"in">>);
 compile_port({Net, _, _}) ->
     compile_port(Net, <<"out">>);
 compile_port({Net, _, _, _}) ->
