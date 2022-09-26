@@ -6,7 +6,7 @@
 %%
 %%  Each macro-cell's flip-flop can be either d-type or t-type
 %%
-%%  Each macro-cell's flip-flop can be initialized to '0' or '1'
+%%  Each macro-cell's flip-flop can be preset to '0' or '1'
 
 %%====================================================================
 %% run
@@ -72,7 +72,7 @@ source(Name, I, GCK, O) ->
     end,
     {Name, [
         {i, I},
-        {gck, GCK},
+        {gck, GCK, #{global => gck}},
         {o, O, i, FF}
     ]}.
 
@@ -99,12 +99,12 @@ fuses(MC, {matrix,
             {init, [off, on ]}
            ]
           }) ->
-    [fuse(T, MC, ff_toggle),
-     fuse(INIT, MC, ff_init)
+    [fuse(T, MC, t_type),
+     fuse(INIT, MC, preset)
     ].
 
 %%--------------------------------------------------------------------
 
-fuse(Fuse, MC, Extra) ->
-    {Fuse, list_to_atom(io_lib:format("~s_~s", [MC, Extra]))}.
+fuse(Fuse, MC, Name) ->
+    {Fuse, fuse:macro_cell(MC, Name)}.
 
