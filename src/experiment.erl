@@ -16,7 +16,19 @@
 %% compile
 %%====================================================================
 
--type cell() :: #{
+-type input() :: #{
+        global => global()
+    }.
+-type global() :: gck | gsr | gts.
+-type internal() :: #{
+        init => 0 | 1,
+        type => d | t,
+        clk => logic(),
+        ce => logic(),
+        s => logic(),
+        r => logic()
+    }.
+-type output() :: #{
         init => 0 | 1,
         type => d | t,
         clk => logic(),
@@ -25,24 +37,25 @@
         r => logic(),
         oe => logic()
     }.
+-type net() :: atom().
+-type mc() :: atom().
 -type logic() :: atom() | {low, atom()} | binary().
--type oe() :: logic().
 -type signal() ::
     % input
-    {Net :: atom(), Loc :: atom()} |
-    % output
-    {Net :: atom(), Loc :: atom(), Logic :: logic()} |
-    {Net :: atom(), Loc :: atom(), Logic :: logic(), Cell :: oe() | cell()} |
+    {net(), mc()} |
+    {net(), mc(), input()} |
     % internal
-    {Net :: atom(), Logic :: logic(), Cell :: cell()}.
+    {net(), mc(), logic(), internal, internal()}  |
+    % output
+    {net(), mc(), logic()} |
+    {net(), mc(), logic(), output()}.
 -spec compile([signal()]) -> {binary(), binary()}.
 
 compile(Signals) ->
     UCF = iolist_to_binary([
         compile_ucf(Signal)
         ||
-        Signal <- Signals,
-        not compile_internal(Signal)
+        Signal <- Signals
     ]),
     Ports = [
         compile_port(Signal)
@@ -51,6 +64,12 @@ compile(Signals) ->
         not compile_internal(Signal)
     ],
     Library = compile_library(Signals),
+    Logic = [
+        compile_vhdl(Signal)
+        ||
+        Signal <- Signals,
+        not compile_input(Signal)
+    ],
     VHDL = iolist_to_binary([<<
         "library IEEE;\n"
         "use IEEE.STD_LOGIC_1164.ALL;\n">>,
@@ -65,7 +84,7 @@ compile(Signals) ->
         "architecture behavioral of experiment is">>,
         compile_signals(Signals), <<
         "begin\n">>,
-        [ compile_vhdl(Signal) || Signal <- Signals ], <<
+        Logic, <<
         "end behavioral;\n"
     >>]),
     {UCF, VHDL}.
@@ -74,11 +93,16 @@ compile(Signals) ->
 
 compile_library([]) ->
     <<>>;
-compile_library([{_, _} | Signals]) ->
-    compile_library(Signals);
-compile_library([{_, _, Logic} | Signals]) when not is_map(Logic) ->
-    compile_library(Signals);
-compile_library(_) ->
+compile_library([{_, _, _, _} | _]) ->
+    compile_library();
+compile_library([{_, _, _, internal, _} | _]) ->
+    compile_library();
+compile_library([_ | Signals]) ->
+    compile_library(Signals).
+
+%%--------------------------------------------------------------------
+
+compile_library() ->
     <<
         "library UNISIM;\n"
         "use UNISIM.vcomponents.ALL;\n"
@@ -91,32 +115,59 @@ compile_net(Net) ->
 
 %%--------------------------------------------------------------------
 
-compile_internal({_, _, #{}}) ->
+compile_input({_, _}) ->
+    true;
+compile_input({_, _, #{}}) ->
+    true;
+compile_input(_) ->
+    false.
+
+%%--------------------------------------------------------------------
+
+compile_internal({_, _, _, internal, _}) ->
     true;
 compile_internal(_) ->
     false.
 
 %%--------------------------------------------------------------------
 
-compile_ucf({Net, Loc}) ->
-    compile_ucf(Net, Loc);
-compile_ucf({Net, Loc, Logic}) when not is_map(Logic) ->
-    compile_ucf(Net, Loc);
-compile_ucf({Net, Loc, _, _}) ->
-    compile_ucf(Net, Loc).
+compile_ucf({Net, MC, #{global := gck}}) ->
+    compile_ucf(Net, MC, <<" | BUFG=CLK">>);
+compile_ucf({Net, MC, #{global := gsr}}) ->
+    compile_ucf(Net, MC, <<" | BUFG=SR">>);
+compile_ucf({Net, MC, #{global := gts}}) ->
+    compile_ucf(Net, MC, <<" | BUFG=OE">>);
+compile_ucf({Net, MC}) ->
+    compile_ucf(Net, MC, <<>>);
+compile_ucf({Net, MC, _}) ->
+    compile_ucf(Net, MC, <<>>);
+compile_ucf({Net, MC, _, _}) ->
+    compile_ucf(Net, MC, <<>>);
+compile_ucf({Net, MC, _, internal, _}) ->
+    compile_ucf(Net, MC, <<>>).
 
 %%--------------------------------------------------------------------
 
-compile_ucf(Net_, Loc_) ->
+compile_ucf(Net_, MC_, Global) ->
     Net = compile_net(Net_),
-    Loc = macro_cell:name(Loc_),
-    <<"NET \"", Net/binary, "\" LOC = \"", Loc/binary, "\";\n">>.
+    MC = macro_cell:name(MC_),
+    <<"NET \"", Net/binary, "\""
+      " LOC = \"", MC/binary, "\"",
+      Global/binary,
+      ";\n"
+    >>.
 
 %%--------------------------------------------------------------------
 
 compile_port({Net, _}) ->
     compile_port(Net, <<"in">>);
-compile_port({Net, _, Logic}) when not is_map(Logic) ->
+compile_port({Net, _, #{global := gck}}) ->
+    compile_port(Net, <<"in">>);
+compile_port({Net, _, #{global := gsr}}) ->
+    compile_port(Net, <<"in">>);
+compile_port({Net, _, #{global := gts}}) ->
+    compile_port(Net, <<"in">>);
+compile_port({Net, _, _}) ->
     compile_port(Net, <<"out">>);
 compile_port({Net, _, _, _}) ->
     compile_port(Net, <<"out">>).
@@ -129,51 +180,29 @@ compile_port(Net_, Dir) ->
 
 %%--------------------------------------------------------------------
 
-compile_vhdl({_, _}) ->
-    <<>>;
 compile_vhdl({Output_, _, Logic_}) ->
     Output = compile_net(Output_),
     Logic = compile_logic(Logic_),
     <<"  ", Output/binary, " <= ", Logic/binary, ";\n">>;
-compile_vhdl({Output_, _, Logic_, FF = #{clk := Clk_}}) ->
+compile_vhdl({Output_, _, Logic_, FF = #{clk := _}}) ->
     Output = compile_net(Output_),
-    Logic = compile_logic(Logic_),
-    Clk = compile_logic(Clk_),
-    Init = compile_init(FF),
-    {Buffer, Q} = compile_ff_oe(Output, FF),
-    case compile_ff_type(FF) of
-        {d, Type, S, R, CE} ->
-            <<
-                Buffer/binary,
-                "  ", Output/binary, "_FF: ", Type/binary,
-                    " generic map (", Init/binary, ")"
-                    " port map (\n",
-                S/binary, R/binary, CE/binary,
-                "    D => ", Logic/binary, ",\n"
-                "    Q => ", Q/binary, ",\n"
-                "    C => ", Clk/binary, "\n"
-                "  );\n"
-            >>;
+    case compile_ff_oe(Output, FF) of
+        {OE, Q} ->
+            [OE, compile_ff(Output, Q, Logic_, FF)];
 
-        {t, Type, S, R, CE} ->
-            <<
-                Buffer/binary,
-                "  ", Output/binary, "_FF: ", Type/binary,
-                    " generic map (", Init/binary, ")"
-                    " port map (\n",
-                S/binary, R/binary, CE/binary,
-                "    T => ", Logic/binary, ",\n"
-                "    Q => ", Q/binary, ",\n"
-                "    C => ", Clk/binary, "\n"
-                "  );\n"
-            >>
+        false ->
+            compile_ff(Output, Output, Logic_, FF)
     end;
 compile_vhdl({Output_, _, Logic, X = #{oe := OE}}) when map_size(X) =:= 1 ->
     Output = compile_net(Output_),
     compile_oe(Output, Logic, Output, OE);
-compile_vhdl({Output_, _, Logic, OE}) when not is_map(OE) ->
+compile_vhdl({Output_, _, Logic_, #{}}) ->
     Output = compile_net(Output_),
-    compile_oe(Output, Logic, Output, OE).
+    Logic = compile_logic(Logic_),
+    <<"  ", Output/binary, " <= ", Logic/binary, ";\n">>;
+compile_vhdl({Internal_, _, Logic_, internal, FF = #{}}) ->
+    Internal = compile_net(Internal_),
+    compile_ff(Internal, Internal, Logic_, FF).
 
 %%--------------------------------------------------------------------
 
@@ -209,21 +238,57 @@ compile_signals(Signals) ->
 
 compile_signal({Output_, _, _, #{clk := _, oe := _}}) ->
     Output = compile_net(Output_),
-    Signal = <<Output/binary, "_Q">>,
     {true, <<
-        "  signal ", Signal/binary, " : STD_LOGIC;\n"
+        "  signal ", Output/binary, "_Q : STD_LOGIC;\n"
+    >>};
+compile_signal({Internal_, _, _, internal, #{}}) ->
+    Internal = compile_net(Internal_),
+    {true, <<
+        "  signal ", Internal/binary, " : STD_LOGIC;\n"
     >>};
 compile_signal(_) ->
     false.
 
 %%--------------------------------------------------------------------
 
+compile_ff(Name, Q, D_, FF = #{clk := Clk_}) ->
+    D = compile_logic(D_),
+    Clk = compile_logic(Clk_),
+    Init = compile_init(FF),
+    case compile_ff_type(FF) of
+        {d, Type, S, R, CE} ->
+            <<
+                "  ", Name/binary, "_FF: ", Type/binary,
+                    " generic map (", Init/binary, ")"
+                    " port map (\n",
+                S/binary, R/binary, CE/binary,
+                "    D => ", D/binary, ",\n"
+                "    Q => ", Q/binary, ",\n"
+                "    C => ", Clk/binary, "\n"
+                "  );\n"
+            >>;
+
+        {t, Type, S, R, CE} ->
+            <<
+                "  ", Name/binary, "_FF: ", Type/binary,
+                    " generic map (", Init/binary, ")"
+                    " port map (\n",
+                S/binary, R/binary, CE/binary,
+                "    T => ", D/binary, ",\n"
+                "    Q => ", Q/binary, ",\n"
+                "    C => ", Clk/binary, "\n"
+                "  );\n"
+            >>
+    end.
+
+%%--------------------------------------------------------------------
+
 compile_ff_oe(Output, #{oe := OE_}) ->
-    Signal = <<Output/binary, "_Q">>,
-    OE = compile_oe(Output, Signal, Output, OE_),
-    {OE, Signal};
-compile_ff_oe(Output, _) ->
-    {<<>>, Output}.
+    Q = <<Output/binary, "_Q">>,
+    OE = compile_oe(Output, Q, Output, OE_),
+    {OE, Q};
+compile_ff_oe(_, _) ->
+    false.
 
 %%--------------------------------------------------------------------
 
@@ -347,6 +412,9 @@ internal(With = #{device := Device}) ->
         "-p", device:name(Device),
         "-ofmt", "vhdl",
         "-loc", "on",
+        "-nogclkopt", % Disable Global Clock optimization.
+        "-nogsropt", % Disable Global Set/Reset optimization.
+        "-nogtsopt", % Disable Global Output-Enable (GTS) optimization.
         "-slew", with_slew(With),
         "-init", with_init(With),
         "-inputs", "54",
@@ -355,6 +423,8 @@ internal(With = #{device := Device}) ->
         "-unused", with_unused(With),
         "-power", with_power(With),
         "-terminate", with_terminate(With)
+        |
+        with_optimize(With)
     ]),
     ok = exec(Dir, "hprep6", [
         "-s", "IEEE1149",
@@ -368,6 +438,7 @@ internal(With = #{device := Device}) ->
 with_defaults(With) ->
     maps:merge(#{
         init => low,
+        optimize => false,
         power => std,
         slew => fast,
         terminate => keeper,
@@ -379,6 +450,14 @@ with_defaults(With) ->
 
 with_init(#{init := high}) -> "high";
 with_init(#{init := low}) -> "low".
+
+%%--------------------------------------------------------------------
+
+with_optimize(#{optimize := true}) ->
+    [];
+with_optimize(#{optimize := false}) ->
+    % Disable multi-level logic optimization.
+    ["-nomlopt"].
 
 %%--------------------------------------------------------------------
 
