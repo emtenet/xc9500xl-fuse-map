@@ -498,6 +498,7 @@ cache(With0) ->
     With = with_defaults(With0),
     Query = cache_query(With),
     Dir = cache_dir(Query),
+    %io:format("CACHE ~s~n", [Dir]),
     case cache_read_query(Dir) of
         {ok, Query} ->
             {cache, hit, With, Dir};
