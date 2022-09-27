@@ -44,14 +44,13 @@ gck(_, [GCK | _]) ->
 
 %%--------------------------------------------------------------------
 
-mc(Device, O, Avail0, GSR, GCK) ->
+mc(Device, O, Avail, GSR, GCK) ->
     Used = [O, GSR, GCK],
-    {I, Avail1} = unused(Avail0, Used),
-    {X, _} = unused(Avail1, Used),
+    {I, _} = unused(Avail, Used),
     Sources = [
-        source(off, I, GSR, GCK, O, X),
-        source(s, I, GSR, GCK, O, X),
-        source(r, I, GSR, GCK, O, X)
+        source(off, I, GSR, GCK, O),
+        source(s, I, GSR, GCK, O),
+        source(r, I, GSR, GCK, O)
     ],
     Answers = [ experiment(Device, O, Source) || Source <- Sources ],
     Matrix = fuses:matrix(Answers),
@@ -71,7 +70,7 @@ unused([IO | IOs], Used) ->
 
 %%--------------------------------------------------------------------
 
-source(Name, I, GSR, GCK, O, X) ->
+source(Name, I, GSR, GCK, O) ->
     FF = case Name of
         off -> #{clk => gck};
         s -> #{clk => gck, s => gsr};
@@ -79,10 +78,9 @@ source(Name, I, GSR, GCK, O, X) ->
     end,
     {Name, [
         {i, I},
-        {gck, GCK},
-        {gsr, GSR},
-        {o, O, i, FF},
-        {x, X, i, #{clk => gck, s => gsr}}
+        {gck, GCK, #{global => gck}},
+        {gsr, GSR, #{global => gsr}},
+        {o, O, i, FF}
     ]}.
 
 %%--------------------------------------------------------------------
@@ -100,20 +98,48 @@ experiment(Device, MC, {Name, Signals}) ->
 
 %%--------------------------------------------------------------------
 
+% We can get redundant fuses in the matrix, for example:
+%
+%   2 3 3 5 5 5 5 6
+%   0 4 5 2 2 2 2 6
+%   2 6 5 7 7 8 8 8
+%   1 5 1 3 3 6 6 7
+%   6 4 8 4 5 2 3 2
+%   *| | |*| |*| | | off
+%    | |*| |*| |*|*| s
+%    |*| | |*| |*|*| r
+%
+% We can ignore the on-off-off and off-on-on columns.
+% Look for the off-off-on column for the RESET fuse (2nd in example)
+% Look for the off-on-off column for the SET fuse (3rd in example)
+%
+% NOTE: This did not happen before disabling global pin optimizations
+% and so probably happens when we probe an input or output pin that
+% has a global feature available.
 
-fuses(MC, {matrix,
-           [GR, GS],
-           [{off, [off, off]},
-            {s,   [off, on ]},
-            {r,   [on , off]}
-           ]
-          }) ->
-    [fuse(GR, MC, ff_r_gsr),
-     fuse(GS, MC, ff_s_gsr)
-    ].
+fuses(MC, {matrix, Fuses, [{off, Os}, {s, Ss}, {r, Rs}]}) ->
+    case fuses(Fuses, Os, Ss, Rs, undefined, undefined) of
+        {S, R} when S =/= undefined andalso R =/= undefied ->
+            [fuse(R, MC, r_gsr),
+             fuse(S, MC, s_gsr)
+            ]
+    end.
 
 %%--------------------------------------------------------------------
 
-fuse(Fuse, MC, Extra) ->
-    {Fuse, list_to_atom(io_lib:format("~s_~s", [MC, Extra]))}.
+fuses([], [], [], [], S, R) ->
+    {S, R};
+fuses([_ | Fuses], [on  | Os], [off | Ss], [off | Rs], S, R) ->
+    fuses(Fuses, Os, Ss, Rs, S, R);
+fuses([_ | Fuses], [off | Os], [on  | Ss], [on  | Rs], S, R) ->
+    fuses(Fuses, Os, Ss, Rs, S, R);
+fuses([F | Fuses], [off | Os], [off | Ss], [on  | Rs], S, undefined) ->
+    fuses(Fuses, Os, Ss, Rs, S, F);
+fuses([F | Fuses], [off | Os], [on  | Ss], [off | Rs], undefined, R) ->
+    fuses(Fuses, Os, Ss, Rs, F, R).
+
+%%--------------------------------------------------------------------
+
+fuse(Fuse, MC, Name) ->
+    {Fuse, fuse:macro_cell(MC, Name)}.
 
