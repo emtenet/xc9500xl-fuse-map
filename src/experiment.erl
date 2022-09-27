@@ -3,6 +3,7 @@
 -export([compile/1]).
 -export([run/1]).
 -export([cache/1]).
+-export([cache_refresh/1]).
 -export([cached_imux/1]).
 -export([cached_jed/1]).
 -export([pins/0]).
@@ -504,16 +505,30 @@ cache(With0) ->
             {cache, hit, With, Dir};
 
         {error, enoent} ->
-            internal(With),
-            cache_copy(Dir, "experiment.jed"),
-            cache_copy(Dir, "experiment_pad.csv"),
-            cache_copy(Dir, "experiment.rpt"),
-            cache_copy(Dir, "experiment.vm6"),
-            JED = jed(),
-            cache_write_jed(Dir, JED),
-            cache_write_query(Dir, Query),
-            {cache, miss, With, Dir, JED}
+            cache_miss(With, Dir, Query)
     end.
+
+%%--------------------------------------------------------------------
+
+cache_refresh(Cache = {cache, miss, _, _, _}) ->
+    Cache;
+cache_refresh({cache, hit, With, Dir}) ->
+    cache_delete_query(Dir),
+    Query = cache_query(With),
+    cache_miss(With, Dir, Query).
+
+%%--------------------------------------------------------------------
+
+cache_miss(With, Dir, Query) ->
+    internal(With),
+    cache_copy(Dir, "experiment.jed"),
+    cache_copy(Dir, "experiment_pad.csv"),
+    cache_copy(Dir, "experiment.rpt"),
+    cache_copy(Dir, "experiment.vm6"),
+    JED = jed(),
+    cache_write_jed(Dir, JED),
+    cache_write_query(Dir, Query),
+    {cache, miss, With, Dir, JED}.
 
 %%--------------------------------------------------------------------
 
@@ -537,6 +552,12 @@ cache_make_dir(Dir) ->
         {error, eexist} ->
             Dir
     end.
+
+%%--------------------------------------------------------------------
+
+cache_delete_query(Dir) ->
+    File = filename:join(Dir, "with"),
+    ok = file:delete(File).
 
 %%--------------------------------------------------------------------
 
