@@ -11,6 +11,7 @@
  - [x] `gck_experiment` - GCK1 / GCK2 / GCK3
  - [x] `gsr_experiment` - set via GSR / reset via GSR
  - [x] `gsr_invert_experiment` - global GSR invert
+ - [x] `product_term_experiment` - which product term (of 5) is the default? 3!
 
 
 ## Fuses

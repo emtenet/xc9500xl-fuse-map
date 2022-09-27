@@ -29,176 +29,232 @@ run() ->
     O = mc01_01, % MC under test
     Z = mc01_02, % control ff
     fuses:print(fuses:matrix(experiments(Device, [
-        {bypass, [
-            {clk, GCK},
+        {"bypass  d", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, t},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {bypass_not, [
-            {clk, GCK},
+        {"bypass ~d", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, {low, t}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {bypass_xor, [
-            {clk, GCK},
+        {"bypass  d XOR ( t AND  s)", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
-            {o, O, <<"d XOR t">>},
+            {o, O, <<"d XOR (t AND s)">>},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {bypass_xor_not, [
-            {clk, GCK},
+        {"bypass  d XOR (~t AND  s)", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
-            {o, O, <<"d XOR (NOT t)">>},
+            {o, O, <<"d XOR ((NOT t) AND s)">>},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {ff, [
-            {clk, GCK},
+        {"bypass  d XOR ( t AND ~s)", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, <<"d XOR (t AND (NOT s))">>},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {" t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, t, #{clk => clk}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {ff_not, [
-            {clk, GCK},
+        {"~t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, {low, t}, #{clk => clk}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {set, [
-            {clk, GCK},
+        {" d SET  t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, s => t}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {set_not, [
-            {clk, GCK},
+        {" d SET ~t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, s => {low, t}}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {reset, [
-            {clk, GCK},
+        {" d RESET  t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, r => t}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {reset_not, [
-            {clk, GCK},
+        {" d RESET ~t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, r => {low, t}}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {clock, [
-            {clk, GCK},
+        {" d CLOCK  t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => t}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {clock_not, [
-            {clk, GCK},
+        {" d CLOCK ~t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => {low, t}}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {clock_inv, [
-            {clk, GCK},
+        {"~d CLOCK  t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, {low, d}, #{clk => t}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {clock_not_inv, [
-            {clk, GCK},
+        {"~d CLOCK ~t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, {low, d}, #{clk => {low, t}}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {ce, [
-            {clk, GCK},
+        {" d CLOCK  t OE  s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => t, oe => s}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {" d CLOCK ~t OE  s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => {low, t}, oe => s}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {" d CLOCK  t OE ~s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => t, oe => {low, s}}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {" d CLOCK ~t OE ~s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => {low, t}, oe => {low, s}}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {"~d CLOCK  t OE  s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, {low, d}, #{clk => t, oe => s}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {"~d CLOCK  t OE ~s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, {low, d}, #{clk => t, oe => {low, s}}},
+            {z, Z, d, #{clk => clk, s => s}}
+        ]},
+        {" d CE  t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => t}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {ce_not, [
-            {clk, GCK},
+        {" d CE ~t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => {low, t}}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {set_ce, [
-            {clk, GCK},
+        {" d CE  t SET  s", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => t, s => s}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {set_ce_not, [
-            {clk, GCK},
+        {" d CE ~t SET  s", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => {low, t}, s => s}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {reset_ce, [
-            {clk, GCK},
+        {" d CE  t RESET  s", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => t, r => s}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {reset_ce_not, [
-            {clk, GCK},
+        {" d CE ~t RESET  s", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => {low, t}, r => s}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {oe, [
-            {clk, GCK},
+        {" d OE  t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, oe => t}},
             {z, Z, d, #{clk => clk, s => s}}
         ]},
-        {oe_not, [
-            {clk, GCK},
+        {" d OE ~t", [
+            {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
