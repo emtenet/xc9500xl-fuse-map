@@ -58,14 +58,14 @@ A simplified example of a FastCONNECt with 2 function blocks, and 4 macro cells 
 | input01 |   MC1     |    MC2    |    MC1     |    MC2     |
 | input02 |   MC2     |    MC4    |    MC2     |    MC3     |
 | input03 |   MC3     |    MC1    |    MC3     |    MC4     |
-| input04 |   MC4     |  **MC3**  |    MC4     |    MC2     |
+| input04 |   MC4     | **MC3** * |    MC4     |    MC2     |
 | input05 |   MC3     |    MC2    |    MC4     |    MC3     |
-| input06 |   MC4     |  **MC3**  |    MC2     |    MC4     |
+| input06 |   MC4     | **MC3** * |    MC2     |    MC4     |
 | input07 |   MC1     |    MC1    |    MC3     |    MC1     |
 | input08 |   MC2     |    MC4    |    MC1     |    MC4     |
 | input09 |   MC1     |    MC1    |    MC4     |    MC2     |
 | input10 |   MC3     |    MC4    |    MC2     |    MC1     |
-| input11 |   MC2     |  **MC3**  |    MC3     |    MC3     |
+| input11 |   MC2     | **MC3** * |    MC3     |    MC3     |
 | input12 |   MC4     |    MC2    |    MC1     |    MC1     |
 
 In this example the input from pin at FB2:MC3 is availble at inputs
