@@ -1,6 +1,7 @@
 -module(function_block).
 
 -export([name/1]).
+-export([input/1]).
 -export([macro_cells/1]).
 
 %%====================================================================
@@ -23,6 +24,65 @@ name(fb13) -> "FB13";
 name(fb14) -> "FB14";
 name(fb15) -> "FB15";
 name(fb16) -> "FB16".
+
+%%====================================================================
+%% input
+%%====================================================================
+
+input( 1) -> input01;
+input( 2) -> input02;
+input( 3) -> input03;
+input( 4) -> input04;
+input( 5) -> input05;
+input( 6) -> input06;
+input( 7) -> input07;
+input( 8) -> input08;
+input( 9) -> input09;
+input(10) -> input10;
+input(11) -> input11;
+input(12) -> input12;
+input(13) -> input13;
+input(14) -> input14;
+input(15) -> input15;
+input(16) -> input16;
+input(17) -> input17;
+input(18) -> input18;
+input(19) -> input19;
+input(20) -> input20;
+input(21) -> input21;
+input(22) -> input22;
+input(23) -> input23;
+input(24) -> input24;
+input(25) -> input25;
+input(26) -> input26;
+input(27) -> input27;
+input(28) -> input28;
+input(29) -> input29;
+input(30) -> input30;
+input(31) -> input31;
+input(32) -> input32;
+input(33) -> input33;
+input(34) -> input34;
+input(35) -> input35;
+input(36) -> input36;
+input(37) -> input37;
+input(38) -> input38;
+input(39) -> input39;
+input(40) -> input40;
+input(41) -> input41;
+input(42) -> input42;
+input(43) -> input43;
+input(44) -> input44;
+input(45) -> input45;
+input(46) -> input46;
+input(47) -> input47;
+input(48) -> input48;
+input(49) -> input49;
+input(50) -> input50;
+input(51) -> input51;
+input(52) -> input52;
+input(53) -> input53;
+input(54) -> input54.
 
 %%====================================================================
 %% macro_cells
