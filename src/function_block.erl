@@ -1,8 +1,30 @@
 -module(function_block).
 
+-export([assert/1]).
 -export([name/1]).
 -export([input/1]).
 -export([macro_cells/1]).
+
+%%====================================================================
+%% assert
+%%====================================================================
+
+assert(fb01) -> ok;
+assert(fb02) -> ok;
+assert(fb03) -> ok;
+assert(fb04) -> ok;
+assert(fb05) -> ok;
+assert(fb06) -> ok;
+assert(fb07) -> ok;
+assert(fb08) -> ok;
+assert(fb09) -> ok;
+assert(fb10) -> ok;
+assert(fb11) -> ok;
+assert(fb12) -> ok;
+assert(fb13) -> ok;
+assert(fb14) -> ok;
+assert(fb15) -> ok;
+assert(fb16) -> ok.
 
 %%====================================================================
 %% name

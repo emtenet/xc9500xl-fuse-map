@@ -45,6 +45,8 @@ A separate fuse for the true & complement (invert) alternatives.
 
 ### `{fb##, input##, from, fb##, input, mc##}` & `{fb##, input##, from, fb##, output, mc##}`
 
+**WRONG**
+
 FastCONNECT input multiplexers (IMUX),
 each function block has 54 inputs selected by an IMUX.
 The IMUX selects a input or output from a source function block.
