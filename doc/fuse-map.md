@@ -1,8 +1,6 @@
 
 # Fuse map
 
-This document describes the layout of the fuse map.
-
 
 ## Bands
 
@@ -89,7 +87,7 @@ The 18 fuses to the side of the page shape are in one of the following formats:
  - unknown.
 
 
-### GSR invert
+## GSR invert
 
 The fuse A1 of FB1-band-1 is the ***GSR invert*** fuse.
 All other fuses in this band are unused.
@@ -97,7 +95,7 @@ All other fuses in this band are unused.
 This fuse inverts the global GSR signal.
 
 
-### USER bits
+## USER bits
 
 The side fuses of FB1-band-7 are the following USER bits:
 
@@ -128,7 +126,7 @@ The side fuses of FB1-band-8 are the following USER bits:
 All other fuses in these bands are unused.
 
 
-### macro cell features
+## macro cell features
 
 The side fuses of macro cell features have the following layout:
 
@@ -183,7 +181,7 @@ The following features have been identified so far:
 | 50    | ?? PT2 enable |
 
 
-### FastCONNECT input MUX
+## FastCONNECT input MUX
 
 The side A-bits and B-bits are MUX bits selecting one of the pin inputs or macro cell outputs
 for a partucilar input to a function block.
@@ -228,7 +226,7 @@ Most of the time these fuses are off,
 it is assumed that when none of the 9 fuses are on that no selection is made.
 
 With 9 bits, 512 items can be selected,
-that is enought to select all of the macro cells in
+that is enought to select all of the 288 pin inputs in
 the largest xc95288xl device that has 288 macro cells.
 
 But the 9 bits are not enough to

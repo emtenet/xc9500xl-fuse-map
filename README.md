@@ -1,6 +1,8 @@
 
 # AMD Xilinx XC9500XL CPLD Bitstream Documentation (Reverse Engineered)
 
+Documentation of the [fuse map](doc/fuse-map.md) layout.
+
 ## Experiments
 
  - [x] `user_bits_experiment` - 32 user bits
