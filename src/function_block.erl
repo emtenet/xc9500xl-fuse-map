@@ -1,6 +1,7 @@
 -module(function_block).
 
 -export([assert/1]).
+-export([from/1]).
 -export([name/1]).
 -export([input/1]).
 -export([macro_cells/1]).
@@ -25,6 +26,27 @@ assert(fb13) -> ok;
 assert(fb14) -> ok;
 assert(fb15) -> ok;
 assert(fb16) -> ok.
+
+%%====================================================================
+%% from
+%%====================================================================
+
+from( 1) -> fb01;
+from( 2) -> fb02;
+from( 3) -> fb03;
+from( 4) -> fb04;
+from( 5) -> fb05;
+from( 6) -> fb06;
+from( 7) -> fb07;
+from( 8) -> fb08;
+from( 9) -> fb09;
+from(10) -> fb10;
+from(11) -> fb11;
+from(12) -> fb12;
+from(13) -> fb13;
+from(14) -> fb14;
+from(15) -> fb15;
+from(16) -> fb16.
 
 %%====================================================================
 %% name
