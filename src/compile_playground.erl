@@ -13,8 +13,7 @@ run() ->
     experiment(Device),
     Fuses = experiment:jed(),
     IMUX = experiment:imux(),
-    Database = fuses:read(Density),
-    Names = fuses:name_if_known(Fuses, Database),
+    Names = fuse_map:fuses(Density, Fuses),
     io:format("~p~n", [Names]),
     io:format("~p~n", [IMUX]).
 
