@@ -209,6 +209,10 @@ compile_vhdl({Internal_, _, Logic_, internal, FF = #{}}) ->
 
 %%--------------------------------------------------------------------
 
+compile_logic(true) ->
+    <<"'0'">>;
+compile_logic(false) ->
+    <<"'1'">>;
 compile_logic(Net) when is_atom(Net) ->
     compile_net(Net);
 compile_logic({low, Net}) when is_atom(Net) ->
@@ -286,6 +290,10 @@ compile_ff(Name, Q, D_, FF = #{clk := Clk_}) ->
 
 %%--------------------------------------------------------------------
 
+compile_ff_oe(Output, #{oe := true}) ->
+    Q = <<Output/binary, "_Q">>,
+    OE = <<"  ", Output/binary, " <= ", Q/binary, ";\n">>,
+    {OE, Q};
 compile_ff_oe(Output, #{oe := OE_}) ->
     Q = <<Output/binary, "_Q">>,
     OE = compile_oe(Output, Q, Output, OE_),
