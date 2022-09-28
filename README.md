@@ -92,6 +92,13 @@ Macro Cell with `##` in the range 1 to 18.
 
 A product term of each macro cell in the range 1 to 5.
 
+NOTE: the product-terms are numbered as in
+*Figure 8: Product Term Allocator Logic*
+of the
+*XC9500XL High-Performance CPLD Family Data Sheet*.
+This makes it easy for us looking at the figure
+but makes the ordering in the fuse map a bit funny.
+
 ### `input##`
 
 An input to a function block in the range 1 to 54.
