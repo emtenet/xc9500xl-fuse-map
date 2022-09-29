@@ -189,13 +189,9 @@ compile_vhdl({Output_, _, Logic_}) ->
     <<"  ", Output/binary, " <= ", Logic/binary, ";\n">>;
 compile_vhdl({Output_, _, Logic_, FF = #{clk := _}}) ->
     Output = compile_net(Output_),
-    case compile_ff_oe(Output, FF) of
-        {OE, Q} ->
-            [OE, compile_ff(Output, Q, Logic_, FF)];
-
-        false ->
-            compile_ff(Output, Output, Logic_, FF)
-    end;
+    {Lines0, Q} = compile_ff_oe(Output, FF),
+    {Lines1, D} = compile_ff_d(Output, Logic_, Lines0),
+    lists:reverse(Lines1, [compile_ff(Output, Q, D, FF)]);
 compile_vhdl({Output_, _, Logic, X = #{oe := OE}}) when map_size(X) =:= 1 ->
     Output = compile_net(Output_),
     compile_oe(Output, Logic, Output, OE);
@@ -203,9 +199,12 @@ compile_vhdl({Output_, _, Logic_, #{}}) ->
     Output = compile_net(Output_),
     Logic = compile_logic(Logic_),
     <<"  ", Output/binary, " <= ", Logic/binary, ";\n">>;
-compile_vhdl({Internal_, _, Logic_, internal, FF = #{}}) ->
-    Internal = compile_net(Internal_),
-    compile_ff(Internal, Internal, Logic_, FF).
+compile_vhdl({Output_, _, Logic_, internal, FF = #{}}) ->
+    Output = compile_net(Output_),
+    Q = Output,
+    Lines0 = [],
+    {Lines1, D} = compile_ff_d(Output, Logic_, Lines0),
+    lists:reverse(Lines1, [compile_ff(Output, Q, D, FF)]).
 
 %%--------------------------------------------------------------------
 
@@ -243,23 +242,43 @@ compile_signals(Signals) ->
 
 %%--------------------------------------------------------------------
 
-compile_signal({Output_, _, _, #{clk := _, oe := _}}) ->
+compile_signal({Output_, _, Logic_, #{clk := _, oe := _}}) ->
     Output = compile_net(Output_),
-    {true, <<
-        "  signal ", Output/binary, "_Q : STD_LOGIC;\n"
-    >>};
-compile_signal({Internal_, _, _, internal, #{}}) ->
-    Internal = compile_net(Internal_),
-    {true, <<
-        "  signal ", Internal/binary, " : STD_LOGIC;\n"
-    >>};
+    {true, [
+        <<"  signal ", Output/binary, "_Q : STD_LOGIC;\n">>,
+        compile_signal_d(Output, Logic_)
+    ]};
+compile_signal({Output_, _, Logic_, #{clk := _}}) ->
+    Output = compile_net(Output_),
+    Signals = [
+        compile_signal_d(Output, Logic_)
+    ],
+    case Signals of
+        [<<>>] ->
+            false;
+
+        _ ->
+            {true, Signals}
+    end;
+compile_signal({Output_, _, Logic_, internal, #{}}) ->
+    Output = compile_net(Output_),
+    {true, [
+        <<"  signal ", Output/binary, " : STD_LOGIC;\n">>,
+        compile_signal_d(Output, Logic_)
+    ]};
 compile_signal(_) ->
     false.
 
 %%--------------------------------------------------------------------
 
-compile_ff(Name, Q, D_, FF = #{clk := Clk_}) ->
-    D = compile_logic(D_),
+compile_signal_d(_Net, Logic) when is_atom(Logic) ->
+    <<>>;
+compile_signal_d(Net, _) ->
+    <<"  signal ", Net/binary, "_D : STD_LOGIC;\n">>.
+
+%%--------------------------------------------------------------------
+
+compile_ff(Name, Q, D, FF = #{clk := Clk_}) ->
     Clk = compile_logic(Clk_),
     Init = compile_init(FF),
     case compile_ff_type(FF) of
@@ -290,16 +309,27 @@ compile_ff(Name, Q, D_, FF = #{clk := Clk_}) ->
 
 %%--------------------------------------------------------------------
 
+compile_ff_d(Net, Logic_, Lines) when is_atom(Logic_) ->
+    Logic = compile_logic(Logic_),
+    {Lines, Logic};
+compile_ff_d(Net, Logic_, Lines) ->
+    Logic = compile_logic(Logic_),
+    D = <<Net/binary, "_D">>,
+    Line = <<"  ", Net/binary, "_D <= ", Logic/binary, ";\n">>,
+    {[Line | Lines], D}.
+
+%%--------------------------------------------------------------------
+
 compile_ff_oe(Output, #{oe := true}) ->
     Q = <<Output/binary, "_Q">>,
     OE = <<"  ", Output/binary, " <= ", Q/binary, ";\n">>,
-    {OE, Q};
+    {[OE], Q};
 compile_ff_oe(Output, #{oe := OE_}) ->
     Q = <<Output/binary, "_Q">>,
     OE = compile_oe(Output, Q, Output, OE_),
-    {OE, Q};
-compile_ff_oe(_, _) ->
-    false.
+    {[OE], Q};
+compile_ff_oe(Output, _) ->
+    {[], Output}.
 
 %%--------------------------------------------------------------------
 
