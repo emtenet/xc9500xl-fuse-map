@@ -9,6 +9,7 @@
 %% visual aids
 -export([print/1]).
 -export([matrix/1]).
+-export([matrix/2]).
 
 %% database
 -export([update/2]).
@@ -106,30 +107,41 @@ print({matrix, Fuses, Matrix}) ->
 -type fuse() :: pos_integer().
 -type name() :: atom() | binary() | string().
 -type experiment() :: {name(), [fuse()]}.
--spec matrix([experiment()]) -> {matrix, [fuse()], [{name(), [on | off]}]}.
+
+-spec matrix([experiment()])
+    -> {matrix, [fuse()], [{name(), [on | off]}]}.
+
+-spec matrix([experiment()], all | diff)
+    -> {matrix, [fuse()], [{name(), [on | off]}]}.
 
 matrix(Experiments) ->
+    matrix(Experiments, diff).
+
+%%--------------------------------------------------------------------
+
+matrix(Experiments, All) when All =:= all orelse All =:= diff ->
     Fuses0 = [],
     Matches0 = [ [] || _ <- Experiments ],
     Results = [ Result || {_, Result} <- Experiments ],
-    {Fuses, Matches} = matrix_diff(Results, Fuses0, Matches0),
+    {Fuses, Matches} = matrix_diff(Results, Fuses0, Matches0, All),
     Matrix = lists:zipwith(fun matrix_zip/2, Experiments, Matches),
     {matrix, Fuses, Matrix}.
 
 %%--------------------------------------------------------------------
 
-matrix_diff([[] | _], Fuses, Matches) ->
+matrix_diff([[] | _], Fuses, Matches, _) ->
     {lists:reverse(Fuses), [ lists:reverse(Match) || Match <- Matches ]};
-matrix_diff(Results, Fuses, Matches) ->
+matrix_diff(Results, Fuses, Matches, All) ->
     case matrix_min_max(Results) of
-        {Fuse, Fuse} ->
-            matrix_diff(matrix_drop(Results, Fuse), Fuses, Matches);
+        {Fuse, Fuse} when All =:= diff ->
+            matrix_diff(matrix_drop(Results, Fuse), Fuses, Matches, All);
 
         {Fuse, _} ->
             matrix_diff(
                 matrix_drop(Results, Fuse),
                 [Fuse | Fuses],
-                matrix_match(Results, Fuse, Matches)
+                matrix_match(Results, Fuse, Matches),
+                All
              )
     end.
 
