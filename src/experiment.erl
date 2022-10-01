@@ -309,7 +309,7 @@ compile_ff(Name, Q, D, FF = #{clk := Clk_}) ->
 
 %%--------------------------------------------------------------------
 
-compile_ff_d(Net, Logic_, Lines) when is_atom(Logic_) ->
+compile_ff_d(_Net, Logic_, Lines) when is_atom(Logic_) ->
     Logic = compile_logic(Logic_),
     {Lines, Logic};
 compile_ff_d(Net, Logic_, Lines) ->
