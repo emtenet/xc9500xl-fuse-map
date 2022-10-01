@@ -141,7 +141,7 @@ fuse(Band, FB, Row, Column) when Column < 6 ->
     end;
 fuse(  0, FB, Row, Column) -> fuse_unknown(band001, FB, Row, Column);
 fuse(  1, FB, Row, Column) -> fuse_unknown(band002, FB, Row, Column);
-fuse(  2, FB, Row, Column) -> fuse_gsr_invert(FB, Row, Column);
+fuse(  2, FB, Row, Column) -> fuse_global(FB, Row, Column);
 fuse(  3, FB, Row, Column) -> fuse_unknown(band004, FB, Row, Column);
 fuse(  4, FB, Row, Column) -> fuse_unknown(band005, FB, Row, Column);
 fuse(  5, FB, Row, Column) -> fuse_unknown(band006, FB, Row, Column);
@@ -151,21 +151,21 @@ fuse(  8, FB, Row, Column) -> fuse_unknown(band009, FB, Row, Column);
 fuse(  9, FB, Row, Column) -> fuse_unknown(band010, FB, Row, Column);
 fuse( 10, FB, Row, Column) -> fuse_unknown(band011, FB, Row, Column);
 fuse( 11, FB, Row, Column) -> fuse_unknown(band012, FB, Row, Column);
-fuse( 12, FB, Row, Column) -> fuse_unknown(band013, FB, Row, Column);
-fuse( 13, FB, Row, Column) -> fuse_unknown(pt5_2, FB, Row, Column);
-fuse( 14, FB, Row, Column) -> fuse_unknown(pt5_1, FB, Row, Column);
-fuse( 15, FB, Row, Column) -> fuse_unknown(pt5_0, FB, Row, Column);
-fuse( 16, FB, Row, Column) -> fuse_unknown(pt4_1, FB, Row, Column);
-fuse( 17, FB, Row, Column) -> fuse_unknown(pt4_0, FB, Row, Column);
-fuse( 18, FB, Row, Column) -> fuse_unknown(pt1_1, FB, Row, Column);
-fuse( 19, FB, Row, Column) -> fuse_unknown(pt1_0, FB, Row, Column);
-fuse( 20, FB, Row, Column) -> fuse_unknown(pt2_1, FB, Row, Column);
-fuse( 21, FB, Row, Column) -> fuse_unknown(pt2_0, FB, Row, Column);
-fuse( 22, FB, Row, Column) -> fuse_unknown(xor1, FB, Row, Column);
+fuse( 12, FB, Row, Column) -> fuse_guess(pt3_0, FB, Row, Column);
+fuse( 13, FB, Row, Column) -> fuse_guess(pt5_2, FB, Row, Column);
+fuse( 14, FB, Row, Column) -> fuse_guess(pt5_1, FB, Row, Column);
+fuse( 15, FB, Row, Column) -> fuse_guess(pt5_0, FB, Row, Column);
+fuse( 16, FB, Row, Column) -> fuse_guess(pt4_1, FB, Row, Column);
+fuse( 17, FB, Row, Column) -> fuse_guess(pt4_0, FB, Row, Column);
+fuse( 18, FB, Row, Column) -> fuse_guess(pt1_1, FB, Row, Column);
+fuse( 19, FB, Row, Column) -> fuse_guess(pt1_0, FB, Row, Column);
+fuse( 20, FB, Row, Column) -> fuse_guess(pt2_1, FB, Row, Column);
+fuse( 21, FB, Row, Column) -> fuse_guess(pt2_0, FB, Row, Column);
+fuse( 22, FB, Row, Column) -> fuse_guess(xor1, FB, Row, Column);
 fuse( 23, FB, Row, Column) -> fuse_unknown(band024, FB, Row, Column);
 fuse( 24, FB, Row, Column) -> fuse_unknown(band025, FB, Row, Column);
 fuse( 25, FB, Row, Column) -> fuse_unknown(band026, FB, Row, Column);
-fuse( 26, FB, Row, Column) -> fuse_unknown(band027, FB, Row, Column);
+fuse( 26, FB, Row, Column) -> fuse_guess(std_power_a, FB, Row, Column);
 fuse( 27, FB, Row, Column) -> fuse_feature(oe_gts, FB, Row, Column);
 fuse( 28, FB, Row, Column) -> fuse_feature(oe_gts_0, FB, Row, Column);
 fuse( 29, FB, Row, Column) -> fuse_feature(oe_gts_1, FB, Row, Column);
@@ -175,8 +175,8 @@ fuse( 32, FB, Row, Column) -> fuse_feature(bypass, FB, Row, Column);
 fuse( 33, FB, Row, Column) -> fuse_feature(gck_1, FB, Row, Column);
 fuse( 34, FB, Row, Column) -> fuse_feature(gck_0, FB, Row, Column);
 fuse( 35, FB, Row, Column) -> fuse_unknown(band036, FB, Row, Column);
-fuse( 36, FB, Row, Column) -> fuse_unknown(ce_1, FB, Row, Column);
-fuse( 37, FB, Row, Column) -> fuse_unknown(ce_0, FB, Row, Column);
+fuse( 36, FB, Row, Column) -> fuse_guess(ce_1, FB, Row, Column);
+fuse( 37, FB, Row, Column) -> fuse_guess(ce_0, FB, Row, Column);
 fuse( 38, FB, Row, Column) -> fuse_unknown(band039, FB, Row, Column);
 fuse( 39, FB, Row, Column) -> fuse_feature(t_type, FB, Row, Column);
 fuse( 40, FB, Row, Column) -> fuse_feature(r_gsr, FB, Row, Column);
@@ -184,11 +184,11 @@ fuse( 41, FB, Row, Column) -> fuse_feature(s_gsr, FB, Row, Column);
 fuse( 42, FB, Row, Column) -> fuse_feature(preset, FB, Row, Column);
 fuse( 43, FB, Row, Column) -> fuse_feature(ground, FB, Row, Column);
 fuse( 44, FB, Row, Column) -> fuse_feature(fast, FB, Row, Column);
-fuse( 45, FB, Row, Column) -> fuse_unknown(band046, FB, Row, Column);
-fuse( 46, FB, Row, Column) -> fuse_unknown(pt5, FB, Row, Column);
-fuse( 47, FB, Row, Column) -> fuse_unknown(pt4, FB, Row, Column);
-fuse( 48, FB, Row, Column) -> fuse_unknown(pt1, FB, Row, Column);
-fuse( 49, FB, Row, Column) -> fuse_unknown(pt2, FB, Row, Column);
+fuse( 45, FB, Row, Column) -> fuse_guess(std_power_b, FB, Row, Column);
+fuse( 46, FB, Row, Column) -> fuse_guess(pt5, FB, Row, Column);
+fuse( 47, FB, Row, Column) -> fuse_guess(pt4, FB, Row, Column);
+fuse( 48, FB, Row, Column) -> fuse_guess(pt1, FB, Row, Column);
+fuse( 49, FB, Row, Column) -> fuse_guess(pt2, FB, Row, Column);
 fuse( 50, FB, Row, Column) -> fuse_input(input01, input28, FB, Row, Column);
 fuse( 51, FB, Row, Column) -> fuse_input(input02, input29, FB, Row, Column);
 fuse( 52, FB, Row, Column) -> fuse_input(input03, input30, FB, Row, Column);
@@ -217,7 +217,7 @@ fuse( 74, FB, Row, Column) -> fuse_input(input25, input52, FB, Row, Column);
 fuse( 75, FB, Row, Column) -> fuse_input(input26, input53, FB, Row, Column);
 fuse( 76, FB, Row, Column) -> fuse_input(input27, input54, FB, Row, Column);
 fuse( 77, FB, Row, Column) -> fuse_unknown(band078, FB, Row, Column);
-fuse( 78, FB, Row, Column) -> fuse_unknown(band079, FB, Row, Column);
+fuse( 78, FB, Row, Column) -> fuse_function_block(FB, Row, Column);
 fuse( 79, FB, Row, Column) -> fuse_unknown(band080, FB, Row, Column);
 fuse( 80, FB, Row, Column) -> fuse_unknown(band081, FB, Row, Column);
 fuse( 81, FB, Row, Column) -> fuse_unknown(band082, FB, Row, Column);
@@ -277,10 +277,26 @@ fuse_feature(Feature, FB, Row, Column) ->
 
 %%--------------------------------------------------------------------
 
-fuse_gsr_invert(fb01, 0, 6) ->
-    gsr_invert;
-fuse_gsr_invert(FB, Row, Column) ->
-    fuse_unknown(band03, FB, Row, Column).
+fuse_function_block(FB, 0, 6) ->
+    {FB, guess, enable};
+fuse_function_block(FB, Row, Column) ->
+    fuse_unknown(band079, FB, Row, Column).
+
+%%--------------------------------------------------------------------
+
+fuse_global(fb01, 0, 6) -> gsr_invert;
+fuse_global(fb01, 1, 6) -> gts1;
+fuse_global(fb01, 2, 6) -> gts2;
+fuse_global(fb01, 3, 6) -> gts3;
+fuse_global(fb01, 8, 6) -> keeper_off;
+fuse_global(FB, Row, Column) ->
+    fuse_unknown(band003, FB, Row, Column).
+
+%%--------------------------------------------------------------------
+
+fuse_guess(Guess, FB, Row, Column) ->
+    MC = feature_macro_cell(Row, Column),
+    {FB, MC, guess, Guess}.
 
 %%--------------------------------------------------------------------
 
