@@ -28,14 +28,14 @@ run() ->
     S = mc02_03, % set/reset
     O = mc01_01, % MC under test
     Z = mc01_02, % control ff
-    fuses:print(fuses:matrix(experiments(Device, [
+    Experiments = experiments(Device, [
         {"bypass  d", [
             {clk, GCK, #{global => gck}},
             {d, D},
             {s, S},
             {t, T},
             {o, O, t},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"bypass ~d", [
             {clk, GCK, #{global => gck}},
@@ -43,7 +43,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, {low, t}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"bypass  d XOR ( t AND  s)", [
             {clk, GCK, #{global => gck}},
@@ -51,7 +51,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, <<"d XOR (t AND s)">>},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"bypass  d XOR (~t AND  s)", [
             {clk, GCK, #{global => gck}},
@@ -59,7 +59,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, <<"d XOR ((NOT t) AND s)">>},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"bypass  d XOR ( t AND ~s)", [
             {clk, GCK, #{global => gck}},
@@ -67,7 +67,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, <<"d XOR (t AND (NOT s))">>},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" t", [
             {clk, GCK, #{global => gck}},
@@ -75,7 +75,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, t, #{clk => clk}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"~t", [
             {clk, GCK, #{global => gck}},
@@ -83,7 +83,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, {low, t}, #{clk => clk}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d SET  t", [
             {clk, GCK, #{global => gck}},
@@ -91,7 +91,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, s => t}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d SET ~t", [
             {clk, GCK, #{global => gck}},
@@ -99,7 +99,15 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, s => {low, t}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
+        ]},
+        {" d SET  s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => clk, s => s}},
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d RESET  t", [
             {clk, GCK, #{global => gck}},
@@ -107,7 +115,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, r => t}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d RESET ~t", [
             {clk, GCK, #{global => gck}},
@@ -115,7 +123,15 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, r => {low, t}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
+        ]},
+        {" d RESET  s", [
+            {clk, GCK, #{global => gck}},
+            {d, D},
+            {s, S},
+            {t, T},
+            {o, O, d, #{clk => clk, r => s}},
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CLOCK  t", [
             {clk, GCK, #{global => gck}},
@@ -123,7 +139,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => t}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CLOCK ~t", [
             {clk, GCK, #{global => gck}},
@@ -131,7 +147,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => {low, t}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"~d CLOCK  t", [
             {clk, GCK, #{global => gck}},
@@ -139,7 +155,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, {low, d}, #{clk => t}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"~d CLOCK ~t", [
             {clk, GCK, #{global => gck}},
@@ -147,7 +163,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, {low, d}, #{clk => {low, t}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CLOCK  t OE  s", [
             {clk, GCK, #{global => gck}},
@@ -155,7 +171,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => t, oe => s}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CLOCK ~t OE  s", [
             {clk, GCK, #{global => gck}},
@@ -163,7 +179,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => {low, t}, oe => s}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CLOCK  t OE ~s", [
             {clk, GCK, #{global => gck}},
@@ -171,7 +187,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => t, oe => {low, s}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CLOCK ~t OE ~s", [
             {clk, GCK, #{global => gck}},
@@ -179,7 +195,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => {low, t}, oe => {low, s}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"~d CLOCK  t OE  s", [
             {clk, GCK, #{global => gck}},
@@ -187,7 +203,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, {low, d}, #{clk => t, oe => s}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {"~d CLOCK  t OE ~s", [
             {clk, GCK, #{global => gck}},
@@ -195,7 +211,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, {low, d}, #{clk => t, oe => {low, s}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CE  t", [
             {clk, GCK, #{global => gck}},
@@ -203,7 +219,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => t}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CE ~t", [
             {clk, GCK, #{global => gck}},
@@ -211,7 +227,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => {low, t}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CE  t SET  s", [
             {clk, GCK, #{global => gck}},
@@ -219,7 +235,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => t, s => s}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CE ~t SET  s", [
             {clk, GCK, #{global => gck}},
@@ -227,7 +243,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => {low, t}, s => s}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CE  t RESET  s", [
             {clk, GCK, #{global => gck}},
@@ -235,7 +251,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => t, r => s}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d CE ~t RESET  s", [
             {clk, GCK, #{global => gck}},
@@ -243,7 +259,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, ce => {low, t}, r => s}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d OE  t", [
             {clk, GCK, #{global => gck}},
@@ -251,7 +267,7 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, oe => t}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]},
         {" d OE ~t", [
             {clk, GCK, #{global => gck}},
@@ -259,9 +275,14 @@ run() ->
             {s, S},
             {t, T},
             {o, O, d, #{clk => clk, oe => {low, t}}},
-            {z, Z, d, #{clk => clk, s => s}}
+            {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]}
-    ]))).
+    ]),
+    Matrix = fuses:matrix(Experiments),
+    {matrix, Fuses, _} = Matrix,
+    io:format("~p~n", [lists:zip(Fuses, fuse_map:fuses(Device, Fuses))]),
+    fuses:print(Matrix),
+    ok.
 
 %%====================================================================
 %% experiment
