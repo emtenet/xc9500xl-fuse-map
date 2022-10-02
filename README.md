@@ -14,8 +14,7 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `gsr_experiment` - set via GSR / reset via GSR
  - [x] `gsr_invert_experiment` - global GSR invert
  - [x] `product_term_experiment` - which product term (of 5) is the default? 3!
- - [ ] `fast_connect_experiment` -
-   first pass of FastCONNECT matrix & product-term 3 and-array.
+ - [x] `and_array_experiment` - AND-array true and compliement terms of product term 3
 
 
 ## Fuses
