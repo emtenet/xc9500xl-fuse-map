@@ -43,7 +43,7 @@ density(Density) ->
 %%--------------------------------------------------------------------
 
 macro_cell(Device, IOs, Output) ->
-    io:format(" => fast-connect ~s ~s~n", [Device, Output]),
+    io:format(" => AND-array ~s ~s~n", [Device, Output]),
     Results = [
         experiment(Device, Input, Output)
         ||
