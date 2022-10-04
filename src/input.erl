@@ -2,6 +2,7 @@
 
 -export([assert/1]).
 -export([from/1]).
+-export([list/0]).
 
 %%====================================================================
 %% assert
@@ -120,4 +121,66 @@ from(51) -> input51;
 from(52) -> input52;
 from(53) -> input53;
 from(54) -> input54.
+
+%%====================================================================
+%% list
+%%====================================================================
+
+list() ->
+    [
+        input01,
+        input02,
+        input03,
+        input04,
+        input05,
+        input06,
+        input07,
+        input08,
+        input09,
+        input10,
+        input11,
+        input12,
+        input13,
+        input14,
+        input15,
+        input16,
+        input17,
+        input18,
+        input19,
+        input20,
+        input21,
+        input22,
+        input23,
+        input24,
+        input25,
+        input26,
+        input27,
+        input28,
+        input29,
+        input30,
+        input31,
+        input32,
+        input33,
+        input34,
+        input35,
+        input36,
+        input37,
+        input38,
+        input39,
+        input40,
+        input41,
+        input42,
+        input43,
+        input44,
+        input45,
+        input46,
+        input47,
+        input48,
+        input49,
+        input50,
+        input51,
+        input52,
+        input53,
+        input54
+    ].
 
