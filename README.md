@@ -18,6 +18,37 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `inputs_experiment` - Mapping of input MUX bits to source macro cell.
 
 
+## TODO: guessed fuses
+
+The following fuses have been guessed by observing in the playgrounds.
+
+ - global GCK1 enable
+ - global GCK2 enable
+ - global GCK3 enable
+ - global keeper disable
+ - function block enable
+ - function block always-on fuse
+ - macro cell CE MUX0
+ - macro cell CE MUX1
+ - macro cell power A
+ - macro cell power B
+ - macro cell pt1 enable
+ - macro cell pt1 MUX0
+ - macro cell pt1 MUX1
+ - macro cell pt2 enable
+ - macro cell pt2 MUX0
+ - macro cell pt2 MUX1
+ - macro cell pt3 MUX0
+ - macro cell pt4 enable
+ - macro cell pt4 MUX0
+ - macro cell pt4 MUX1
+ - macro cell pt5 enable
+ - macro cell pt5 MUX0
+ - macro cell pt5 MUX1
+ - macro cell pt5 MUX2
+ - macro cell XOR with 1
+
+
 ## Fuses
 
 ### `user##`
