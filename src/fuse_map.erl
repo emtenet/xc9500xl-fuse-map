@@ -2,6 +2,7 @@
 
 -export([fuse/2]).
 -export([fuses/2]).
+-export([inputs/2]).
 
 -type density() :: density:density().
 -type fb() :: function_block:function_block().
@@ -352,4 +353,65 @@ fuse_user_lower(FB, Row, Column) ->
 
 fuses(Density, Fuses) ->
     [ fuse(Density, Fuse) || Fuse <- Fuses ].
+
+%%====================================================================
+%% inputs
+%%====================================================================
+
+-spec inputs(density(), [fuse()])
+    -> #{fb() => #{input() => input:choice()}}.
+
+inputs(Density, Fuses) ->
+    inputs(Density, Fuses, #{}).
+
+%%--------------------------------------------------------------------
+
+inputs(_, [], FBs) ->
+    FBs;
+inputs(Density, [Fuse | Fuses], FBs) ->
+    case fuse(Density, Fuse) of
+        {FB, Input, mux_0} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 1, FBs));
+
+        {FB, Input, mux_1} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 2, FBs));
+
+        {FB, Input, mux_2} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 4, FBs));
+
+        {FB, Input, mux_3} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 8, FBs));
+
+        {FB, Input, mux_4} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 16, FBs));
+
+        {FB, Input, mux_5} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 32, FBs));
+
+        {FB, Input, mux_6} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 64, FBs));
+
+        {FB, Input, mux_7} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 128, FBs));
+
+        {FB, Input, mux_8} ->
+            inputs(Density, Fuses, inputs_add(FB, Input, 256, FBs));
+
+        _ ->
+            inputs(Density, Fuses, FBs)
+    end.
+
+%%--------------------------------------------------------------------
+
+inputs_add(FB, Input, Bit, FBs) ->
+    case FBs of
+        #{FB := Inputs = #{Input := Bits}} ->
+            FBs#{FB => Inputs#{Input => Bits + Bit}};
+
+        #{FB := Inputs} ->
+            FBs#{FB => Inputs#{Input => Bit}};
+
+        _ ->
+            FBs#{FB => #{Input => Bit}}
+    end.
 
