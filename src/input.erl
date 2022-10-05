@@ -3,6 +3,7 @@
 -export([assert/1]).
 -export([from/1]).
 -export([list/0]).
+-export([number/1]).
 
 -type input() ::
     input01 |
@@ -243,4 +244,63 @@ list() ->
         input53,
         input54
     ].
+
+%%====================================================================
+%% number
+%%====================================================================
+
+number(input01) ->  1;
+number(input02) ->  2;
+number(input03) ->  3;
+number(input04) ->  4;
+number(input05) ->  5;
+number(input06) ->  6;
+number(input07) ->  7;
+number(input08) ->  8;
+number(input09) ->  9;
+number(input10) -> 10;
+number(input11) -> 11;
+number(input12) -> 12;
+number(input13) -> 13;
+number(input14) -> 14;
+number(input15) -> 15;
+number(input16) -> 16;
+number(input17) -> 17;
+number(input18) -> 18;
+number(input19) -> 19;
+number(input20) -> 20;
+number(input21) -> 21;
+number(input22) -> 22;
+number(input23) -> 23;
+number(input24) -> 24;
+number(input25) -> 25;
+number(input26) -> 26;
+number(input27) -> 27;
+number(input28) -> 28;
+number(input29) -> 29;
+number(input30) -> 30;
+number(input31) -> 31;
+number(input32) -> 32;
+number(input33) -> 33;
+number(input34) -> 34;
+number(input35) -> 35;
+number(input36) -> 36;
+number(input37) -> 37;
+number(input38) -> 38;
+number(input39) -> 39;
+number(input40) -> 40;
+number(input41) -> 41;
+number(input42) -> 42;
+number(input43) -> 43;
+number(input44) -> 44;
+number(input45) -> 45;
+number(input46) -> 46;
+number(input47) -> 47;
+number(input48) -> 48;
+number(input49) -> 49;
+number(input50) -> 50;
+number(input51) -> 51;
+number(input52) -> 52;
+number(input53) -> 53;
+number(input54) -> 54.
 
