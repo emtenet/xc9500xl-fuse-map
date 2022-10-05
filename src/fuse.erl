@@ -5,6 +5,9 @@
 -export([fast_connect/4]).
 -export([macro_cell/2]).
 
+-type fuse() :: non_neg_integer().
+-export_type([fuse/0]).
+
 -type user() ::
     user00 | user01 | user02 | user03 | user04 | user05 | user06 | user07 |
     user08 | user09 | user10 | user11 | user12 | user13 | user14 | user15 |
