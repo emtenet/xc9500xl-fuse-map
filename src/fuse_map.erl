@@ -3,6 +3,7 @@
 -export([fuse/2]).
 -export([fuses/2]).
 -export([inputs/2]).
+-export([name/2]).
 
 -type density() :: density:density().
 -type fb() :: function_block:function_block().
@@ -31,55 +32,105 @@
 %% and_array
 %%====================================================================
 
-and_array_macro_cell(0, 0) -> mc01;
-and_array_macro_cell(0, 1) -> mc04;
-and_array_macro_cell(0, 2) -> mc07;
-and_array_macro_cell(0, 3) -> mc10;
-and_array_macro_cell(0, 4) -> mc13;
-and_array_macro_cell(0, 5) -> mc16;
-and_array_macro_cell(1, 0) -> mc02;
-and_array_macro_cell(1, 1) -> mc05;
-and_array_macro_cell(1, 2) -> mc08;
-and_array_macro_cell(1, 3) -> mc11;
-and_array_macro_cell(1, 4) -> mc14;
-and_array_macro_cell(1, 5) -> mc17;
-and_array_macro_cell(2, 0) -> mc03;
-and_array_macro_cell(2, 1) -> mc06;
-and_array_macro_cell(2, 2) -> mc09;
-and_array_macro_cell(2, 3) -> mc12;
-and_array_macro_cell(2, 4) -> mc15;
-and_array_macro_cell(2, 5) -> mc18.
+and_array_from_macro_cell(mc01) -> {0, 0};
+and_array_from_macro_cell(mc04) -> {0, 1};
+and_array_from_macro_cell(mc07) -> {0, 2};
+and_array_from_macro_cell(mc10) -> {0, 3};
+and_array_from_macro_cell(mc13) -> {0, 4};
+and_array_from_macro_cell(mc16) -> {0, 5};
+and_array_from_macro_cell(mc02) -> {1, 0};
+and_array_from_macro_cell(mc05) -> {1, 1};
+and_array_from_macro_cell(mc08) -> {1, 2};
+and_array_from_macro_cell(mc11) -> {1, 3};
+and_array_from_macro_cell(mc14) -> {1, 4};
+and_array_from_macro_cell(mc17) -> {1, 5};
+and_array_from_macro_cell(mc03) -> {2, 0};
+and_array_from_macro_cell(mc06) -> {2, 1};
+and_array_from_macro_cell(mc09) -> {2, 2};
+and_array_from_macro_cell(mc12) -> {2, 3};
+and_array_from_macro_cell(mc15) -> {2, 4};
+and_array_from_macro_cell(mc18) -> {2, 5}.
 
 %%--------------------------------------------------------------------
 
-and_array_product_term(0) -> pt3;
-and_array_product_term(1) -> pt5;
-and_array_product_term(2) -> pt4;
-and_array_product_term(3) -> pt1;
-and_array_product_term(4) -> pt2.
+and_array_from_product_term(pt3) -> 0;
+and_array_from_product_term(pt5) -> 1;
+and_array_from_product_term(pt4) -> 2;
+and_array_from_product_term(pt1) -> 3;
+and_array_from_product_term(pt2) -> 4.
+
+%%--------------------------------------------------------------------
+
+and_array_to_macro_cell(0, 0) -> mc01;
+and_array_to_macro_cell(0, 1) -> mc04;
+and_array_to_macro_cell(0, 2) -> mc07;
+and_array_to_macro_cell(0, 3) -> mc10;
+and_array_to_macro_cell(0, 4) -> mc13;
+and_array_to_macro_cell(0, 5) -> mc16;
+and_array_to_macro_cell(1, 0) -> mc02;
+and_array_to_macro_cell(1, 1) -> mc05;
+and_array_to_macro_cell(1, 2) -> mc08;
+and_array_to_macro_cell(1, 3) -> mc11;
+and_array_to_macro_cell(1, 4) -> mc14;
+and_array_to_macro_cell(1, 5) -> mc17;
+and_array_to_macro_cell(2, 0) -> mc03;
+and_array_to_macro_cell(2, 1) -> mc06;
+and_array_to_macro_cell(2, 2) -> mc09;
+and_array_to_macro_cell(2, 3) -> mc12;
+and_array_to_macro_cell(2, 4) -> mc15;
+and_array_to_macro_cell(2, 5) -> mc18.
+
+%%--------------------------------------------------------------------
+
+and_array_to_product_term(0) -> pt3;
+and_array_to_product_term(1) -> pt5;
+and_array_to_product_term(2) -> pt4;
+and_array_to_product_term(3) -> pt1;
+and_array_to_product_term(4) -> pt2.
 
 %%====================================================================
 %% feature
 %%====================================================================
 
-feature_macro_cell(0, 6) ->mc01;
-feature_macro_cell(1, 6) ->mc02;
-feature_macro_cell(2, 6) ->mc03;
-feature_macro_cell(3, 6) ->mc04;
-feature_macro_cell(4, 6) ->mc05;
-feature_macro_cell(5, 6) ->mc06;
-feature_macro_cell(6, 6) ->mc07;
-feature_macro_cell(7, 6) ->mc08;
-feature_macro_cell(8, 6) ->mc09;
-feature_macro_cell(0, 7) ->mc10;
-feature_macro_cell(1, 7) ->mc11;
-feature_macro_cell(2, 7) ->mc12;
-feature_macro_cell(3, 7) ->mc13;
-feature_macro_cell(4, 7) ->mc14;
-feature_macro_cell(5, 7) ->mc15;
-feature_macro_cell(6, 7) ->mc16;
-feature_macro_cell(7, 7) ->mc17;
-feature_macro_cell(8, 7) ->mc18.
+feature_from_macro_cell(mc01) -> {0, 6};
+feature_from_macro_cell(mc02) -> {1, 6};
+feature_from_macro_cell(mc03) -> {2, 6};
+feature_from_macro_cell(mc04) -> {3, 6};
+feature_from_macro_cell(mc05) -> {4, 6};
+feature_from_macro_cell(mc06) -> {5, 6};
+feature_from_macro_cell(mc07) -> {6, 6};
+feature_from_macro_cell(mc08) -> {7, 6};
+feature_from_macro_cell(mc09) -> {8, 6};
+feature_from_macro_cell(mc10) -> {0, 7};
+feature_from_macro_cell(mc11) -> {1, 7};
+feature_from_macro_cell(mc12) -> {2, 7};
+feature_from_macro_cell(mc13) -> {3, 7};
+feature_from_macro_cell(mc14) -> {4, 7};
+feature_from_macro_cell(mc15) -> {5, 7};
+feature_from_macro_cell(mc16) -> {6, 7};
+feature_from_macro_cell(mc17) -> {7, 7};
+feature_from_macro_cell(mc18) -> {8, 7}.
+
+%%--------------------------------------------------------------------
+
+feature_to_macro_cell(0, 6) -> mc01;
+feature_to_macro_cell(1, 6) -> mc02;
+feature_to_macro_cell(2, 6) -> mc03;
+feature_to_macro_cell(3, 6) -> mc04;
+feature_to_macro_cell(4, 6) -> mc05;
+feature_to_macro_cell(5, 6) -> mc06;
+feature_to_macro_cell(6, 6) -> mc07;
+feature_to_macro_cell(7, 6) -> mc08;
+feature_to_macro_cell(8, 6) -> mc09;
+feature_to_macro_cell(0, 7) -> mc10;
+feature_to_macro_cell(1, 7) -> mc11;
+feature_to_macro_cell(2, 7) -> mc12;
+feature_to_macro_cell(3, 7) -> mc13;
+feature_to_macro_cell(4, 7) -> mc14;
+feature_to_macro_cell(5, 7) -> mc15;
+feature_to_macro_cell(6, 7) -> mc16;
+feature_to_macro_cell(7, 7) -> mc17;
+feature_to_macro_cell(8, 7) -> mc18.
 
 %%====================================================================
 %% fuse
@@ -130,8 +181,8 @@ fuse(Density, Fuse) ->
 
 fuse(Band, FB, Row, Column) when Column < 6 ->
     %io:format("  fuse(~p, ~p, ~p, ~p)~n", [Band, FB, Row, Column]),
-    MC = and_array_macro_cell(Row div 5, Column),
-    PT = and_array_product_term(Row rem 5),
+    MC = and_array_to_macro_cell(Row div 5, Column),
+    PT = and_array_to_product_term(Row rem 5),
     Input = input:from((Band div 2) + 1),
     case Band rem 2 of
         0 ->
@@ -273,7 +324,7 @@ fuse_input(_, Input, FB, 8, 7) -> {FB, Input, mux_8}.
 %%--------------------------------------------------------------------
 
 fuse_feature(Feature, FB, Row, Column) ->
-    MC = feature_macro_cell(Row, Column),
+    MC = feature_to_macro_cell(Row, Column),
     {FB, MC, Feature}.
 
 %%--------------------------------------------------------------------
@@ -298,13 +349,13 @@ fuse_global(FB, Row, Column) ->
 %%--------------------------------------------------------------------
 
 fuse_guess(Guess, FB, Row, Column) ->
-    MC = feature_macro_cell(Row, Column),
+    MC = feature_to_macro_cell(Row, Column),
     {FB, MC, guess, Guess}.
 
 %%--------------------------------------------------------------------
 
 fuse_unknown(Band, FB, Row, Column) ->
-    MC = feature_macro_cell(Row, Column),
+    MC = feature_to_macro_cell(Row, Column),
     {FB, MC, unknown, Band}.
 
 %%--------------------------------------------------------------------
@@ -326,7 +377,7 @@ fuse_user_upper(fb01, 6, 7) -> user16;
 fuse_user_upper(fb01, 7, 6) -> user19;
 fuse_user_upper(fb01, 7, 7) -> user18;
 fuse_user_upper(FB, Row, Column) ->
-    fuse_unknown(band07, FB, Row, Column).
+    fuse_unknown(band007, FB, Row, Column).
 
 %%--------------------------------------------------------------------
 
@@ -347,7 +398,7 @@ fuse_user_lower(fb01, 6, 7) -> user00;
 fuse_user_lower(fb01, 7, 6) -> user03;
 fuse_user_lower(fb01, 7, 7) -> user02;
 fuse_user_lower(FB, Row, Column) ->
-    fuse_unknown(band07, FB, Row, Column).
+    fuse_unknown(band008, FB, Row, Column).
 
 %%====================================================================
 %% fuses
@@ -416,4 +467,275 @@ inputs_add(FB, Input, Bit, FBs) ->
         _ ->
             FBs#{FB => #{Input => Bit}}
     end.
+
+%%====================================================================
+%% name
+%%====================================================================
+
+name(Density, gsr_invert) -> name(Density, 2, fb01, 0, 6);
+name(Density, {guess, gck1_enable}) -> name(Density, 2, fb01, 1, 6);
+name(Density, {guess, gck2_enable}) -> name(Density, 2, fb01, 2, 6);
+name(Density, {guess, gck3_enable}) -> name(Density, 2, fb01, 3, 6);
+name(Density, {guess, keeper_disable}) -> name(Density, 2, fb01, 8, 6);
+name(Density, user30) -> name(Density, 6, fb01, 0, 6);
+name(Density, user31) -> name(Density, 6, fb01, 0, 7);
+name(Density, user28) -> name(Density, 6, fb01, 1, 6);
+name(Density, user29) -> name(Density, 6, fb01, 1, 7);
+name(Density, user25) -> name(Density, 6, fb01, 2, 6);
+name(Density, user24) -> name(Density, 6, fb01, 2, 7);
+name(Density, user27) -> name(Density, 6, fb01, 3, 6);
+name(Density, user26) -> name(Density, 6, fb01, 3, 7);
+name(Density, user22) -> name(Density, 6, fb01, 4, 6);
+name(Density, user23) -> name(Density, 6, fb01, 4, 7);
+name(Density, user20) -> name(Density, 6, fb01, 5, 6);
+name(Density, user21) -> name(Density, 6, fb01, 5, 7);
+name(Density, user17) -> name(Density, 6, fb01, 6, 6);
+name(Density, user16) -> name(Density, 6, fb01, 6, 7);
+name(Density, user19) -> name(Density, 6, fb01, 7, 6);
+name(Density, user18) -> name(Density, 6, fb01, 7, 7);
+name(Density, user14) -> name(Density, 7, fb01, 0, 6);
+name(Density, user15) -> name(Density, 7, fb01, 0, 7);
+name(Density, user12) -> name(Density, 7, fb01, 1, 6);
+name(Density, user13) -> name(Density, 7, fb01, 1, 7);
+name(Density, user09) -> name(Density, 7, fb01, 2, 6);
+name(Density, user08) -> name(Density, 7, fb01, 2, 7);
+name(Density, user11) -> name(Density, 7, fb01, 3, 6);
+name(Density, user10) -> name(Density, 7, fb01, 3, 7);
+name(Density, user06) -> name(Density, 7, fb01, 4, 6);
+name(Density, user07) -> name(Density, 7, fb01, 4, 7);
+name(Density, user04) -> name(Density, 7, fb01, 5, 6);
+name(Density, user05) -> name(Density, 7, fb01, 5, 7);
+name(Density, user01) -> name(Density, 7, fb01, 6, 6);
+name(Density, user00) -> name(Density, 7, fb01, 6, 7);
+name(Density, user03) -> name(Density, 7, fb01, 7, 6);
+name(Density, user02) -> name(Density, 7, fb01, 7, 7);
+name(Density, {FB, guess, enable}) -> name(Density, 78, FB, 0, 6);
+name(Density, {FB, guess, always}) -> name(Density, 78, FB, 6, 6);
+name(Density, {FB, Input, mux_0}) -> name_input(Density, FB, Input, 0);
+name(Density, {FB, Input, mux_1}) -> name_input(Density, FB, Input, 1);
+name(Density, {FB, Input, mux_2}) -> name_input(Density, FB, Input, 2);
+name(Density, {FB, Input, mux_3}) -> name_input(Density, FB, Input, 3);
+name(Density, {FB, Input, mux_4}) -> name_input(Density, FB, Input, 4);
+name(Density, {FB, Input, mux_5}) -> name_input(Density, FB, Input, 5);
+name(Density, {FB, Input, mux_6}) -> name_input(Density, FB, Input, 6);
+name(Density, {FB, Input, mux_7}) -> name_input(Density, FB, Input, 7);
+name(Density, {FB, Input, mux_8}) -> name_input(Density, FB, Input, 8);
+name(Density, {FB, MC, Feature}) ->
+    Band = feature_band(Feature),
+    {Row, Col} = feature_from_macro_cell(MC),
+    name(Density, Band, FB, Row, Col);
+name(Density, {FB, MC, guess, Feature}) ->
+    Band = feature_band(Feature),
+    {Row, Col} = feature_from_macro_cell(MC),
+    name(Density, Band, FB, Row, Col);
+name(Density, {FB, MC, unknown, Feature}) ->
+    Band = feature_band(Feature),
+    {Row, Col} = feature_from_macro_cell(MC),
+    name(Density, Band, FB, Row, Col);
+name(Density, {FB, MC, PT, Input}) ->
+    Band = 1 + (2 * (input:number(Input) - 1)),
+    {Row5, Column} = and_array_from_macro_cell(MC),
+    Row1 = and_array_from_product_term(PT),
+    name(Density, Band, FB, (Row5 * 5) + Row1, Column);
+name(Density, {FB, MC, PT, Input, invert}) ->
+    Band = 0 + (2 * (input:number(Input) - 1)),
+    {Row5, Column} = and_array_from_macro_cell(MC),
+    Row1 = and_array_from_product_term(PT),
+    name(Density, Band, FB, (Row5 * 5) + Row1, Column).
+
+%%--------------------------------------------------------------------
+
+name(Density, Band, FB_, Row, Column) when Row < 9 ->
+    % wide row
+    FBCount = density:function_block_count(Density),
+    BandSize = FBCount * 108,
+    WideRowSize = FBCount * 8,
+    %
+    FB = function_block:number(FB_) - 1,
+    (Band * BandSize) +
+    (Row * WideRowSize) +
+    (FB * 8) +
+    Column;
+name(Density, Band, FB_, Row_, Column) ->
+    % slim row
+    FBCount = density:function_block_count(Density),
+    BandSize = FBCount * 108,
+    WideRowSize = FBCount * 8,
+    SlimRowSize = FBCount * 6,
+    %
+    FB = function_block:number(FB_) - 1,
+    Row = Row_ - 9,
+    (Band * BandSize) +
+    (9 * WideRowSize) +
+    (Row * SlimRowSize) +
+    (FB * 6) +
+    Column.
+
+%%--------------------------------------------------------------------
+
+name_input(Density, FB, input01, Row) -> name(Density, 50, FB, Row, 6);
+name_input(Density, FB, input02, Row) -> name(Density, 51, FB, Row, 6);
+name_input(Density, FB, input03, Row) -> name(Density, 52, FB, Row, 6);
+name_input(Density, FB, input04, Row) -> name(Density, 53, FB, Row, 6);
+name_input(Density, FB, input05, Row) -> name(Density, 54, FB, Row, 6);
+name_input(Density, FB, input06, Row) -> name(Density, 55, FB, Row, 6);
+name_input(Density, FB, input07, Row) -> name(Density, 56, FB, Row, 6);
+name_input(Density, FB, input08, Row) -> name(Density, 57, FB, Row, 6);
+name_input(Density, FB, input09, Row) -> name(Density, 58, FB, Row, 6);
+name_input(Density, FB, input10, Row) -> name(Density, 59, FB, Row, 6);
+name_input(Density, FB, input11, Row) -> name(Density, 60, FB, Row, 6);
+name_input(Density, FB, input12, Row) -> name(Density, 61, FB, Row, 6);
+name_input(Density, FB, input13, Row) -> name(Density, 62, FB, Row, 6);
+name_input(Density, FB, input14, Row) -> name(Density, 63, FB, Row, 6);
+name_input(Density, FB, input15, Row) -> name(Density, 64, FB, Row, 6);
+name_input(Density, FB, input16, Row) -> name(Density, 65, FB, Row, 6);
+name_input(Density, FB, input17, Row) -> name(Density, 66, FB, Row, 6);
+name_input(Density, FB, input18, Row) -> name(Density, 67, FB, Row, 6);
+name_input(Density, FB, input19, Row) -> name(Density, 68, FB, Row, 6);
+name_input(Density, FB, input20, Row) -> name(Density, 69, FB, Row, 6);
+name_input(Density, FB, input21, Row) -> name(Density, 70, FB, Row, 6);
+name_input(Density, FB, input22, Row) -> name(Density, 71, FB, Row, 6);
+name_input(Density, FB, input23, Row) -> name(Density, 72, FB, Row, 6);
+name_input(Density, FB, input24, Row) -> name(Density, 73, FB, Row, 6);
+name_input(Density, FB, input25, Row) -> name(Density, 74, FB, Row, 6);
+name_input(Density, FB, input26, Row) -> name(Density, 75, FB, Row, 6);
+name_input(Density, FB, input27, Row) -> name(Density, 76, FB, Row, 6);
+name_input(Density, FB, input28, Row) -> name(Density, 50, FB, Row, 7);
+name_input(Density, FB, input29, Row) -> name(Density, 51, FB, Row, 7);
+name_input(Density, FB, input30, Row) -> name(Density, 52, FB, Row, 7);
+name_input(Density, FB, input31, Row) -> name(Density, 53, FB, Row, 7);
+name_input(Density, FB, input32, Row) -> name(Density, 54, FB, Row, 7);
+name_input(Density, FB, input33, Row) -> name(Density, 55, FB, Row, 7);
+name_input(Density, FB, input34, Row) -> name(Density, 56, FB, Row, 7);
+name_input(Density, FB, input35, Row) -> name(Density, 57, FB, Row, 7);
+name_input(Density, FB, input36, Row) -> name(Density, 58, FB, Row, 7);
+name_input(Density, FB, input37, Row) -> name(Density, 59, FB, Row, 7);
+name_input(Density, FB, input38, Row) -> name(Density, 60, FB, Row, 7);
+name_input(Density, FB, input39, Row) -> name(Density, 61, FB, Row, 7);
+name_input(Density, FB, input40, Row) -> name(Density, 62, FB, Row, 7);
+name_input(Density, FB, input41, Row) -> name(Density, 63, FB, Row, 7);
+name_input(Density, FB, input42, Row) -> name(Density, 64, FB, Row, 7);
+name_input(Density, FB, input43, Row) -> name(Density, 65, FB, Row, 7);
+name_input(Density, FB, input44, Row) -> name(Density, 66, FB, Row, 7);
+name_input(Density, FB, input45, Row) -> name(Density, 67, FB, Row, 7);
+name_input(Density, FB, input46, Row) -> name(Density, 68, FB, Row, 7);
+name_input(Density, FB, input47, Row) -> name(Density, 69, FB, Row, 7);
+name_input(Density, FB, input48, Row) -> name(Density, 70, FB, Row, 7);
+name_input(Density, FB, input49, Row) -> name(Density, 71, FB, Row, 7);
+name_input(Density, FB, input50, Row) -> name(Density, 72, FB, Row, 7);
+name_input(Density, FB, input51, Row) -> name(Density, 73, FB, Row, 7);
+name_input(Density, FB, input52, Row) -> name(Density, 74, FB, Row, 7);
+name_input(Density, FB, input53, Row) -> name(Density, 75, FB, Row, 7);
+name_input(Density, FB, input54, Row) -> name(Density, 76, FB, Row, 7).
+
+%%--------------------------------------------------------------------
+
+feature_band(band001) ->   0;
+feature_band(band002) ->   1;
+feature_band(band003) ->   2;
+feature_band(band004) ->   3;
+feature_band(band005) ->   4;
+feature_band(band006) ->   5;
+feature_band(band007) ->   6;
+feature_band(band008) ->   7;
+feature_band(band009) ->   8;
+feature_band(band010) ->   9;
+feature_band(band011) ->  10;
+feature_band(band012) ->  11;
+feature_band(pt3_mux0) ->  12;
+feature_band(pt5_mux2) ->  13;
+feature_band(pt5_mux1) ->  14;
+feature_band(pt5_mux0) ->  15;
+feature_band(pt4_mux1) ->  16;
+feature_band(pt4_mux0) ->  17;
+feature_band(pt1_mux1) ->  18;
+feature_band(pt1_mux0) ->  19;
+feature_band(pt2_mux1) ->  20;
+feature_band(pt2_mux0) ->  21;
+feature_band(xor1) ->  22;
+feature_band(band024) ->  23;
+feature_band(band025) ->  24;
+feature_band(band026) ->  25;
+feature_band(power_a) ->  26;
+feature_band(oe_gts) ->  27;
+feature_band(oe_gts_0) ->  28;
+feature_band(oe_gts_1) ->  29;
+feature_band(oe_invert) ->  30;
+feature_band(band032) ->  31;
+feature_band(bypass) ->  32;
+feature_band(gck_1) ->  33;
+feature_band(gck_0) ->  34;
+feature_band(band036) ->  35;
+feature_band(ce_mux1) ->  36;
+feature_band(ce_mux0) ->  37;
+feature_band(band039) ->  38;
+feature_band(t_type) ->  39;
+feature_band(r_gsr) ->  40;
+feature_band(s_gsr) ->  41;
+feature_band(preset) ->  42;
+feature_band(ground) ->  43;
+feature_band(fast) ->  44;
+feature_band(power_b) ->  45;
+feature_band(pt5_enable) ->  46;
+feature_band(pt4_enable) ->  47;
+feature_band(pt1_enable) ->  48;
+feature_band(pt2_enable) ->  49;
+feature_band(band051) ->  50;
+feature_band(band052) ->  51;
+feature_band(band053) ->  52;
+feature_band(band054) ->  53;
+feature_band(band055) ->  54;
+feature_band(band056) ->  55;
+feature_band(band057) ->  56;
+feature_band(band058) ->  57;
+feature_band(band059) ->  58;
+feature_band(band060) ->  59;
+feature_band(band061) ->  60;
+feature_band(band062) ->  61;
+feature_band(band063) ->  62;
+feature_band(band064) ->  63;
+feature_band(band065) ->  64;
+feature_band(band066) ->  65;
+feature_band(band067) ->  66;
+feature_band(band068) ->  67;
+feature_band(band069) ->  68;
+feature_band(band070) ->  69;
+feature_band(band071) ->  70;
+feature_band(band072) ->  71;
+feature_band(band073) ->  72;
+feature_band(band074) ->  73;
+feature_band(band075) ->  74;
+feature_band(band076) ->  75;
+feature_band(band077) ->  76;
+feature_band(band078) ->  77;
+feature_band(band079) ->  78;
+feature_band(band080) ->  79;
+feature_band(band081) ->  80;
+feature_band(band082) ->  81;
+feature_band(band083) ->  82;
+feature_band(band084) ->  83;
+feature_band(band085) ->  84;
+feature_band(band086) ->  85;
+feature_band(band087) ->  86;
+feature_band(band088) ->  87;
+feature_band(band089) ->  88;
+feature_band(band090) ->  89;
+feature_band(band091) ->  90;
+feature_band(band092) ->  91;
+feature_band(band093) ->  92;
+feature_band(band094) ->  93;
+feature_band(band095) ->  94;
+feature_band(band096) ->  95;
+feature_band(band097) ->  96;
+feature_band(band098) ->  97;
+feature_band(band099) ->  98;
+feature_band(band100) ->  99;
+feature_band(band101) -> 100;
+feature_band(band102) -> 101;
+feature_band(band103) -> 102;
+feature_band(band104) -> 103;
+feature_band(band105) -> 104;
+feature_band(band106) -> 105;
+feature_band(band107) -> 106;
+feature_band(band108) -> 107.
 
