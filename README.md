@@ -16,6 +16,7 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `product_term_experiment` - which product term (of 5) is the default? 3!
  - [x] `and_array_experiment` - AND-array true and compliement terms of product term 3
  - [x] `inputs_experiment` - Mapping of input MUX bits to source macro cell.
+ - [x] `always_experiment` - Confirm that some fuses are always on!
 
 
 ## TODO: guessed fuses
@@ -27,7 +28,6 @@ The following fuses have been guessed by observing in the playgrounds.
  - global GCK3 enable
  - global keeper disable
  - function block enable
- - function block always-on fuse
  - macro cell CE MUX0
  - macro cell CE MUX1
  - macro cell power A
@@ -58,6 +58,10 @@ User signature bits in the range 0..31.
 ### `gsr_invert`
 
 Invert the global GSR signal.
+
+### `{fb##, always}`
+
+These fuses seem to be always on!
 
 ### `{fb##, mc##, ground}`
 

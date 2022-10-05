@@ -332,7 +332,7 @@ fuse_feature(Feature, FB, Row, Column) ->
 fuse_function_block(FB, 0, 6) ->
     {FB, guess, enable};
 fuse_function_block(FB, 6, 6) ->
-    {FB, guess, always};
+    {FB, always};
 fuse_function_block(FB, Row, Column) ->
     fuse_unknown(band079, FB, Row, Column).
 
@@ -472,11 +472,13 @@ inputs_add(FB, Input, Bit, FBs) ->
 %% name
 %%====================================================================
 
+% global fuses
 name(Density, gsr_invert) -> name(Density, 2, fb01, 0, 6);
 name(Density, {guess, gck1_enable}) -> name(Density, 2, fb01, 1, 6);
 name(Density, {guess, gck2_enable}) -> name(Density, 2, fb01, 2, 6);
 name(Density, {guess, gck3_enable}) -> name(Density, 2, fb01, 3, 6);
 name(Density, {guess, keeper_disable}) -> name(Density, 2, fb01, 8, 6);
+% user upper fuses
 name(Density, user30) -> name(Density, 6, fb01, 0, 6);
 name(Density, user31) -> name(Density, 6, fb01, 0, 7);
 name(Density, user28) -> name(Density, 6, fb01, 1, 6);
@@ -493,6 +495,7 @@ name(Density, user17) -> name(Density, 6, fb01, 6, 6);
 name(Density, user16) -> name(Density, 6, fb01, 6, 7);
 name(Density, user19) -> name(Density, 6, fb01, 7, 6);
 name(Density, user18) -> name(Density, 6, fb01, 7, 7);
+% user lower fuses
 name(Density, user14) -> name(Density, 7, fb01, 0, 6);
 name(Density, user15) -> name(Density, 7, fb01, 0, 7);
 name(Density, user12) -> name(Density, 7, fb01, 1, 6);
@@ -509,8 +512,10 @@ name(Density, user01) -> name(Density, 7, fb01, 6, 6);
 name(Density, user00) -> name(Density, 7, fb01, 6, 7);
 name(Density, user03) -> name(Density, 7, fb01, 7, 6);
 name(Density, user02) -> name(Density, 7, fb01, 7, 7);
+% function block fuses
 name(Density, {FB, guess, enable}) -> name(Density, 78, FB, 0, 6);
-name(Density, {FB, guess, always}) -> name(Density, 78, FB, 6, 6);
+name(Density, {FB, always}) -> name(Density, 78, FB, 6, 6);
+% input fuses
 name(Density, {FB, Input, mux_0}) -> name_input(Density, FB, Input, 0);
 name(Density, {FB, Input, mux_1}) -> name_input(Density, FB, Input, 1);
 name(Density, {FB, Input, mux_2}) -> name_input(Density, FB, Input, 2);
@@ -520,6 +525,7 @@ name(Density, {FB, Input, mux_5}) -> name_input(Density, FB, Input, 5);
 name(Density, {FB, Input, mux_6}) -> name_input(Density, FB, Input, 6);
 name(Density, {FB, Input, mux_7}) -> name_input(Density, FB, Input, 7);
 name(Density, {FB, Input, mux_8}) -> name_input(Density, FB, Input, 8);
+% feature fuses
 name(Density, {FB, MC, Feature}) ->
     Band = feature_band(Feature),
     {Row, Col} = feature_from_macro_cell(MC),
@@ -532,6 +538,7 @@ name(Density, {FB, MC, unknown, Feature}) ->
     Band = feature_band(Feature),
     {Row, Col} = feature_from_macro_cell(MC),
     name(Density, Band, FB, Row, Col);
+% AND-array fuses
 name(Density, {FB, MC, PT, Input}) ->
     Band = 1 + (2 * (input:number(Input) - 1)),
     {Row5, Column} = and_array_from_macro_cell(MC),
