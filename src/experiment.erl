@@ -6,10 +6,35 @@
 -export([cache_refresh/1]).
 -export([cached_imux/1]).
 -export([cached_jed/1]).
+-export([cached_with/1]).
+-export([cache_iterate/0]).
+-export([cache_iterate/1]).
 -export([pins/0]).
 -export([fuse_count/0]).
 -export([imux/0]).
 -export([jed/0]).
+
+-type with() :: #{
+    device := device:device(),
+    init => high | low,
+    optimize => true | false,
+    power => auto | low | std,
+    slew => auto | fast | slow,
+    terminate => float | keeper,
+    unused => float | ground,
+    usercode => binary(),
+    ucf := binary(),
+    vhdl := binary()
+}.
+-export_type([with/0]).
+
+-type jed() :: [fuse:fuse()].
+-export_type([jed/0]).
+
+-type cache() ::
+    {cache, miss, with(), file:filename(), jed()} |
+    {cache, hit, with(), file:filename()}.
+-export_type([cache/0]).
 
 -include_lib("kernel/include/file.hrl").
 
@@ -593,6 +618,18 @@ cache_make_dir(Dir) ->
 
 %%--------------------------------------------------------------------
 
+cache_consult_query(Dir) ->
+    File = filename:join(Dir, "with"),
+    case file:consult(File) of
+        {ok, [With]} ->
+            {ok, With};
+
+        {error, Reason} ->
+            {error, Reason}
+    end.
+
+%%--------------------------------------------------------------------
+
 cache_delete_query(Dir) ->
     File = filename:join(Dir, "with"),
     ok = file:delete(File).
@@ -651,6 +688,59 @@ cached_jed({cache, hit, _With, Dir}) ->
     JED;
 cached_jed({cache, miss, _With, _Dir, JED}) ->
     JED.
+
+%%====================================================================
+%% cached_with
+%%====================================================================
+
+cached_with({cache, hit, With, _Dir}) ->
+    With;
+cached_with({cache, miss, With, _Dir, _JED}) ->
+    With.
+
+%%====================================================================
+%% cache_iterate
+%%====================================================================
+
+-type cache_iterate() :: {cache_iterate, [file:filename()]}.
+
+-spec cache_iterate() -> false | {cache(), cache_iterate()}.
+
+cache_iterate() ->
+    {ok, Dirs} = file:list_dir("cache"),
+    cache_iterate_dirs(Dirs).
+
+%%--------------------------------------------------------------------
+
+-spec cache_iterate(cache_iterate()) -> false | {cache(), cache_iterate()}.
+
+cache_iterate({cache_iterate, Dirs}) ->
+    cache_iterate_dirs(Dirs).
+
+%%--------------------------------------------------------------------
+
+cache_iterate_dirs([]) ->
+    false;
+cache_iterate_dirs([Dir | Dirs]) ->
+    case cache_iterate_dir(Dir) of
+        {ok, Cache} ->
+            {Cache, {cache_iterate, Dirs}};
+
+        false ->
+            cache_iterate_dirs(Dirs)
+    end.
+
+%%--------------------------------------------------------------------
+
+cache_iterate_dir(Hash) ->
+    Dir = filename:join("cache", Hash),
+    case cache_consult_query(Dir) of
+        {ok, With} ->
+            {ok, {cache, hit, With, Dir}};
+
+        _ ->
+            false
+    end.
 
 %%====================================================================
 %% pins
