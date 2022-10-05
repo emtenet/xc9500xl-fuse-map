@@ -141,12 +141,12 @@ imux_inputs([], _, FBs, _) ->
     FBs;
 imux_inputs([Index_, Name, <<"NULL">> | Inputs], FB, FBs, Pins) ->
     % convert index from 0-based to 1-based
-    Input = function_block:input(1 + binary_to_integer(Index_)),
+    Input = input:from(1 + binary_to_integer(Index_)),
     #{Name := MC} = Pins,
     imux_inputs(Inputs, FB, imux_input(FB, output, MC, Input, FBs), Pins);
 imux_inputs([Index_, _Name, Pin | Inputs], FB, FBs, Pins) ->
     % convert index from 0-based to 1-based
-    Input = function_block:input(1 + binary_to_integer(Index_)),
+    Input = input:from(1 + binary_to_integer(Index_)),
     #{Pin := MC} = Pins,
     imux_inputs(Inputs, FB, imux_input(FB, input, MC, Input, FBs), Pins).
 
