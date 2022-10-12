@@ -95,7 +95,8 @@ Known fuses at the moment are:
  - A1 ***GSR invert***,
  - A2 ***GCK1 enable***,
  - A3 ***GCK2 enable***,
- - A4 ***GCK3 enable***.
+ - A4 ***GCK3 enable***,
+ - A9 **keeper disable***.
 
 All other fuses in this band are unused.
 

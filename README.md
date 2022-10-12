@@ -18,13 +18,13 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `inputs_experiment` - Mapping of input MUX bits to source macro cell.
  - [x] `always_experiment` - Confirm that some fuses are always on!
  - [x] `gck_enable_experiment` - Confirm the fuse location for global GCK enables.
+ - [x] `keeper_disable_experiment` - Confirm the fuse for global keeper disable.
 
 
 ## TODO: guessed fuses
 
 The following fuses have been guessed by observing in the playgrounds.
 
- - global keeper disable
  - function block enable
  - macro cell CE MUX0
  - macro cell CE MUX1
@@ -60,6 +60,10 @@ Enable the global GCK# signal.
 ### `gsr_invert`
 
 Invert the global GSR signal.
+
+### `keeper_disable`
+
+Disable keeper globally.
 
 ### `{fb##, always}`
 

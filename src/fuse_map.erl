@@ -18,6 +18,7 @@
     gck1_enable |
     gck2_enable |
     gck3_enable |
+    keeper_disable |
     user() |
     {fb(), mc(), pt(), input()} |
     {fb(), mc(), pt(), input()} |
@@ -347,7 +348,7 @@ fuse_global(fb01, 0, 6) -> gsr_invert;
 fuse_global(fb01, 1, 6) -> gck1_enable;
 fuse_global(fb01, 2, 6) -> gck2_enable;
 fuse_global(fb01, 3, 6) -> gck3_enable;
-fuse_global(fb01, 8, 6) -> {guess, keeper_disable};
+fuse_global(fb01, 8, 6) -> keeper_disable;
 fuse_global(FB, Row, Column) ->
     fuse_unknown(band003, FB, Row, Column).
 
@@ -484,7 +485,7 @@ name(Density, gsr_invert) -> name(Density, 2, fb01, 0, 6);
 name(Density, gck1_enable) -> name(Density, 2, fb01, 1, 6);
 name(Density, gck2_enable) -> name(Density, 2, fb01, 2, 6);
 name(Density, gck3_enable) -> name(Density, 2, fb01, 3, 6);
-name(Density, {guess, keeper_disable}) -> name(Density, 2, fb01, 8, 6);
+name(Density, keeper_disable) -> name(Density, 2, fb01, 8, 6);
 % user upper fuses
 name(Density, user30) -> name(Density, 6, fb01, 0, 6);
 name(Density, user31) -> name(Density, 6, fb01, 0, 7);
