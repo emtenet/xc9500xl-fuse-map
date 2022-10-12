@@ -96,6 +96,10 @@ Known fuses at the moment are:
  - A2 ***GCK1 enable***,
  - A3 ***GCK2 enable***,
  - A4 ***GCK3 enable***,
+ - A5 ***GTS1 enable***,
+ - A6 ***GTS2 enable***,
+ - A7 ***GTS3 enable***,
+ - A8 ***GTS4 enable***,
  - A9 **keeper disable***.
 
 All other fuses in this band are unused.

@@ -20,6 +20,7 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `gck_enable_experiment` - Confirm the fuse location for global GCK enables.
  - [x] `keeper_disable_experiment` - Confirm the fuse for global keeper disable.
  - [x] `power_experiment` - Confirm the two fuses per macro-cell for std power..
+ - [x] `gts_enable_experiment` - Confirm the fuse location for global GTS enables.
 
 
 ## TODO: guessed fuses
@@ -59,6 +60,10 @@ Enable the global GCK# signal.
 ### `gsr_invert`
 
 Invert the global GSR signal.
+
+### `gts#_enable`
+
+Enable the global GTS# signal.
 
 ### `keeper_disable`
 

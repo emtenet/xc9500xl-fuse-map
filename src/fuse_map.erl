@@ -350,6 +350,10 @@ fuse_global(fb01, 0, 6) -> gsr_invert;
 fuse_global(fb01, 1, 6) -> gck1_enable;
 fuse_global(fb01, 2, 6) -> gck2_enable;
 fuse_global(fb01, 3, 6) -> gck3_enable;
+fuse_global(fb01, 4, 6) -> gts1_enable;
+fuse_global(fb01, 5, 6) -> gts2_enable;
+fuse_global(fb01, 6, 6) -> gts3_enable;
+fuse_global(fb01, 7, 6) -> gts4_enable;
 fuse_global(fb01, 8, 6) -> keeper_disable;
 fuse_global(FB, Row, Column) ->
     fuse_unknown(band003, FB, Row, Column).
