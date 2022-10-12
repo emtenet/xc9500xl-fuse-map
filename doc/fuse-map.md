@@ -80,20 +80,24 @@ For example, the fuse `PT1-MC05` in `FB3-band-14` represents:
 
 The 18 fuses to the side of the page shape are in one of the following formats:
 
- - GSR invert,
+ - global bits,
  - USER bits,
  - macro cell feature,
  - FastCONNECT input MUX,
  - unknown.
 
 
-## GSR invert
+## Global bits
 
-The fuse A1 of FB1-band-1 is the ***GSR invert*** fuse.
+Fuses of FB1-band-1 are global.
+
+Known fuses at the moment are:
+ - A1 ***GSR invert***,
+ - A2 ***GCK1 enable***,
+ - A3 ***GCK2 enable***,
+ - A4 ***GCK3 enable***.
+
 All other fuses in this band are unused.
-
-This fuse inverts the global GSR signal.
-
 
 ## USER bits
 

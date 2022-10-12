@@ -13,6 +13,17 @@
 -type user() :: fuse:user().
 
 -type fuse() :: non_neg_integer().
+-type name() ::
+    gsr_invert |
+    gck1_enable |
+    gck2_enable |
+    gck3_enable |
+    user() |
+    {fb(), mc(), pt(), input()} |
+    {fb(), mc(), pt(), input()} |
+    {fb(), mc(), feature()} |
+    undefined.
+
 -type feature() ::
     bypass |
     fast |
@@ -136,13 +147,7 @@ feature_to_macro_cell(8, 7) -> mc18.
 %% fuse
 %%====================================================================
 
--spec fuse(density(), fuse())
-    -> gsr_invert |
-       user() |
-       {fb(), mc(), pt(), input()} |
-       {fb(), mc(), pt(), input()} |
-       {fb(), mc(), feature()} |
-       undefined.
+-spec fuse(density(), fuse()) -> name().
 
 fuse(Density, Fuse) ->
     %io:format("fuse_map:fuse(~p, ~p)~n", [Density, Fuse]),
@@ -339,9 +344,9 @@ fuse_function_block(FB, Row, Column) ->
 %%--------------------------------------------------------------------
 
 fuse_global(fb01, 0, 6) -> gsr_invert;
-fuse_global(fb01, 1, 6) -> {guess, gck1_enable};
-fuse_global(fb01, 2, 6) -> {guess, gck2_enable};
-fuse_global(fb01, 3, 6) -> {guess, gck3_enable};
+fuse_global(fb01, 1, 6) -> gck1_enable;
+fuse_global(fb01, 2, 6) -> gck2_enable;
+fuse_global(fb01, 3, 6) -> gck3_enable;
 fuse_global(fb01, 8, 6) -> {guess, keeper_disable};
 fuse_global(FB, Row, Column) ->
     fuse_unknown(band003, FB, Row, Column).
@@ -472,11 +477,13 @@ inputs_add(FB, Input, Bit, FBs) ->
 %% name
 %%====================================================================
 
+-spec name(density(), name()) -> fuse().
+
 % global fuses
 name(Density, gsr_invert) -> name(Density, 2, fb01, 0, 6);
-name(Density, {guess, gck1_enable}) -> name(Density, 2, fb01, 1, 6);
-name(Density, {guess, gck2_enable}) -> name(Density, 2, fb01, 2, 6);
-name(Density, {guess, gck3_enable}) -> name(Density, 2, fb01, 3, 6);
+name(Density, gck1_enable) -> name(Density, 2, fb01, 1, 6);
+name(Density, gck2_enable) -> name(Density, 2, fb01, 2, 6);
+name(Density, gck3_enable) -> name(Density, 2, fb01, 3, 6);
 name(Density, {guess, keeper_disable}) -> name(Density, 2, fb01, 8, 6);
 % user upper fuses
 name(Density, user30) -> name(Density, 6, fb01, 0, 6);

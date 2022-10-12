@@ -17,15 +17,13 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `and_array_experiment` - AND-array true and compliement terms of product term 3
  - [x] `inputs_experiment` - Mapping of input MUX bits to source macro cell.
  - [x] `always_experiment` - Confirm that some fuses are always on!
+ - [x] `gck_enable_experiment` - Confirm the fuse location for global GCK enables.
 
 
 ## TODO: guessed fuses
 
 The following fuses have been guessed by observing in the playgrounds.
 
- - global GCK1 enable
- - global GCK2 enable
- - global GCK3 enable
  - global keeper disable
  - function block enable
  - macro cell CE MUX0
@@ -54,6 +52,10 @@ The following fuses have been guessed by observing in the playgrounds.
 ### `user##`
 
 User signature bits in the range 0..31.
+
+### `gck#_enable`
+
+Enable the global GCK# signal.
 
 ### `gsr_invert`
 
