@@ -2,14 +2,21 @@
 
 -export([all/1]).
 -export([diff/1]).
+-export([filter_by_name/4]).
 -export([fuses/1]).
+-export([names/2]).
 -export([print/1]).
 -export([print_names/2]).
 
 -type fuse() :: fuse:fuse().
--type name() :: atom() | binary() | string().
--type experiment() :: {name(), [fuse()]}.
--type matrix() :: {matrix, [fuse()], [{name(), [on | off]}]}.
+-type name() :: fuse_map:name().
+
+-type experiment_name() :: atom() | binary() | string().
+-type experiment() :: {experiment_name(), [fuse()]}.
+
+-type matrix() :: {matrix, [fuse()], [{experiment_name(), [on | off]}]}.
+
+-type density_or_device() :: density:density() | device:device().
 
 %%====================================================================
 %% all
@@ -34,10 +41,15 @@ build(Experiments, All) when All =:= all orelse All =:= diff ->
 
 %%--------------------------------------------------------------------
 
-build_diff([[] | _], Fuses, Matches, _) ->
-    {lists:reverse(Fuses), [ lists:reverse(Match) || Match <- Matches ]};
 build_diff(Results, Fuses, Matches, All) ->
     case build_min_max(Results) of
+        finished ->
+            {lists:reverse(Fuses), [
+                lists:reverse(Match)
+                ||
+                Match <- Matches
+            ]};
+
         {Fuse, Fuse} when All =:= diff ->
             build_diff(build_drop(Results, Fuse), Fuses, Matches, All);
 
@@ -52,6 +64,10 @@ build_diff(Results, Fuses, Matches, All) ->
 
 %%--------------------------------------------------------------------
 
+build_min_max([]) ->
+    finished;
+build_min_max([[] | Results]) ->
+    build_min_max(Results);
 build_min_max([[Fuse | _] | Results]) ->
     build_min_max(Results, Fuse, Fuse).
 
@@ -105,13 +121,71 @@ diff(Experiments) ->
     build(Experiments, diff).
 
 %%====================================================================
+%% filter_by_name
+%%====================================================================
+
+-spec filter_by_name(Filter, State, density_or_device(), matrix())
+        -> matrix()
+    when Filter :: fun((name(), State) -> boolean() | {boolean(), State}).
+
+filter_by_name(Filter, State, DensityOrDevice, {matrix, Fuses, Matrix}) ->
+    Density = density:or_device(DensityOrDevice),
+    Keep = filter_by_name_fold(Filter, State, Density, Fuses, []),
+    {matrix,
+     filter_by_name_keep(Fuses, Keep, []),
+     [
+      {Name, filter_by_name_keep(Results, Keep, [])}
+      ||
+      {Name, Results} <- Matrix
+     ]
+    }.
+
+%%--------------------------------------------------------------------
+
+filter_by_name_fold(_, _, _, [], Keep) ->
+    lists:reverse(Keep);
+filter_by_name_fold(Filter, State0, Density, [Fuse | Fuses], Keep) ->
+    case Filter(fuse_map:fuse(Density, Fuse), State0) of
+        true ->
+            filter_by_name_fold(Filter, State0, Density, Fuses, [true | Keep]);
+
+        false ->
+            filter_by_name_fold(Filter, State0, Density, Fuses, [false | Keep]);
+
+        {true, State1} ->
+            filter_by_name_fold(Filter, State1, Density, Fuses, [true | Keep]);
+
+        {false, State1} ->
+            filter_by_name_fold(Filter, State1, Density, Fuses, [false | Keep])
+    end.
+
+%%--------------------------------------------------------------------
+
+filter_by_name_keep([], [], Kept) ->
+    lists:reverse(Kept);
+filter_by_name_keep([Fuse | Fuses], [true | Keep], Kept) ->
+    filter_by_name_keep(Fuses, Keep, [Fuse | Kept]);
+filter_by_name_keep([_ | Fuses], [false | Keep], Kept) ->
+    filter_by_name_keep(Fuses, Keep, Kept).
+
+%%====================================================================
 %% fuses
 %%====================================================================
 
--spec fuses([experiment()]) -> [fuse()].
+-spec fuses(matrix()) -> [fuse()].
 
 fuses({matrix, Fuses, _}) ->
     Fuses.
+
+%%====================================================================
+%% names
+%%====================================================================
+
+-spec names(density_or_device(), matrix()) -> [name()].
+
+names(DensityOrDevice, {matrix, Fuses, _}) ->
+    Density = density:or_device(DensityOrDevice),
+    fuse_map:fuses(Density, Fuses).
 
 %%====================================================================
 %% print
@@ -191,7 +265,7 @@ print_fuses([off | Fuses]) ->
 %% print_names
 %%====================================================================
 
--spec print_names(density:density() | device:device(), matrix()) -> ok.
+-spec print_names(density_or_device(), matrix()) -> ok.
 
 print_names(DensityOrDevice, {matrix, Fuses, _}) ->
     Density = density:or_device(DensityOrDevice),
