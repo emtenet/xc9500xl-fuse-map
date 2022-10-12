@@ -47,8 +47,8 @@ mc(Device, O, Avail0, GCK) ->
         source(init, I, GCK, O)
     ],
     Answers = [ experiment(Device, O, Source) || Source <- Sources ],
-    Matrix = fuses:matrix(Answers),
-    fuses:print(Matrix),
+    Matrix = matrix:diff(Answers),
+    matrix:print(Matrix),
     fuses(O, Matrix).
 
 %%--------------------------------------------------------------------

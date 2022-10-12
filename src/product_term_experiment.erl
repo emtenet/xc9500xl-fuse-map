@@ -278,10 +278,9 @@ run() ->
             {z, Z, <<"d AND s AND t">>, #{clk => clk}}
         ]}
     ]),
-    Matrix = fuses:matrix(Experiments),
-    {matrix, Fuses, _} = Matrix,
-    io:format("~p~n", [lists:zip(Fuses, fuse_map:fuses(Device, Fuses))]),
-    fuses:print(Matrix),
+    Matrix = matrix:diff(Experiments),
+    matrix:print_names(Device, Matrix),
+    matrix:print(Matrix),
     ok.
 
 %%====================================================================

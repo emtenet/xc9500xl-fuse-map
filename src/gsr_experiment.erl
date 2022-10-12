@@ -53,8 +53,8 @@ mc(Device, O, Avail, GSR, GCK) ->
         source(r, I, GSR, GCK, O)
     ],
     Answers = [ experiment(Device, O, Source) || Source <- Sources ],
-    Matrix = fuses:matrix(Answers),
-    fuses:print(Matrix),
+    Matrix = matrix:diff(Answers),
+    matrix:print(Matrix),
     fuses(O, Matrix).
 
 %%--------------------------------------------------------------------

@@ -53,8 +53,8 @@ mc(Device, MC, IOs, OEs) ->
     ),
     Sources = sources(Options, MC, Input, Options, []),
     Answers = [ experiment(Device, MC, Source) || Source <- Sources ],
-    Matrix = fuses:matrix(Answers),
-    fuses:print(Matrix),
+    Matrix = matrix:diff(Answers),
+    matrix:print(Matrix),
     fuses(MC, Matrix).
 
 %%--------------------------------------------------------------------

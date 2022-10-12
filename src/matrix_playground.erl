@@ -14,7 +14,7 @@ run() ->
     S = mc02_03, % set/reset
     O = mc01_01, % MC under test
     Z = mc01_02, % control ff
-    fuses:print(fuses:matrix(experiments(Device, [
+    matrix:print(matrix:diff(experiments(Device, [
         {bypass, [
             {clk, GCK},
             {d, D},
