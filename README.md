@@ -19,6 +19,7 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `always_experiment` - Confirm that some fuses are always on!
  - [x] `gck_enable_experiment` - Confirm the fuse location for global GCK enables.
  - [x] `keeper_disable_experiment` - Confirm the fuse for global keeper disable.
+ - [x] `power_experiment` - Confirm the two fuses per macro-cell for std power..
 
 
 ## TODO: guessed fuses
@@ -28,8 +29,6 @@ The following fuses have been guessed by observing in the playgrounds.
  - function block enable
  - macro cell CE MUX0
  - macro cell CE MUX1
- - macro cell power A
- - macro cell power B
  - macro cell pt1 enable
  - macro cell pt1 MUX0
  - macro cell pt1 MUX1

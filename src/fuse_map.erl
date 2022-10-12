@@ -35,6 +35,8 @@
     oe_gts |
     oe_gts_0 |
     oe_gts_1 |
+    power_a |
+    power_b |
     preset |
     r_gsr |
     s_gsr |
@@ -223,7 +225,7 @@ fuse( 22, FB, Row, Column) -> fuse_guess(xor1, FB, Row, Column);
 fuse( 23, FB, Row, Column) -> fuse_unknown(band024, FB, Row, Column);
 fuse( 24, FB, Row, Column) -> fuse_unknown(band025, FB, Row, Column);
 fuse( 25, FB, Row, Column) -> fuse_unknown(band026, FB, Row, Column);
-fuse( 26, FB, Row, Column) -> fuse_guess(power_a, FB, Row, Column);
+fuse( 26, FB, Row, Column) -> fuse_feature(power_a, FB, Row, Column);
 fuse( 27, FB, Row, Column) -> fuse_feature(oe_gts, FB, Row, Column);
 fuse( 28, FB, Row, Column) -> fuse_feature(oe_gts_0, FB, Row, Column);
 fuse( 29, FB, Row, Column) -> fuse_feature(oe_gts_1, FB, Row, Column);
@@ -242,7 +244,7 @@ fuse( 41, FB, Row, Column) -> fuse_feature(s_gsr, FB, Row, Column);
 fuse( 42, FB, Row, Column) -> fuse_feature(preset, FB, Row, Column);
 fuse( 43, FB, Row, Column) -> fuse_feature(ground, FB, Row, Column);
 fuse( 44, FB, Row, Column) -> fuse_feature(fast, FB, Row, Column);
-fuse( 45, FB, Row, Column) -> fuse_guess(power_b, FB, Row, Column);
+fuse( 45, FB, Row, Column) -> fuse_feature(power_b, FB, Row, Column);
 fuse( 46, FB, Row, Column) -> fuse_guess(pt5_enable, FB, Row, Column);
 fuse( 47, FB, Row, Column) -> fuse_guess(pt4_enable, FB, Row, Column);
 fuse( 48, FB, Row, Column) -> fuse_guess(pt1_enable, FB, Row, Column);

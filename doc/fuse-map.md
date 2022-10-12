@@ -165,6 +165,7 @@ The following features have been identified so far:
 | 21    | ?? PT2 MUX bit-1 |
 | 22    | ?? PT2 MUX bit-0 |
 | 23    | ?? XOR with 1 |
+| 27    | power (a) |
 | 28    | OE via GTS |
 | 29    | OE GTS MUX bit-0 |
 | 30    | OE GTS MUX bit-1 |
@@ -172,19 +173,21 @@ The following features have been identified so far:
 | 33    | bypass |
 | 34    | GCK MUX bit-1 |
 | 35    | GCK MUX bit-0 |
-| 37    | Ce MUX bit-1 |
-| 38    | Ce MUX bit-0 |
+| 37    | CE MUX bit-1 |
+| 38    | CE MUX bit-0 |
 | 40    | T-type flip-flop |
 | 41    | Reset via GSR |
 | 42    | Set via GSR |
 | 43    | preset flip-flop with '1' |
 | 44    | ground pin |
 | 45    | fast slew-rate |
+| 46    | power (b) |
 | 47    | ?? PT5 enable |
 | 48    | ?? PT4 enable |
 | 49    | ?? PT1 enable |
 | 50    | ?? PT2 enable |
 
+NOTE: The two power (a & b) have always seen to be on together.
 
 ## FastCONNECT input MUX
 

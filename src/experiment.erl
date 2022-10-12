@@ -86,11 +86,12 @@ pick(Count, [Item | Items], Except, Picked) ->
 %%====================================================================
 
 -type input() :: #{
-        global => global()
+        global := global()
     }.
 -type global() :: gck | gsr | gts.
 -type internal() :: #{
         init => 0 | 1,
+        power => std | low,
         type => d | t,
         clk => logic(),
         ce => logic(),
@@ -99,6 +100,7 @@ pick(Count, [Item | Items], Except, Picked) ->
     }.
 -type output() :: #{
         init => 0 | 1,
+        power => std | low,
         type => d | t,
         clk => logic(),
         ce => logic(),
@@ -200,29 +202,44 @@ compile_internal(_) ->
 
 %%--------------------------------------------------------------------
 
-compile_ucf({Net, MC, #{global := gck}}) ->
-    compile_ucf(Net, MC, <<" | BUFG=CLK">>);
-compile_ucf({Net, MC, #{global := gsr}}) ->
-    compile_ucf(Net, MC, <<" | BUFG=SR">>);
-compile_ucf({Net, MC, #{global := gts}}) ->
-    compile_ucf(Net, MC, <<" | BUFG=OE">>);
+compile_ucf({Net, MC, Options = #{}}) ->
+    compile_ucf(Net, MC, compile_ucf_global(Options), <<>>);
 compile_ucf({Net, MC}) ->
-    compile_ucf(Net, MC, <<>>);
+    compile_ucf(Net, MC, <<>>, <<>>);
 compile_ucf({Net, MC, _}) ->
-    compile_ucf(Net, MC, <<>>);
-compile_ucf({Net, MC, _, _}) ->
-    compile_ucf(Net, MC, <<>>);
-compile_ucf({Net, MC, _, internal, _}) ->
-    compile_ucf(Net, MC, <<>>).
+    compile_ucf(Net, MC, <<>>, <<>>);
+compile_ucf({Net, MC, _, Options = #{}}) ->
+    compile_ucf(Net, MC, <<>>, compile_ucf_power(Options));
+compile_ucf({Net, MC, _, internal, Options = #{}}) ->
+    compile_ucf(Net, MC, <<>>, compile_ucf_power(Options)).
 
 %%--------------------------------------------------------------------
 
-compile_ucf(Net_, MC_, Global) ->
+compile_ucf_global(#{global := gck}) ->
+    <<" | BUFG=CLK">>;
+compile_ucf_global(#{global := gsr}) ->
+    <<" | BUFG=SR">>;
+compile_ucf_global(#{global := gts}) ->
+    <<" | BUFG=OE">>;
+compile_ucf_global(#{}) ->
+    <<>>.
+
+%%--------------------------------------------------------------------
+
+compile_ucf_power(#{power := std}) ->
+    <<" | PWR_MODE = STD">>;
+compile_ucf_power(#{}) ->
+    <<>>.
+
+%%--------------------------------------------------------------------
+
+compile_ucf(Net_, MC_, Global, Power) ->
     Net = compile_net(Net_),
     MC = macro_cell:name(MC_),
     <<"NET \"", Net/binary, "\""
       " LOC = \"", MC/binary, "\"",
       Global/binary,
+      Power/binary,
       ";\n"
     >>.
 
