@@ -1,5 +1,8 @@
 -module(experiment).
 
+-export([shuffle/1]).
+-export([pick/2]).
+-export([pick/3]).
 -export([compile/1]).
 -export([run/1]).
 -export([cache/1]).
@@ -37,6 +40,46 @@
 -export_type([cache/0]).
 
 -include_lib("kernel/include/file.hrl").
+
+%%====================================================================
+%% shuffle
+%%====================================================================
+
+shuffle(Ins) ->
+    Pairs = [ {rand:uniform(), In} || In <- Ins ],
+    Sorted = lists:sort(Pairs),
+    [ Out || {_, Out} <- Sorted ].
+
+%%====================================================================
+%% pick
+%%====================================================================
+
+pick([Item | Items], Except) ->
+    case lists:member(Item, Except) of
+        true ->
+            pick(Items, Except);
+
+        false ->
+            {Item, Items}
+    end.
+
+%%--------------------------------------------------------------------
+
+pick(Count, Items, Except) when is_integer(Count) andalso Count > 0 ->
+    pick(Count, Items, Except, []).
+
+%%--------------------------------------------------------------------
+
+pick(0, Items, _, Picked) ->
+    {lists:reverse(Picked), Items};
+pick(Count, [Item | Items], Except, Picked) ->
+    case lists:member(Item, Except) of
+        true ->
+            pick(Count, Items, Except, Picked);
+
+        false ->
+            pick(Count - 1, Items, Except, [Item | Picked])
+    end.
 
 %%====================================================================
 %% compile
