@@ -35,11 +35,15 @@
     oe_gts |
     oe_gts_0 |
     oe_gts_1 |
-    power_a |
-    power_b |
     preset |
+    pt1_std_power |
+    pt2_std_power |
+    pt3_std_power |
+    pt4_std_power |
+    pt5_std_power |
     r_gsr |
     s_gsr |
+    std_power |
     t_type.
 
 %%====================================================================
@@ -211,8 +215,8 @@ fuse(  8, FB, Row, Column) -> fuse_unknown(band009, FB, Row, Column);
 fuse(  9, FB, Row, Column) -> fuse_unknown(band010, FB, Row, Column);
 fuse( 10, FB, Row, Column) -> fuse_unknown(band011, FB, Row, Column);
 fuse( 11, FB, Row, Column) -> fuse_unknown(band012, FB, Row, Column);
-fuse( 12, FB, Row, Column) -> fuse_guess(pt3_mux0, FB, Row, Column);
-fuse( 13, FB, Row, Column) -> fuse_guess(pt5_mux2, FB, Row, Column);
+fuse( 12, FB, Row, Column) -> fuse_guess(pt3_mux1, FB, Row, Column);
+fuse( 13, FB, Row, Column) -> fuse_guess(pt3_mux0, FB, Row, Column);
 fuse( 14, FB, Row, Column) -> fuse_guess(pt5_mux1, FB, Row, Column);
 fuse( 15, FB, Row, Column) -> fuse_guess(pt5_mux0, FB, Row, Column);
 fuse( 16, FB, Row, Column) -> fuse_guess(pt4_mux1, FB, Row, Column);
@@ -221,11 +225,11 @@ fuse( 18, FB, Row, Column) -> fuse_guess(pt1_mux1, FB, Row, Column);
 fuse( 19, FB, Row, Column) -> fuse_guess(pt1_mux0, FB, Row, Column);
 fuse( 20, FB, Row, Column) -> fuse_guess(pt2_mux1, FB, Row, Column);
 fuse( 21, FB, Row, Column) -> fuse_guess(pt2_mux0, FB, Row, Column);
-fuse( 22, FB, Row, Column) -> fuse_guess(xor1, FB, Row, Column);
-fuse( 23, FB, Row, Column) -> fuse_unknown(band024, FB, Row, Column);
-fuse( 24, FB, Row, Column) -> fuse_unknown(band025, FB, Row, Column);
-fuse( 25, FB, Row, Column) -> fuse_unknown(band026, FB, Row, Column);
-fuse( 26, FB, Row, Column) -> fuse_feature(power_a, FB, Row, Column);
+fuse( 22, FB, Row, Column) -> fuse_guess(invert, FB, Row, Column);
+fuse( 23, FB, Row, Column) -> fuse_guess(from_upper, FB, Row, Column);
+fuse( 24, FB, Row, Column) -> fuse_guess(from_lower, FB, Row, Column);
+fuse( 25, FB, Row, Column) -> fuse_guess(to_upper, FB, Row, Column);
+fuse( 26, FB, Row, Column) -> fuse_feature(std_power, FB, Row, Column);
 fuse( 27, FB, Row, Column) -> fuse_feature(oe_gts, FB, Row, Column);
 fuse( 28, FB, Row, Column) -> fuse_feature(oe_gts_0, FB, Row, Column);
 fuse( 29, FB, Row, Column) -> fuse_feature(oe_gts_1, FB, Row, Column);
@@ -244,11 +248,11 @@ fuse( 41, FB, Row, Column) -> fuse_feature(s_gsr, FB, Row, Column);
 fuse( 42, FB, Row, Column) -> fuse_feature(preset, FB, Row, Column);
 fuse( 43, FB, Row, Column) -> fuse_feature(ground, FB, Row, Column);
 fuse( 44, FB, Row, Column) -> fuse_feature(fast, FB, Row, Column);
-fuse( 45, FB, Row, Column) -> fuse_feature(power_b, FB, Row, Column);
-fuse( 46, FB, Row, Column) -> fuse_guess(pt5_enable, FB, Row, Column);
-fuse( 47, FB, Row, Column) -> fuse_guess(pt4_enable, FB, Row, Column);
-fuse( 48, FB, Row, Column) -> fuse_guess(pt1_enable, FB, Row, Column);
-fuse( 49, FB, Row, Column) -> fuse_guess(pt2_enable, FB, Row, Column);
+fuse( 45, FB, Row, Column) -> fuse_feature(pt3_std_power, FB, Row, Column);
+fuse( 46, FB, Row, Column) -> fuse_feature(pt5_std_power, FB, Row, Column);
+fuse( 47, FB, Row, Column) -> fuse_feature(pt4_std_power, FB, Row, Column);
+fuse( 48, FB, Row, Column) -> fuse_feature(pt1_std_power, FB, Row, Column);
+fuse( 49, FB, Row, Column) -> fuse_feature(pt2_std_power, FB, Row, Column);
 fuse( 50, FB, Row, Column) -> fuse_input(input01, input28, FB, Row, Column);
 fuse( 51, FB, Row, Column) -> fuse_input(input02, input29, FB, Row, Column);
 fuse( 52, FB, Row, Column) -> fuse_input(input03, input30, FB, Row, Column);
@@ -339,6 +343,8 @@ fuse_feature(Feature, FB, Row, Column) ->
 
 fuse_function_block(FB, 0, 6) ->
     {FB, guess, enable};
+fuse_function_block(FB, 1, 6) ->
+    {FB, guess, forward};
 fuse_function_block(FB, 6, 6) ->
     {FB, always};
 fuse_function_block(FB, Row, Column) ->
@@ -528,6 +534,7 @@ name(Density, user03) -> name(Density, 7, fb01, 7, 6);
 name(Density, user02) -> name(Density, 7, fb01, 7, 7);
 % function block fuses
 name(Density, {FB, guess, enable}) -> name(Density, 78, FB, 0, 6);
+name(Density, {FB, guess, forward}) -> name(Density, 78, FB, 1, 6);
 name(Density, {FB, always}) -> name(Density, 78, FB, 6, 6);
 % input fuses
 name(Density, {FB, Input, mux_0}) -> name_input(Density, FB, Input, 0);
@@ -663,8 +670,8 @@ feature_band(band009) ->   8;
 feature_band(band010) ->   9;
 feature_band(band011) ->  10;
 feature_band(band012) ->  11;
-feature_band(pt3_mux0) ->  12;
-feature_band(pt5_mux2) ->  13;
+feature_band(pt3_mux1) ->  12;
+feature_band(pt3_mux0) ->  13;
 feature_band(pt5_mux1) ->  14;
 feature_band(pt5_mux0) ->  15;
 feature_band(pt4_mux1) ->  16;
@@ -673,11 +680,11 @@ feature_band(pt1_mux1) ->  18;
 feature_band(pt1_mux0) ->  19;
 feature_band(pt2_mux1) ->  20;
 feature_band(pt2_mux0) ->  21;
-feature_band(xor1) ->  22;
-feature_band(band024) ->  23;
-feature_band(band025) ->  24;
-feature_band(band026) ->  25;
-feature_band(power_a) ->  26;
+feature_band(invert) ->  22;
+feature_band(from_upper) ->  23;
+feature_band(from_lower) ->  24;
+feature_band(to_upper) ->  25;
+feature_band(std_power) ->  26;
 feature_band(oe_gts) ->  27;
 feature_band(oe_gts_0) ->  28;
 feature_band(oe_gts_1) ->  29;
@@ -696,11 +703,11 @@ feature_band(s_gsr) ->  41;
 feature_band(preset) ->  42;
 feature_band(ground) ->  43;
 feature_band(fast) ->  44;
-feature_band(power_b) ->  45;
-feature_band(pt5_enable) ->  46;
-feature_band(pt4_enable) ->  47;
-feature_band(pt1_enable) ->  48;
-feature_band(pt2_enable) ->  49;
+feature_band(pt3_std_power) ->  45;
+feature_band(pt5_std_power) ->  46;
+feature_band(pt4_std_power) ->  47;
+feature_band(pt1_std_power) ->  48;
+feature_band(pt2_std_power) ->  49;
 feature_band(band051) ->  50;
 feature_band(band052) ->  51;
 feature_band(band053) ->  52;

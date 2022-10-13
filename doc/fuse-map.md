@@ -159,7 +159,8 @@ The following features have been identified so far:
 
 | Band  | Feature |
 | :---: | ---     |
-| 14    | ?? PT5 MUX bit-2 |
+| 13    | ?? PT3 MUX bit-1 |
+| 14    | ?? PT3 MUX bit-0 |
 | 15    | ?? PT5 MUX bit-1 |
 | 16    | ?? PT5 MUX bit-0 |
 | 17    | ?? PT4 MUX bit-1 |
@@ -168,8 +169,8 @@ The following features have been identified so far:
 | 20    | ?? PT1 MUX bit-0 |
 | 21    | ?? PT2 MUX bit-1 |
 | 22    | ?? PT2 MUX bit-0 |
-| 23    | ?? XOR with 1 |
-| 27    | power (a) |
+| 23    | ?? invert |
+| 27    | STD power (logic & flip-flop) |
 | 28    | OE via GTS |
 | 29    | OE GTS MUX bit-0 |
 | 30    | OE GTS MUX bit-1 |
@@ -177,21 +178,19 @@ The following features have been identified so far:
 | 33    | bypass |
 | 34    | GCK MUX bit-1 |
 | 35    | GCK MUX bit-0 |
-| 37    | CE MUX bit-1 |
-| 38    | CE MUX bit-0 |
+| 37    | ?? CE MUX bit-1 |
+| 38    | ?? CE MUX bit-0 |
 | 40    | T-type flip-flop |
 | 41    | Reset via GSR |
 | 42    | Set via GSR |
 | 43    | preset flip-flop with '1' |
 | 44    | ground pin |
 | 45    | fast slew-rate |
-| 46    | power (b) |
-| 47    | ?? PT5 enable |
-| 48    | ?? PT4 enable |
-| 49    | ?? PT1 enable |
-| 50    | ?? PT2 enable |
-
-NOTE: The two power (a & b) have always seen to be on together.
+| 46    | PT3 STD power |
+| 47    | PT5 STD power |
+| 48    | PT4 STD power |
+| 49    | PT1 STD power |
+| 50    | PT2 STD power |
 
 ## FastCONNECT input MUX
 
