@@ -277,7 +277,7 @@ compile_vhdl({Output_, _, Logic_, FF = #{clk := _}}) ->
     {Lines0, Q} = compile_ff_oe(Output, FF),
     {Lines1, D} = compile_ff_d(Output, Logic_, Lines0),
     lists:reverse(Lines1, [compile_ff(Output, Q, D, FF)]);
-compile_vhdl({Output_, _, Logic, X = #{oe := OE}}) when map_size(X) =:= 1 ->
+compile_vhdl({Output_, _, Logic, #{oe := OE}}) ->
     Output = compile_net(Output_),
     compile_oe(Output, Logic, Output, OE);
 compile_vhdl({Output_, _, Logic_, #{}}) ->
