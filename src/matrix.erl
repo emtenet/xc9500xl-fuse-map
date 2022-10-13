@@ -75,6 +75,8 @@ build_min_max([[Fuse | _] | Results]) ->
 
 build_min_max([], Min, Max) ->
     {Min, Max};
+build_min_max([[] | Results], Min, Max) ->
+    build_min_max(Results, Min, Max);
 build_min_max([[Fuse | _] | Results], Min, Max) ->
     build_min_max(Results, min(Min, Fuse), max(Max, Fuse)).
 
