@@ -2,6 +2,7 @@
 
 -export([all/1]).
 -export([diff/1]).
+-export([filter_by_name/3]).
 -export([filter_by_name/4]).
 -export([fuses/1]).
 -export([names/2]).
@@ -126,11 +127,35 @@ diff(Experiments) ->
 %% filter_by_name
 %%====================================================================
 
+-spec filter_by_name(Filter, density_or_device(), matrix())
+        -> matrix()
+    when Filter :: fun((name()) -> boolean()).
+
+filter_by_name(Filter, DensityOrDevice, {matrix, Fuses, Matrix})
+        when is_function(Filter, 1) ->
+    Density = density:or_device(DensityOrDevice),
+    Keep = [
+        Filter(fuse_map:fuse(Density, Fuse))
+        ||
+        Fuse <- Fuses
+    ],
+    {matrix,
+     filter_by_name_keep(Fuses, Keep, []),
+     [
+      {Name, filter_by_name_keep(Results, Keep, [])}
+      ||
+      {Name, Results} <- Matrix
+     ]
+    }.
+
+%%--------------------------------------------------------------------
+
 -spec filter_by_name(Filter, State, density_or_device(), matrix())
         -> matrix()
     when Filter :: fun((name(), State) -> boolean() | {boolean(), State}).
 
-filter_by_name(Filter, State, DensityOrDevice, {matrix, Fuses, Matrix}) ->
+filter_by_name(Filter, State, DensityOrDevice, {matrix, Fuses, Matrix})
+        when is_function(Filter, 2) ->
     Density = density:or_device(DensityOrDevice),
     Keep = filter_by_name_fold(Filter, State, Density, Fuses, []),
     {matrix,
