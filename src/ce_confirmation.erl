@@ -6,7 +6,7 @@
 %%
 %%  CE selection:
 %%
-%%      ce_mux1 ce_mux0 -> CE selected
+%%      ce_or_r ce_or_s -> CE selected
 %%        0       0        always enabled
 %%        1       0        pt4
 %%        0       1        pt1
@@ -124,8 +124,8 @@ filter({_, _, pt4_mux1}) -> true;
 filter({_, _, pt1_mux0}) -> true;
 filter({_, _, pt1_mux1}) -> true;
 %
-filter({_, _, ce_mux0}) -> true;
-filter({_, _, ce_mux1}) -> true;
+filter({_, _, ce_or_r}) -> true;
+filter({_, _, ce_or_s}) -> true;
 %
 filter(_) -> false.
 
@@ -137,8 +137,8 @@ expect([{FB, MC, pt4_mux0},
         {FB, MC, pt1_mux0},
         {FB, MC, pt1_mux1},
         %
-        {FB, MC, ce_mux0},
-        {FB, MC, ce_mux1}
+        {FB, MC, ce_or_r},
+        {FB, MC, ce_or_s}
        ],
        {matrix,
         [_, _, _, _, _, _],

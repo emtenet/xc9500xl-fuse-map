@@ -4,19 +4,21 @@
 
 %%  Confirm glip-flop set selection fuses.
 %%
-%%  The s_mux fuse selection either:
+%%  The s_gsr fuse selection either:
 %%
-%%      s_mux -> set source
+%%      s_gsr -> SET selection
 %%        0      product term 1
 %%        1      GSR
 %%
+%%  NOTE: To use product term 1, the ce_or_s fuse must be "off".
+%%
 %%  The global GSR signal can be inverted with the gsr_invert fuse.
 %%
-%%  Product term 1 selection:
+%%  Product term 1 allocation:
 %%
-%%      pt1_mux1 pt1_mux0 -> pt1 used for
-%%        1        1         set signal
-%%        0        0         not in use
+%%      pt1_mux1 pt1_mux0 -> pt1 allocation
+%%        1        1         CE or SET
+%%        0        0         unused
 
 %%====================================================================
 %% run
@@ -119,7 +121,7 @@ filter(gsr_invert) -> true;
 filter({_, _, pt1_mux0}) -> true;
 filter({_, _, pt1_mux1}) -> true;
 %
-filter({_, _, s_mux}) -> true;
+filter({_, _, s_gsr}) -> true;
 %
 filter(_) -> false.
 
@@ -130,7 +132,7 @@ expect([gsr_invert,
         {FB, MC, pt1_mux0},
         {FB, MC, pt1_mux1},
         %
-        {FB, MC, s_mux}
+        {FB, MC, s_gsr}
        ],
        {matrix,
         [_, _, _, _],

@@ -6,7 +6,7 @@
 %%
 %%  OE selection:
 %%
-%%      oe_mux -> OE selection
+%%      oe_gts -> OE selection
 %%        0       product term 5 (or '0' if not allocated)
 %%        1       one of the GTS
 %%
@@ -18,7 +18,7 @@
 %%        0           1            gts3
 %%        1           1            gts4
 %%
-%%  When OE is permanently enabled the oe_mux, oe_gts_mux0 & oe_gts_mux1
+%%  When OE is permanently enabled the oe_gts, oe_gts_mux0 & oe_gts_mux1
 %%  fuses are off and the oe_invert fuse is on.
 %%
 %%  Product term 5 selection:
@@ -141,7 +141,7 @@ filter(gts4_enable) -> true;
 filter({_, _, pt5_mux0}) -> true;
 filter({_, _, pt5_mux1}) -> true;
 %
-filter({_, _, oe_mux}) -> true;
+filter({_, _, oe_gts}) -> true;
 filter({_, _, oe_gts_mux0}) -> true;
 filter({_, _, oe_gts_mux1}) -> true;
 filter({_, _, oe_invert}) -> true;
@@ -156,7 +156,7 @@ expect([gts1_enable,
         {FB, MC, pt5_mux0},
         {FB, MC, pt5_mux1},
         %
-        {FB, MC, oe_mux},
+        {FB, MC, oe_gts},
         {FB, MC, oe_gts_mux0},
         {FB, MC, oe_invert}
        ],
@@ -180,7 +180,7 @@ expect([gts1_enable,
         {FB, MC, pt5_mux0},
         {FB, MC, pt5_mux1},
         %
-        {FB, MC, oe_mux},
+        {FB, MC, oe_gts},
         {FB, MC, oe_gts_mux0},
         {FB, MC, oe_gts_mux1},
         {FB, MC, oe_invert}

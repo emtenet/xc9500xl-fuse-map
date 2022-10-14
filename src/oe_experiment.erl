@@ -10,7 +10,7 @@
 %%      Invert the OE signal/
 %%      On it's own this inverts the default from disabled to enabled.
 %%
-%%  oe_mux::
+%%  oe_gts::
 %%      Use one of the global OE pins (GTS1, GTS2, GTS3 or GTS4)
 %%
 %%  oe_gts_mux0 & oe_gts_mux1::
@@ -152,7 +152,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux),
+     fuse(GTS, MC, oe_gts),
      fuse(GTS_0, MC, oe_gts_mux0)
     ];
 fuses(MC, {matrix,
@@ -164,7 +164,7 @@ fuses(MC, {matrix,
           }) ->
     % no evidence of the GTS_0 fuse
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux)
+     fuse(GTS, MC, oe_gts)
     ];
 fuses(MC, {matrix,
            [GTS, GTS_0, OE],
@@ -175,7 +175,7 @@ fuses(MC, {matrix,
           }) ->
     % GTS and GTS0 fuses could be the other way around?
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux),
+     fuse(GTS, MC, oe_gts),
      fuse(GTS_0, MC, oe_gts_mux0)
     ];
 fuses(MC, {matrix,
@@ -192,7 +192,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux),
+     fuse(GTS, MC, oe_gts),
      fuse(GTS_1, MC, oe_gts_mux1),
      fuse(GTS_0, MC, oe_gts_mux0)
     ];
@@ -208,7 +208,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux),
+     fuse(GTS, MC, oe_gts),
      fuse(GTS_1, MC, oe_gts_mux1),
      fuse(GTS_0, MC, oe_gts_mux0)
     ];
@@ -224,7 +224,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux),
+     fuse(GTS, MC, oe_gts),
      fuse(GTS_1, MC, oe_gts_mux1),
      fuse(GTS_0, MC, oe_gts_mux0)
     ];
@@ -240,7 +240,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux),
+     fuse(GTS, MC, oe_gts),
      fuse(GTS_1, MC, oe_gts_mux1),
      fuse(GTS_0, MC, oe_gts_mux0)
     ];
@@ -256,7 +256,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(OE, MC, oe_invert),
-     fuse(GTS, MC, oe_mux),
+     fuse(GTS, MC, oe_gts),
      fuse(GTS_1, MC, oe_gts_mux1),
      fuse(GTS_0, MC, oe_gts_mux0)
     ].

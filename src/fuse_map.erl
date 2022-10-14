@@ -32,17 +32,17 @@
 -type feature() ::
     always |
     bypass |
-    ce_mux0 |
-    ce_mux1 |
+    ce_or_r |
+    ce_or_s |
     clk_invert |
     clk_mux0 |
     clk_mux1 |
     fast |
     ground |
     oe_invert |
+    oe_gts |
     oe_gts_mux0 |
     oe_gts_mux1 |
-    oe_mux |
     preset |
     pt1_mux0 |
     pt1_mux1 |
@@ -59,8 +59,8 @@
     pt5_mux0 |
     pt5_mux1 |
     pt5_std_power |
-    r_mux |
-    s_mux |
+    r_gsr |
+    s_gsr |
     std_power |
     t_type.
 
@@ -248,7 +248,7 @@ fuse( 23, FB, Row, Column) -> fuse_guess(from_upper, FB, Row, Column);
 fuse( 24, FB, Row, Column) -> fuse_guess(from_lower, FB, Row, Column);
 fuse( 25, FB, Row, Column) -> fuse_guess(to_upper, FB, Row, Column);
 fuse( 26, FB, Row, Column) -> fuse_feature(std_power, FB, Row, Column);
-fuse( 27, FB, Row, Column) -> fuse_feature(oe_mux, FB, Row, Column);
+fuse( 27, FB, Row, Column) -> fuse_feature(oe_gts, FB, Row, Column);
 fuse( 28, FB, Row, Column) -> fuse_feature(oe_gts_mux0, FB, Row, Column);
 fuse( 29, FB, Row, Column) -> fuse_feature(oe_gts_mux1, FB, Row, Column);
 fuse( 30, FB, Row, Column) -> fuse_feature(oe_invert, FB, Row, Column);
@@ -257,12 +257,12 @@ fuse( 32, FB, Row, Column) -> fuse_feature(bypass, FB, Row, Column);
 fuse( 33, FB, Row, Column) -> fuse_feature(clk_mux0, FB, Row, Column);
 fuse( 34, FB, Row, Column) -> fuse_feature(clk_mux1, FB, Row, Column);
 fuse( 35, FB, Row, Column) -> fuse_feature(clk_invert, FB, Row, Column);
-fuse( 36, FB, Row, Column) -> fuse_feature(ce_mux0, FB, Row, Column);
-fuse( 37, FB, Row, Column) -> fuse_feature(ce_mux1, FB, Row, Column);
+fuse( 36, FB, Row, Column) -> fuse_feature(ce_or_r, FB, Row, Column);
+fuse( 37, FB, Row, Column) -> fuse_feature(ce_or_s, FB, Row, Column);
 fuse( 38, FB, Row, Column) -> fuse_unknown(band039, FB, Row, Column);
 fuse( 39, FB, Row, Column) -> fuse_feature(t_type, FB, Row, Column);
-fuse( 40, FB, Row, Column) -> fuse_feature(r_mux, FB, Row, Column);
-fuse( 41, FB, Row, Column) -> fuse_feature(s_mux, FB, Row, Column);
+fuse( 40, FB, Row, Column) -> fuse_feature(r_gsr, FB, Row, Column);
+fuse( 41, FB, Row, Column) -> fuse_feature(s_gsr, FB, Row, Column);
 fuse( 42, FB, Row, Column) -> fuse_feature(preset, FB, Row, Column);
 fuse( 43, FB, Row, Column) -> fuse_feature(ground, FB, Row, Column);
 fuse( 44, FB, Row, Column) -> fuse_feature(fast, FB, Row, Column);
@@ -515,6 +515,10 @@ name(Density, gsr_invert) -> name(Density, 2, fb01, 0, 6);
 name(Density, gck1_enable) -> name(Density, 2, fb01, 1, 6);
 name(Density, gck2_enable) -> name(Density, 2, fb01, 2, 6);
 name(Density, gck3_enable) -> name(Density, 2, fb01, 3, 6);
+name(Density, gts1_enable) -> name(Density, 2, fb01, 4, 6);
+name(Density, gts2_enable) -> name(Density, 2, fb01, 5, 6);
+name(Density, gts3_enable) -> name(Density, 2, fb01, 6, 6);
+name(Density, gts4_enable) -> name(Density, 2, fb01, 7, 6);
 name(Density, keeper_disable) -> name(Density, 2, fb01, 8, 6);
 % user upper fuses
 name(Density, user30) -> name(Density, 6, fb01, 0, 6);
@@ -703,7 +707,7 @@ feature_band(from_upper) ->  23;
 feature_band(from_lower) ->  24;
 feature_band(to_upper) ->  25;
 feature_band(std_power) ->  26;
-feature_band(oe_mux) ->  27;
+feature_band(oe_gts) ->  27;
 feature_band(oe_gts_mux0) ->  28;
 feature_band(oe_gts_mux1) ->  29;
 feature_band(oe_invert) ->  30;
@@ -712,8 +716,8 @@ feature_band(bypass) ->  32;
 feature_band(clk_mux0) ->  33;
 feature_band(clk_mux1) ->  34;
 feature_band(clk_invert) ->  35;
-feature_band(ce_mux1) ->  36;
-feature_band(ce_mux0) ->  37;
+feature_band(ce_or_r) ->  36;
+feature_band(ce_or_s) ->  37;
 feature_band(band039) ->  38;
 feature_band(t_type) ->  39;
 feature_band(r_gsr) ->  40;
