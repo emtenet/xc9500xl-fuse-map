@@ -1,4 +1,4 @@
--module(fuse_map_validate).
+-module(fuse_map_confirmation).
 
 -export([run/0]).
 
@@ -14,15 +14,15 @@ run() ->
 run(Density) ->
     {fuses, Density, Fuses} = fuses:read(Density),
     Iterator = maps:iterator(Fuses),
-    validate(Density, maps:next(Iterator)).
+    confirm(Density, maps:next(Iterator)).
 
 %%--------------------------------------------------------------------
 
-validate(_, none) ->
+confirm(_, none) ->
     ok;
-validate(Density, {Fuse, Name, Iterator}) ->
+confirm(Density, {Fuse, Name, Iterator}) ->
     Expect = fuse_map:fuse(Density, Fuse),
     {fuse, Density, Fuse, is, Expect, expecting, Expect} =
     {fuse, Density, Fuse, is, Name, expecting, Expect},
-    validate(Density, maps:next(Iterator)).
+    confirm(Density, maps:next(Iterator)).
 

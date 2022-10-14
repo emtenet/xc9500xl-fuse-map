@@ -141,8 +141,8 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(MUX0, MC, gck_mux0),
-     fuse(MUX1, MC, gck_mux1)
+     fuse(MUX0, MC, clk_mux0),
+     fuse(MUX1, MC, clk_mux1)
     ];
 fuses(MC, {matrix,
            [BYPASS, MUX0],
@@ -152,7 +152,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(MUX0, MC, gck_mux0)
+     fuse(MUX0, MC, clk_mux0)
     ];
 fuses(MC, {matrix,
            [BYPASS, MUX0, MUX1],
@@ -162,8 +162,8 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(MUX0, MC, gck_mux0),
-     fuse(MUX1, MC, gck_mux1)
+     fuse(MUX0, MC, clk_mux0),
+     fuse(MUX1, MC, clk_mux1)
     ];
 fuses(MC, {matrix,
            [BYPASS, MUX1],
@@ -173,7 +173,7 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(MUX1, MC, gck_mux1)
+     fuse(MUX1, MC, clk_mux1)
     ].
 
 %%--------------------------------------------------------------------
