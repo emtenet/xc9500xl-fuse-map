@@ -120,8 +120,8 @@ experiment(Device, MC, {Name, Signals}) ->
 fuses(MC, {matrix, Fuses, [{off, Os}, {s, Ss}, {r, Rs}]}) ->
     case fuses(Fuses, Os, Ss, Rs, undefined, undefined) of
         {S, R} when S =/= undefined andalso R =/= undefied ->
-            [fuse(R, MC, r_gsr),
-             fuse(S, MC, s_gsr)
+            [fuse(R, MC, r_mux),
+             fuse(S, MC, s_mux)
             ]
     end.
 
