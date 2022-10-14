@@ -27,6 +27,7 @@
 
 -type feature() ::
     bypass |
+    clk_invert |
     clk_mux0 |
     clk_mux1 |
     fast |
@@ -238,7 +239,7 @@ fuse( 31, FB, Row, Column) -> fuse_unknown(band032, FB, Row, Column);
 fuse( 32, FB, Row, Column) -> fuse_feature(bypass, FB, Row, Column);
 fuse( 33, FB, Row, Column) -> fuse_feature(clk_mux0, FB, Row, Column);
 fuse( 34, FB, Row, Column) -> fuse_feature(clk_mux1, FB, Row, Column);
-fuse( 35, FB, Row, Column) -> fuse_unknown(band036, FB, Row, Column);
+fuse( 35, FB, Row, Column) -> fuse_feature(clk_invert, FB, Row, Column);
 fuse( 36, FB, Row, Column) -> fuse_guess(ce_mux0, FB, Row, Column);
 fuse( 37, FB, Row, Column) -> fuse_guess(ce_mux1, FB, Row, Column);
 fuse( 38, FB, Row, Column) -> fuse_unknown(band039, FB, Row, Column);
@@ -693,7 +694,7 @@ feature_band(band032) ->  31;
 feature_band(bypass) ->  32;
 feature_band(clk_mux0) ->  33;
 feature_band(clk_mux1) ->  34;
-feature_band(band036) ->  35;
+feature_band(clk_invert) ->  35;
 feature_band(ce_mux1) ->  36;
 feature_band(ce_mux0) ->  37;
 feature_band(band039) ->  38;

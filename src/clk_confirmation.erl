@@ -12,6 +12,10 @@
 %%        0        1         gck3
 %%        1        1         product term 3
 %%
+%%  The selected clock can be inverted with the clk_invert fuse. Although
+%%  this is not seen in practive with the pt3 selection since the
+%%  product term can self-invert in our experiments.
+%%
 %%  When flip-flop is bypassed and no clock is needed then both clock
 %%  selection fuses are off.
 %%
@@ -43,13 +47,12 @@ run(Density) ->
 mc(Device, Output, IOs, GCKs) ->
     Used = [Output | GCKs],
     {Input, _} = experiment:pick(IOs, Used),
-    Globals = globals(GCKs, [gck1, gck2, gck3], Output, Input, []),
-    Sources = [
+    Sources = lists:flatten([
         off(Output, Input),
-        clk(GCKs, Output, Input)
+        pt3(GCKs, Output, Input)
         |
-        Globals
-    ],
+        gcks(GCKs, [gck1, gck2, gck3], Output, Input, [])
+    ]),
     Answers = [ experiment(Device, Output, Source) || Source <- Sources ],
     Matrix0 = matrix:all(Answers),
     Matrix = matrix:filter_by_name(fun filter/1, Device, Matrix0),
@@ -57,18 +60,6 @@ mc(Device, Output, IOs, GCKs) ->
     matrix:print(Matrix),
     Names = matrix:names(Device, Matrix),
     expect(Names, Matrix).
-
-%%--------------------------------------------------------------------
-
-globals([], _, _, _, Sources) ->
-    lists:reverse(Sources);
-globals([GCK | GCKs], [Name | Names], Output, Input, Sources) ->
-    Source = {Name, [
-        {i, Input},
-        {Name, GCK, #{global => gck}},
-        {o, Output, i, #{clk => Name}}
-    ]},
-    globals(GCKs, Names, Output, Input, [Source | Sources]).
 
 %%--------------------------------------------------------------------
 
@@ -80,12 +71,42 @@ off(Output, Input) ->
 
 %%--------------------------------------------------------------------
 
-clk([GCK | _], Output, Input) ->
-    {clk, [
+pt3([GCK | _], Output, Input) ->
+    [{pt3, [
         {i, Input},
         {clk, GCK},
         {o, Output, i, #{clk => clk}}
-    ]}.
+     ]},
+     {pt3_invert, [
+        {i, Input},
+        {clk, GCK},
+        {o, Output, i, #{clk => {low, clk}}}
+     ]}
+    ].
+
+%%--------------------------------------------------------------------
+
+gcks([], _, _, _, Sources) ->
+    lists:reverse(Sources);
+gcks([GCK | GCKs], [Name | Names], Output, Input, Sources) ->
+    Source = [
+        {Name, [
+            {i, Input},
+            {Name, GCK, #{global => gck}},
+            {o, Output, i, #{clk => Name}}
+        ]},
+        {gck_invert(Name), [
+            {i, Input},
+            {Name, GCK, #{global => gck}},
+            {o, Output, i, #{clk => {low, Name}}}
+        ]}
+    ],
+    gcks(GCKs, Names, Output, Input, [Source | Sources]).
+
+%%--------------------------------------------------------------------
+
+gck_invert(Name) ->
+    list_to_atom(lists:flatten(io_lib:format("~p_invert", [Name]))).
 
 %%--------------------------------------------------------------------
 
@@ -113,6 +134,7 @@ filter({_, _, pt3_mux1}) -> true;
 %
 filter({_, _, clk_mux0}) -> true;
 filter({_, _, clk_mux1}) -> true;
+filter({_, _, clk_invert}) -> true;
 %
 filter(_) -> false.
 
@@ -126,15 +148,20 @@ expect([gck1_enable,
         {FB, MC, pt3_mux1},
         %
         {FB, MC, clk_mux0},
-        {FB, MC, clk_mux1}
+        {FB, MC, clk_mux1},
+        {FB, MC, clk_invert}
        ],
        {matrix,
-        [_, _, _, _, _, _, _],
-        [{off,  [off, off, off,   on, off,   off, off]},
-         {clk,  [off, off, off,   on, on,    on,  on ]},
-         {gck1, [on,  off, off,   on, off,   off, on ]},
-         {gck2, [off, on,  off,   on, off,   off, off]},
-         {gck3, [off, off, on,    on, off,   on,  off]}
+        [_, _, _, _, _, _, _, _],
+        [{off,         [off, off, off,   on, off,   off, off, off]},
+         {pt3,         [off, off, off,   on, on,    on,  on,  off]},
+         {pt3_invert,  [off, off, off,   on, on,    on,  on,  off]},
+         {gck1,        [on,  off, off,   on, off,   off, on,  off]},
+         {gck1_invert, [on,  off, off,   on, off,   off, on,  on ]},
+         {gck2,        [off, on,  off,   on, off,   off, off, off]},
+         {gck2_invert, [off, on,  off,   on, off,   off, off, on ]},
+         {gck3,        [off, off, on,    on, off,   on,  off, off]},
+         {gck3_invert, [off, off, on,    on, off,   on,  off, on ]}
         ]
        }) ->
     ok.
