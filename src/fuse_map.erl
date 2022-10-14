@@ -332,24 +332,24 @@ fuse(107, FB, Row, Column) -> fuse_unknown(band108, FB, Row, Column).
 
 %%--------------------------------------------------------------------
 
-fuse_input(Input, _, FB, 0, 6) -> {FB, Input, mux_0};
-fuse_input(_, Input, FB, 0, 7) -> {FB, Input, mux_0};
-fuse_input(Input, _, FB, 1, 6) -> {FB, Input, mux_1};
-fuse_input(_, Input, FB, 1, 7) -> {FB, Input, mux_1};
-fuse_input(Input, _, FB, 2, 6) -> {FB, Input, mux_2};
-fuse_input(_, Input, FB, 2, 7) -> {FB, Input, mux_2};
-fuse_input(Input, _, FB, 3, 6) -> {FB, Input, mux_3};
-fuse_input(_, Input, FB, 3, 7) -> {FB, Input, mux_3};
-fuse_input(Input, _, FB, 4, 6) -> {FB, Input, mux_4};
-fuse_input(_, Input, FB, 4, 7) -> {FB, Input, mux_4};
-fuse_input(Input, _, FB, 5, 6) -> {FB, Input, mux_5};
-fuse_input(_, Input, FB, 5, 7) -> {FB, Input, mux_5};
-fuse_input(Input, _, FB, 6, 6) -> {FB, Input, mux_6};
-fuse_input(_, Input, FB, 6, 7) -> {FB, Input, mux_6};
-fuse_input(Input, _, FB, 7, 6) -> {FB, Input, mux_7};
-fuse_input(_, Input, FB, 7, 7) -> {FB, Input, mux_7};
-fuse_input(Input, _, FB, 8, 6) -> {FB, Input, mux_8};
-fuse_input(_, Input, FB, 8, 7) -> {FB, Input, mux_8}.
+fuse_input(Input, _, FB, 0, 6) -> {FB, Input, mux0};
+fuse_input(_, Input, FB, 0, 7) -> {FB, Input, mux0};
+fuse_input(Input, _, FB, 1, 6) -> {FB, Input, mux1};
+fuse_input(_, Input, FB, 1, 7) -> {FB, Input, mux1};
+fuse_input(Input, _, FB, 2, 6) -> {FB, Input, mux2};
+fuse_input(_, Input, FB, 2, 7) -> {FB, Input, mux2};
+fuse_input(Input, _, FB, 3, 6) -> {FB, Input, mux3};
+fuse_input(_, Input, FB, 3, 7) -> {FB, Input, mux3};
+fuse_input(Input, _, FB, 4, 6) -> {FB, Input, mux4};
+fuse_input(_, Input, FB, 4, 7) -> {FB, Input, mux4};
+fuse_input(Input, _, FB, 5, 6) -> {FB, Input, mux5};
+fuse_input(_, Input, FB, 5, 7) -> {FB, Input, mux5};
+fuse_input(Input, _, FB, 6, 6) -> {FB, Input, mux6};
+fuse_input(_, Input, FB, 6, 7) -> {FB, Input, mux6};
+fuse_input(Input, _, FB, 7, 6) -> {FB, Input, mux7};
+fuse_input(_, Input, FB, 7, 7) -> {FB, Input, mux7};
+fuse_input(Input, _, FB, 8, 6) -> {FB, Input, mux8};
+fuse_input(_, Input, FB, 8, 7) -> {FB, Input, mux8}.
 
 %%--------------------------------------------------------------------
 
@@ -459,31 +459,31 @@ inputs(_, [], FBs) ->
     FBs;
 inputs(Density, [Fuse | Fuses], FBs) ->
     case fuse(Density, Fuse) of
-        {FB, Input, mux_0} ->
+        {FB, Input, mux0} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 1, FBs));
 
-        {FB, Input, mux_1} ->
+        {FB, Input, mux1} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 2, FBs));
 
-        {FB, Input, mux_2} ->
+        {FB, Input, mux2} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 4, FBs));
 
-        {FB, Input, mux_3} ->
+        {FB, Input, mux3} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 8, FBs));
 
-        {FB, Input, mux_4} ->
+        {FB, Input, mux4} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 16, FBs));
 
-        {FB, Input, mux_5} ->
+        {FB, Input, mux5} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 32, FBs));
 
-        {FB, Input, mux_6} ->
+        {FB, Input, mux6} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 64, FBs));
 
-        {FB, Input, mux_7} ->
+        {FB, Input, mux7} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 128, FBs));
 
-        {FB, Input, mux_8} ->
+        {FB, Input, mux8} ->
             inputs(Density, Fuses, inputs_add(FB, Input, 256, FBs));
 
         _ ->
@@ -559,15 +559,15 @@ name(Density, {FB, guess, enable}) -> name(Density, 78, FB, 0, 6);
 name(Density, {FB, guess, forward}) -> name(Density, 78, FB, 1, 6);
 name(Density, {FB, always}) -> name(Density, 78, FB, 6, 6);
 % input fuses
-name(Density, {FB, Input, mux_0}) -> name_input(Density, FB, Input, 0);
-name(Density, {FB, Input, mux_1}) -> name_input(Density, FB, Input, 1);
-name(Density, {FB, Input, mux_2}) -> name_input(Density, FB, Input, 2);
-name(Density, {FB, Input, mux_3}) -> name_input(Density, FB, Input, 3);
-name(Density, {FB, Input, mux_4}) -> name_input(Density, FB, Input, 4);
-name(Density, {FB, Input, mux_5}) -> name_input(Density, FB, Input, 5);
-name(Density, {FB, Input, mux_6}) -> name_input(Density, FB, Input, 6);
-name(Density, {FB, Input, mux_7}) -> name_input(Density, FB, Input, 7);
-name(Density, {FB, Input, mux_8}) -> name_input(Density, FB, Input, 8);
+name(Density, {FB, Input, mux0}) -> name_input(Density, FB, Input, 0);
+name(Density, {FB, Input, mux1}) -> name_input(Density, FB, Input, 1);
+name(Density, {FB, Input, mux2}) -> name_input(Density, FB, Input, 2);
+name(Density, {FB, Input, mux3}) -> name_input(Density, FB, Input, 3);
+name(Density, {FB, Input, mux4}) -> name_input(Density, FB, Input, 4);
+name(Density, {FB, Input, mux5}) -> name_input(Density, FB, Input, 5);
+name(Density, {FB, Input, mux6}) -> name_input(Density, FB, Input, 6);
+name(Density, {FB, Input, mux7}) -> name_input(Density, FB, Input, 7);
+name(Density, {FB, Input, mux8}) -> name_input(Density, FB, Input, 8);
 % feature fuses
 name(Density, {FB, MC, Feature}) ->
     Band = feature_band(Feature),
