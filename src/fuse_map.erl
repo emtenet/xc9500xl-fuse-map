@@ -18,6 +18,10 @@
     gck1_enable |
     gck2_enable |
     gck3_enable |
+    gts1_enable |
+    gts2_enable |
+    gts3_enable |
+    gts4_enable |
     keeper_disable |
     user() |
     {fb(), mc(), pt(), input()} |
@@ -26,7 +30,10 @@
     undefined.
 
 -type feature() ::
+    always |
     bypass |
+    ce_mux0 |
+    ce_mux1 |
     clk_invert |
     clk_mux0 |
     clk_mux1 |
@@ -37,13 +44,23 @@
     oe_gts_mux1 |
     oe_mux |
     preset |
+    pt1_mux0 |
+    pt1_mux1 |
     pt1_std_power |
+    pt2_mux0 |
+    pt2_mux1 |
     pt2_std_power |
+    pt3_mux0 |
+    pt3_mux1 |
     pt3_std_power |
+    pt4_mux0 |
+    pt4_mux1 |
     pt4_std_power |
+    pt5_mux0 |
+    pt5_mux1 |
     pt5_std_power |
-    r_gsr |
-    s_gsr |
+    r_mux |
+    s_mux |
     std_power |
     t_type.
 
@@ -240,8 +257,8 @@ fuse( 32, FB, Row, Column) -> fuse_feature(bypass, FB, Row, Column);
 fuse( 33, FB, Row, Column) -> fuse_feature(clk_mux0, FB, Row, Column);
 fuse( 34, FB, Row, Column) -> fuse_feature(clk_mux1, FB, Row, Column);
 fuse( 35, FB, Row, Column) -> fuse_feature(clk_invert, FB, Row, Column);
-fuse( 36, FB, Row, Column) -> fuse_guess(ce_mux0, FB, Row, Column);
-fuse( 37, FB, Row, Column) -> fuse_guess(ce_mux1, FB, Row, Column);
+fuse( 36, FB, Row, Column) -> fuse_feature(ce_mux0, FB, Row, Column);
+fuse( 37, FB, Row, Column) -> fuse_feature(ce_mux1, FB, Row, Column);
 fuse( 38, FB, Row, Column) -> fuse_unknown(band039, FB, Row, Column);
 fuse( 39, FB, Row, Column) -> fuse_feature(t_type, FB, Row, Column);
 fuse( 40, FB, Row, Column) -> fuse_feature(r_mux, FB, Row, Column);
