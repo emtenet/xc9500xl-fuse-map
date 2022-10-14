@@ -18,11 +18,11 @@
 %%
 %%  Two-bit selection of the 4 global clock pins.
 %%
-%%      gck_1 gck_0 -> pin
-%%        0     0      gck2
-%%        0     1      gck1
-%%        1     0      gck3
-%%        1     1      product-term?
+%%      clk_mux1 clk_mux0 -> clock source
+%%        0        0         gck2
+%%        1        0         gck1
+%%        0        1         gck3
+%%        1        1         product-term
 
 %%====================================================================
 %% run
@@ -133,7 +133,7 @@ experiment(Device, MC, {Name, Signals}) ->
 %%--------------------------------------------------------------------
 
 fuses(MC, {matrix,
-           [BYPASS, GCK3, GCK1],
+           [BYPASS, MUX0, MUX1],
            [{on,   [on , off, off]},
             {gck1, [off, off, on ]},
             {gck2, [off, off, off]},
@@ -141,39 +141,39 @@ fuses(MC, {matrix,
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(GCK1, MC, gck_0),
-     fuse(GCK3, MC, gck_1)
+     fuse(MUX0, MC, gck_mux0),
+     fuse(MUX1, MC, gck_mux1)
     ];
 fuses(MC, {matrix,
-           [BYPASS, GCK3],
+           [BYPASS, MUX0],
            [{on,   [on , off]},
             {gck2, [off, off]},
             {gck3, [off, on ]}
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(GCK3, MC, gck_1)
+     fuse(MUX0, MC, gck_mux0)
     ];
 fuses(MC, {matrix,
-           [BYPASS, GCK3, GCK1],
+           [BYPASS, MUX0, MUX1],
            [{on,   [on , off, off]},
             {gck1, [off, off, on ]},
             {gck3, [off, on , off]}
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(GCK1, MC, gck_0),
-     fuse(GCK3, MC, gck_1)
+     fuse(MUX0, MC, gck_mux0),
+     fuse(MUX1, MC, gck_mux1)
     ];
 fuses(MC, {matrix,
-           [BYPASS, GCK1],
+           [BYPASS, MUX1],
            [{on,   [on , off]},
             {gck1, [off, on ]},
             {gck2, [off, off]}
            ]
           }) ->
     [fuse(BYPASS, MC, bypass),
-     fuse(GCK1, MC, gck_0)
+     fuse(MUX1, MC, gck_mux1)
     ].
 
 %%--------------------------------------------------------------------

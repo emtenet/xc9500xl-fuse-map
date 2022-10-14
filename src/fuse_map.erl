@@ -27,9 +27,9 @@
 
 -type feature() ::
     bypass |
+    clk_mux0 |
+    clk_mux1 |
     fast |
-    gck_0 |
-    gck_1 |
     ground |
     oe_invert |
     oe_gts |
@@ -215,16 +215,16 @@ fuse(  8, FB, Row, Column) -> fuse_unknown(band009, FB, Row, Column);
 fuse(  9, FB, Row, Column) -> fuse_unknown(band010, FB, Row, Column);
 fuse( 10, FB, Row, Column) -> fuse_unknown(band011, FB, Row, Column);
 fuse( 11, FB, Row, Column) -> fuse_unknown(band012, FB, Row, Column);
-fuse( 12, FB, Row, Column) -> fuse_guess(pt3_mux1, FB, Row, Column);
-fuse( 13, FB, Row, Column) -> fuse_guess(pt3_mux0, FB, Row, Column);
-fuse( 14, FB, Row, Column) -> fuse_guess(pt5_mux1, FB, Row, Column);
-fuse( 15, FB, Row, Column) -> fuse_guess(pt5_mux0, FB, Row, Column);
-fuse( 16, FB, Row, Column) -> fuse_guess(pt4_mux1, FB, Row, Column);
-fuse( 17, FB, Row, Column) -> fuse_guess(pt4_mux0, FB, Row, Column);
-fuse( 18, FB, Row, Column) -> fuse_guess(pt1_mux1, FB, Row, Column);
-fuse( 19, FB, Row, Column) -> fuse_guess(pt1_mux0, FB, Row, Column);
-fuse( 20, FB, Row, Column) -> fuse_guess(pt2_mux1, FB, Row, Column);
-fuse( 21, FB, Row, Column) -> fuse_guess(pt2_mux0, FB, Row, Column);
+fuse( 12, FB, Row, Column) -> fuse_feature(pt3_mux0, FB, Row, Column);
+fuse( 13, FB, Row, Column) -> fuse_feature(pt3_mux1, FB, Row, Column);
+fuse( 14, FB, Row, Column) -> fuse_guess(pt5_mux0, FB, Row, Column);
+fuse( 15, FB, Row, Column) -> fuse_guess(pt5_mux1, FB, Row, Column);
+fuse( 16, FB, Row, Column) -> fuse_guess(pt4_mux0, FB, Row, Column);
+fuse( 17, FB, Row, Column) -> fuse_guess(pt4_mux1, FB, Row, Column);
+fuse( 18, FB, Row, Column) -> fuse_guess(pt1_mux0, FB, Row, Column);
+fuse( 19, FB, Row, Column) -> fuse_guess(pt1_mux1, FB, Row, Column);
+fuse( 20, FB, Row, Column) -> fuse_guess(pt2_mux0, FB, Row, Column);
+fuse( 21, FB, Row, Column) -> fuse_guess(pt2_mux1, FB, Row, Column);
 fuse( 22, FB, Row, Column) -> fuse_guess(invert, FB, Row, Column);
 fuse( 23, FB, Row, Column) -> fuse_guess(from_upper, FB, Row, Column);
 fuse( 24, FB, Row, Column) -> fuse_guess(from_lower, FB, Row, Column);
@@ -236,11 +236,11 @@ fuse( 29, FB, Row, Column) -> fuse_feature(oe_gts_1, FB, Row, Column);
 fuse( 30, FB, Row, Column) -> fuse_feature(oe_invert, FB, Row, Column);
 fuse( 31, FB, Row, Column) -> fuse_unknown(band032, FB, Row, Column);
 fuse( 32, FB, Row, Column) -> fuse_feature(bypass, FB, Row, Column);
-fuse( 33, FB, Row, Column) -> fuse_feature(gck_1, FB, Row, Column);
-fuse( 34, FB, Row, Column) -> fuse_feature(gck_0, FB, Row, Column);
+fuse( 33, FB, Row, Column) -> fuse_feature(clk_mux0, FB, Row, Column);
+fuse( 34, FB, Row, Column) -> fuse_feature(clk_mux1, FB, Row, Column);
 fuse( 35, FB, Row, Column) -> fuse_unknown(band036, FB, Row, Column);
-fuse( 36, FB, Row, Column) -> fuse_guess(ce_mux1, FB, Row, Column);
-fuse( 37, FB, Row, Column) -> fuse_guess(ce_mux0, FB, Row, Column);
+fuse( 36, FB, Row, Column) -> fuse_guess(ce_mux0, FB, Row, Column);
+fuse( 37, FB, Row, Column) -> fuse_guess(ce_mux1, FB, Row, Column);
 fuse( 38, FB, Row, Column) -> fuse_unknown(band039, FB, Row, Column);
 fuse( 39, FB, Row, Column) -> fuse_feature(t_type, FB, Row, Column);
 fuse( 40, FB, Row, Column) -> fuse_feature(r_gsr, FB, Row, Column);
@@ -670,16 +670,16 @@ feature_band(band009) ->   8;
 feature_band(band010) ->   9;
 feature_band(band011) ->  10;
 feature_band(band012) ->  11;
-feature_band(pt3_mux1) ->  12;
-feature_band(pt3_mux0) ->  13;
-feature_band(pt5_mux1) ->  14;
-feature_band(pt5_mux0) ->  15;
-feature_band(pt4_mux1) ->  16;
-feature_band(pt4_mux0) ->  17;
-feature_band(pt1_mux1) ->  18;
-feature_band(pt1_mux0) ->  19;
-feature_band(pt2_mux1) ->  20;
-feature_band(pt2_mux0) ->  21;
+feature_band(pt3_mux0) ->  12;
+feature_band(pt3_mux1) ->  13;
+feature_band(pt5_mux0) ->  14;
+feature_band(pt5_mux1) ->  15;
+feature_band(pt4_mux0) ->  16;
+feature_band(pt4_mux1) ->  17;
+feature_band(pt1_mux0) ->  18;
+feature_band(pt1_mux1) ->  19;
+feature_band(pt2_mux0) ->  20;
+feature_band(pt2_mux1) ->  21;
 feature_band(invert) ->  22;
 feature_band(from_upper) ->  23;
 feature_band(from_lower) ->  24;
@@ -691,8 +691,8 @@ feature_band(oe_gts_1) ->  29;
 feature_band(oe_invert) ->  30;
 feature_band(band032) ->  31;
 feature_band(bypass) ->  32;
-feature_band(gck_1) ->  33;
-feature_band(gck_0) ->  34;
+feature_band(clk_mux0) ->  33;
+feature_band(clk_mux1) ->  34;
 feature_band(band036) ->  35;
 feature_band(ce_mux1) ->  36;
 feature_band(ce_mux0) ->  37;
