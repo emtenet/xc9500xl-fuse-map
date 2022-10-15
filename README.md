@@ -3,6 +3,8 @@
 
 Documentation of the [fuse map](doc/fuse-map.md) layout.
 
+![Macro Cell](/doc/macro-cell.svg)
+
 ## Experiments
 
  - [x] `user_bits_experiment` - 32 user bits
