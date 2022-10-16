@@ -110,15 +110,18 @@ imux_mc(FBNumber, MC) ->
 imux_pins([Line = <<"FBPIN ", _/binary>> | Lines], FBNumber, Pins) ->
     % FBPIN | 14 | NULL | 0 | d_IBUF | 1 | NULL | 0 | E2 | 49152
     % FBPIN | 15 | hidden | 1 | NULL | 0 | NULL | 0 | C2 | 49152
-    [_, MC_, Name, _, _, _, _, _, Pin, _]
-        = binary:split(Line, <<" | ">>, [global]),
-    MC = imux_mc(FBNumber, MC_),
-    case Name of
-        <<"NULL">> ->
+    case binary:split(Line, <<" | ">>, [global]) of
+        [_, MC_, <<"NULL">>, _, _, _, _, _, Pin, _] ->
+            MC = imux_mc(FBNumber, MC_),
             imux_pins(Lines, FBNumber, Pins#{Pin => MC});
 
-        _ ->
-            imux_pins(Lines, FBNumber, Pins#{Pin => MC, Name => MC})
+        [_, MC_, Name, _, _, _, _, _, Pin, _] ->
+            MC = imux_mc(FBNumber, MC_),
+            imux_pins(Lines, FBNumber, Pins#{Pin => MC, Name => MC});
+
+        [_, MC_, Name, _, _, _, _, _] ->
+            MC = imux_mc(FBNumber, MC_),
+            imux_pins(Lines, FBNumber, Pins#{Name => MC})
     end;
 imux_pins([<<>> | Lines], _, Pins) ->
     imux_instance(Lines, Pins).
