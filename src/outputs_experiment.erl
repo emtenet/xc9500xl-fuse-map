@@ -12,7 +12,6 @@
 
 run() ->
     lists:foreach(fun run/1, density:list()),
-    %run(xc9572xl),
     ok.
 
 %%--------------------------------------------------------------------
@@ -20,25 +19,25 @@ run() ->
 run(Density) ->
     Device = density:largest_device(Density),
     IOs = device:io_macro_cells(Device),
+    MCs = density:macro_cells(Device),
     GCKs = device:gck_macro_cells(Device),
-    lists:foreach(fun (IO) -> run(Density, Device, IOs, GCKs, IO) end, IOs),
-    %[IO | _] = IOs,
-    %run(Density, Device, IOs, GCKs, IO),
+    lists:foreach(fun (IO) ->
+        run(Density, Device, MCs, IOs, GCKs, IO) end,
+        IOs
+    ),
     ok.
 
 %%--------------------------------------------------------------------
 
-run(Density, Device, IOs, GCKs, Output) ->
+run(Density, Device, MCs, IOs, GCKs, Output) ->
     io:format(" => outputs ~s ~s~n", [Device, Output]),
     Inputs = [
         experiment(Density, Device, GCKs, Internal, Output, IOs)
         ||
-        Internal <- IOs,
+        Internal <- MCs,
         Internal =/= Output
     ],
     io:format("~n", []),
-    %
-    %io:format("~p~n", [Inputs]),
     inputs:update(Density, Inputs),
     ok.
 

@@ -286,6 +286,294 @@ fb01,mc16_15i: input08,5
 fb01,mc16_16i:
 fb01,mc16_17i: input21,5
 fb01,mc16_18i:
+fb01,mc01_01o: input01,16 input51,16
+fb01,mc01_02o: input39,16
+fb01,mc01_03o: input03,16 input37,16 input45,16
+fb01,mc01_04o: input28,16 input52,16
+fb01,mc01_05o: input05,16 input23,16 input44,16
+fb01,mc01_06o: input36,16 input46,16
+fb01,mc01_07o: input07,16 input42,16
+fb01,mc01_08o: input19,16 input38,16
+fb01,mc01_09o: input09,16 input24,16
+fb01,mc01_10o: input25,16
+fb01,mc01_11o: input27,16
+fb01,mc01_12o: input12,16
+fb01,mc01_13o: input13,16 input33,16 input49,16
+fb01,mc01_14o: input14,16 input43,16
+fb01,mc01_15o: input26,16 input40,16
+fb01,mc01_16o: input16,16 input34,16
+fb01,mc01_17o: input21,16
+fb01,mc01_18o: input29,16
+fb01,mc02_01o: input29,24
+fb01,mc02_02o: input26,24
+fb01,mc02_03o: input27,24
+fb01,mc02_04o: input04,24 input28,24
+fb01,mc02_05o: input05,24 input24,24 input34,24
+fb01,mc02_06o: input43,24
+fb01,mc02_07o: input07,24 input21,24
+fb01,mc02_08o: input37,24 input45,24
+fb01,mc02_09o: input09,24 input44,24
+fb01,mc02_10o: input40,24 input51,24
+fb01,mc02_11o: input11,24 input38,24
+fb01,mc02_12o: input12,24 input52,24
+fb01,mc02_13o: input13,24
+fb01,mc02_14o: input14,24 input33,24
+fb01,mc02_15o: input15,24 input39,24
+fb01,mc02_16o: input16,24 input23,24 input36,24
+fb01,mc02_17o: input17,24 input22,24 input49,24
+fb01,mc02_18o: input18,24 input42,24
+fb01,mc03_01o: input01,17
+fb01,mc03_02o: input36,17 input45,17
+fb01,mc03_03o: input52,17
+fb01,mc03_04o: input04,17 input28,17 input40,17
+fb01,mc03_05o: input05,17 input25,17 input26,17
+fb01,mc03_06o: input27,17
+fb01,mc03_07o: input07,17 input43,17
+fb01,mc03_08o: input24,17
+fb01,mc03_09o: input09,17 input22,17 input34,17
+fb01,mc03_10o: input39,17
+fb01,mc03_11o: input29,17
+fb01,mc03_12o: input12,17 input23,17
+fb01,mc03_13o: input13,17
+fb01,mc03_14o: input14,17
+fb01,mc03_15o: input15,17 input33,17 input38,17
+fb01,mc03_16o: input16,17 input53,17
+fb01,mc03_17o: input17,17 input42,17
+fb01,mc03_18o: input18,17 input21,17
+fb01,mc04_01o: input01,25 input44,25
+fb01,mc04_02o: input22,25 input30,25
+fb01,mc04_03o: input03,25 input34,25 input45,25
+fb01,mc04_04o: input04,25 input40,25
+fb01,mc04_05o: input33,25 input43,25
+fb01,mc04_06o: input27,25
+fb01,mc04_07o: input07,25 input52,25
+fb01,mc04_08o: input38,25 input39,25
+fb01,mc04_09o: input09,25 input42,25 input46,25
+fb01,mc04_10o: input25,25
+fb01,mc04_11o: input11,25 input36,25
+fb01,mc04_12o: input12,25 input24,25
+fb01,mc04_13o: input13,25 input49,25
+fb01,mc04_14o: input14,25 input26,25
+fb01,mc04_15o: input15,25
+fb01,mc04_16o: input16,25 input21,25 input23,25
+fb01,mc04_17o: input17,25 input41,25
+fb01,mc04_18o: input29,25
+fb01,mc05_01o: input01,18 input21,18
+fb01,mc05_02o: input40,18 input52,18
+fb01,mc05_03o: input03,18 input24,18 input34,18
+fb01,mc05_04o: input43,18
+fb01,mc05_05o: input28,18 input41,18
+fb01,mc05_06o: input20,18 input49,18
+fb01,mc05_07o: input07,18 input36,18
+fb01,mc05_08o: input33,18
+fb01,mc05_09o: input09,18 input23,18 input39,18
+fb01,mc05_10o: input25,18 input37,18
+fb01,mc05_11o: input11,18 input26,18 input45,18
+fb01,mc05_12o: input12,18
+fb01,mc05_13o: input13,18
+fb01,mc05_14o: input14,18 input42,18 input46,18
+fb01,mc05_15o: input15,18 input22,18
+fb01,mc05_16o: input16,18 input44,18 input51,18
+fb01,mc05_17o: input29,18
+fb01,mc05_18o: input27,18
+fb01,mc06_01o: input01,26 input33,26
+fb01,mc06_02o: input02,26 input28,26
+fb01,mc06_03o: input03,26 input24,26 input41,26
+fb01,mc06_04o: input45,26
+fb01,mc06_05o: input05,26
+fb01,mc06_06o: input51,26
+fb01,mc06_07o: input07,26 input40,26 input42,26
+fb01,mc06_08o: input08,26 input44,26
+fb01,mc06_09o: input09,26 input43,26
+fb01,mc06_10o: input22,26 input49,26
+fb01,mc06_11o: input29,26
+fb01,mc06_12o: input12,26 input23,26 input26,26
+fb01,mc06_13o: input13,26
+fb01,mc06_14o: input27,26
+fb01,mc06_15o: input15,26 input37,26
+fb01,mc06_16o: input16,26 input39,26 input52,26
+fb01,mc06_17o: input17,26 input30,26 input46,26
+fb01,mc06_18o: input18,26 input36,26
+fb01,mc07_01o: input01,19 input25,19
+fb01,mc07_02o: input23,19 input45,19
+fb01,mc07_03o: input52,19
+fb01,mc07_04o: input21,19 input34,19
+fb01,mc07_05o: input29,19
+fb01,mc07_06o: input27,19
+fb01,mc07_07o: input07,19 input26,19 input33,19
+fb01,mc07_08o: input43,19
+fb01,mc07_09o: input09,19 input42,19
+fb01,mc07_10o: input41,19
+fb01,mc07_11o: input11,19 input24,19 input28,19
+fb01,mc07_12o: input12,19
+fb01,mc07_13o: input13,19 input44,19
+fb01,mc07_14o: input14,19
+fb01,mc07_15o: input15,19 input38,19 input49,19
+fb01,mc07_16o: input16,19 input37,19 input39,19
+fb01,mc07_17o: input17,19 input36,19
+fb01,mc07_18o: input18,19 input46,19
+fb01,mc08_01o: input01,27
+fb01,mc08_02o: input02,27 input34,27
+fb01,mc08_03o: input03,27 input41,27 input46,27
+fb01,mc08_04o: input22,27 input28,27
+fb01,mc08_05o: input05,27 input37,27
+fb01,mc08_06o: input21,27 input42,27
+fb01,mc08_07o: input07,27 input33,27 input36,27
+fb01,mc08_08o: input29,27
+fb01,mc08_09o: input09,27 input43,27
+fb01,mc08_10o: input24,27 input39,27
+fb01,mc08_11o: input27,27
+fb01,mc08_12o: input12,27
+fb01,mc08_13o: input13,27 input44,27
+fb01,mc08_14o: input14,27 input23,27 input45,27
+fb01,mc08_15o: input15,27 input25,27 input49,27
+fb01,mc08_16o: input16,27 input40,27
+fb01,mc08_17o: input52,27
+fb01,mc08_18o: input18,27 input26,27
+fb01,mc09_01o: input01,20 input21,20 input28,20
+fb01,mc09_02o: input30,20 input49,20
+fb01,mc09_03o: input03,20 input34,20
+fb01,mc09_04o: input04,20 input46,20
+fb01,mc09_05o: input27,20 input39,20
+fb01,mc09_06o: input29,20
+fb01,mc09_07o: input07,20 input52,20
+fb01,mc09_08o: input25,20
+fb01,mc09_09o: input09,20 input42,20
+fb01,mc09_10o: input41,20
+fb01,mc09_11o: input11,20 input37,20
+fb01,mc09_12o: input12,20 input36,20 input45,20
+fb01,mc09_13o: input13,20 input24,20 input33,20
+fb01,mc09_14o: input14,20 input26,20 input44,20
+fb01,mc09_15o: input43,20
+fb01,mc09_16o: input16,20
+fb01,mc09_17o: input17,20 input53,20
+fb01,mc09_18o: input18,20 input22,20
+fb01,mc10_01o: input01,28 input37,28
+fb01,mc10_02o: input40,28 input41,28
+fb01,mc10_03o: input21,28 input52,28
+fb01,mc10_04o: input43,28
+fb01,mc10_05o: input05,28 input51,28
+fb01,mc10_06o: input25,28 input26,28
+fb01,mc10_07o: input07,28 input24,28 input28,28
+fb01,mc10_08o: input22,28 input30,28
+fb01,mc10_09o: input09,28 input39,28
+fb01,mc10_10o: input10,28
+fb01,mc10_11o: input11,28 input33,28 input38,28
+fb01,mc10_12o: input12,28 input42,28
+fb01,mc10_13o: input13,28 input44,28 input45,28
+fb01,mc10_14o: input14,28
+fb01,mc10_15o: input15,28 input46,28
+fb01,mc10_16o: input29,28
+fb01,mc10_17o: input17,28 input36,28 input49,28
+fb01,mc10_18o: input27,28
+fb01,mc11_01o: input01,21 input23,21
+fb01,mc11_02o: input36,21 input52,21
+fb01,mc11_03o: input43,21
+fb01,mc11_04o: input22,21
+fb01,mc11_05o: input29,21
+fb01,mc11_06o: input33,21 input45,21
+fb01,mc11_07o: input07,21 input41,21
+fb01,mc11_08o: input19,21
+fb01,mc11_09o: input09,21 input37,21
+fb01,mc11_10o: input39,21
+fb01,mc11_11o: input11,21 input42,21
+fb01,mc11_12o: input12,21 input24,21
+fb01,mc11_13o: input13,21 input28,21
+fb01,mc11_14o: input14,21 input34,21
+fb01,mc11_15o: input15,21 input21,21 input38,21
+fb01,mc11_16o: input16,21 input44,21
+fb01,mc11_17o: input17,21 input26,21 input40,21
+fb01,mc11_18o: input27,21
+fb01,mc12_01o: input01,29 input21,29 input40,29
+fb01,mc12_02o: input45,29
+fb01,mc12_03o: input03,29 input24,29 input37,29
+fb01,mc12_04o: input51,29
+fb01,mc12_05o: input05,29
+fb01,mc12_06o: input30,29
+fb01,mc12_07o: input07,29 input22,29
+fb01,mc12_08o: input29,29
+fb01,mc12_09o: input09,29 input36,29
+fb01,mc12_10o: input43,29
+fb01,mc12_11o: input11,29 input26,29
+fb01,mc12_12o: input12,29 input23,29
+fb01,mc12_13o: input13,29 input33,29 input44,29
+fb01,mc12_14o: input14,29
+fb01,mc12_15o: input15,29 input39,29 input52,29
+fb01,mc12_16o: input27,29
+fb01,mc12_17o: input17,29 input38,29 input41,29
+fb01,mc12_18o: input18,29 input28,29 input46,29
+fb01,mc13_01o: input01,22 input25,22
+fb01,mc13_02o: input41,22
+fb01,mc13_03o: input03,22 input30,22
+fb01,mc13_04o: input26,22 input37,22
+fb01,mc13_05o: input05,22 input33,22
+fb01,mc13_06o: input36,22 input40,22
+fb01,mc13_07o: input07,22 input39,22 input43,22
+fb01,mc13_08o: input21,22
+fb01,mc13_09o: input09,22 input45,22
+fb01,mc13_10o: input10,22
+fb01,mc13_11o: input11,22
+fb01,mc13_12o: input12,22 input42,22
+fb01,mc13_13o: input13,22 input23,22 input38,22
+fb01,mc13_14o: input28,22 input52,22
+fb01,mc13_15o: input29,22
+fb01,mc13_16o: input16,22 input24,22 input44,22
+fb01,mc13_17o: input27,22
+fb01,mc13_18o: input18,22 input22,22
+fb01,mc14_01o: input01,30 input25,30 input42,30
+fb01,mc14_02o: input53,30
+fb01,mc14_03o: input03,30 input30,30
+fb01,mc14_04o: input28,30 input33,30
+fb01,mc14_05o: input05,30 input37,30
+fb01,mc14_06o: input38,30
+fb01,mc14_07o: input07,30 input45,30
+fb01,mc14_08o: input08,30 input34,30
+fb01,mc14_09o: input09,30
+fb01,mc14_10o: input26,30 input36,30
+fb01,mc14_11o: input11,30 input39,30
+fb01,mc14_12o: input12,30
+fb01,mc14_13o: input13,30 input27,30
+fb01,mc14_14o: input41,30 input52,30
+fb01,mc14_15o: input15,30 input23,30 input49,30
+fb01,mc14_16o: input43,30
+fb01,mc14_17o: input29,30
+fb01,mc14_18o: input18,30 input21,30 input40,30
+fb01,mc15_01o: input27,23
+fb01,mc15_02o: input23,23
+fb01,mc15_03o: input03,23 input20,23 input46,23
+fb01,mc15_04o: input39,23
+fb01,mc15_05o: input05,23 input45,23
+fb01,mc15_06o: input41,23
+fb01,mc15_07o: input29,23
+fb01,mc15_08o: input28,23 input51,23
+fb01,mc15_09o: input09,23 input43,23
+fb01,mc15_10o: input22,23 input52,23
+fb01,mc15_11o: input11,23 input40,23
+fb01,mc15_12o: input12,23
+fb01,mc15_13o: input13,23 input24,23
+fb01,mc15_14o: input14,23 input26,23
+fb01,mc15_15o: input36,23 input44,23
+fb01,mc15_16o: input16,23 input33,23
+fb01,mc15_17o: input17,23 input21,23 input25,23
+fb01,mc15_18o: input18,23 input37,23
+fb01,mc16_01o: input01,31 input28,31 input44,31
+fb01,mc16_02o: input22,31 input52,31
+fb01,mc16_03o: input03,31 input37,31
+fb01,mc16_04o: input41,31 input46,31
+fb01,mc16_05o: input05,31 input26,31 input36,31
+fb01,mc16_06o: input23,31 input39,31
+fb01,mc16_07o: input07,31 input43,31
+fb01,mc16_08o: input42,31
+fb01,mc16_09o: input29,31
+fb01,mc16_10o: input10,31 input34,31 input49,31
+fb01,mc16_11o: input11,31
+fb01,mc16_12o: input12,31 input33,31
+fb01,mc16_13o: input13,31 input21,31
+fb01,mc16_14o: input14,31
+fb01,mc16_15o: input15,31 input45,31
+fb01,mc16_16o: input16,31 input40,31
+fb01,mc16_17o: input27,31
+fb01,mc16_18o: input18,31
 fb02,mc01_01i:
 fb02,mc01_02i: input27,6
 fb02,mc01_03i: input14,6 input52,6
@@ -574,6 +862,294 @@ fb02,mc16_15i: input08,5 input50,5
 fb02,mc16_16i:
 fb02,mc16_17i: input06,5 input21,5
 fb02,mc16_18i:
+fb02,mc01_01o: input01,16 input48,16
+fb02,mc01_02o: input02,16 input32,16 input39,16
+fb02,mc01_03o: input37,16 input45,16
+fb02,mc01_04o: input04,16 input52,16
+fb02,mc01_05o: input05,16 input23,16
+fb02,mc01_06o: input06,16 input36,16
+fb02,mc01_07o: input07,16 input42,16 input53,16
+fb02,mc01_08o: input19,16
+fb02,mc01_09o: input09,16 input24,16 input31,16
+fb02,mc01_10o: input10,16 input25,16
+fb02,mc01_11o: input27,16
+fb02,mc01_12o: input12,16 input22,16
+fb02,mc01_13o: input13,16 input33,16
+fb02,mc01_14o: input43,16
+fb02,mc01_15o: input15,16 input26,16 input40,16
+fb02,mc01_16o: input16,16 input20,16
+fb02,mc01_17o: input17,16 input21,16 input30,16
+fb02,mc01_18o: input29,16
+fb02,mc02_01o: input29,24
+fb02,mc02_02o: input02,24 input26,24 input53,24
+fb02,mc02_03o: input27,24
+fb02,mc02_04o: input04,24 input28,24
+fb02,mc02_05o: input05,24 input24,24
+fb02,mc02_06o: input43,24
+fb02,mc02_07o: input07,24 input20,24
+fb02,mc02_08o: input08,24 input37,24 input45,24
+fb02,mc02_09o: input09,24 input44,24 input48,24
+fb02,mc02_10o: input10,24 input40,24 input51,24
+fb02,mc02_11o: input11,24
+fb02,mc02_12o: input12,24 input52,24
+fb02,mc02_13o: input13,24
+fb02,mc02_14o: input30,24 input33,24
+fb02,mc02_15o: input15,24 input39,24
+fb02,mc02_16o: input23,24 input36,24
+fb02,mc02_17o: input17,24 input22,24
+fb02,mc02_18o: input18,24 input31,24 input42,24
+fb02,mc03_01o: input01,17 input50,17
+fb02,mc03_02o: input36,17
+fb02,mc03_03o: input19,17 input52,17
+fb02,mc03_04o: input04,17 input28,17 input40,17
+fb02,mc03_05o: input05,17 input25,17
+fb02,mc03_06o: input27,17
+fb02,mc03_07o: input07,17 input43,17
+fb02,mc03_08o: input08,17 input24,17
+fb02,mc03_09o: input09,17 input22,17
+fb02,mc03_10o: input10,17 input31,17 input39,17
+fb02,mc03_11o: input29,17
+fb02,mc03_12o: input12,17 input23,17
+fb02,mc03_13o: input13,17 input48,17
+fb02,mc03_14o: input14,17 input30,17
+fb02,mc03_15o: input15,17 input33,17
+fb02,mc03_16o: input32,17 input53,17
+fb02,mc03_17o: input17,17 input42,17 input47,17
+fb02,mc03_18o: input18,17 input41,17
+fb02,mc04_01o: input01,25 input31,25 input44,25
+fb02,mc04_02o: input02,25 input22,25 input30,25
+fb02,mc04_03o: input45,25
+fb02,mc04_04o: input04,25 input32,25 input40,25
+fb02,mc04_05o: input33,25 input43,25
+fb02,mc04_06o: input27,25
+fb02,mc04_07o: input07,25 input52,25
+fb02,mc04_08o: input08,25 input39,25
+fb02,mc04_09o: input09,25 input42,25
+fb02,mc04_10o: input10,25 input19,25 input25,25
+fb02,mc04_11o: input11,25 input36,25
+fb02,mc04_12o: input12,25 input24,25
+fb02,mc04_13o: input13,25 input20,25
+fb02,mc04_14o: input14,25 input53,25
+fb02,mc04_15o: input15,25 input47,25
+fb02,mc04_16o: input21,25 input23,25
+fb02,mc04_17o: input17,25 input41,25 input48,25
+fb02,mc04_18o: input29,25
+fb02,mc05_01o: input01,18 input53,18
+fb02,mc05_02o: input02,18 input40,18 input52,18
+fb02,mc05_03o: input24,18
+fb02,mc05_04o: input43,18
+fb02,mc05_05o: input05,18 input41,18
+fb02,mc05_06o: input06,18 input20,18
+fb02,mc05_07o: input07,18 input31,18 input36,18
+fb02,mc05_08o: input08,18 input33,18
+fb02,mc05_09o: input09,18 input23,18 input39,18
+fb02,mc05_10o: input10,18 input25,18 input37,18
+fb02,mc05_11o: input11,18
+fb02,mc05_12o: input12,18 input30,18
+fb02,mc05_13o: input13,18
+fb02,mc05_14o: input14,18 input42,18
+fb02,mc05_15o: input15,18 input22,18 input32,18
+fb02,mc05_16o: input44,18 input51,18
+fb02,mc05_17o: input29,18
+fb02,mc05_18o: input27,18
+fb02,mc06_01o: input33,26 input48,26
+fb02,mc06_02o: input02,26 input28,26
+fb02,mc06_03o: input24,26 input41,26
+fb02,mc06_04o: input04,26 input45,26 input53,26
+fb02,mc06_05o: input05,26 input20,26 input32,26
+fb02,mc06_06o: input06,26 input51,26
+fb02,mc06_07o: input07,26 input42,26
+fb02,mc06_08o: input08,26 input31,26 input44,26
+fb02,mc06_09o: input43,26
+fb02,mc06_10o: input10,26 input22,26
+fb02,mc06_11o: input29,26
+fb02,mc06_12o: input12,26 input23,26
+fb02,mc06_13o: input13,26
+fb02,mc06_14o: input27,26
+fb02,mc06_15o: input15,26 input50,26
+fb02,mc06_16o: input52,26
+fb02,mc06_17o: input17,26 input30,26
+fb02,mc06_18o: input18,26 input19,26 input36,26
+fb02,mc07_01o: input19,19 input25,19
+fb02,mc07_02o: input02,19 input23,19
+fb02,mc07_03o: input31,19 input52,19
+fb02,mc07_04o: input04,19 input21,19
+fb02,mc07_05o: input29,19
+fb02,mc07_06o: input27,19
+fb02,mc07_07o: input07,19 input33,19
+fb02,mc07_08o: input43,19
+fb02,mc07_09o: input09,19 input20,19 input42,19
+fb02,mc07_10o: input10,19 input41,19 input48,19
+fb02,mc07_11o: input11,19 input24,19 input28,19
+fb02,mc07_12o: input12,19 input53,19
+fb02,mc07_13o: input13,19 input44,19
+fb02,mc07_14o: input14,19 input47,19 input50,19
+fb02,mc07_15o: input15,19
+fb02,mc07_16o: input37,19 input39,19
+fb02,mc07_17o: input17,19 input32,19 input36,19
+fb02,mc07_18o: input18,19
+fb02,mc08_01o: input01,27
+fb02,mc08_02o: input02,27
+fb02,mc08_03o: input41,27
+fb02,mc08_04o: input22,27 input28,27
+fb02,mc08_05o: input05,27 input32,27 input37,27
+fb02,mc08_06o: input06,27 input21,27 input42,27
+fb02,mc08_07o: input07,27 input33,27 input36,27
+fb02,mc08_08o: input29,27
+fb02,mc08_09o: input43,27
+fb02,mc08_10o: input10,27 input24,27 input39,27
+fb02,mc08_11o: input27,27
+fb02,mc08_12o: input12,27 input19,27
+fb02,mc08_13o: input13,27 input44,27
+fb02,mc08_14o: input14,27 input23,27
+fb02,mc08_15o: input15,27 input25,27
+fb02,mc08_16o: input16,27 input31,27 input40,27
+fb02,mc08_17o: input52,27
+fb02,mc08_18o: input18,27 input47,27
+fb02,mc09_01o: input01,20 input28,20
+fb02,mc09_02o: input02,20 input30,20
+fb02,mc09_03o: input34,20
+fb02,mc09_04o: input04,20
+fb02,mc09_05o: input27,20
+fb02,mc09_06o: input29,20
+fb02,mc09_07o: input07,20 input19,20 input52,20
+fb02,mc09_08o: input08,20 input25,20 input47,20
+fb02,mc09_09o: input09,20 input42,20
+fb02,mc09_10o: input10,20 input32,20 input41,20
+fb02,mc09_11o: input11,20 input37,20
+fb02,mc09_12o: input12,20 input36,20
+fb02,mc09_13o: input13,20 input24,20 input33,20
+fb02,mc09_14o: input14,20 input44,20
+fb02,mc09_15o: input43,20
+fb02,mc09_16o: input16,20 input20,20 input31,20
+fb02,mc09_17o: input17,20 input48,20 input53,20
+fb02,mc09_18o: input18,20 input22,20 input50,20
+fb02,mc10_01o: input01,28 input37,28
+fb02,mc10_02o: input02,28 input40,28 input41,28
+fb02,mc10_03o: input52,28
+fb02,mc10_04o: input43,28
+fb02,mc10_05o: input05,28 input32,28 input51,28
+fb02,mc10_06o: input06,28 input25,28
+fb02,mc10_07o: input07,28 input28,28
+fb02,mc10_08o: input08,28 input22,28 input30,28
+fb02,mc10_09o: input09,28 input39,28 input48,28
+fb02,mc10_10o: input10,28 input20,28 input31,28
+fb02,mc10_11o: input11,28 input33,28
+fb02,mc10_12o: input12,28 input42,28 input53,28
+fb02,mc10_13o: input13,28 input44,28
+fb02,mc10_14o: input14,28 input19,28 input50,28
+fb02,mc10_15o: input15,28 input47,28
+fb02,mc10_16o: input29,28
+fb02,mc10_17o: input17,28 input36,28
+fb02,mc10_18o: input27,28
+fb02,mc11_01o: input01,21 input23,21 input31,21
+fb02,mc11_02o: input36,21 input52,21
+fb02,mc11_03o: input43,21
+fb02,mc11_04o: input22,21 input47,21
+fb02,mc11_05o: input29,21
+fb02,mc11_06o: input06,21 input33,21
+fb02,mc11_07o: input07,21 input41,21
+fb02,mc11_08o: input19,21 input50,21
+fb02,mc11_09o: input09,21 input53,21
+fb02,mc11_10o: input10,21 input39,21 input48,21
+fb02,mc11_11o: input11,21 input42,21
+fb02,mc11_12o: input12,21 input24,21
+fb02,mc11_13o: input13,21
+fb02,mc11_14o: input14,21 input32,21
+fb02,mc11_15o: input15,21 input21,21
+fb02,mc11_16o: input16,21 input44,21
+fb02,mc11_17o: input17,21 input26,21 input40,21
+fb02,mc11_18o: input27,21
+fb02,mc12_01o: input01,29 input40,29
+fb02,mc12_02o: input02,29 input45,29 input47,29
+fb02,mc12_03o: input24,29 input37,29
+fb02,mc12_04o: input04,29 input20,29 input51,29
+fb02,mc12_05o: input05,29 input31,29
+fb02,mc12_06o: input06,29 input30,29 input50,29
+fb02,mc12_07o: input07,29 input22,29
+fb02,mc12_08o: input29,29
+fb02,mc12_09o: input09,29 input36,29 input48,29
+fb02,mc12_10o: input43,29
+fb02,mc12_11o: input11,29 input53,29
+fb02,mc12_12o: input12,29 input23,29
+fb02,mc12_13o: input13,29 input33,29 input44,29
+fb02,mc12_14o: input14,29 input19,29
+fb02,mc12_15o: input15,29 input52,29
+fb02,mc12_16o: input27,29
+fb02,mc12_17o: input17,29 input41,29
+fb02,mc12_18o: input18,29 input28,29
+fb02,mc13_01o: input25,22
+fb02,mc13_02o: input02,22 input19,22 input41,22
+fb02,mc13_03o: input30,22 input50,22
+fb02,mc13_04o: input04,22 input26,22 input37,22
+fb02,mc13_05o: input05,22 input31,22 input33,22
+fb02,mc13_06o: input06,22 input36,22 input40,22
+fb02,mc13_07o: input07,22 input43,22
+fb02,mc13_08o: input08,22 input21,22 input53,22
+fb02,mc13_09o: input09,22
+fb02,mc13_10o: input10,22 input47,22
+fb02,mc13_11o: input11,22 input32,22 input48,22
+fb02,mc13_12o: input12,22 input42,22
+fb02,mc13_13o: input13,22 input23,22
+fb02,mc13_14o: input52,22
+fb02,mc13_15o: input29,22
+fb02,mc13_16o: input16,22 input24,22 input44,22
+fb02,mc13_17o: input27,22
+fb02,mc13_18o: input18,22 input22,22
+fb02,mc14_01o: input25,30 input42,30
+fb02,mc14_02o: input02,30 input48,30 input53,30
+fb02,mc14_03o: input19,30 input30,30
+fb02,mc14_04o: input04,30 input28,30 input33,30
+fb02,mc14_05o: input05,30 input37,30 input47,30
+fb02,mc14_06o: input06,30 input38,30
+fb02,mc14_07o: input07,30 input50,30
+fb02,mc14_08o: input08,30 input20,30
+fb02,mc14_09o: input09,30 input31,30
+fb02,mc14_10o: input10,30 input26,30 input36,30
+fb02,mc14_11o: input11,30 input22,30 input39,30
+fb02,mc14_12o: input12,30
+fb02,mc14_13o: input13,30 input27,30
+fb02,mc14_14o: input41,30 input52,30
+fb02,mc14_15o: input15,30 input23,30
+fb02,mc14_16o: input43,30
+fb02,mc14_17o: input29,30
+fb02,mc14_18o: input18,30 input40,30
+fb02,mc15_01o: input27,23
+fb02,mc15_02o: input02,23 input23,23
+fb02,mc15_03o: input20,23
+fb02,mc15_04o: input04,23 input39,23
+fb02,mc15_05o: input05,23 input31,23 input45,23
+fb02,mc15_06o: input06,23 input19,23 input41,23
+fb02,mc15_07o: input29,23
+fb02,mc15_08o: input08,23 input28,23 input51,23
+fb02,mc15_09o: input43,23
+fb02,mc15_10o: input10,23 input22,23 input52,23
+fb02,mc15_11o: input11,23 input40,23
+fb02,mc15_12o: input12,23 input30,23
+fb02,mc15_13o: input13,23 input24,23 input42,23
+fb02,mc15_14o: input14,23
+fb02,mc15_15o: input15,23 input36,23 input44,23
+fb02,mc15_16o: input33,23 input53,23
+fb02,mc15_17o: input17,23 input25,23
+fb02,mc15_18o: input18,23 input37,23
+fb02,mc16_01o: input01,31 input28,31 input44,31
+fb02,mc16_02o: input02,31 input22,31 input52,31
+fb02,mc16_03o: input03,31 input37,31
+fb02,mc16_04o: input41,31
+fb02,mc16_05o: input05,31 input26,31 input36,31
+fb02,mc16_06o: input23,31 input39,31
+fb02,mc16_07o: input07,31 input43,31
+fb02,mc16_08o: input08,31 input42,31
+fb02,mc16_09o: input29,31
+fb02,mc16_10o: input10,31
+fb02,mc16_11o: input11,31 input48,31
+fb02,mc16_12o: input12,31 input33,31
+fb02,mc16_13o: input13,31 input20,31
+fb02,mc16_14o: input14,31 input19,31 input47,31
+fb02,mc16_15o: input45,31 input53,31
+fb02,mc16_16o: input16,31 input31,31 input40,31
+fb02,mc16_17o: input27,31
+fb02,mc16_18o: input18,31 input30,31 input32,31
 fb03,mc01_01i:
 fb03,mc01_02i: input27,6 input43,6
 fb03,mc01_03i: input14,6 input21,6 input26,6 input52,6
@@ -862,6 +1438,294 @@ fb03,mc16_15i: input08,5 input50,5
 fb03,mc16_16i:
 fb03,mc16_17i: input21,5
 fb03,mc16_18i:
+fb03,mc01_01o: input01,16
+fb03,mc01_02o: input39,16
+fb03,mc01_03o: input03,16 input37,16 input45,16
+fb03,mc01_04o: input28,16 input52,16
+fb03,mc01_05o: input05,16 input23,16 input44,16
+fb03,mc01_06o: input36,16 input46,16
+fb03,mc01_07o: input07,16 input42,16
+fb03,mc01_08o: input19,16 input38,16
+fb03,mc01_09o: input09,16 input24,16
+fb03,mc01_10o: input25,16 input50,16
+fb03,mc01_11o: input27,16
+fb03,mc01_12o: input12,16 input22,16
+fb03,mc01_13o: input13,16
+fb03,mc01_14o: input43,16
+fb03,mc01_15o: input15,16 input26,16 input40,16
+fb03,mc01_16o: input16,16 input34,16
+fb03,mc01_17o: input17,16 input21,16
+fb03,mc01_18o: input29,16
+fb03,mc02_01o: input29,24
+fb03,mc02_02o: input26,24
+fb03,mc02_03o: input27,24
+fb03,mc02_04o: input04,24 input28,24
+fb03,mc02_05o: input05,24 input24,24 input34,24
+fb03,mc02_06o: input43,24
+fb03,mc02_07o: input07,24 input21,24
+fb03,mc02_08o: input37,24 input45,24
+fb03,mc02_09o: input09,24 input44,24
+fb03,mc02_10o: input40,24 input51,24
+fb03,mc02_11o: input11,24 input38,24
+fb03,mc02_12o: input12,24
+fb03,mc02_13o: input13,24
+fb03,mc02_14o: input33,24
+fb03,mc02_15o: input15,24 input39,24
+fb03,mc02_16o: input23,24
+fb03,mc02_17o: input17,24 input22,24
+fb03,mc02_18o: input18,24 input42,24
+fb03,mc03_01o: input01,17 input50,17
+fb03,mc03_02o: input45,17
+fb03,mc03_03o: input52,17
+fb03,mc03_04o: input04,17 input28,17 input40,17
+fb03,mc03_05o: input05,17 input25,17 input26,17
+fb03,mc03_06o: input27,17
+fb03,mc03_07o: input07,17 input43,17
+fb03,mc03_08o: input24,17
+fb03,mc03_09o: input09,17 input22,17 input34,17
+fb03,mc03_10o: input39,17
+fb03,mc03_11o: input29,17
+fb03,mc03_12o: input12,17 input23,17
+fb03,mc03_13o: input13,17
+fb03,mc03_14o: input14,17 input30,17
+fb03,mc03_15o: input15,17 input33,17 input38,17
+fb03,mc03_16o: input53,17
+fb03,mc03_17o: input17,17 input42,17
+fb03,mc03_18o: input18,17 input21,17 input41,17
+fb03,mc04_01o: input01,25 input44,25
+fb03,mc04_02o: input22,25 input30,25
+fb03,mc04_03o: input03,25 input34,25 input45,25
+fb03,mc04_04o: input04,25 input40,25
+fb03,mc04_05o: input43,25
+fb03,mc04_06o: input27,25
+fb03,mc04_07o: input07,25 input52,25
+fb03,mc04_08o: input38,25 input39,25
+fb03,mc04_09o: input09,25 input42,25 input46,25
+fb03,mc04_10o: input25,25
+fb03,mc04_11o: input11,25
+fb03,mc04_12o: input12,25 input24,25
+fb03,mc04_13o: input13,25
+fb03,mc04_14o: input14,25 input26,25
+fb03,mc04_15o: input15,25 input47,25
+fb03,mc04_16o: input21,25 input23,25
+fb03,mc04_17o: input17,25 input41,25
+fb03,mc04_18o: input29,25
+fb03,mc05_01o: input01,18 input21,18
+fb03,mc05_02o: input40,18 input52,18
+fb03,mc05_03o: input03,18 input24,18 input34,18
+fb03,mc05_04o: input43,18
+fb03,mc05_05o: input05,18 input28,18 input41,18
+fb03,mc05_06o: input20,18
+fb03,mc05_07o: input07,18
+fb03,mc05_08o: input33,18
+fb03,mc05_09o: input09,18 input23,18 input39,18
+fb03,mc05_10o: input25,18 input37,18
+fb03,mc05_11o: input11,18 input26,18
+fb03,mc05_12o: input12,18
+fb03,mc05_13o: input13,18
+fb03,mc05_14o: input14,18 input42,18 input46,18
+fb03,mc05_15o: input15,18 input22,18
+fb03,mc05_16o: input44,18 input51,18
+fb03,mc05_17o: input29,18
+fb03,mc05_18o: input27,18
+fb03,mc06_01o: input01,26 input33,26
+fb03,mc06_02o: input02,26 input28,26
+fb03,mc06_03o: input03,26 input24,26 input41,26
+fb03,mc06_04o: input45,26
+fb03,mc06_05o: input05,26
+fb03,mc06_06o: input51,26
+fb03,mc06_07o: input07,26 input42,26
+fb03,mc06_08o: input08,26 input44,26
+fb03,mc06_09o: input09,26 input43,26
+fb03,mc06_10o: input22,26
+fb03,mc06_11o: input29,26
+fb03,mc06_12o: input12,26 input23,26 input26,26
+fb03,mc06_13o: input13,26
+fb03,mc06_14o: input27,26
+fb03,mc06_15o: input15,26 input37,26 input50,26
+fb03,mc06_16o: input52,26
+fb03,mc06_17o: input17,26 input30,26
+fb03,mc06_18o: input18,26
+fb03,mc07_01o: input01,19 input25,19
+fb03,mc07_02o: input23,19
+fb03,mc07_03o: input52,19
+fb03,mc07_04o: input21,19 input34,19
+fb03,mc07_05o: input29,19
+fb03,mc07_06o: input27,19
+fb03,mc07_07o: input07,19 input26,19 input33,19
+fb03,mc07_08o: input43,19
+fb03,mc07_09o: input09,19 input42,19
+fb03,mc07_10o: input41,19
+fb03,mc07_11o: input11,19 input24,19 input28,19
+fb03,mc07_12o: input12,19
+fb03,mc07_13o: input13,19 input44,19
+fb03,mc07_14o: input14,19 input47,19 input50,19
+fb03,mc07_15o: input15,19 input38,19
+fb03,mc07_16o: input37,19 input39,19
+fb03,mc07_17o: input17,19 input36,19
+fb03,mc07_18o: input18,19 input46,19
+fb03,mc08_01o: input01,27
+fb03,mc08_02o: input02,27 input34,27 input38,27
+fb03,mc08_03o: input03,27 input41,27 input46,27
+fb03,mc08_04o: input22,27 input28,27
+fb03,mc08_05o: input05,27 input37,27
+fb03,mc08_06o: input21,27 input42,27
+fb03,mc08_07o: input07,27 input33,27
+fb03,mc08_08o: input29,27
+fb03,mc08_09o: input09,27 input43,27
+fb03,mc08_10o: input24,27 input39,27
+fb03,mc08_11o: input27,27
+fb03,mc08_12o: input12,27
+fb03,mc08_13o: input13,27 input44,27
+fb03,mc08_14o: input14,27 input23,27
+fb03,mc08_15o: input15,27 input25,27
+fb03,mc08_16o: input16,27 input40,27
+fb03,mc08_17o: input52,27
+fb03,mc08_18o: input18,27 input26,27 input47,27
+fb03,mc09_01o: input01,20 input21,20 input28,20
+fb03,mc09_02o: input30,20
+fb03,mc09_03o: input03,20 input34,20 input38,20
+fb03,mc09_04o: input04,20 input46,20
+fb03,mc09_05o: input27,20
+fb03,mc09_06o: input29,20
+fb03,mc09_07o: input07,20 input52,20
+fb03,mc09_08o: input25,20 input47,20
+fb03,mc09_09o: input09,20 input42,20
+fb03,mc09_10o: input41,20
+fb03,mc09_11o: input11,20 input37,20
+fb03,mc09_12o: input12,20
+fb03,mc09_13o: input13,20 input24,20
+fb03,mc09_14o: input14,20 input26,20 input44,20
+fb03,mc09_15o: input43,20
+fb03,mc09_16o: input16,20
+fb03,mc09_17o: input17,20 input53,20
+fb03,mc09_18o: input18,20 input22,20 input50,20
+fb03,mc10_01o: input01,28 input37,28
+fb03,mc10_02o: input40,28 input41,28
+fb03,mc10_03o: input21,28 input52,28
+fb03,mc10_04o: input43,28
+fb03,mc10_05o: input05,28 input51,28
+fb03,mc10_06o: input25,28 input26,28
+fb03,mc10_07o: input07,28 input24,28 input28,28
+fb03,mc10_08o: input22,28 input30,28
+fb03,mc10_09o: input09,28 input39,28
+fb03,mc10_10o: input10,28
+fb03,mc10_11o: input11,28 input33,28 input38,28
+fb03,mc10_12o: input12,28 input42,28
+fb03,mc10_13o: input13,28 input44,28
+fb03,mc10_14o: input14,28 input50,28
+fb03,mc10_15o: input15,28 input46,28
+fb03,mc10_16o: input29,28
+fb03,mc10_17o: input17,28 input36,28
+fb03,mc10_18o: input27,28
+fb03,mc11_01o: input01,21 input23,21
+fb03,mc11_02o: input52,21
+fb03,mc11_03o: input43,21
+fb03,mc11_04o: input22,21 input47,21
+fb03,mc11_05o: input29,21
+fb03,mc11_06o: input33,21
+fb03,mc11_07o: input07,21 input41,21 input46,21
+fb03,mc11_08o: input19,21 input50,21
+fb03,mc11_09o: input09,21 input37,21
+fb03,mc11_10o: input39,21
+fb03,mc11_11o: input11,21
+fb03,mc11_12o: input12,21 input24,21
+fb03,mc11_13o: input13,21 input28,21
+fb03,mc11_14o: input14,21 input34,21
+fb03,mc11_15o: input15,21 input21,21 input38,21
+fb03,mc11_16o: input16,21 input44,21
+fb03,mc11_17o: input17,21 input26,21 input40,21
+fb03,mc11_18o: input27,21
+fb03,mc12_01o: input01,29 input21,29 input40,29
+fb03,mc12_02o: input45,29 input47,29
+fb03,mc12_03o: input03,29 input24,29 input37,29
+fb03,mc12_04o: input51,29
+fb03,mc12_05o: input05,29
+fb03,mc12_06o: input30,29 input50,29
+fb03,mc12_07o: input07,29 input22,29
+fb03,mc12_08o: input29,29
+fb03,mc12_09o: input09,29
+fb03,mc12_10o: input43,29
+fb03,mc12_11o: input11,29 input26,29
+fb03,mc12_12o: input12,29 input23,29
+fb03,mc12_13o: input13,29 input44,29
+fb03,mc12_14o: input14,29
+fb03,mc12_15o: input15,29 input52,29
+fb03,mc12_16o: input27,29
+fb03,mc12_17o: input17,29 input41,29
+fb03,mc12_18o: input18,29 input28,29 input46,29
+fb03,mc13_01o: input01,22 input25,22 input34,22
+fb03,mc13_02o: input41,22
+fb03,mc13_03o: input03,22 input30,22 input50,22
+fb03,mc13_04o: input26,22 input37,22
+fb03,mc13_05o: input05,22 input33,22
+fb03,mc13_06o: input36,22 input40,22
+fb03,mc13_07o: input07,22 input43,22
+fb03,mc13_08o: input21,22
+fb03,mc13_09o: input09,22
+fb03,mc13_10o: input10,22 input47,22
+fb03,mc13_11o: input11,22
+fb03,mc13_12o: input12,22 input42,22
+fb03,mc13_13o: input13,22 input23,22 input38,22
+fb03,mc13_14o: input28,22 input52,22
+fb03,mc13_15o: input29,22
+fb03,mc13_16o: input16,22 input24,22 input44,22
+fb03,mc13_17o: input27,22
+fb03,mc13_18o: input18,22 input22,22
+fb03,mc14_01o: input01,30 input25,30 input42,30
+fb03,mc14_02o: input53,30
+fb03,mc14_03o: input03,30 input30,30
+fb03,mc14_04o: input28,30 input33,30
+fb03,mc14_05o: input05,30 input37,30 input47,30
+fb03,mc14_06o: input38,30
+fb03,mc14_07o: input07,30
+fb03,mc14_08o: input08,30 input34,30
+fb03,mc14_09o: input09,30
+fb03,mc14_10o: input26,30
+fb03,mc14_11o: input11,30 input22,30 input39,30
+fb03,mc14_12o: input12,30
+fb03,mc14_13o: input27,30
+fb03,mc14_14o: input41,30 input52,30
+fb03,mc14_15o: input15,30 input23,30
+fb03,mc14_16o: input43,30
+fb03,mc14_17o: input29,30
+fb03,mc14_18o: input18,30 input21,30 input40,30
+fb03,mc15_01o: input27,23
+fb03,mc15_02o: input23,23 input47,23
+fb03,mc15_03o: input03,23 input20,23 input46,23
+fb03,mc15_04o: input39,23
+fb03,mc15_05o: input05,23 input45,23
+fb03,mc15_06o: input41,23
+fb03,mc15_07o: input29,23
+fb03,mc15_08o: input28,23 input51,23
+fb03,mc15_09o: input09,23 input43,23
+fb03,mc15_10o: input22,23 input52,23
+fb03,mc15_11o: input11,23 input40,23
+fb03,mc15_12o: input12,23
+fb03,mc15_13o: input13,23 input24,23 input42,23
+fb03,mc15_14o: input14,23 input26,23
+fb03,mc15_15o: input15,23 input36,23 input44,23
+fb03,mc15_16o: input33,23
+fb03,mc15_17o: input17,23 input21,23 input25,23
+fb03,mc15_18o: input18,23 input37,23
+fb03,mc16_01o: input01,31 input28,31 input44,31
+fb03,mc16_02o: input22,31 input52,31
+fb03,mc16_03o: input03,31 input37,31
+fb03,mc16_04o: input41,31 input46,31
+fb03,mc16_05o: input05,31 input26,31
+fb03,mc16_06o: input23,31 input39,31
+fb03,mc16_07o: input07,31 input43,31
+fb03,mc16_08o: input42,31
+fb03,mc16_09o: input29,31
+fb03,mc16_10o: input10,31 input34,31
+fb03,mc16_11o: input11,31
+fb03,mc16_12o: input12,31
+fb03,mc16_13o: input13,31 input21,31
+fb03,mc16_14o: input14,31 input47,31
+fb03,mc16_15o: input15,31 input45,31
+fb03,mc16_16o: input16,31 input40,31
+fb03,mc16_17o: input27,31
+fb03,mc16_18o: input18,31
 fb04,mc01_01i:
 fb04,mc01_02i: input12,6 input27,6
 fb04,mc01_03i: input14,6 input26,6 input52,6
@@ -1150,6 +2014,294 @@ fb04,mc16_15i: input08,5 input35,5
 fb04,mc16_16i:
 fb04,mc16_17i: input06,5 input21,5
 fb04,mc16_18i:
+fb04,mc01_01o: input01,16 input48,16 input51,16
+fb04,mc01_02o: input02,16 input39,16
+fb04,mc01_03o: input03,16 input37,16 input45,16
+fb04,mc01_04o: input28,16 input52,16
+fb04,mc01_05o: input23,16
+fb04,mc01_06o: input06,16 input36,16
+fb04,mc01_07o: input07,16
+fb04,mc01_08o: input08,16 input19,16 input38,16
+fb04,mc01_09o: input09,16 input31,16
+fb04,mc01_10o: input10,16 input25,16
+fb04,mc01_11o: input27,16
+fb04,mc01_12o: input12,16
+fb04,mc01_13o: input13,16 input33,16
+fb04,mc01_14o: input43,16
+fb04,mc01_15o: input15,16 input26,16 input40,16
+fb04,mc01_16o: input16,16 input20,16 input34,16
+fb04,mc01_17o: input17,16 input21,16 input30,16
+fb04,mc01_18o: input29,16
+fb04,mc02_01o: input29,24
+fb04,mc02_02o: input02,24 input26,24
+fb04,mc02_03o: input25,24 input27,24
+fb04,mc02_04o: input04,24 input28,24
+fb04,mc02_05o: input24,24 input34,24
+fb04,mc02_06o: input43,24
+fb04,mc02_07o: input07,24 input20,24
+fb04,mc02_08o: input08,24 input45,24
+fb04,mc02_09o: input09,24 input48,24
+fb04,mc02_10o: input10,24 input40,24 input51,24
+fb04,mc02_11o: input11,24 input35,24 input38,24
+fb04,mc02_12o: input12,24
+fb04,mc02_13o: input13,24
+fb04,mc02_14o: input14,24 input33,24
+fb04,mc02_15o: input15,24 input39,24
+fb04,mc02_16o: input16,24 input23,24 input36,24
+fb04,mc02_17o: input17,24 input22,24 input49,24
+fb04,mc02_18o: input18,24 input31,24
+fb04,mc03_01o: input01,17
+fb04,mc03_02o: input02,17 input36,17
+fb04,mc03_03o: input52,17
+fb04,mc03_04o: input04,17 input28,17 input40,17
+fb04,mc03_05o: input25,17
+fb04,mc03_06o: input27,17
+fb04,mc03_07o: input43,17
+fb04,mc03_08o: input08,17 input24,17 input35,17
+fb04,mc03_09o: input09,17 input34,17
+fb04,mc03_10o: input10,17 input31,17 input39,17
+fb04,mc03_11o: input29,17
+fb04,mc03_12o: input12,17
+fb04,mc03_13o: input13,17 input48,17
+fb04,mc03_14o: input14,17 input51,17
+fb04,mc03_15o: input15,17 input33,17 input38,17
+fb04,mc03_16o: input16,17 input53,17
+fb04,mc03_17o: input17,17 input42,17 input47,17
+fb04,mc03_18o: input18,17
+fb04,mc04_01o: input01,25 input31,25
+fb04,mc04_02o: input02,25 input30,25
+fb04,mc04_03o: input03,25 input34,25 input45,25
+fb04,mc04_04o: input04,25 input40,25
+fb04,mc04_05o: input33,25 input43,25
+fb04,mc04_06o: input27,25 input51,25
+fb04,mc04_07o: input52,25
+fb04,mc04_08o: input08,25 input38,25 input39,25
+fb04,mc04_09o: input09,25
+fb04,mc04_10o: input19,25 input25,25
+fb04,mc04_11o: input11,25 input36,25
+fb04,mc04_12o: input12,25
+fb04,mc04_13o: input13,25
+fb04,mc04_14o: input14,25 input26,25
+fb04,mc04_15o: input15,25 input35,25 input47,25
+fb04,mc04_16o: input21,25 input23,25
+fb04,mc04_17o: input17,25 input41,25 input48,25
+fb04,mc04_18o: input29,25
+fb04,mc05_01o: input01,18
+fb04,mc05_02o: input02,18 input40,18 input52,18
+fb04,mc05_03o: input03,18 input24,18 input34,18
+fb04,mc05_04o: input43,18
+fb04,mc05_05o: input28,18 input41,18
+fb04,mc05_06o: input06,18 input20,18 input49,18
+fb04,mc05_07o: input07,18 input31,18 input36,18
+fb04,mc05_08o: input08,18 input33,18 input35,18
+fb04,mc05_09o: input39,18
+fb04,mc05_10o: input10,18 input25,18 input37,18
+fb04,mc05_11o: input11,18 input26,18
+fb04,mc05_12o: input12,18
+fb04,mc05_13o: input13,18
+fb04,mc05_14o: input14,18
+fb04,mc05_15o: input15,18 input22,18
+fb04,mc05_16o: input16,18 input51,18
+fb04,mc05_17o: input29,18
+fb04,mc05_18o: input27,18
+fb04,mc06_01o: input33,26 input48,26
+fb04,mc06_02o: input02,26 input35,26
+fb04,mc06_03o: input03,26 input41,26
+fb04,mc06_04o: input04,26 input45,26
+fb04,mc06_05o: input05,26 input20,26
+fb04,mc06_06o: input06,26 input51,26
+fb04,mc06_07o: input07,26 input40,26
+fb04,mc06_08o: input08,26 input31,26
+fb04,mc06_09o: input43,26
+fb04,mc06_10o: input10,26 input22,26 input49,26
+fb04,mc06_11o: input29,26
+fb04,mc06_12o: input12,26 input26,26
+fb04,mc06_13o: input13,26 input25,26
+fb04,mc06_14o: input27,26
+fb04,mc06_15o: input15,26 input37,26
+fb04,mc06_16o: input16,26 input52,26
+fb04,mc06_17o: input17,26 input30,26
+fb04,mc06_18o: input18,26 input36,26
+fb04,mc07_01o: input01,19 input25,19
+fb04,mc07_02o: input02,19 input23,19
+fb04,mc07_03o: input31,19 input52,19
+fb04,mc07_04o: input04,19 input21,19 input34,19
+fb04,mc07_05o: input29,19
+fb04,mc07_06o: input27,19
+fb04,mc07_07o: input26,19 input33,19
+fb04,mc07_08o: input43,19
+fb04,mc07_09o: input09,19 input20,19
+fb04,mc07_10o: input10,19 input41,19 input48,19
+fb04,mc07_11o: input11,19 input28,19
+fb04,mc07_12o: input12,19
+fb04,mc07_13o: input13,19 input30,19
+fb04,mc07_14o: input14,19 input47,19
+fb04,mc07_15o: input15,19 input38,19 input49,19
+fb04,mc07_16o: input16,19 input37,19 input39,19
+fb04,mc07_17o: input17,19 input36,19
+fb04,mc07_18o: input18,19
+fb04,mc08_01o: input01,27 input35,27 input51,27
+fb04,mc08_02o: input02,27 input34,27 input38,27
+fb04,mc08_03o: input03,27 input41,27
+fb04,mc08_04o: input04,27 input22,27 input28,27
+fb04,mc08_05o: input05,27 input37,27
+fb04,mc08_06o: input06,27 input21,27
+fb04,mc08_07o: input33,27 input36,27
+fb04,mc08_08o: input29,27
+fb04,mc08_09o: input43,27
+fb04,mc08_10o: input10,27 input39,27
+fb04,mc08_11o: input27,27
+fb04,mc08_12o: input12,27
+fb04,mc08_13o: input13,27 input30,27
+fb04,mc08_14o: input14,27
+fb04,mc08_15o: input25,27 input49,27
+fb04,mc08_16o: input16,27 input31,27 input40,27
+fb04,mc08_17o: input20,27 input52,27
+fb04,mc08_18o: input18,27 input26,27 input47,27
+fb04,mc09_01o: input01,20 input28,20
+fb04,mc09_02o: input02,20 input30,20
+fb04,mc09_03o: input34,20 input38,20
+fb04,mc09_04o: input04,20 input35,20
+fb04,mc09_05o: input27,20
+fb04,mc09_06o: input29,20
+fb04,mc09_07o: input52,20
+fb04,mc09_08o: input08,20 input25,20 input47,20
+fb04,mc09_09o: input09,20
+fb04,mc09_10o: input10,20 input41,20
+fb04,mc09_11o: input11,20 input37,20 input51,20
+fb04,mc09_12o: input12,20
+fb04,mc09_13o: input13,20 input33,20
+fb04,mc09_14o: input14,20 input26,20
+fb04,mc09_15o: input43,20
+fb04,mc09_16o: input16,20 input20,20 input31,20
+fb04,mc09_17o: input17,20 input48,20 input53,20
+fb04,mc09_18o: input18,20
+fb04,mc10_01o: input01,28 input37,28
+fb04,mc10_02o: input02,28 input40,28 input41,28
+fb04,mc10_03o: input52,28
+fb04,mc10_04o: input43,28
+fb04,mc10_05o: input51,28
+fb04,mc10_06o: input06,28 input25,28
+fb04,mc10_07o: input07,28 input28,28
+fb04,mc10_08o: input08,28 input30,28
+fb04,mc10_09o: input39,28 input48,28
+fb04,mc10_10o: input10,28 input31,28
+fb04,mc10_11o: input33,28 input38,28
+fb04,mc10_12o: input12,28
+fb04,mc10_13o: input13,28
+fb04,mc10_14o: input14,28
+fb04,mc10_15o: input15,28 input47,28
+fb04,mc10_16o: input29,28
+fb04,mc10_17o: input17,28 input36,28
+fb04,mc10_18o: input27,28
+fb04,mc11_01o: input01,21 input31,21
+fb04,mc11_02o: input02,21 input36,21 input52,21
+fb04,mc11_03o: input43,21
+fb04,mc11_04o: input04,21 input22,21 input47,21
+fb04,mc11_05o: input29,21
+fb04,mc11_06o: input06,21 input33,21
+fb04,mc11_07o: input07,21
+fb04,mc11_08o: input08,21 input19,21
+fb04,mc11_09o: input09,21 input37,21
+fb04,mc11_10o: input10,21 input39,21 input48,21
+fb04,mc11_11o: input11,21 input20,21
+fb04,mc11_12o: input12,21
+fb04,mc11_13o: input13,21 input28,21 input30,21
+fb04,mc11_14o: input14,21 input34,21
+fb04,mc11_15o: input15,21 input21,21 input38,21
+fb04,mc11_16o: input16,21
+fb04,mc11_17o: input17,21 input26,21 input40,21
+fb04,mc11_18o: input25,21 input27,21
+fb04,mc12_01o: input01,29 input40,29
+fb04,mc12_02o: input02,29 input45,29 input47,29
+fb04,mc12_03o: input03,29 input24,29 input37,29
+fb04,mc12_04o: input20,29 input51,29
+fb04,mc12_05o: input05,29 input31,29 input35,29
+fb04,mc12_06o: input06,29 input30,29
+fb04,mc12_07o: input07,29
+fb04,mc12_08o: input29,29
+fb04,mc12_09o: input09,29 input36,29 input48,29
+fb04,mc12_10o: input43,29
+fb04,mc12_11o: input11,29 input26,29
+fb04,mc12_12o: input12,29
+fb04,mc12_13o: input13,29 input33,29
+fb04,mc12_14o: input14,29
+fb04,mc12_15o: input52,29
+fb04,mc12_16o: input27,29
+fb04,mc12_17o: input17,29 input38,29 input41,29
+fb04,mc12_18o: input18,29 input28,29
+fb04,mc13_01o: input01,22 input25,22 input34,22
+fb04,mc13_02o: input02,22 input41,22
+fb04,mc13_03o: input03,22 input30,22
+fb04,mc13_04o: input04,22 input26,22 input37,22
+fb04,mc13_05o: input31,22 input33,22
+fb04,mc13_06o: input06,22 input36,22 input40,22
+fb04,mc13_07o: input43,22
+fb04,mc13_08o: input08,22 input21,22
+fb04,mc13_09o: input09,22 input51,22
+fb04,mc13_10o: input10,22 input35,22 input47,22
+fb04,mc13_11o: input11,22 input48,22
+fb04,mc13_12o: input12,22
+fb04,mc13_13o: input13,22 input38,22
+fb04,mc13_14o: input14,22 input28,22 input52,22
+fb04,mc13_15o: input29,22
+fb04,mc13_16o: input16,22
+fb04,mc13_17o: input27,22
+fb04,mc13_18o: input18,22
+fb04,mc14_01o: input01,30 input25,30
+fb04,mc14_02o: input02,30 input48,30 input53,30
+fb04,mc14_03o: input03,30 input30,30
+fb04,mc14_04o: input28,30 input33,30
+fb04,mc14_05o: input05,30 input37,30 input47,30
+fb04,mc14_06o: input06,30 input38,30
+fb04,mc14_07o: input07,30
+fb04,mc14_08o: input08,30 input20,30 input34,30
+fb04,mc14_09o: input09,30 input31,30 input51,30
+fb04,mc14_10o: input10,30 input26,30 input36,30
+fb04,mc14_11o: input39,30
+fb04,mc14_12o: input12,30
+fb04,mc14_13o: input27,30
+fb04,mc14_14o: input14,30 input52,30
+fb04,mc14_15o: input15,30 input23,30 input49,30
+fb04,mc14_16o: input43,30
+fb04,mc14_17o: input29,30
+fb04,mc14_18o: input18,30 input40,30
+fb04,mc15_01o: input27,23
+fb04,mc15_02o: input02,23 input23,23 input47,23
+fb04,mc15_03o: input03,23 input20,23
+fb04,mc15_04o: input04,23 input39,23
+fb04,mc15_05o: input31,23 input45,23
+fb04,mc15_06o: input06,23 input41,23
+fb04,mc15_07o: input29,23
+fb04,mc15_08o: input08,23 input28,23 input51,23
+fb04,mc15_09o: input43,23
+fb04,mc15_10o: input10,23 input52,23
+fb04,mc15_11o: input11,23 input40,23
+fb04,mc15_12o: input12,23
+fb04,mc15_13o: input13,23
+fb04,mc15_14o: input14,23 input26,23 input35,23
+fb04,mc15_15o: input15,23 input36,23
+fb04,mc15_16o: input16,23 input33,23
+fb04,mc15_17o: input17,23 input25,23
+fb04,mc15_18o: input18,23 input37,23 input48,23
+fb04,mc16_01o: input01,31 input28,31
+fb04,mc16_02o: input02,31 input52,31
+fb04,mc16_03o: input03,31 input35,31 input37,31
+fb04,mc16_04o: input04,31 input41,31
+fb04,mc16_05o: input26,31 input36,31
+fb04,mc16_06o: input06,31 input39,31
+fb04,mc16_07o: input43,31
+fb04,mc16_08o: input08,31 input42,31 input51,31
+fb04,mc16_09o: input29,31
+fb04,mc16_10o: input10,31 input34,31 input49,31
+fb04,mc16_11o: input11,31 input48,31
+fb04,mc16_12o: input12,31 input25,31 input33,31
+fb04,mc16_13o: input13,31 input20,31
+fb04,mc16_14o: input14,31 input47,31
+fb04,mc16_15o: input15,31 input45,31
+fb04,mc16_16o: input16,31 input31,31 input40,31
+fb04,mc16_17o: input27,31
+fb04,mc16_18o: input18,31 input30,31
 fb05,mc01_01i:
 fb05,mc01_02i: input27,6
 fb05,mc01_03i: input14,6 input52,6
@@ -1438,6 +2590,294 @@ fb05,mc16_15i: input08,5 input50,5
 fb05,mc16_16i:
 fb05,mc16_17i: input21,5
 fb05,mc16_18i:
+fb05,mc01_01o: input01,16
+fb05,mc01_02o: input32,16 input39,16
+fb05,mc01_03o: input03,16 input37,16 input45,16
+fb05,mc01_04o: input52,16
+fb05,mc01_05o: input05,16 input23,16 input44,16
+fb05,mc01_06o: input36,16 input46,16
+fb05,mc01_07o: input07,16 input42,16 input53,16
+fb05,mc01_08o: input19,16 input38,16
+fb05,mc01_09o: input09,16 input24,16 input31,16
+fb05,mc01_10o: input25,16 input50,16
+fb05,mc01_11o: input27,16
+fb05,mc01_12o: input12,16 input22,16
+fb05,mc01_13o: input13,16 input33,16
+fb05,mc01_14o: input43,16
+fb05,mc01_15o: input15,16 input26,16 input40,16
+fb05,mc01_16o: input16,16 input20,16 input34,16
+fb05,mc01_17o: input17,16 input21,16 input30,16
+fb05,mc01_18o: input29,16
+fb05,mc02_01o: input29,24
+fb05,mc02_02o: input26,24 input53,24
+fb05,mc02_03o: input27,24
+fb05,mc02_04o: input04,24
+fb05,mc02_05o: input05,24 input24,24 input34,24
+fb05,mc02_06o: input43,24
+fb05,mc02_07o: input07,24 input20,24
+fb05,mc02_08o: input37,24 input45,24
+fb05,mc02_09o: input09,24 input44,24
+fb05,mc02_10o: input40,24 input51,24
+fb05,mc02_11o: input11,24 input38,24
+fb05,mc02_12o: input12,24 input52,24
+fb05,mc02_13o: input13,24
+fb05,mc02_14o: input30,24 input33,24
+fb05,mc02_15o: input15,24 input39,24
+fb05,mc02_16o: input23,24
+fb05,mc02_17o: input17,24 input22,24
+fb05,mc02_18o: input18,24 input31,24 input42,24
+fb05,mc03_01o: input01,17 input50,17
+fb05,mc03_02o: input36,17 input45,17
+fb05,mc03_03o: input52,17
+fb05,mc03_04o: input04,17 input40,17
+fb05,mc03_05o: input05,17 input25,17
+fb05,mc03_06o: input27,17
+fb05,mc03_07o: input07,17 input43,17
+fb05,mc03_08o: input24,17
+fb05,mc03_09o: input09,17 input22,17 input34,17
+fb05,mc03_10o: input31,17 input39,17
+fb05,mc03_11o: input29,17
+fb05,mc03_12o: input12,17
+fb05,mc03_13o: input13,17
+fb05,mc03_14o: input14,17 input30,17
+fb05,mc03_15o: input15,17 input33,17 input38,17
+fb05,mc03_16o: input32,17 input53,17
+fb05,mc03_17o: input17,17 input42,17
+fb05,mc03_18o: input18,17
+fb05,mc04_01o: input01,25 input31,25 input44,25
+fb05,mc04_02o: input22,25 input30,25
+fb05,mc04_03o: input03,25 input34,25 input45,25
+fb05,mc04_04o: input04,25 input32,25 input40,25
+fb05,mc04_05o: input33,25 input43,25
+fb05,mc04_06o: input27,25
+fb05,mc04_07o: input07,25 input52,25
+fb05,mc04_08o: input38,25 input39,25
+fb05,mc04_09o: input09,25 input42,25 input46,25
+fb05,mc04_10o: input25,25
+fb05,mc04_11o: input11,25
+fb05,mc04_12o: input12,25 input24,25
+fb05,mc04_13o: input13,25 input20,25
+fb05,mc04_14o: input14,25 input53,25
+fb05,mc04_15o: input15,25
+fb05,mc04_16o: input21,25
+fb05,mc04_17o: input17,25 input41,25
+fb05,mc04_18o: input29,25
+fb05,mc05_01o: input01,18 input21,18 input53,18
+fb05,mc05_02o: input40,18 input52,18
+fb05,mc05_03o: input03,18 input24,18
+fb05,mc05_04o: input43,18
+fb05,mc05_05o: input05,18 input41,18
+fb05,mc05_06o: input20,18 input49,18
+fb05,mc05_07o: input07,18 input31,18
+fb05,mc05_08o: input33,18
+fb05,mc05_09o: input09,18 input39,18
+fb05,mc05_10o: input25,18 input37,18
+fb05,mc05_11o: input11,18 input26,18 input45,18
+fb05,mc05_12o: input12,18 input30,18
+fb05,mc05_13o: input13,18
+fb05,mc05_14o: input14,18 input42,18 input46,18
+fb05,mc05_15o: input15,18 input22,18 input32,18
+fb05,mc05_16o: input44,18 input51,18
+fb05,mc05_17o: input29,18
+fb05,mc05_18o: input27,18
+fb05,mc06_01o: input01,26 input33,26
+fb05,mc06_02o: input02,26
+fb05,mc06_03o: input03,26 input24,26 input41,26
+fb05,mc06_04o: input45,26 input53,26
+fb05,mc06_05o: input05,26 input20,26 input32,26
+fb05,mc06_06o: input51,26
+fb05,mc06_07o: input07,26 input40,26 input42,26
+fb05,mc06_08o: input08,26 input31,26 input44,26
+fb05,mc06_09o: input09,26 input43,26
+fb05,mc06_10o: input22,26
+fb05,mc06_11o: input29,26
+fb05,mc06_12o: input12,26
+fb05,mc06_13o: input13,26
+fb05,mc06_14o: input27,26
+fb05,mc06_15o: input15,26 input37,26
+fb05,mc06_16o: input52,26
+fb05,mc06_17o: input17,26 input30,26
+fb05,mc06_18o: input18,26
+fb05,mc07_01o: input01,19 input25,19
+fb05,mc07_02o: input23,19 input45,19
+fb05,mc07_03o: input31,19 input52,19
+fb05,mc07_04o: input21,19 input34,19
+fb05,mc07_05o: input29,19
+fb05,mc07_06o: input27,19
+fb05,mc07_07o: input07,19 input33,19
+fb05,mc07_08o: input43,19
+fb05,mc07_09o: input09,19 input20,19 input42,19
+fb05,mc07_10o: input41,19
+fb05,mc07_11o: input11,19 input24,19
+fb05,mc07_12o: input12,19 input53,19
+fb05,mc07_13o: input13,19 input30,19 input44,19
+fb05,mc07_14o: input14,19 input50,19
+fb05,mc07_15o: input15,19 input38,19
+fb05,mc07_16o: input37,19 input39,19
+fb05,mc07_17o: input17,19 input32,19 input36,19
+fb05,mc07_18o: input18,19 input46,19
+fb05,mc08_01o: input01,27
+fb05,mc08_02o: input02,27 input34,27 input38,27
+fb05,mc08_03o: input03,27 input41,27 input46,27
+fb05,mc08_04o: input22,27
+fb05,mc08_05o: input05,27 input32,27 input37,27
+fb05,mc08_06o: input21,27 input42,27
+fb05,mc08_07o: input07,27 input33,27
+fb05,mc08_08o: input29,27
+fb05,mc08_09o: input09,27 input43,27
+fb05,mc08_10o: input24,27 input39,27
+fb05,mc08_11o: input27,27
+fb05,mc08_12o: input12,27
+fb05,mc08_13o: input13,27 input30,27 input44,27
+fb05,mc08_14o: input14,27 input45,27
+fb05,mc08_15o: input15,27 input25,27
+fb05,mc08_16o: input16,27 input31,27 input40,27
+fb05,mc08_17o: input20,27 input52,27
+fb05,mc08_18o: input18,27
+fb05,mc09_01o: input01,20
+fb05,mc09_02o: input30,20
+fb05,mc09_03o: input03,20 input34,20 input38,20
+fb05,mc09_04o: input04,20 input46,20
+fb05,mc09_05o: input27,20
+fb05,mc09_06o: input29,20
+fb05,mc09_07o: input07,20 input52,20
+fb05,mc09_08o: input25,20
+fb05,mc09_09o: input09,20 input42,20
+fb05,mc09_10o: input32,20 input41,20
+fb05,mc09_11o: input11,20
+fb05,mc09_12o: input12,20 input45,20
+fb05,mc09_13o: input13,20 input24,20 input33,20
+fb05,mc09_14o: input14,20 input44,20
+fb05,mc09_15o: input43,20
+fb05,mc09_16o: input16,20 input20,20 input31,20
+fb05,mc09_17o: input17,20 input53,20
+fb05,mc09_18o: input18,20 input22,20 input50,20
+fb05,mc10_01o: input01,28 input37,28
+fb05,mc10_02o: input40,28 input41,28
+fb05,mc10_03o: input52,28
+fb05,mc10_04o: input43,28
+fb05,mc10_05o: input05,28 input32,28 input51,28
+fb05,mc10_06o: input25,28
+fb05,mc10_07o: input07,28
+fb05,mc10_08o: input22,28 input30,28
+fb05,mc10_09o: input09,28 input39,28
+fb05,mc10_10o: input10,28 input20,28 input31,28
+fb05,mc10_11o: input11,28 input33,28 input38,28
+fb05,mc10_12o: input12,28 input42,28 input53,28
+fb05,mc10_13o: input13,28 input44,28 input45,28
+fb05,mc10_14o: input14,28 input50,28
+fb05,mc10_15o: input15,28 input46,28
+fb05,mc10_16o: input29,28
+fb05,mc10_17o: input17,28 input36,28
+fb05,mc10_18o: input27,28
+fb05,mc11_01o: input01,21 input31,21
+fb05,mc11_02o: input52,21
+fb05,mc11_03o: input43,21
+fb05,mc11_04o: input22,21
+fb05,mc11_05o: input29,21
+fb05,mc11_06o: input33,21 input45,21
+fb05,mc11_07o: input07,21 input46,21
+fb05,mc11_08o: input19,21 input50,21
+fb05,mc11_09o: input09,21 input37,21 input53,21
+fb05,mc11_10o: input39,21
+fb05,mc11_11o: input11,21
+fb05,mc11_12o: input12,21 input24,21
+fb05,mc11_13o: input13,21 input30,21
+fb05,mc11_14o: input14,21 input32,21 input34,21
+fb05,mc11_15o: input15,21 input21,21 input38,21
+fb05,mc11_16o: input16,21 input44,21
+fb05,mc11_17o: input17,21 input26,21 input40,21
+fb05,mc11_18o: input27,21
+fb05,mc12_01o: input01,29 input40,29
+fb05,mc12_02o: input45,29
+fb05,mc12_03o: input03,29 input24,29 input37,29
+fb05,mc12_04o: input20,29 input51,29
+fb05,mc12_05o: input05,29 input31,29
+fb05,mc12_06o: input30,29
+fb05,mc12_07o: input07,29 input22,29
+fb05,mc12_08o: input29,29
+fb05,mc12_09o: input09,29
+fb05,mc12_10o: input43,29
+fb05,mc12_11o: input11,29 input53,29
+fb05,mc12_12o: input12,29
+fb05,mc12_13o: input13,29 input33,29 input44,29
+fb05,mc12_14o: input14,29 input32,29
+fb05,mc12_15o: input15,29 input52,29
+fb05,mc12_16o: input27,29
+fb05,mc12_17o: input38,29 input41,29
+fb05,mc12_18o: input18,29 input46,29
+fb05,mc13_01o: input01,22 input25,22 input34,22
+fb05,mc13_02o: input41,22
+fb05,mc13_03o: input03,22 input30,22
+fb05,mc13_04o: input26,22 input37,22
+fb05,mc13_05o: input05,22 input31,22 input33,22
+fb05,mc13_06o: input36,22 input40,22
+fb05,mc13_07o: input07,22 input43,22
+fb05,mc13_08o: input21,22 input53,22
+fb05,mc13_09o: input09,22 input45,22
+fb05,mc13_10o: input10,22
+fb05,mc13_11o: input11,22 input32,22
+fb05,mc13_12o: input12,22 input42,22
+fb05,mc13_13o: input13,22 input38,22
+fb05,mc13_14o: input52,22
+fb05,mc13_15o: input29,22
+fb05,mc13_16o: input16,22 input24,22 input44,22
+fb05,mc13_17o: input27,22
+fb05,mc13_18o: input18,22 input22,22
+fb05,mc14_01o: input01,30 input25,30 input42,30
+fb05,mc14_02o: input53,30
+fb05,mc14_03o: input03,30 input30,30
+fb05,mc14_04o: input33,30
+fb05,mc14_05o: input05,30 input37,30
+fb05,mc14_06o: input38,30
+fb05,mc14_07o: input07,30 input45,30 input50,30
+fb05,mc14_08o: input08,30 input20,30 input34,30
+fb05,mc14_09o: input09,30 input31,30
+fb05,mc14_10o: input26,30
+fb05,mc14_11o: input11,30 input22,30 input39,30
+fb05,mc14_12o: input12,30
+fb05,mc14_13o: input13,30 input27,30
+fb05,mc14_14o: input52,30
+fb05,mc14_15o: input15,30 input23,30
+fb05,mc14_16o: input43,30
+fb05,mc14_17o: input29,30
+fb05,mc14_18o: input18,30 input40,30
+fb05,mc15_01o: input27,23
+fb05,mc15_02o: input23,23
+fb05,mc15_03o: input03,23 input20,23 input46,23
+fb05,mc15_04o: input39,23
+fb05,mc15_05o: input05,23 input31,23 input45,23
+fb05,mc15_06o: input41,23
+fb05,mc15_07o: input29,23
+fb05,mc15_08o: input51,23
+fb05,mc15_09o: input09,23 input43,23
+fb05,mc15_10o: input52,23
+fb05,mc15_11o: input11,23 input40,23
+fb05,mc15_12o: input12,23 input30,23
+fb05,mc15_13o: input13,23 input24,23 input42,23
+fb05,mc15_14o: input14,23
+fb05,mc15_15o: input15,23 input36,23 input44,23
+fb05,mc15_16o: input33,23 input53,23
+fb05,mc15_17o: input17,23 input25,23
+fb05,mc15_18o: input18,23 input37,23
+fb05,mc16_01o: input01,31 input44,31
+fb05,mc16_02o: input52,31
+fb05,mc16_03o: input03,31 input37,31
+fb05,mc16_04o: input41,31 input46,31
+fb05,mc16_05o: input05,31 input26,31
+fb05,mc16_06o: input39,31
+fb05,mc16_07o: input07,31 input43,31
+fb05,mc16_08o: input42,31
+fb05,mc16_09o: input29,31
+fb05,mc16_10o: input10,31 input34,31
+fb05,mc16_11o: input11,31
+fb05,mc16_12o: input12,31 input33,31
+fb05,mc16_13o: input13,31 input20,31
+fb05,mc16_14o: input14,31
+fb05,mc16_15o: input15,31 input45,31 input53,31
+fb05,mc16_16o: input16,31 input31,31 input40,31
+fb05,mc16_17o: input27,31
+fb05,mc16_18o: input18,31 input30,31 input32,31
 fb06,mc01_01i:
 fb06,mc01_02i: input12,6 input27,6
 fb06,mc01_03i: input14,6 input21,6 input26,6 input52,6
@@ -1726,6 +3166,294 @@ fb06,mc16_15i: input08,5 input50,5
 fb06,mc16_16i:
 fb06,mc16_17i: input21,5
 fb06,mc16_18i:
+fb06,mc01_01o: input01,16 input48,16
+fb06,mc01_02o: input39,16
+fb06,mc01_03o: input03,16 input45,16
+fb06,mc01_04o: input28,16 input52,16
+fb06,mc01_05o: input05,16 input23,16 input44,16
+fb06,mc01_06o: input36,16 input46,16
+fb06,mc01_07o: input07,16 input53,16
+fb06,mc01_08o: input08,16 input19,16
+fb06,mc01_09o: input09,16
+fb06,mc01_10o: input10,16 input25,16 input50,16
+fb06,mc01_11o: input27,16
+fb06,mc01_12o: input12,16 input22,16
+fb06,mc01_13o: input13,16 input33,16
+fb06,mc01_14o: input14,16 input43,16
+fb06,mc01_15o: input26,16
+fb06,mc01_16o: input16,16 input20,16 input34,16
+fb06,mc01_17o: input21,16 input30,16
+fb06,mc01_18o: input29,16
+fb06,mc02_01o: input29,24
+fb06,mc02_02o: input26,24 input53,24
+fb06,mc02_03o: input27,24
+fb06,mc02_04o: input04,24 input28,24
+fb06,mc02_05o: input05,24 input24,24 input34,24
+fb06,mc02_06o: input43,24
+fb06,mc02_07o: input07,24 input20,24 input21,24
+fb06,mc02_08o: input08,24 input45,24
+fb06,mc02_09o: input09,24 input44,24 input48,24
+fb06,mc02_10o: input10,24 input51,24
+fb06,mc02_11o: input11,24
+fb06,mc02_12o: input12,24 input52,24
+fb06,mc02_13o: input13,24
+fb06,mc02_14o: input14,24 input30,24 input33,24
+fb06,mc02_15o: input19,24 input39,24
+fb06,mc02_16o: input16,24 input23,24
+fb06,mc02_17o: input22,24
+fb06,mc02_18o: input18,24
+fb06,mc03_01o: input01,17 input50,17
+fb06,mc03_02o: input36,17 input45,17
+fb06,mc03_03o: input19,17 input52,17
+fb06,mc03_04o: input04,17 input28,17
+fb06,mc03_05o: input05,17 input25,17 input26,17
+fb06,mc03_06o: input27,17
+fb06,mc03_07o: input07,17 input43,17
+fb06,mc03_08o: input08,17 input24,17
+fb06,mc03_09o: input09,17 input22,17
+fb06,mc03_10o: input10,17 input39,17
+fb06,mc03_11o: input29,17
+fb06,mc03_12o: input12,17
+fb06,mc03_13o: input13,17 input48,17
+fb06,mc03_14o: input14,17 input30,17
+fb06,mc03_15o: input33,17
+fb06,mc03_16o: input16,17 input53,17
+fb06,mc03_17o: input42,17
+fb06,mc03_18o: input18,17 input21,17 input41,17
+fb06,mc04_01o: input01,25 input44,25
+fb06,mc04_02o: input22,25 input30,25
+fb06,mc04_03o: input34,25 input45,25
+fb06,mc04_04o: input04,25
+fb06,mc04_05o: input33,25 input43,25
+fb06,mc04_06o: input27,25
+fb06,mc04_07o: input07,25 input52,25
+fb06,mc04_08o: input08,25 input39,25
+fb06,mc04_09o: input09,25 input46,25
+fb06,mc04_10o: input10,25 input19,25 input25,25
+fb06,mc04_11o: input11,25
+fb06,mc04_12o: input12,25
+fb06,mc04_13o: input13,25
+fb06,mc04_14o: input14,25 input26,25 input53,25
+fb06,mc04_15o: input15,25
+fb06,mc04_16o: input16,25 input21,25 input23,25
+fb06,mc04_17o: input41,25 input48,25
+fb06,mc04_18o: input29,25
+fb06,mc05_01o: input01,18 input21,18 input53,18
+fb06,mc05_02o: input52,18
+fb06,mc05_03o: input24,18 input34,18
+fb06,mc05_04o: input43,18
+fb06,mc05_05o: input05,18 input28,18 input41,18
+fb06,mc05_06o: input20,18
+fb06,mc05_07o: input07,18
+fb06,mc05_08o: input08,18 input33,18
+fb06,mc05_09o: input09,18 input23,18 input39,18
+fb06,mc05_10o: input10,18 input25,18
+fb06,mc05_11o: input11,18 input45,18
+fb06,mc05_12o: input12,18 input30,18
+fb06,mc05_13o: input13,18
+fb06,mc05_14o: input14,18 input46,18
+fb06,mc05_15o: input22,18
+fb06,mc05_16o: input16,18 input44,18 input51,18
+fb06,mc05_17o: input29,18
+fb06,mc05_18o: input27,18
+fb06,mc06_01o: input01,26 input33,26 input48,26
+fb06,mc06_02o: input02,26 input28,26
+fb06,mc06_03o: input03,26 input41,26
+fb06,mc06_04o: input45,26 input53,26
+fb06,mc06_05o: input05,26 input20,26
+fb06,mc06_06o: input06,26 input51,26
+fb06,mc06_07o: input07,26
+fb06,mc06_08o: input08,26 input31,26 input44,26
+fb06,mc06_09o: input09,26 input43,26
+fb06,mc06_10o: input10,26 input22,26
+fb06,mc06_11o: input29,26
+fb06,mc06_12o: input12,26 input26,26
+fb06,mc06_13o: input13,26
+fb06,mc06_14o: input14,26 input27,26
+fb06,mc06_15o: input15,26 input50,26
+fb06,mc06_16o: input39,26 input52,26
+fb06,mc06_17o: input30,26 input46,26
+fb06,mc06_18o: input18,26 input19,26
+fb06,mc07_01o: input01,19 input19,19 input25,19
+fb06,mc07_02o: input23,19 input45,19
+fb06,mc07_03o: input52,19
+fb06,mc07_04o: input21,19 input34,19
+fb06,mc07_05o: input29,19
+fb06,mc07_06o: input27,19
+fb06,mc07_07o: input07,19 input26,19 input33,19
+fb06,mc07_08o: input43,19
+fb06,mc07_09o: input09,19 input20,19
+fb06,mc07_10o: input10,19 input41,19 input48,19
+fb06,mc07_11o: input11,19 input28,19
+fb06,mc07_12o: input12,19 input53,19
+fb06,mc07_13o: input13,19 input30,19 input44,19
+fb06,mc07_14o: input14,19 input50,19
+fb06,mc07_15o: input15,19
+fb06,mc07_16o: input16,19 input39,19
+fb06,mc07_17o: input36,19
+fb06,mc07_18o: input18,19
+fb06,mc08_01o: input01,27
+fb06,mc08_02o: input02,27 input34,27
+fb06,mc08_03o: input03,27 input41,27 input46,27
+fb06,mc08_04o: input22,27 input28,27
+fb06,mc08_05o: input05,27
+fb06,mc08_06o: input21,27
+fb06,mc08_07o: input07,27 input33,27
+fb06,mc08_08o: input29,27
+fb06,mc08_09o: input09,27 input43,27
+fb06,mc08_10o: input10,27 input39,27
+fb06,mc08_11o: input27,27
+fb06,mc08_12o: input12,27 input19,27
+fb06,mc08_13o: input13,27 input30,27 input44,27
+fb06,mc08_14o: input14,27 input23,27 input45,27
+fb06,mc08_15o: input25,27
+fb06,mc08_16o: input16,27
+fb06,mc08_17o: input52,27
+fb06,mc08_18o: input18,27 input26,27
+fb06,mc09_01o: input01,20 input21,20 input28,20
+fb06,mc09_02o: input30,20
+fb06,mc09_03o: input34,20
+fb06,mc09_04o: input04,20 input46,20
+fb06,mc09_05o: input27,20
+fb06,mc09_06o: input29,20
+fb06,mc09_07o: input07,20 input19,20 input52,20
+fb06,mc09_08o: input08,20 input25,20
+fb06,mc09_09o: input09,20
+fb06,mc09_10o: input10,20 input41,20
+fb06,mc09_11o: input11,20
+fb06,mc09_12o: input12,20 input45,20
+fb06,mc09_13o: input13,20 input33,20
+fb06,mc09_14o: input14,20 input26,20 input44,20
+fb06,mc09_15o: input43,20
+fb06,mc09_16o: input16,20 input20,20
+fb06,mc09_17o: input48,20 input53,20
+fb06,mc09_18o: input18,20 input22,20 input50,20
+fb06,mc10_01o: input01,28
+fb06,mc10_02o: input41,28
+fb06,mc10_03o: input21,28 input52,28
+fb06,mc10_04o: input43,28
+fb06,mc10_05o: input05,28 input51,28
+fb06,mc10_06o: input25,28 input26,28
+fb06,mc10_07o: input07,28 input28,28
+fb06,mc10_08o: input08,28 input22,28 input30,28
+fb06,mc10_09o: input09,28 input39,28 input48,28
+fb06,mc10_10o: input10,28 input20,28
+fb06,mc10_11o: input11,28 input33,28
+fb06,mc10_12o: input12,28 input53,28
+fb06,mc10_13o: input13,28 input44,28 input45,28
+fb06,mc10_14o: input14,28 input19,28 input50,28
+fb06,mc10_15o: input15,28 input46,28
+fb06,mc10_16o: input29,28
+fb06,mc10_17o: input36,28
+fb06,mc10_18o: input27,28
+fb06,mc11_01o: input01,21
+fb06,mc11_02o: input52,21
+fb06,mc11_03o: input43,21
+fb06,mc11_04o: input22,21
+fb06,mc11_05o: input29,21
+fb06,mc11_06o: input33,21
+fb06,mc11_07o: input07,21 input41,21 input46,21
+fb06,mc11_08o: input08,21 input19,21 input50,21
+fb06,mc11_09o: input09,21 input53,21
+fb06,mc11_10o: input10,21 input39,21 input48,21
+fb06,mc11_11o: input11,21 input20,21
+fb06,mc11_12o: input12,21
+fb06,mc11_13o: input13,21 input28,21 input30,21
+fb06,mc11_14o: input14,21 input34,21
+fb06,mc11_15o: input21,21
+fb06,mc11_16o: input16,21 input44,21
+fb06,mc11_17o: input26,21
+fb06,mc11_18o: input27,21
+fb06,mc12_01o: input01,29 input21,29
+fb06,mc12_02o: input45,29
+fb06,mc12_03o: input03,29 input24,29
+fb06,mc12_04o: input20,29 input51,29
+fb06,mc12_05o: input05,29
+fb06,mc12_06o: input30,29 input50,29
+fb06,mc12_07o: input07,29 input22,29
+fb06,mc12_08o: input29,29
+fb06,mc12_09o: input09,29 input48,29
+fb06,mc12_10o: input43,29
+fb06,mc12_11o: input11,29 input53,29
+fb06,mc12_12o: input12,29
+fb06,mc12_13o: input13,29 input33,29 input44,29
+fb06,mc12_14o: input14,29 input19,29
+fb06,mc12_15o: input52,29
+fb06,mc12_16o: input27,29
+fb06,mc12_17o: input41,29
+fb06,mc12_18o: input18,29 input28,29
+fb06,mc13_01o: input01,22 input25,22 input34,22
+fb06,mc13_02o: input19,22 input41,22
+fb06,mc13_03o: input03,22 input30,22 input50,22
+fb06,mc13_04o: input26,22
+fb06,mc13_05o: input05,22 input33,22
+fb06,mc13_06o: input36,22
+fb06,mc13_07o: input07,22 input43,22
+fb06,mc13_08o: input08,22 input21,22 input53,22
+fb06,mc13_09o: input09,22
+fb06,mc13_10o: input10,22
+fb06,mc13_11o: input11,22 input48,22
+fb06,mc13_12o: input12,22
+fb06,mc13_13o: input13,22 input23,22
+fb06,mc13_14o: input14,22 input28,22 input52,22
+fb06,mc13_15o: input29,22
+fb06,mc13_16o: input16,22 input44,22
+fb06,mc13_17o: input27,22
+fb06,mc13_18o: input18,22 input22,22
+fb06,mc14_01o: input01,30 input25,30
+fb06,mc14_02o: input48,30 input53,30
+fb06,mc14_03o: input03,30 input19,30 input30,30
+fb06,mc14_04o: input28,30 input33,30
+fb06,mc14_05o: input05,30
+fb06,mc14_06o: input38,30
+fb06,mc14_07o: input07,30 input45,30 input50,30
+fb06,mc14_08o: input08,30 input20,30 input34,30
+fb06,mc14_09o: input09,30
+fb06,mc14_10o: input10,30 input26,30
+fb06,mc14_11o: input11,30 input22,30 input39,30
+fb06,mc14_12o: input12,30
+fb06,mc14_13o: input13,30 input27,30
+fb06,mc14_14o: input14,30 input41,30 input52,30
+fb06,mc14_15o: input23,30
+fb06,mc14_16o: input43,30
+fb06,mc14_17o: input29,30
+fb06,mc14_18o: input18,30 input21,30
+fb06,mc15_01o: input27,23
+fb06,mc15_02o: input23,23
+fb06,mc15_03o: input03,23 input20,23 input46,23
+fb06,mc15_04o: input39,23
+fb06,mc15_05o: input05,23 input45,23
+fb06,mc15_06o: input19,23 input41,23
+fb06,mc15_07o: input29,23
+fb06,mc15_08o: input08,23 input28,23 input51,23
+fb06,mc15_09o: input09,23 input43,23
+fb06,mc15_10o: input22,23 input52,23
+fb06,mc15_11o: input11,23
+fb06,mc15_12o: input12,23 input30,23
+fb06,mc15_13o: input13,23
+fb06,mc15_14o: input14,23 input26,23
+fb06,mc15_15o: input36,23 input44,23
+fb06,mc15_16o: input16,23 input33,23 input53,23
+fb06,mc15_17o: input21,23 input25,23
+fb06,mc15_18o: input18,23 input48,23
+fb06,mc16_01o: input01,31 input28,31 input44,31
+fb06,mc16_02o: input22,31 input52,31
+fb06,mc16_03o: input03,31
+fb06,mc16_04o: input41,31 input46,31
+fb06,mc16_05o: input05,31 input26,31
+fb06,mc16_06o: input23,31 input39,31
+fb06,mc16_07o: input07,31 input43,31
+fb06,mc16_08o: input08,31 input42,31
+fb06,mc16_09o: input29,31
+fb06,mc16_10o: input10,31 input34,31
+fb06,mc16_11o: input11,31 input48,31
+fb06,mc16_12o: input12,31 input33,31
+fb06,mc16_13o: input13,31 input21,31
+fb06,mc16_14o: input14,31 input19,31
+fb06,mc16_15o: input45,31 input53,31
+fb06,mc16_16o: input16,31
+fb06,mc16_17o: input27,31
+fb06,mc16_18o: input18,31 input30,31
 fb07,mc01_01i:
 fb07,mc01_02i: input27,6 input43,6
 fb07,mc01_03i: input14,6 input21,6 input26,6
@@ -2014,6 +3742,294 @@ fb07,mc16_15i: input08,5 input50,5
 fb07,mc16_16i:
 fb07,mc16_17i: input21,5 input54,5
 fb07,mc16_18i:
+fb07,mc01_01o: input01,16 input51,16
+fb07,mc01_02o: input32,16 input39,16
+fb07,mc01_03o: input03,16 input45,16
+fb07,mc01_04o: input28,16 input52,16
+fb07,mc01_05o: input05,16 input23,16
+fb07,mc01_06o: input36,16 input46,16
+fb07,mc01_07o: input07,16
+fb07,mc01_08o: input19,16 input38,16
+fb07,mc01_09o: input09,16 input24,16
+fb07,mc01_10o: input25,16 input50,16
+fb07,mc01_11o: input27,16
+fb07,mc01_12o: input12,16
+fb07,mc01_13o: input13,16 input33,16
+fb07,mc01_14o: input43,16
+fb07,mc01_15o: input15,16 input26,16 input40,16
+fb07,mc01_16o: input16,16 input20,16
+fb07,mc01_17o: input17,16 input21,16 input30,16
+fb07,mc01_18o: input29,16
+fb07,mc02_01o: input29,24
+fb07,mc02_02o: input26,24
+fb07,mc02_03o: input25,24 input27,24
+fb07,mc02_04o: input04,24 input28,24 input54,24
+fb07,mc02_05o: input24,24
+fb07,mc02_06o: input43,24
+fb07,mc02_07o: input07,24 input20,24 input21,24
+fb07,mc02_08o: input45,24
+fb07,mc02_09o: input09,24 input48,24
+fb07,mc02_10o: input40,24 input51,24
+fb07,mc02_11o: input11,24 input38,24
+fb07,mc02_12o: input12,24
+fb07,mc02_13o: input13,24
+fb07,mc02_14o: input30,24 input33,24
+fb07,mc02_15o: input15,24 input19,24 input39,24
+fb07,mc02_16o: input23,24 input36,24
+fb07,mc02_17o: input17,24 input22,24
+fb07,mc02_18o: input18,24
+fb07,mc03_01o: input01,17 input50,17 input54,17
+fb07,mc03_02o: input36,17
+fb07,mc03_03o: input19,17 input52,17
+fb07,mc03_04o: input04,17 input28,17 input40,17
+fb07,mc03_05o: input05,17 input25,17 input26,17
+fb07,mc03_06o: input27,17
+fb07,mc03_07o: input07,17 input43,17
+fb07,mc03_08o: input24,17
+fb07,mc03_09o: input09,17
+fb07,mc03_10o: input39,17
+fb07,mc03_11o: input29,17
+fb07,mc03_12o: input12,17 input23,17
+fb07,mc03_13o: input13,17 input48,17
+fb07,mc03_14o: input14,17 input30,17 input51,17
+fb07,mc03_15o: input15,17 input33,17 input38,17
+fb07,mc03_16o: input32,17 input53,17
+fb07,mc03_17o: input17,17 input42,17
+fb07,mc03_18o: input18,17 input21,17 input41,17
+fb07,mc04_01o: input01,25
+fb07,mc04_02o: input30,25
+fb07,mc04_03o: input03,25 input45,25
+fb07,mc04_04o: input04,25 input32,25 input40,25
+fb07,mc04_05o: input33,25 input43,25
+fb07,mc04_06o: input27,25
+fb07,mc04_07o: input07,25 input52,25
+fb07,mc04_08o: input38,25 input39,25
+fb07,mc04_09o: input09,25 input46,25
+fb07,mc04_10o: input19,25 input25,25
+fb07,mc04_11o: input11,25 input36,25 input54,25
+fb07,mc04_12o: input12,25 input24,25
+fb07,mc04_13o: input13,25
+fb07,mc04_14o: input14,25 input26,25
+fb07,mc04_15o: input15,25
+fb07,mc04_16o: input21,25 input23,25
+fb07,mc04_17o: input17,25 input41,25 input48,25
+fb07,mc04_18o: input29,25
+fb07,mc05_01o: input01,18 input21,18
+fb07,mc05_02o: input40,18 input52,18
+fb07,mc05_03o: input03,18 input24,18
+fb07,mc05_04o: input43,18
+fb07,mc05_05o: input05,18 input28,18 input41,18
+fb07,mc05_06o: input20,18
+fb07,mc05_07o: input07,18 input36,18
+fb07,mc05_08o: input33,18
+fb07,mc05_09o: input09,18 input23,18 input39,18
+fb07,mc05_10o: input25,18
+fb07,mc05_11o: input11,18 input26,18
+fb07,mc05_12o: input12,18 input30,18
+fb07,mc05_13o: input13,18
+fb07,mc05_14o: input14,18 input46,18
+fb07,mc05_15o: input15,18 input22,18 input32,18
+fb07,mc05_16o: input51,18
+fb07,mc05_17o: input29,18
+fb07,mc05_18o: input27,18
+fb07,mc06_01o: input01,26 input33,26
+fb07,mc06_02o: input02,26 input28,26
+fb07,mc06_03o: input03,26 input24,26 input41,26
+fb07,mc06_04o: input45,26
+fb07,mc06_05o: input05,26 input20,26 input32,26
+fb07,mc06_06o: input51,26 input54,26
+fb07,mc06_07o: input07,26 input40,26
+fb07,mc06_08o: input08,26
+fb07,mc06_09o: input09,26 input43,26
+fb07,mc06_10o: input22,26
+fb07,mc06_11o: input29,26
+fb07,mc06_12o: input12,26 input23,26 input26,26
+fb07,mc06_13o: input13,26 input25,26
+fb07,mc06_14o: input27,26
+fb07,mc06_15o: input15,26 input50,26
+fb07,mc06_16o: input39,26 input52,26
+fb07,mc06_17o: input17,26 input30,26 input46,26
+fb07,mc06_18o: input18,26 input19,26 input36,26
+fb07,mc07_01o: input01,19 input19,19 input25,19
+fb07,mc07_02o: input23,19 input45,19
+fb07,mc07_03o: input52,19
+fb07,mc07_04o: input21,19
+fb07,mc07_05o: input29,19
+fb07,mc07_06o: input27,19
+fb07,mc07_07o: input07,19 input26,19 input33,19
+fb07,mc07_08o: input43,19
+fb07,mc07_09o: input09,19 input20,19
+fb07,mc07_10o: input41,19 input48,19
+fb07,mc07_11o: input11,19 input24,19 input28,19
+fb07,mc07_12o: input12,19 input51,19
+fb07,mc07_13o: input13,19 input30,19
+fb07,mc07_14o: input14,19 input50,19
+fb07,mc07_15o: input15,19 input38,19
+fb07,mc07_16o: input39,19
+fb07,mc07_17o: input17,19 input32,19 input36,19
+fb07,mc07_18o: input18,19 input46,19 input54,19
+fb07,mc08_01o: input01,27 input51,27
+fb07,mc08_02o: input02,27 input38,27
+fb07,mc08_03o: input03,27 input41,27 input46,27
+fb07,mc08_04o: input22,27 input28,27
+fb07,mc08_05o: input05,27 input32,27
+fb07,mc08_06o: input21,27
+fb07,mc08_07o: input07,27 input33,27 input36,27
+fb07,mc08_08o: input29,27
+fb07,mc08_09o: input09,27 input43,27
+fb07,mc08_10o: input24,27 input39,27
+fb07,mc08_11o: input27,27
+fb07,mc08_12o: input12,27 input19,27
+fb07,mc08_13o: input13,27 input30,27
+fb07,mc08_14o: input14,27 input23,27
+fb07,mc08_15o: input15,27 input25,27
+fb07,mc08_16o: input16,27 input40,27
+fb07,mc08_17o: input20,27 input52,27
+fb07,mc08_18o: input18,27 input26,27
+fb07,mc09_01o: input01,20 input21,20 input28,20
+fb07,mc09_02o: input30,20
+fb07,mc09_03o: input03,20 input34,20 input38,20
+fb07,mc09_04o: input04,20 input46,20
+fb07,mc09_05o: input27,20 input39,20
+fb07,mc09_06o: input29,20
+fb07,mc09_07o: input07,20 input19,20 input52,20
+fb07,mc09_08o: input25,20
+fb07,mc09_09o: input09,20 input54,20
+fb07,mc09_10o: input32,20 input41,20
+fb07,mc09_11o: input11,20 input51,20
+fb07,mc09_12o: input12,20 input36,20
+fb07,mc09_13o: input13,20 input24,20 input33,20
+fb07,mc09_14o: input14,20 input26,20
+fb07,mc09_15o: input43,20
+fb07,mc09_16o: input16,20 input20,20
+fb07,mc09_17o: input17,20 input48,20 input53,20
+fb07,mc09_18o: input18,20 input50,20
+fb07,mc10_01o: input01,28 input54,28
+fb07,mc10_02o: input40,28 input41,28
+fb07,mc10_03o: input21,28 input52,28
+fb07,mc10_04o: input43,28
+fb07,mc10_05o: input05,28 input32,28 input51,28
+fb07,mc10_06o: input25,28 input26,28
+fb07,mc10_07o: input07,28 input24,28 input28,28
+fb07,mc10_08o: input30,28
+fb07,mc10_09o: input09,28 input39,28 input48,28
+fb07,mc10_10o: input10,28 input20,28
+fb07,mc10_11o: input33,28 input38,28
+fb07,mc10_12o: input12,28
+fb07,mc10_13o: input13,28
+fb07,mc10_14o: input14,28 input19,28 input50,28
+fb07,mc10_15o: input15,28 input46,28
+fb07,mc10_16o: input29,28
+fb07,mc10_17o: input17,28 input36,28
+fb07,mc10_18o: input27,28
+fb07,mc11_01o: input01,21 input23,21
+fb07,mc11_02o: input36,21 input52,21
+fb07,mc11_03o: input43,21
+fb07,mc11_04o: input22,21
+fb07,mc11_05o: input29,21
+fb07,mc11_06o: input33,21
+fb07,mc11_07o: input07,21 input41,21 input46,21
+fb07,mc11_08o: input19,21 input50,21
+fb07,mc11_09o: input09,21
+fb07,mc11_10o: input39,21 input48,21
+fb07,mc11_11o: input11,21 input20,21
+fb07,mc11_12o: input12,21 input24,21
+fb07,mc11_13o: input13,21 input28,21 input30,21
+fb07,mc11_14o: input14,21 input32,21
+fb07,mc11_15o: input15,21 input21,21 input38,21
+fb07,mc11_16o: input16,21 input54,21
+fb07,mc11_17o: input17,21 input26,21 input40,21
+fb07,mc11_18o: input25,21 input27,21
+fb07,mc12_01o: input01,29 input21,29
+fb07,mc12_02o: input45,29
+fb07,mc12_03o: input03,29 input24,29
+fb07,mc12_04o: input20,29 input51,29
+fb07,mc12_05o: input05,29
+fb07,mc12_06o: input30,29 input50,29
+fb07,mc12_07o: input07,29 input54,29
+fb07,mc12_08o: input29,29
+fb07,mc12_09o: input09,29 input36,29 input48,29
+fb07,mc12_10o: input43,29
+fb07,mc12_11o: input11,29 input26,29
+fb07,mc12_12o: input12,29 input23,29
+fb07,mc12_13o: input13,29 input33,29
+fb07,mc12_14o: input14,29 input19,29 input32,29
+fb07,mc12_15o: input15,29 input39,29 input52,29
+fb07,mc12_16o: input27,29
+fb07,mc12_17o: input17,29 input38,29 input41,29
+fb07,mc12_18o: input18,29 input28,29 input46,29
+fb07,mc13_01o: input01,22 input25,22
+fb07,mc13_02o: input19,22 input41,22
+fb07,mc13_03o: input03,22 input30,22 input50,22
+fb07,mc13_04o: input26,22
+fb07,mc13_05o: input05,22 input33,22
+fb07,mc13_06o: input36,22 input40,22
+fb07,mc13_07o: input07,22 input39,22 input43,22
+fb07,mc13_08o: input21,22
+fb07,mc13_09o: input09,22 input51,22
+fb07,mc13_10o: input10,22
+fb07,mc13_11o: input11,22 input32,22 input48,22
+fb07,mc13_12o: input12,22
+fb07,mc13_13o: input13,22 input23,22
+fb07,mc13_14o: input28,22 input52,22
+fb07,mc13_15o: input29,22
+fb07,mc13_16o: input16,22 input24,22
+fb07,mc13_17o: input27,22
+fb07,mc13_18o: input18,22 input54,22
+fb07,mc14_01o: input01,30 input25,30
+fb07,mc14_02o: input48,30 input53,30
+fb07,mc14_03o: input03,30 input19,30 input30,30
+fb07,mc14_04o: input28,30 input33,30
+fb07,mc14_05o: input05,30
+fb07,mc14_06o: input38,30
+fb07,mc14_07o: input07,30 input50,30
+fb07,mc14_08o: input08,30 input20,30
+fb07,mc14_09o: input09,30 input51,30
+fb07,mc14_10o: input26,30 input36,30
+fb07,mc14_11o: input11,30 input39,30
+fb07,mc14_12o: input12,30
+fb07,mc14_13o: input13,30 input27,30
+fb07,mc14_14o: input41,30 input52,30
+fb07,mc14_15o: input15,30 input23,30
+fb07,mc14_16o: input43,30
+fb07,mc14_17o: input29,30
+fb07,mc14_18o: input18,30 input21,30
+fb07,mc15_01o: input27,23
+fb07,mc15_02o: input23,23
+fb07,mc15_03o: input03,23 input20,23 input46,23
+fb07,mc15_04o: input39,23
+fb07,mc15_05o: input05,23 input45,23
+fb07,mc15_06o: input19,23 input41,23
+fb07,mc15_07o: input29,23
+fb07,mc15_08o: input28,23 input51,23
+fb07,mc15_09o: input09,23 input43,23
+fb07,mc15_10o: input52,23
+fb07,mc15_11o: input11,23 input40,23 input54,23
+fb07,mc15_12o: input12,23 input30,23
+fb07,mc15_13o: input13,23 input24,23
+fb07,mc15_14o: input14,23 input26,23
+fb07,mc15_15o: input15,23 input36,23
+fb07,mc15_16o: input33,23
+fb07,mc15_17o: input17,23 input21,23 input25,23
+fb07,mc15_18o: input18,23 input48,23
+fb07,mc16_01o: input01,31 input28,31
+fb07,mc16_02o: input52,31
+fb07,mc16_03o: input03,31
+fb07,mc16_04o: input41,31 input46,31
+fb07,mc16_05o: input05,31 input26,31 input36,31
+fb07,mc16_06o: input23,31 input39,31
+fb07,mc16_07o: input07,31 input43,31
+fb07,mc16_08o: input42,31 input51,31
+fb07,mc16_09o: input29,31
+fb07,mc16_10o: input10,31
+fb07,mc16_11o: input11,31 input48,31 input54,31
+fb07,mc16_12o: input12,31 input25,31 input33,31
+fb07,mc16_13o: input13,31 input21,31
+fb07,mc16_14o: input14,31 input19,31
+fb07,mc16_15o: input15,31 input45,31
+fb07,mc16_16o: input16,31 input40,31
+fb07,mc16_17o: input27,31
+fb07,mc16_18o: input18,31 input30,31 input32,31
 fb08,mc01_01i:
 fb08,mc01_02i: input27,6 input43,6
 fb08,mc01_03i: input14,6 input26,6 input52,6
@@ -2302,6 +4318,294 @@ fb08,mc16_15i: input08,5 input35,5
 fb08,mc16_16i:
 fb08,mc16_17i: input06,5 input21,5 input54,5
 fb08,mc16_18i:
+fb08,mc01_01o: input01,16 input51,16
+fb08,mc01_02o: input02,16 input39,16
+fb08,mc01_03o: input03,16 input45,16
+fb08,mc01_04o: input04,16 input52,16
+fb08,mc01_05o: input05,16 input23,16 input44,16
+fb08,mc01_06o: input06,16 input36,16
+fb08,mc01_07o: input07,16 input53,16
+fb08,mc01_08o: input19,16 input38,16
+fb08,mc01_09o: input09,16
+fb08,mc01_10o: input25,16
+fb08,mc01_11o: input27,16
+fb08,mc01_12o: input12,16
+fb08,mc01_13o: input13,16 input33,16 input49,16
+fb08,mc01_14o: input43,16
+fb08,mc01_15o: input15,16 input26,16 input40,16
+fb08,mc01_16o: input16,16 input20,16 input34,16
+fb08,mc01_17o: input21,16 input30,16
+fb08,mc01_18o: input29,16
+fb08,mc02_01o: input29,24
+fb08,mc02_02o: input26,24 input53,24
+fb08,mc02_03o: input25,24 input27,24
+fb08,mc02_04o: input04,24 input54,24
+fb08,mc02_05o: input05,24 input24,24 input34,24
+fb08,mc02_06o: input43,24
+fb08,mc02_07o: input07,24 input20,24
+fb08,mc02_08o: input45,24
+fb08,mc02_09o: input09,24 input44,24
+fb08,mc02_10o: input51,24
+fb08,mc02_11o: input11,24 input38,24
+fb08,mc02_12o: input12,24 input52,24
+fb08,mc02_13o: input13,24
+fb08,mc02_14o: input30,24 input33,24
+fb08,mc02_15o: input15,24 input19,24 input39,24
+fb08,mc02_16o: input23,24
+fb08,mc02_17o: input17,24 input22,24 input49,24
+fb08,mc02_18o: input18,24
+fb08,mc03_01o: input01,17 input54,17
+fb08,mc03_02o: input02,17 input36,17
+fb08,mc03_03o: input52,17
+fb08,mc03_04o: input04,17
+fb08,mc03_05o: input05,17 input25,17 input26,17
+fb08,mc03_06o: input27,17
+fb08,mc03_07o: input43,17
+fb08,mc03_08o: input24,17 input35,17
+fb08,mc03_09o: input09,17 input22,17 input34,17
+fb08,mc03_10o: input39,17
+fb08,mc03_11o: input29,17
+fb08,mc03_12o: input12,17
+fb08,mc03_13o: input13,17
+fb08,mc03_14o: input14,17 input30,17 input51,17
+fb08,mc03_15o: input15,17 input33,17 input38,17
+fb08,mc03_16o: input53,17
+fb08,mc03_17o: input17,17 input42,17 input47,17
+fb08,mc03_18o: input18,17
+fb08,mc04_01o: input01,25 input44,25
+fb08,mc04_02o: input02,25 input22,25 input30,25
+fb08,mc04_03o: input34,25 input45,25
+fb08,mc04_04o: input04,25
+fb08,mc04_05o: input33,25 input43,25
+fb08,mc04_06o: input27,25
+fb08,mc04_07o: input07,25 input52,25
+fb08,mc04_08o: input38,25 input39,25
+fb08,mc04_09o: input09,25
+fb08,mc04_10o: input19,25 input25,25
+fb08,mc04_11o: input11,25 input54,25
+fb08,mc04_12o: input12,25
+fb08,mc04_13o: input13,25 input49,25
+fb08,mc04_14o: input14,25 input26,25 input53,25
+fb08,mc04_15o: input15,25 input35,25 input47,25
+fb08,mc04_16o: input21,25
+fb08,mc04_17o: input17,25 input41,25
+fb08,mc04_18o: input29,25
+fb08,mc05_01o: input01,18 input53,18
+fb08,mc05_02o: input40,18 input52,18
+fb08,mc05_03o: input24,18 input34,18
+fb08,mc05_04o: input43,18
+fb08,mc05_05o: input05,18 input41,18
+fb08,mc05_06o: input06,18 input20,18 input49,18
+fb08,mc05_07o: input07,18
+fb08,mc05_08o: input33,18 input35,18
+fb08,mc05_09o: input09,18 input39,18
+fb08,mc05_10o: input25,18
+fb08,mc05_11o: input11,18 input26,18
+fb08,mc05_12o: input12,18 input30,18
+fb08,mc05_13o: input13,18
+fb08,mc05_14o: input14,18
+fb08,mc05_15o: input15,18 input22,18
+fb08,mc05_16o: input44,18 input51,18
+fb08,mc05_17o: input29,18
+fb08,mc05_18o: input27,18
+fb08,mc06_01o: input01,26 input33,26
+fb08,mc06_02o: input02,26 input35,26
+fb08,mc06_03o: input03,26 input41,26
+fb08,mc06_04o: input04,26 input45,26 input53,26
+fb08,mc06_05o: input05,26 input20,26
+fb08,mc06_06o: input06,26 input51,26 input54,26
+fb08,mc06_07o: input07,26 input40,26
+fb08,mc06_08o: input08,26 input44,26
+fb08,mc06_09o: input09,26 input43,26
+fb08,mc06_10o: input22,26 input49,26
+fb08,mc06_11o: input29,26
+fb08,mc06_12o: input12,26 input26,26
+fb08,mc06_13o: input13,26 input25,26
+fb08,mc06_14o: input27,26
+fb08,mc06_15o: input15,26
+fb08,mc06_16o: input39,26 input52,26
+fb08,mc06_17o: input30,26
+fb08,mc06_18o: input18,26 input19,26
+fb08,mc07_01o: input01,19 input19,19 input25,19
+fb08,mc07_02o: input02,19 input23,19
+fb08,mc07_03o: input52,19
+fb08,mc07_04o: input04,19 input21,19 input34,19
+fb08,mc07_05o: input29,19
+fb08,mc07_06o: input27,19
+fb08,mc07_07o: input26,19 input33,19
+fb08,mc07_08o: input43,19
+fb08,mc07_09o: input09,19 input20,19
+fb08,mc07_10o: input41,19
+fb08,mc07_11o: input11,19
+fb08,mc07_12o: input12,19 input51,19 input53,19
+fb08,mc07_13o: input13,19 input30,19 input44,19
+fb08,mc07_14o: input14,19 input47,19
+fb08,mc07_15o: input15,19 input38,19 input49,19
+fb08,mc07_16o: input39,19
+fb08,mc07_17o: input17,19 input36,19
+fb08,mc07_18o: input18,19 input54,19
+fb08,mc08_01o: input01,27 input35,27 input51,27
+fb08,mc08_02o: input02,27 input34,27 input38,27
+fb08,mc08_03o: input03,27 input41,27
+fb08,mc08_04o: input04,27 input22,27
+fb08,mc08_05o: input05,27 input37,27
+fb08,mc08_06o: input06,27 input21,27
+fb08,mc08_07o: input07,27 input33,27
+fb08,mc08_08o: input29,27
+fb08,mc08_09o: input09,27 input43,27
+fb08,mc08_10o: input39,27
+fb08,mc08_11o: input27,27
+fb08,mc08_12o: input12,27
+fb08,mc08_13o: input13,27 input30,27
+fb08,mc08_14o: input14,27 input23,27
+fb08,mc08_15o: input15,27 input25,27 input49,27
+fb08,mc08_16o: input16,27 input31,27 input40,27
+fb08,mc08_17o: input20,27 input52,27
+fb08,mc08_18o: input18,27 input26,27
+fb08,mc09_01o: input01,20
+fb08,mc09_02o: input02,20 input30,20 input49,20
+fb08,mc09_03o: input34,20 input38,20
+fb08,mc09_04o: input04,20 input35,20
+fb08,mc09_05o: input27,20 input39,20
+fb08,mc09_06o: input29,20
+fb08,mc09_07o: input07,20 input52,20
+fb08,mc09_08o: input25,20 input47,20
+fb08,mc09_09o: input09,20 input54,20
+fb08,mc09_10o: input41,20
+fb08,mc09_11o: input11,20 input51,20
+fb08,mc09_12o: input12,20
+fb08,mc09_13o: input13,20 input33,20
+fb08,mc09_14o: input14,20 input26,20 input44,20
+fb08,mc09_15o: input43,20
+fb08,mc09_16o: input16,20 input20,20
+fb08,mc09_17o: input17,20 input53,20
+fb08,mc09_18o: input18,20 input22,20
+fb08,mc10_01o: input01,28 input54,28
+fb08,mc10_02o: input02,28 input40,28 input41,28
+fb08,mc10_03o: input52,28
+fb08,mc10_04o: input43,28
+fb08,mc10_05o: input05,28 input51,28
+fb08,mc10_06o: input06,28 input25,28 input26,28
+fb08,mc10_07o: input07,28
+fb08,mc10_08o: input22,28 input30,28
+fb08,mc10_09o: input09,28 input39,28
+fb08,mc10_10o: input10,28 input20,28
+fb08,mc10_11o: input11,28 input33,28 input38,28
+fb08,mc10_12o: input12,28 input53,28
+fb08,mc10_13o: input13,28 input44,28
+fb08,mc10_14o: input14,28 input19,28
+fb08,mc10_15o: input15,28 input47,28
+fb08,mc10_16o: input29,28
+fb08,mc10_17o: input17,28 input36,28 input49,28
+fb08,mc10_18o: input27,28
+fb08,mc11_01o: input01,21
+fb08,mc11_02o: input52,21
+fb08,mc11_03o: input43,21
+fb08,mc11_04o: input04,21 input22,21 input47,21
+fb08,mc11_05o: input29,21
+fb08,mc11_06o: input33,21
+fb08,mc11_07o: input07,21
+fb08,mc11_08o: input19,21
+fb08,mc11_09o: input09,21 input53,21
+fb08,mc11_10o: input39,21
+fb08,mc11_11o: input11,21 input20,21
+fb08,mc11_12o: input12,21
+fb08,mc11_13o: input13,21 input30,21
+fb08,mc11_14o: input14,21 input34,21
+fb08,mc11_15o: input15,21 input21,21 input38,21
+fb08,mc11_16o: input16,21 input44,21 input54,21
+fb08,mc11_17o: input17,21 input26,21 input40,21
+fb08,mc11_18o: input25,21 input27,21
+fb08,mc12_01o: input01,29 input40,29
+fb08,mc12_02o: input02,29 input45,29 input47,29
+fb08,mc12_03o: input03,29 input24,29
+fb08,mc12_04o: input20,29 input51,29
+fb08,mc12_05o: input05,29 input35,29
+fb08,mc12_06o: input06,29 input30,29
+fb08,mc12_07o: input07,29 input54,29
+fb08,mc12_08o: input29,29
+fb08,mc12_09o: input09,29
+fb08,mc12_10o: input43,29
+fb08,mc12_11o: input11,29 input26,29 input53,29
+fb08,mc12_12o: input12,29
+fb08,mc12_13o: input13,29 input33,29 input44,29
+fb08,mc12_14o: input14,29 input19,29
+fb08,mc12_15o: input15,29 input39,29 input52,29
+fb08,mc12_16o: input27,29
+fb08,mc12_17o: input38,29 input41,29
+fb08,mc12_18o: input18,29
+fb08,mc13_01o: input01,22 input25,22 input34,22
+fb08,mc13_02o: input02,22 input19,22 input41,22
+fb08,mc13_03o: input03,22 input30,22
+fb08,mc13_04o: input04,22 input26,22
+fb08,mc13_05o: input05,22 input33,22
+fb08,mc13_06o: input06,22 input36,22 input40,22
+fb08,mc13_07o: input39,22 input43,22
+fb08,mc13_08o: input21,22 input53,22
+fb08,mc13_09o: input09,22 input51,22
+fb08,mc13_10o: input10,22 input35,22 input47,22
+fb08,mc13_11o: input11,22
+fb08,mc13_12o: input12,22
+fb08,mc13_13o: input13,22 input38,22
+fb08,mc13_14o: input52,22
+fb08,mc13_15o: input29,22
+fb08,mc13_16o: input16,22 input44,22
+fb08,mc13_17o: input27,22
+fb08,mc13_18o: input18,22 input22,22 input54,22
+fb08,mc14_01o: input01,30 input25,30
+fb08,mc14_02o: input02,30 input53,30
+fb08,mc14_03o: input03,30 input19,30 input30,30
+fb08,mc14_04o: input04,30 input33,30
+fb08,mc14_05o: input05,30 input47,30
+fb08,mc14_06o: input06,30 input35,30 input38,30
+fb08,mc14_07o: input07,30
+fb08,mc14_08o: input08,30 input20,30 input34,30
+fb08,mc14_09o: input09,30 input51,30
+fb08,mc14_10o: input26,30
+fb08,mc14_11o: input11,30 input22,30 input39,30
+fb08,mc14_12o: input12,30
+fb08,mc14_13o: input13,30 input27,30
+fb08,mc14_14o: input52,30
+fb08,mc14_15o: input15,30 input23,30 input49,30
+fb08,mc14_16o: input43,30
+fb08,mc14_17o: input29,30
+fb08,mc14_18o: input18,30 input40,30
+fb08,mc15_01o: input27,23
+fb08,mc15_02o: input02,23 input23,23 input47,23
+fb08,mc15_03o: input03,23 input20,23
+fb08,mc15_04o: input04,23 input39,23
+fb08,mc15_05o: input05,23 input45,23
+fb08,mc15_06o: input06,23 input19,23 input41,23
+fb08,mc15_07o: input29,23
+fb08,mc15_08o: input51,23
+fb08,mc15_09o: input09,23 input43,23
+fb08,mc15_10o: input52,23
+fb08,mc15_11o: input11,23 input40,23 input54,23
+fb08,mc15_12o: input12,23 input30,23
+fb08,mc15_13o: input13,23
+fb08,mc15_14o: input14,23 input26,23 input35,23
+fb08,mc15_15o: input15,23 input36,23 input44,23
+fb08,mc15_16o: input33,23 input53,23
+fb08,mc15_17o: input17,23 input25,23
+fb08,mc15_18o: input18,23
+fb08,mc16_01o: input01,31 input44,31
+fb08,mc16_02o: input52,31
+fb08,mc16_03o: input03,31 input35,31
+fb08,mc16_04o: input04,31 input41,31
+fb08,mc16_05o: input05,31 input26,31
+fb08,mc16_06o: input39,31
+fb08,mc16_07o: input43,31
+fb08,mc16_08o: input42,31 input51,31
+fb08,mc16_09o: input29,31
+fb08,mc16_10o: input10,31 input34,31 input49,31
+fb08,mc16_11o: input11,31 input54,31
+fb08,mc16_12o: input12,31 input25,31 input33,31
+fb08,mc16_13o: input13,31
+fb08,mc16_14o: input14,31 input19,31 input47,31
+fb08,mc16_15o: input45,31 input53,31
+fb08,mc16_16o: input16,31 input40,31
+fb08,mc16_17o: input27,31
+fb08,mc16_18o: input18,31 input30,31
 fb09,mc01_01i:
 fb09,mc01_02i: input12,6 input27,6 input43,6
 fb09,mc01_03i: input14,6 input52,6
@@ -2590,6 +4894,294 @@ fb09,mc16_15i: input08,5 input35,5
 fb09,mc16_16i:
 fb09,mc16_17i: input06,5 input21,5 input54,5
 fb09,mc16_18i:
+fb09,mc01_01o: input01,16 input51,16
+fb09,mc01_02o: input02,16 input39,16
+fb09,mc01_03o: input37,16 input45,16
+fb09,mc01_04o: input04,16 input52,16
+fb09,mc01_05o: input23,16 input44,16
+fb09,mc01_06o: input06,16 input36,16 input46,16
+fb09,mc01_07o: input07,16 input42,16 input53,16
+fb09,mc01_08o: input08,16 input19,16
+fb09,mc01_09o: input09,16 input31,16
+fb09,mc01_10o: input10,16 input25,16
+fb09,mc01_11o: input27,16
+fb09,mc01_12o: input12,16 input22,16
+fb09,mc01_13o: input13,16 input49,16
+fb09,mc01_14o: input14,16 input43,16
+fb09,mc01_15o: input26,16
+fb09,mc01_16o: input16,16 input20,16 input34,16
+fb09,mc01_17o: input21,16
+fb09,mc01_18o: input29,16
+fb09,mc02_01o: input29,24
+fb09,mc02_02o: input02,24 input26,24 input53,24
+fb09,mc02_03o: input27,24
+fb09,mc02_04o: input04,24 input54,24
+fb09,mc02_05o: input24,24 input34,24
+fb09,mc02_06o: input43,24
+fb09,mc02_07o: input07,24 input20,24
+fb09,mc02_08o: input08,24 input37,24 input45,24
+fb09,mc02_09o: input09,24 input44,24
+fb09,mc02_10o: input10,24 input51,24
+fb09,mc02_11o: input11,24 input35,24
+fb09,mc02_12o: input12,24 input52,24
+fb09,mc02_13o: input13,24
+fb09,mc02_14o: input14,24 input33,24
+fb09,mc02_15o: input39,24
+fb09,mc02_16o: input16,24 input23,24 input36,24
+fb09,mc02_17o: input22,24 input49,24
+fb09,mc02_18o: input18,24 input31,24 input42,24
+fb09,mc03_01o: input01,17 input54,17
+fb09,mc03_02o: input02,17 input36,17 input45,17
+fb09,mc03_03o: input52,17
+fb09,mc03_04o: input04,17
+fb09,mc03_05o: input25,17
+fb09,mc03_06o: input27,17
+fb09,mc03_07o: input43,17
+fb09,mc03_08o: input08,17 input24,17 input35,17
+fb09,mc03_09o: input09,17 input22,17 input34,17
+fb09,mc03_10o: input10,17 input39,17
+fb09,mc03_11o: input29,17
+fb09,mc03_12o: input12,17
+fb09,mc03_13o: input13,17
+fb09,mc03_14o: input14,17 input51,17
+fb09,mc03_15o: input33,17
+fb09,mc03_16o: input16,17 input53,17
+fb09,mc03_17o: input42,17 input47,17
+fb09,mc03_18o: input18,17 input41,17
+fb09,mc04_01o: input01,25 input31,25 input44,25
+fb09,mc04_02o: input02,25 input22,25 input30,25
+fb09,mc04_03o: input34,25 input45,25
+fb09,mc04_04o: input04,25
+fb09,mc04_05o: input43,25
+fb09,mc04_06o: input27,25
+fb09,mc04_07o: input52,25
+fb09,mc04_08o: input08,25 input39,25
+fb09,mc04_09o: input09,25 input42,25 input46,25
+fb09,mc04_10o: input10,25 input25,25
+fb09,mc04_11o: input11,25 input36,25 input54,25
+fb09,mc04_12o: input12,25
+fb09,mc04_13o: input13,25 input20,25 input49,25
+fb09,mc04_14o: input14,25 input53,25
+fb09,mc04_15o: input15,25 input35,25 input47,25
+fb09,mc04_16o: input16,25 input21,25
+fb09,mc04_17o: input41,25
+fb09,mc04_18o: input29,25
+fb09,mc05_01o: input01,18 input53,18
+fb09,mc05_02o: input02,18 input52,18
+fb09,mc05_03o: input24,18 input34,18
+fb09,mc05_04o: input43,18
+fb09,mc05_05o: input41,18
+fb09,mc05_06o: input06,18 input20,18 input49,18
+fb09,mc05_07o: input07,18 input31,18 input36,18
+fb09,mc05_08o: input08,18 input33,18 input35,18
+fb09,mc05_09o: input39,18
+fb09,mc05_10o: input10,18 input25,18 input37,18
+fb09,mc05_11o: input11,18 input45,18
+fb09,mc05_12o: input12,18
+fb09,mc05_13o: input13,18
+fb09,mc05_14o: input14,18 input42,18 input46,18
+fb09,mc05_15o: input22,18
+fb09,mc05_16o: input16,18 input51,18
+fb09,mc05_17o: input29,18
+fb09,mc05_18o: input27,18
+fb09,mc06_01o: input33,26
+fb09,mc06_02o: input02,26 input35,26
+fb09,mc06_03o: input41,26
+fb09,mc06_04o: input45,26 input53,26
+fb09,mc06_05o: input05,26 input20,26
+fb09,mc06_06o: input06,26 input51,26 input54,26
+fb09,mc06_07o: input07,26 input42,26
+fb09,mc06_08o: input08,26 input31,26 input44,26
+fb09,mc06_09o: input43,26
+fb09,mc06_10o: input22,26 input49,26
+fb09,mc06_11o: input29,26
+fb09,mc06_12o: input12,26
+fb09,mc06_13o: input13,26
+fb09,mc06_14o: input27,26
+fb09,mc06_15o: input15,26 input37,26
+fb09,mc06_16o: input16,26 input52,26
+fb09,mc06_17o: input30,26 input46,26
+fb09,mc06_18o: input18,26 input36,26
+fb09,mc07_01o: input25,19
+fb09,mc07_02o: input02,19 input23,19 input45,19
+fb09,mc07_03o: input31,19 input52,19
+fb09,mc07_04o: input04,19 input21,19 input34,19
+fb09,mc07_05o: input29,19
+fb09,mc07_06o: input27,19
+fb09,mc07_07o: input33,19
+fb09,mc07_08o: input43,19
+fb09,mc07_09o: input09,19 input20,19 input42,19
+fb09,mc07_10o: input10,19 input41,19
+fb09,mc07_11o: input11,19
+fb09,mc07_12o: input12,19 input51,19 input53,19
+fb09,mc07_13o: input13,19 input44,19
+fb09,mc07_14o: input14,19 input47,19
+fb09,mc07_15o: input15,19 input49,19
+fb09,mc07_16o: input16,19 input37,19 input39,19
+fb09,mc07_17o: input36,19
+fb09,mc07_18o: input18,19 input46,19 input54,19
+fb09,mc08_01o: input01,27 input35,27 input51,27
+fb09,mc08_02o: input02,27
+fb09,mc08_03o: input41,27 input46,27
+fb09,mc08_04o: input04,27 input22,27
+fb09,mc08_05o: input05,27 input37,27
+fb09,mc08_06o: input06,27 input21,27 input42,27
+fb09,mc08_07o: input33,27 input36,27
+fb09,mc08_08o: input29,27
+fb09,mc08_09o: input43,27
+fb09,mc08_10o: input10,27 input39,27
+fb09,mc08_11o: input27,27
+fb09,mc08_12o: input12,27
+fb09,mc08_13o: input13,27 input44,27
+fb09,mc08_14o: input14,27 input45,27
+fb09,mc08_15o: input25,27 input49,27
+fb09,mc08_16o: input16,27 input31,27
+fb09,mc08_17o: input20,27 input52,27
+fb09,mc08_18o: input18,27
+fb09,mc09_01o: input01,20 input21,20
+fb09,mc09_02o: input02,20 input30,20 input49,20
+fb09,mc09_03o: input03,20 input34,20
+fb09,mc09_04o: input04,20 input46,20
+fb09,mc09_05o: input27,20 input39,20
+fb09,mc09_06o: input29,20
+fb09,mc09_07o: input52,20
+fb09,mc09_08o: input08,20 input25,20 input47,20
+fb09,mc09_09o: input09,20
+fb09,mc09_10o: input10,20 input41,20
+fb09,mc09_11o: input11,20 input51,20
+fb09,mc09_12o: input12,20 input45,20
+fb09,mc09_13o: input13,20 input33,20
+fb09,mc09_14o: input14,20 input26,20 input44,20
+fb09,mc09_15o: input43,20
+fb09,mc09_16o: input16,20 input20,20 input31,20
+fb09,mc09_17o: input53,20
+fb09,mc09_18o: input18,20 input22,20
+fb09,mc10_01o: input01,28 input37,28 input54,28
+fb09,mc10_02o: input02,28 input41,28
+fb09,mc10_03o: input52,28
+fb09,mc10_04o: input43,28
+fb09,mc10_05o: input51,28
+fb09,mc10_06o: input06,28 input25,28
+fb09,mc10_07o: input07,28
+fb09,mc10_08o: input08,28 input22,28 input30,28
+fb09,mc10_09o: input39,28
+fb09,mc10_10o: input10,28 input20,28
+fb09,mc10_11o: input33,28
+fb09,mc10_12o: input12,28 input42,28 input53,28
+fb09,mc10_13o: input13,28 input44,28 input45,28
+fb09,mc10_14o: input14,28
+fb09,mc10_15o: input15,28 input46,28 input47,28
+fb09,mc10_16o: input29,28
+fb09,mc10_17o: input36,28 input49,28
+fb09,mc10_18o: input27,28
+fb09,mc11_01o: input01,21 input31,21
+fb09,mc11_02o: input02,21 input36,21 input52,21
+fb09,mc11_03o: input43,21
+fb09,mc11_04o: input04,21 input22,21 input47,21
+fb09,mc11_05o: input29,21
+fb09,mc11_06o: input06,21 input33,21 input45,21
+fb09,mc11_07o: input07,21 input41,21 input46,21
+fb09,mc11_08o: input08,21 input19,21
+fb09,mc11_09o: input09,21 input53,21
+fb09,mc11_10o: input10,21 input39,21
+fb09,mc11_11o: input11,21 input20,21 input42,21
+fb09,mc11_12o: input12,21
+fb09,mc11_13o: input13,21
+fb09,mc11_14o: input14,21 input34,21
+fb09,mc11_15o: input21,21
+fb09,mc11_16o: input16,21 input54,21
+fb09,mc11_17o: input26,21
+fb09,mc11_18o: input27,21
+fb09,mc12_01o: input01,29
+fb09,mc12_02o: input02,29 input45,29
+fb09,mc12_03o: input24,29 input37,29
+fb09,mc12_04o: input04,29 input20,29 input51,29
+fb09,mc12_05o: input05,29 input31,29 input35,29
+fb09,mc12_06o: input06,29 input30,29
+fb09,mc12_07o: input07,29 input22,29 input54,29
+fb09,mc12_08o: input29,29
+fb09,mc12_09o: input09,29 input36,29
+fb09,mc12_10o: input43,29
+fb09,mc12_11o: input11,29 input53,29
+fb09,mc12_12o: input12,29
+fb09,mc12_13o: input13,29 input44,29
+fb09,mc12_14o: input14,29
+fb09,mc12_15o: input52,29
+fb09,mc12_16o: input27,29
+fb09,mc12_17o: input41,29
+fb09,mc12_18o: input18,29 input46,29
+fb09,mc13_01o: input25,22 input34,22
+fb09,mc13_02o: input02,22 input41,22
+fb09,mc13_03o: input30,22
+fb09,mc13_04o: input04,22 input26,22
+fb09,mc13_05o: input31,22 input33,22
+fb09,mc13_06o: input06,22 input36,22
+fb09,mc13_07o: input43,22
+fb09,mc13_08o: input08,22 input21,22 input53,22
+fb09,mc13_09o: input09,22 input45,22 input51,22
+fb09,mc13_10o: input10,22 input35,22 input47,22
+fb09,mc13_11o: input11,22
+fb09,mc13_12o: input12,22 input42,22
+fb09,mc13_13o: input13,22
+fb09,mc13_14o: input14,22 input52,22
+fb09,mc13_15o: input29,22
+fb09,mc13_16o: input16,22
+fb09,mc13_17o: input27,22
+fb09,mc13_18o: input18,22 input22,22 input54,22
+fb09,mc14_01o: input25,30 input42,30
+fb09,mc14_02o: input02,30 input53,30
+fb09,mc14_03o: input30,30
+fb09,mc14_04o: input04,30 input33,30
+fb09,mc14_05o: input05,30 input37,30 input47,30
+fb09,mc14_06o: input06,30 input35,30 input38,30
+fb09,mc14_07o: input07,30 input45,30
+fb09,mc14_08o: input08,30 input20,30 input34,30
+fb09,mc14_09o: input09,30 input31,30 input51,30
+fb09,mc14_10o: input10,30 input26,30 input36,30
+fb09,mc14_11o: input22,30 input39,30
+fb09,mc14_12o: input12,30
+fb09,mc14_13o: input27,30
+fb09,mc14_14o: input14,30 input52,30
+fb09,mc14_15o: input23,30 input49,30
+fb09,mc14_16o: input43,30
+fb09,mc14_17o: input29,30
+fb09,mc14_18o: input18,30
+fb09,mc15_01o: input27,23
+fb09,mc15_02o: input02,23 input23,23 input47,23
+fb09,mc15_03o: input20,23 input46,23
+fb09,mc15_04o: input04,23 input39,23
+fb09,mc15_05o: input31,23 input45,23
+fb09,mc15_06o: input06,23 input41,23
+fb09,mc15_07o: input29,23
+fb09,mc15_08o: input08,23 input51,23
+fb09,mc15_09o: input43,23
+fb09,mc15_10o: input22,23 input52,23
+fb09,mc15_11o: input11,23 input54,23
+fb09,mc15_12o: input12,23
+fb09,mc15_13o: input13,23 input42,23
+fb09,mc15_14o: input14,23 input35,23
+fb09,mc15_15o: input36,23 input44,23
+fb09,mc15_16o: input16,23 input33,23 input53,23
+fb09,mc15_17o: input25,23
+fb09,mc15_18o: input18,23 input37,23
+fb09,mc16_01o: input01,31 input44,31
+fb09,mc16_02o: input02,31 input22,31 input52,31
+fb09,mc16_03o: input03,31 input35,31 input37,31
+fb09,mc16_04o: input04,31 input41,31 input46,31
+fb09,mc16_05o: input26,31 input36,31
+fb09,mc16_06o: input06,31 input39,31
+fb09,mc16_07o: input43,31
+fb09,mc16_08o: input42,31 input51,31
+fb09,mc16_09o: input29,31
+fb09,mc16_10o: input10,31 input34,31 input49,31
+fb09,mc16_11o: input11,31 input54,31
+fb09,mc16_12o: input12,31
+fb09,mc16_13o: input13,31 input20,31
+fb09,mc16_14o: input14,31 input47,31
+fb09,mc16_15o: input45,31 input53,31
+fb09,mc16_16o: input16,31 input31,31
+fb09,mc16_17o: input27,31
+fb09,mc16_18o: input18,31
 fb10,mc01_01i:
 fb10,mc01_02i: input12,6 input27,6
 fb10,mc01_03i: input14,6 input21,6
@@ -2878,6 +5470,294 @@ fb10,mc16_15i: input08,5 input50,5
 fb10,mc16_16i:
 fb10,mc16_17i: input06,5 input21,5 input54,5
 fb10,mc16_18i:
+fb10,mc01_01o: input01,16 input48,16
+fb10,mc01_02o: input02,16 input32,16 input39,16
+fb10,mc01_03o: input03,16 input37,16 input45,16
+fb10,mc01_04o: input04,16 input28,16 input52,16
+fb10,mc01_05o: input05,16 input23,16
+fb10,mc01_06o: input36,16 input46,16
+fb10,mc01_07o: input07,16 input42,16
+fb10,mc01_08o: input08,16 input19,16
+fb10,mc01_09o: input09,16 input24,16 input31,16
+fb10,mc01_10o: input10,16 input25,16 input50,16
+fb10,mc01_11o: input27,16
+fb10,mc01_12o: input12,16
+fb10,mc01_13o: input13,16 input49,16
+fb10,mc01_14o: input14,16 input43,16
+fb10,mc01_15o: input26,16 input40,16
+fb10,mc01_16o: input16,16 input20,16
+fb10,mc01_17o: input21,16
+fb10,mc01_18o: input29,16
+fb10,mc02_01o: input29,24
+fb10,mc02_02o: input02,24 input26,24
+fb10,mc02_03o: input27,24
+fb10,mc02_04o: input04,24 input28,24 input54,24
+fb10,mc02_05o: input05,24 input24,24
+fb10,mc02_06o: input43,24
+fb10,mc02_07o: input07,24 input20,24 input21,24
+fb10,mc02_08o: input08,24 input37,24 input45,24
+fb10,mc02_09o: input09,24 input48,24
+fb10,mc02_10o: input10,24 input40,24 input51,24
+fb10,mc02_11o: input11,24
+fb10,mc02_12o: input12,24
+fb10,mc02_13o: input13,24
+fb10,mc02_14o: input14,24 input33,24
+fb10,mc02_15o: input39,24
+fb10,mc02_16o: input16,24 input23,24 input36,24
+fb10,mc02_17o: input22,24 input49,24
+fb10,mc02_18o: input18,24 input31,24 input42,24
+fb10,mc03_01o: input01,17 input50,17
+fb10,mc03_02o: input36,17 input45,17
+fb10,mc03_03o: input52,17
+fb10,mc03_04o: input04,17 input28,17 input40,17
+fb10,mc03_05o: input05,17 input25,17
+fb10,mc03_06o: input27,17
+fb10,mc03_07o: input43,17
+fb10,mc03_08o: input08,17 input24,17
+fb10,mc03_09o: input09,17
+fb10,mc03_10o: input10,17 input39,17
+fb10,mc03_11o: input29,17
+fb10,mc03_12o: input12,17 input23,17
+fb10,mc03_13o: input13,17
+fb10,mc03_14o: input14,17
+fb10,mc03_15o: input33,17
+fb10,mc03_16o: input16,17 input32,17 input53,17
+fb10,mc03_17o: input42,17
+fb10,mc03_18o: input18,17 input21,17 input41,17
+fb10,mc04_01o: input01,25 input31,25
+fb10,mc04_02o: input02,25 input30,25
+fb10,mc04_03o: input03,25 input45,25
+fb10,mc04_04o: input04,25 input32,25 input40,25
+fb10,mc04_05o: input43,25
+fb10,mc04_06o: input27,25
+fb10,mc04_07o: input07,25 input52,25
+fb10,mc04_08o: input08,25 input39,25
+fb10,mc04_09o: input09,25 input42,25 input46,25
+fb10,mc04_10o: input10,25 input25,25
+fb10,mc04_11o: input11,25 input36,25
+fb10,mc04_12o: input12,25
+fb10,mc04_13o: input13,25 input20,25
+fb10,mc04_14o: input14,25
+fb10,mc04_15o: input15,25
+fb10,mc04_16o: input16,25 input21,25 input23,25
+fb10,mc04_17o: input41,25
+fb10,mc04_18o: input29,25
+fb10,mc05_01o: input01,18 input21,18
+fb10,mc05_02o: input40,18 input52,18
+fb10,mc05_03o: input03,18 input24,18
+fb10,mc05_04o: input43,18
+fb10,mc05_05o: input05,18 input28,18 input41,18
+fb10,mc05_06o: input06,18 input20,18
+fb10,mc05_07o: input07,18 input31,18 input36,18
+fb10,mc05_08o: input08,18 input33,18
+fb10,mc05_09o: input23,18 input39,18
+fb10,mc05_10o: input10,18 input25,18 input37,18
+fb10,mc05_11o: input11,18 input45,18
+fb10,mc05_12o: input12,18
+fb10,mc05_13o: input13,18
+fb10,mc05_14o: input14,18 input42,18
+fb10,mc05_15o: input22,18 input32,18
+fb10,mc05_16o: input16,18 input51,18
+fb10,mc05_17o: input29,18
+fb10,mc05_18o: input27,18
+fb10,mc06_01o: input01,26 input33,26 input48,26
+fb10,mc06_02o: input02,26 input28,26
+fb10,mc06_03o: input03,26 input24,26 input41,26
+fb10,mc06_04o: input04,26 input45,26
+fb10,mc06_05o: input05,26 input32,26
+fb10,mc06_06o: input06,26 input51,26 input54,26
+fb10,mc06_07o: input07,26 input40,26 input42,26
+fb10,mc06_08o: input08,26 input31,26
+fb10,mc06_09o: input43,26
+fb10,mc06_10o: input10,26 input22,26 input49,26
+fb10,mc06_11o: input29,26
+fb10,mc06_12o: input12,26 input23,26
+fb10,mc06_13o: input13,26 input25,26
+fb10,mc06_14o: input27,26
+fb10,mc06_15o: input15,26 input37,26 input50,26
+fb10,mc06_16o: input39,26 input52,26
+fb10,mc06_17o: input30,26 input46,26
+fb10,mc06_18o: input18,26 input36,26
+fb10,mc07_01o: input01,19 input25,19
+fb10,mc07_02o: input23,19 input45,19
+fb10,mc07_03o: input31,19 input52,19
+fb10,mc07_04o: input04,19 input21,19
+fb10,mc07_05o: input29,19
+fb10,mc07_06o: input27,19
+fb10,mc07_07o: input07,19 input33,19
+fb10,mc07_08o: input43,19
+fb10,mc07_09o: input09,19 input20,19 input42,19
+fb10,mc07_10o: input10,19 input41,19
+fb10,mc07_11o: input11,19 input24,19 input28,19
+fb10,mc07_12o: input12,19
+fb10,mc07_13o: input13,19
+fb10,mc07_14o: input14,19 input50,19
+fb10,mc07_15o: input15,19 input49,19
+fb10,mc07_16o: input37,19 input39,19
+fb10,mc07_17o: input32,19 input36,19
+fb10,mc07_18o: input18,19 input46,19 input54,19
+fb10,mc08_01o: input01,27
+fb10,mc08_02o: input02,27
+fb10,mc08_03o: input03,27 input41,27 input46,27
+fb10,mc08_04o: input04,27 input22,27 input28,27
+fb10,mc08_05o: input05,27 input32,27 input37,27
+fb10,mc08_06o: input06,27 input21,27 input42,27
+fb10,mc08_07o: input07,27 input33,27 input36,27
+fb10,mc08_08o: input29,27
+fb10,mc08_09o: input43,27
+fb10,mc08_10o: input10,27 input24,27 input39,27
+fb10,mc08_11o: input27,27
+fb10,mc08_12o: input12,27
+fb10,mc08_13o: input13,27
+fb10,mc08_14o: input14,27 input23,27 input45,27
+fb10,mc08_15o: input25,27 input49,27
+fb10,mc08_16o: input16,27 input31,27 input40,27
+fb10,mc08_17o: input20,27 input52,27
+fb10,mc08_18o: input18,27
+fb10,mc09_01o: input01,20 input21,20 input28,20
+fb10,mc09_02o: input02,20 input30,20 input49,20
+fb10,mc09_03o: input03,20 input34,20
+fb10,mc09_04o: input04,20 input46,20
+fb10,mc09_05o: input27,20
+fb10,mc09_06o: input29,20
+fb10,mc09_07o: input07,20 input52,20
+fb10,mc09_08o: input08,20 input25,20
+fb10,mc09_09o: input09,20 input42,20 input54,20
+fb10,mc09_10o: input10,20 input32,20 input41,20
+fb10,mc09_11o: input11,20 input37,20
+fb10,mc09_12o: input12,20 input36,20 input45,20
+fb10,mc09_13o: input13,20
+fb10,mc09_14o: input14,20
+fb10,mc09_15o: input43,20
+fb10,mc09_16o: input16,20 input20,20 input31,20
+fb10,mc09_17o: input48,20 input53,20
+fb10,mc09_18o: input18,20 input50,20
+fb10,mc10_01o: input01,28 input37,28
+fb10,mc10_02o: input02,28 input40,28 input41,28
+fb10,mc10_03o: input21,28 input52,28
+fb10,mc10_04o: input04,28 input43,28
+fb10,mc10_05o: input05,28 input32,28 input51,28
+fb10,mc10_06o: input25,28
+fb10,mc10_07o: input07,28 input24,28 input28,28
+fb10,mc10_08o: input08,28 input30,28
+fb10,mc10_09o: input39,28
+fb10,mc10_10o: input10,28 input20,28
+fb10,mc10_11o: input33,28
+fb10,mc10_12o: input12,28
+fb10,mc10_13o: input13,28 input45,28
+fb10,mc10_14o: input14,28 input19,28 input50,28
+fb10,mc10_15o: input15,28 input46,28
+fb10,mc10_16o: input29,28
+fb10,mc10_17o: input17,28 input36,28 input49,28
+fb10,mc10_18o: input18,28 input27,28
+fb10,mc11_01o: input01,21 input23,21 input31,21
+fb10,mc11_02o: input36,21 input52,21
+fb10,mc11_03o: input43,21
+fb10,mc11_04o: input04,21 input22,21
+fb10,mc11_05o: input29,21
+fb10,mc11_06o: input06,21 input33,21 input45,21
+fb10,mc11_07o: input07,21 input41,21 input46,21
+fb10,mc11_08o: input08,21 input19,21 input50,21
+fb10,mc11_09o: input09,21 input37,21
+fb10,mc11_10o: input10,21 input39,21
+fb10,mc11_11o: input11,21 input20,21 input42,21
+fb10,mc11_12o: input12,21
+fb10,mc11_13o: input13,21 input28,21
+fb10,mc11_14o: input14,21 input32,21
+fb10,mc11_15o: input21,21
+fb10,mc11_16o: input16,21 input54,21
+fb10,mc11_17o: input26,21 input40,21
+fb10,mc11_18o: input27,21
+fb10,mc12_01o: input01,29 input21,29 input40,29
+fb10,mc12_02o: input45,29
+fb10,mc12_03o: input03,29 input24,29 input37,29
+fb10,mc12_04o: input04,29 input20,29 input51,29
+fb10,mc12_05o: input05,29 input31,29
+fb10,mc12_06o: input06,29 input30,29 input50,29
+fb10,mc12_07o: input07,29 input54,29
+fb10,mc12_08o: input29,29
+fb10,mc12_09o: input09,29 input36,29 input48,29
+fb10,mc12_10o: input43,29
+fb10,mc12_11o: input11,29
+fb10,mc12_12o: input12,29 input23,29
+fb10,mc12_13o: input13,29
+fb10,mc12_14o: input14,29 input32,29
+fb10,mc12_15o: input39,29 input52,29
+fb10,mc12_16o: input27,29
+fb10,mc12_17o: input41,29
+fb10,mc12_18o: input18,29 input28,29 input46,29
+fb10,mc13_01o: input01,22 input25,22
+fb10,mc13_02o: input02,22 input41,22
+fb10,mc13_03o: input03,22 input30,22 input50,22
+fb10,mc13_04o: input04,22 input26,22 input37,22
+fb10,mc13_05o: input05,22 input31,22 input33,22
+fb10,mc13_06o: input36,22 input40,22
+fb10,mc13_07o: input39,22 input43,22
+fb10,mc13_08o: input08,22 input21,22
+fb10,mc13_09o: input09,22 input45,22
+fb10,mc13_10o: input10,22
+fb10,mc13_11o: input11,22 input32,22 input48,22
+fb10,mc13_12o: input12,22 input42,22
+fb10,mc13_13o: input13,22 input23,22
+fb10,mc13_14o: input14,22 input28,22 input52,22
+fb10,mc13_15o: input29,22
+fb10,mc13_16o: input16,22 input24,22
+fb10,mc13_17o: input27,22
+fb10,mc13_18o: input18,22 input54,22
+fb10,mc14_01o: input01,30 input25,30 input42,30
+fb10,mc14_02o: input02,30 input48,30 input53,30
+fb10,mc14_03o: input03,30 input30,30
+fb10,mc14_04o: input04,30 input28,30 input33,30
+fb10,mc14_05o: input05,30 input37,30
+fb10,mc14_06o: input06,30 input38,30
+fb10,mc14_07o: input07,30 input45,30 input50,30
+fb10,mc14_08o: input08,30 input20,30
+fb10,mc14_09o: input09,30 input31,30
+fb10,mc14_10o: input10,30 input26,30 input36,30
+fb10,mc14_11o: input39,30
+fb10,mc14_12o: input12,30
+fb10,mc14_13o: input27,30
+fb10,mc14_14o: input14,30 input41,30 input52,30
+fb10,mc14_15o: input23,30 input49,30
+fb10,mc14_16o: input43,30
+fb10,mc14_17o: input29,30
+fb10,mc14_18o: input18,30 input21,30 input40,30
+fb10,mc15_01o: input27,23
+fb10,mc15_02o: input02,23 input23,23
+fb10,mc15_03o: input03,23 input20,23 input46,23
+fb10,mc15_04o: input04,23 input39,23
+fb10,mc15_05o: input05,23 input31,23 input45,23
+fb10,mc15_06o: input06,23 input41,23
+fb10,mc15_07o: input29,23
+fb10,mc15_08o: input08,23 input28,23 input51,23
+fb10,mc15_09o: input43,23
+fb10,mc15_10o: input10,23 input52,23
+fb10,mc15_11o: input11,23 input40,23 input54,23
+fb10,mc15_12o: input12,23
+fb10,mc15_13o: input13,23 input42,23
+fb10,mc15_14o: input14,23
+fb10,mc15_15o: input36,23
+fb10,mc15_16o: input16,23 input33,23
+fb10,mc15_17o: input21,23 input25,23
+fb10,mc15_18o: input18,23 input37,23 input48,23
+fb10,mc16_01o: input01,31 input28,31
+fb10,mc16_02o: input52,31
+fb10,mc16_03o: input03,31 input37,31
+fb10,mc16_04o: input04,31 input41,31 input46,31
+fb10,mc16_05o: input05,31 input26,31 input36,31
+fb10,mc16_06o: input06,31 input23,31 input39,31
+fb10,mc16_07o: input43,31
+fb10,mc16_08o: input08,31 input42,31
+fb10,mc16_09o: input29,31
+fb10,mc16_10o: input10,31 input49,31
+fb10,mc16_11o: input11,31 input48,31 input54,31
+fb10,mc16_12o: input12,31 input25,31
+fb10,mc16_13o: input13,31 input20,31 input21,31
+fb10,mc16_14o: input14,31
+fb10,mc16_15o: input45,31
+fb10,mc16_16o: input16,31 input31,31 input40,31
+fb10,mc16_17o: input27,31
+fb10,mc16_18o: input18,31 input32,31
 fb11,mc01_01i:
 fb11,mc01_02i: input12,6 input27,6
 fb11,mc01_03i: input14,6 input26,6 input52,6
@@ -3166,6 +6046,294 @@ fb11,mc16_15i: input08,5 input35,5
 fb11,mc16_16i:
 fb11,mc16_17i: input06,5 input21,5 input54,5
 fb11,mc16_18i:
+fb11,mc01_01o: input01,16 input48,16 input51,16
+fb11,mc01_02o: input02,16 input39,16
+fb11,mc01_03o: input45,16
+fb11,mc01_04o: input04,16 input28,16 input52,16
+fb11,mc01_05o: input23,16
+fb11,mc01_06o: input06,16 input36,16
+fb11,mc01_07o: input07,16 input42,16
+fb11,mc01_08o: input08,16 input19,16 input38,16
+fb11,mc01_09o: input09,16 input24,16
+fb11,mc01_10o: input10,16 input25,16 input50,16
+fb11,mc01_11o: input27,16
+fb11,mc01_12o: input12,16
+fb11,mc01_13o: input13,16 input49,16
+fb11,mc01_14o: input14,16 input43,16
+fb11,mc01_15o: input26,16
+fb11,mc01_16o: input16,16
+fb11,mc01_17o: input21,16 input30,16
+fb11,mc01_18o: input29,16
+fb11,mc02_01o: input29,24
+fb11,mc02_02o: input26,24
+fb11,mc02_03o: input25,24 input27,24
+fb11,mc02_04o: input04,24 input28,24 input54,24
+fb11,mc02_05o: input24,24
+fb11,mc02_06o: input43,24
+fb11,mc02_07o: input07,24
+fb11,mc02_08o: input08,24 input45,24
+fb11,mc02_09o: input09,24 input48,24
+fb11,mc02_10o: input10,24 input51,24
+fb11,mc02_11o: input11,24 input35,24 input38,24
+fb11,mc02_12o: input12,24 input52,24
+fb11,mc02_13o: input13,24
+fb11,mc02_14o: input14,24 input30,24 input33,24
+fb11,mc02_15o: input19,24 input39,24
+fb11,mc02_16o: input16,24 input23,24
+fb11,mc02_17o: input22,24 input49,24
+fb11,mc02_18o: input18,24 input42,24
+fb11,mc03_01o: input01,17 input50,17 input54,17
+fb11,mc03_02o: input02,17 input36,17
+fb11,mc03_03o: input19,17 input52,17
+fb11,mc03_04o: input04,17 input28,17
+fb11,mc03_05o: input25,17 input26,17
+fb11,mc03_06o: input27,17
+fb11,mc03_07o: input43,17
+fb11,mc03_08o: input08,17 input24,17 input35,17
+fb11,mc03_09o: input09,17
+fb11,mc03_10o: input10,17 input39,17
+fb11,mc03_11o: input29,17
+fb11,mc03_12o: input12,17 input23,17
+fb11,mc03_13o: input13,17 input48,17
+fb11,mc03_14o: input14,17 input30,17 input51,17
+fb11,mc03_15o: input33,17 input38,17
+fb11,mc03_16o: input16,17 input53,17
+fb11,mc03_17o: input42,17 input47,17
+fb11,mc03_18o: input18,17
+fb11,mc04_01o: input01,25
+fb11,mc04_02o: input02,25 input30,25
+fb11,mc04_03o: input45,25
+fb11,mc04_04o: input04,25
+fb11,mc04_05o: input43,25
+fb11,mc04_06o: input27,25
+fb11,mc04_07o: input52,25
+fb11,mc04_08o: input08,25 input38,25 input39,25
+fb11,mc04_09o: input09,25 input42,25
+fb11,mc04_10o: input10,25 input19,25 input25,25
+fb11,mc04_11o: input11,25 input54,25
+fb11,mc04_12o: input12,25 input24,25
+fb11,mc04_13o: input13,25 input49,25
+fb11,mc04_14o: input14,25 input26,25
+fb11,mc04_15o: input15,25 input35,25 input47,25
+fb11,mc04_16o: input16,25 input21,25 input23,25
+fb11,mc04_17o: input41,25 input48,25
+fb11,mc04_18o: input29,25
+fb11,mc05_01o: input01,18
+fb11,mc05_02o: input02,18 input52,18
+fb11,mc05_03o: input24,18
+fb11,mc05_04o: input43,18
+fb11,mc05_05o: input28,18 input41,18
+fb11,mc05_06o: input06,18 input20,18 input49,18
+fb11,mc05_07o: input07,18
+fb11,mc05_08o: input08,18 input33,18 input35,18
+fb11,mc05_09o: input39,18
+fb11,mc05_10o: input10,18 input25,18
+fb11,mc05_11o: input11,18 input26,18
+fb11,mc05_12o: input12,18 input30,18
+fb11,mc05_13o: input13,18
+fb11,mc05_14o: input14,18 input42,18
+fb11,mc05_15o: input22,18
+fb11,mc05_16o: input51,18
+fb11,mc05_17o: input29,18
+fb11,mc05_18o: input27,18
+fb11,mc06_01o: input33,26 input48,26
+fb11,mc06_02o: input02,26 input35,26
+fb11,mc06_03o: input24,26 input41,26
+fb11,mc06_04o: input04,26 input45,26
+fb11,mc06_05o: input05,26
+fb11,mc06_06o: input06,26 input51,26 input54,26
+fb11,mc06_07o: input07,26 input42,26
+fb11,mc06_08o: input08,26
+fb11,mc06_09o: input43,26
+fb11,mc06_10o: input10,26 input22,26 input49,26
+fb11,mc06_11o: input29,26
+fb11,mc06_12o: input12,26 input23,26 input26,26
+fb11,mc06_13o: input13,26 input25,26
+fb11,mc06_14o: input27,26
+fb11,mc06_15o: input15,26 input50,26
+fb11,mc06_16o: input16,26 input39,26 input52,26
+fb11,mc06_17o: input30,26
+fb11,mc06_18o: input18,26 input19,26
+fb11,mc07_01o: input19,19 input25,19
+fb11,mc07_02o: input02,19 input23,19
+fb11,mc07_03o: input52,19
+fb11,mc07_04o: input04,19 input21,19
+fb11,mc07_05o: input29,19
+fb11,mc07_06o: input27,19
+fb11,mc07_07o: input26,19 input33,19
+fb11,mc07_08o: input43,19
+fb11,mc07_09o: input09,19 input42,19
+fb11,mc07_10o: input10,19 input41,19 input48,19
+fb11,mc07_11o: input11,19 input24,19 input28,19
+fb11,mc07_12o: input12,19 input51,19
+fb11,mc07_13o: input13,19 input30,19
+fb11,mc07_14o: input14,19 input47,19
+fb11,mc07_15o: input15,19 input38,19 input49,19
+fb11,mc07_16o: input16,19 input39,19
+fb11,mc07_17o: input36,19
+fb11,mc07_18o: input18,19 input54,19
+fb11,mc08_01o: input01,27 input35,27 input51,27
+fb11,mc08_02o: input02,27 input38,27
+fb11,mc08_03o: input41,27
+fb11,mc08_04o: input04,27 input22,27 input28,27
+fb11,mc08_05o: input05,27
+fb11,mc08_06o: input06,27 input21,27 input42,27
+fb11,mc08_07o: input33,27
+fb11,mc08_08o: input29,27
+fb11,mc08_09o: input43,27
+fb11,mc08_10o: input10,27 input24,27 input39,27
+fb11,mc08_11o: input27,27
+fb11,mc08_12o: input12,27 input19,27
+fb11,mc08_13o: input13,27 input30,27
+fb11,mc08_14o: input14,27 input23,27
+fb11,mc08_15o: input25,27 input49,27
+fb11,mc08_16o: input16,27
+fb11,mc08_17o: input52,27
+fb11,mc08_18o: input18,27 input26,27 input47,27
+fb11,mc09_01o: input01,20 input28,20
+fb11,mc09_02o: input02,20 input30,20 input49,20
+fb11,mc09_03o: input34,20 input38,20
+fb11,mc09_04o: input04,20 input35,20
+fb11,mc09_05o: input27,20 input39,20
+fb11,mc09_06o: input29,20
+fb11,mc09_07o: input19,20 input52,20
+fb11,mc09_08o: input08,20 input25,20 input47,20
+fb11,mc09_09o: input09,20 input42,20 input54,20
+fb11,mc09_10o: input10,20 input41,20
+fb11,mc09_11o: input11,20 input51,20
+fb11,mc09_12o: input12,20
+fb11,mc09_13o: input13,20 input24,20
+fb11,mc09_14o: input14,20 input26,20
+fb11,mc09_15o: input43,20
+fb11,mc09_16o: input16,20
+fb11,mc09_17o: input48,20 input53,20
+fb11,mc09_18o: input18,20 input50,20
+fb11,mc10_01o: input01,28 input54,28
+fb11,mc10_02o: input02,28 input41,28
+fb11,mc10_03o: input52,28
+fb11,mc10_04o: input43,28
+fb11,mc10_05o: input51,28
+fb11,mc10_06o: input06,28 input25,28 input26,28
+fb11,mc10_07o: input07,28 input24,28 input28,28
+fb11,mc10_08o: input08,28 input30,28
+fb11,mc10_09o: input39,28 input48,28
+fb11,mc10_10o: input10,28
+fb11,mc10_11o: input33,28 input38,28
+fb11,mc10_12o: input12,28
+fb11,mc10_13o: input13,28
+fb11,mc10_14o: input14,28 input19,28 input50,28
+fb11,mc10_15o: input15,28 input47,28
+fb11,mc10_16o: input29,28
+fb11,mc10_17o: input36,28 input49,28
+fb11,mc10_18o: input27,28
+fb11,mc11_01o: input01,21 input23,21
+fb11,mc11_02o: input02,21 input52,21
+fb11,mc11_03o: input43,21 input49,21
+fb11,mc11_04o: input04,21 input22,21 input47,21
+fb11,mc11_05o: input29,21
+fb11,mc11_06o: input33,21
+fb11,mc11_07o: input07,21
+fb11,mc11_08o: input08,21 input19,21
+fb11,mc11_09o: input09,21
+fb11,mc11_10o: input10,21 input39,21 input48,21
+fb11,mc11_11o: input11,21 input42,21
+fb11,mc11_12o: input12,21 input24,21
+fb11,mc11_13o: input13,21 input28,21 input30,21
+fb11,mc11_14o: input14,21
+fb11,mc11_15o: input15,21 input21,21 input38,21
+fb11,mc11_16o: input16,21 input44,21 input54,21
+fb11,mc11_17o: input26,21
+fb11,mc11_18o: input18,21 input25,21 input27,21
+fb11,mc12_01o: input01,29
+fb11,mc12_02o: input02,29 input45,29 input47,29
+fb11,mc12_03o: input24,29
+fb11,mc12_04o: input04,29 input51,29
+fb11,mc12_05o: input05,29 input35,29
+fb11,mc12_06o: input30,29 input50,29
+fb11,mc12_07o: input07,29 input54,29
+fb11,mc12_08o: input29,29
+fb11,mc12_09o: input09,29 input48,29
+fb11,mc12_10o: input43,29
+fb11,mc12_11o: input11,29 input26,29
+fb11,mc12_12o: input12,29 input23,29
+fb11,mc12_13o: input13,29
+fb11,mc12_14o: input14,29 input19,29
+fb11,mc12_15o: input39,29 input52,29
+fb11,mc12_16o: input27,29
+fb11,mc12_17o: input38,29 input41,29
+fb11,mc12_18o: input18,29 input28,29
+fb11,mc13_01o: input25,22
+fb11,mc13_02o: input02,22 input19,22 input41,22
+fb11,mc13_03o: input30,22 input50,22
+fb11,mc13_04o: input04,22 input26,22
+fb11,mc13_05o: input33,22
+fb11,mc13_06o: input06,22 input36,22
+fb11,mc13_07o: input39,22 input43,22
+fb11,mc13_08o: input08,22 input21,22
+fb11,mc13_09o: input09,22 input51,22
+fb11,mc13_10o: input10,22 input35,22 input47,22
+fb11,mc13_11o: input11,22 input48,22
+fb11,mc13_12o: input12,22
+fb11,mc13_13o: input13,22 input23,22 input38,22
+fb11,mc13_14o: input14,22 input28,22 input52,22
+fb11,mc13_15o: input29,22
+fb11,mc13_16o: input16,22 input24,22
+fb11,mc13_17o: input27,22
+fb11,mc13_18o: input18,22 input54,22
+fb11,mc14_01o: input25,30
+fb11,mc14_02o: input02,30 input48,30 input53,30
+fb11,mc14_03o: input19,30 input30,30
+fb11,mc14_04o: input04,30 input28,30 input33,30
+fb11,mc14_05o: input05,30 input47,30
+fb11,mc14_06o: input35,30 input38,30
+fb11,mc14_07o: input07,30 input50,30
+fb11,mc14_08o: input08,30
+fb11,mc14_09o: input09,30 input51,30
+fb11,mc14_10o: input10,30 input26,30
+fb11,mc14_11o: input39,30
+fb11,mc14_12o: input12,30
+fb11,mc14_13o: input27,30
+fb11,mc14_14o: input14,30 input52,30
+fb11,mc14_15o: input23,30 input49,30
+fb11,mc14_16o: input43,30
+fb11,mc14_17o: input29,30
+fb11,mc14_18o: input18,30
+fb11,mc15_01o: input27,23
+fb11,mc15_02o: input02,23 input23,23 input47,23
+fb11,mc15_03o: input20,23
+fb11,mc15_04o: input39,23
+fb11,mc15_05o: input45,23
+fb11,mc15_06o: input06,23 input19,23 input41,23
+fb11,mc15_07o: input29,23
+fb11,mc15_08o: input08,23 input28,23 input51,23
+fb11,mc15_09o: input43,23
+fb11,mc15_10o: input10,23 input52,23
+fb11,mc15_11o: input11,23 input54,23
+fb11,mc15_12o: input12,23 input30,23
+fb11,mc15_13o: input13,23 input24,23 input42,23
+fb11,mc15_14o: input14,23 input26,23 input35,23
+fb11,mc15_15o: input36,23
+fb11,mc15_16o: input16,23 input33,23
+fb11,mc15_17o: input25,23
+fb11,mc15_18o: input18,23 input48,23
+fb11,mc16_01o: input01,31 input28,31
+fb11,mc16_02o: input02,31 input52,31
+fb11,mc16_03o: input03,31 input35,31
+fb11,mc16_04o: input04,31 input41,31
+fb11,mc16_05o: input26,31
+fb11,mc16_06o: input06,31 input39,31
+fb11,mc16_07o: input43,31
+fb11,mc16_08o: input08,31 input42,31 input51,31
+fb11,mc16_09o: input29,31
+fb11,mc16_10o: input10,31 input49,31
+fb11,mc16_11o: input11,31 input48,31 input54,31
+fb11,mc16_12o: input12,31
+fb11,mc16_13o: input13,31
+fb11,mc16_14o: input14,31 input19,31 input47,31
+fb11,mc16_15o: input45,31
+fb11,mc16_16o: input16,31
+fb11,mc16_17o: input27,31
+fb11,mc16_18o: input18,31 input30,31
 fb12,mc01_01i:
 fb12,mc01_02i: input12,6 input27,6 input43,6
 fb12,mc01_03i: input14,6 input21,6
@@ -3454,6 +6622,294 @@ fb12,mc16_15i: input08,5 input35,5
 fb12,mc16_16i:
 fb12,mc16_17i: input06,5 input21,5 input54,5
 fb12,mc16_18i:
+fb12,mc01_01o: input01,16 input48,16
+fb12,mc01_02o: input02,16 input39,16
+fb12,mc01_03o: input37,16 input45,16
+fb12,mc01_04o: input04,16 input52,16
+fb12,mc01_05o: input23,16
+fb12,mc01_06o: input06,16 input36,16
+fb12,mc01_07o: input07,16 input42,16
+fb12,mc01_08o: input08,16 input19,16 input38,16
+fb12,mc01_09o: input09,16 input24,16 input31,16
+fb12,mc01_10o: input10,16 input25,16
+fb12,mc01_11o: input27,16
+fb12,mc01_12o: input12,16 input22,16
+fb12,mc01_13o: input13,16 input49,16
+fb12,mc01_14o: input14,16 input43,16
+fb12,mc01_15o: input15,16 input26,16 input40,16
+fb12,mc01_16o: input16,16 input34,16
+fb12,mc01_17o: input17,16 input21,16
+fb12,mc01_18o: input29,16
+fb12,mc02_01o: input29,24
+fb12,mc02_02o: input02,24 input26,24
+fb12,mc02_03o: input27,24
+fb12,mc02_04o: input04,24 input54,24
+fb12,mc02_05o: input24,24 input34,24
+fb12,mc02_06o: input43,24
+fb12,mc02_07o: input07,24 input21,24
+fb12,mc02_08o: input08,24 input37,24 input45,24
+fb12,mc02_09o: input09,24 input48,24
+fb12,mc02_10o: input10,24 input40,24 input51,24
+fb12,mc02_11o: input11,24 input35,24 input38,24
+fb12,mc02_12o: input12,24
+fb12,mc02_13o: input13,24
+fb12,mc02_14o: input14,24 input33,24
+fb12,mc02_15o: input15,24 input39,24
+fb12,mc02_16o: input23,24 input36,24
+fb12,mc02_17o: input17,24 input22,24 input49,24
+fb12,mc02_18o: input18,24 input31,24 input42,24
+fb12,mc03_01o: input01,17 input54,17
+fb12,mc03_02o: input02,17 input36,17
+fb12,mc03_03o: input52,17
+fb12,mc03_04o: input04,17
+fb12,mc03_05o: input25,17
+fb12,mc03_06o: input27,17
+fb12,mc03_07o: input43,17
+fb12,mc03_08o: input08,17 input24,17 input35,17
+fb12,mc03_09o: input09,17 input34,17
+fb12,mc03_10o: input31,17 input39,17
+fb12,mc03_11o: input29,17
+fb12,mc03_12o: input12,17
+fb12,mc03_13o: input13,17 input48,17
+fb12,mc03_14o: input14,17
+fb12,mc03_15o: input15,17 input33,17 input38,17
+fb12,mc03_16o: input53,17
+fb12,mc03_17o: input17,17 input42,17
+fb12,mc03_18o: input18,17 input21,17
+fb12,mc04_01o: input01,25 input31,25
+fb12,mc04_02o: input02,25 input22,25 input30,25
+fb12,mc04_03o: input34,25 input45,25
+fb12,mc04_04o: input04,25
+fb12,mc04_05o: input43,25
+fb12,mc04_06o: input27,25
+fb12,mc04_07o: input52,25
+fb12,mc04_08o: input08,25 input38,25 input39,25
+fb12,mc04_09o: input09,25 input42,25 input46,25
+fb12,mc04_10o: input10,25 input25,25
+fb12,mc04_11o: input11,25 input36,25 input54,25
+fb12,mc04_12o: input12,25 input24,25
+fb12,mc04_13o: input13,25 input49,25
+fb12,mc04_14o: input14,25
+fb12,mc04_15o: input15,25 input35,25 input47,25
+fb12,mc04_16o: input21,25
+fb12,mc04_17o: input17,25 input41,25 input48,25
+fb12,mc04_18o: input29,25
+fb12,mc05_01o: input01,18 input21,18
+fb12,mc05_02o: input02,18 input40,18 input52,18
+fb12,mc05_03o: input24,18 input34,18
+fb12,mc05_04o: input43,18
+fb12,mc05_05o: input41,18
+fb12,mc05_06o: input06,18 input20,18 input49,18
+fb12,mc05_07o: input07,18 input31,18 input36,18
+fb12,mc05_08o: input08,18 input33,18 input35,18
+fb12,mc05_09o: input09,18 input39,18
+fb12,mc05_10o: input10,18 input25,18 input37,18
+fb12,mc05_11o: input11,18
+fb12,mc05_12o: input12,18
+fb12,mc05_13o: input13,18
+fb12,mc05_14o: input14,18 input42,18 input46,18
+fb12,mc05_15o: input15,18 input22,18
+fb12,mc05_16o: input51,18
+fb12,mc05_17o: input29,18
+fb12,mc05_18o: input27,18
+fb12,mc06_01o: input33,26 input48,26
+fb12,mc06_02o: input02,26 input35,26
+fb12,mc06_03o: input24,26 input41,26
+fb12,mc06_04o: input04,26 input45,26
+fb12,mc06_05o: input05,26
+fb12,mc06_06o: input06,26 input51,26 input54,26
+fb12,mc06_07o: input07,26 input40,26 input42,26
+fb12,mc06_08o: input08,26 input31,26
+fb12,mc06_09o: input43,26
+fb12,mc06_10o: input10,26 input22,26 input49,26
+fb12,mc06_11o: input29,26
+fb12,mc06_12o: input12,26
+fb12,mc06_13o: input13,26
+fb12,mc06_14o: input27,26
+fb12,mc06_15o: input15,26 input37,26
+fb12,mc06_16o: input39,26 input52,26
+fb12,mc06_17o: input17,26 input30,26 input46,26
+fb12,mc06_18o: input18,26 input36,26
+fb12,mc07_01o: input25,19
+fb12,mc07_02o: input02,19 input23,19
+fb12,mc07_03o: input31,19 input52,19
+fb12,mc07_04o: input04,19 input21,19 input34,19
+fb12,mc07_05o: input29,19
+fb12,mc07_06o: input27,19
+fb12,mc07_07o: input33,19
+fb12,mc07_08o: input43,19
+fb12,mc07_09o: input09,19 input42,19
+fb12,mc07_10o: input10,19 input41,19 input48,19
+fb12,mc07_11o: input11,19 input24,19
+fb12,mc07_12o: input12,19
+fb12,mc07_13o: input13,19
+fb12,mc07_14o: input14,19 input47,19
+fb12,mc07_15o: input15,19 input38,19 input49,19
+fb12,mc07_16o: input37,19 input39,19
+fb12,mc07_17o: input17,19 input36,19
+fb12,mc07_18o: input18,19 input46,19 input54,19
+fb12,mc08_01o: input01,27 input35,27
+fb12,mc08_02o: input02,27 input34,27 input38,27
+fb12,mc08_03o: input41,27 input46,27
+fb12,mc08_04o: input04,27 input22,27
+fb12,mc08_05o: input05,27 input37,27
+fb12,mc08_06o: input06,27 input21,27 input42,27
+fb12,mc08_07o: input33,27 input36,27
+fb12,mc08_08o: input29,27
+fb12,mc08_09o: input43,27
+fb12,mc08_10o: input24,27 input39,27
+fb12,mc08_11o: input27,27
+fb12,mc08_12o: input12,27
+fb12,mc08_13o: input13,27
+fb12,mc08_14o: input14,27
+fb12,mc08_15o: input15,27 input25,27 input49,27
+fb12,mc08_16o: input16,27 input31,27 input40,27
+fb12,mc08_17o: input52,27
+fb12,mc08_18o: input18,27 input47,27
+fb12,mc09_01o: input01,20 input21,20
+fb12,mc09_02o: input02,20 input30,20 input49,20
+fb12,mc09_03o: input34,20 input38,20
+fb12,mc09_04o: input04,20 input35,20 input46,20
+fb12,mc09_05o: input27,20 input39,20
+fb12,mc09_06o: input29,20
+fb12,mc09_07o: input52,20
+fb12,mc09_08o: input08,20 input25,20 input47,20
+fb12,mc09_09o: input09,20 input42,20 input54,20
+fb12,mc09_10o: input10,20 input41,20
+fb12,mc09_11o: input11,20 input37,20
+fb12,mc09_12o: input12,20
+fb12,mc09_13o: input13,20 input24,20
+fb12,mc09_14o: input14,20
+fb12,mc09_15o: input43,20
+fb12,mc09_16o: input16,20 input31,20
+fb12,mc09_17o: input17,20 input48,20 input53,20
+fb12,mc09_18o: input18,20 input22,20
+fb12,mc10_01o: input01,28 input37,28 input54,28
+fb12,mc10_02o: input02,28 input40,28 input41,28
+fb12,mc10_03o: input21,28 input52,28
+fb12,mc10_04o: input43,28
+fb12,mc10_05o: input51,28
+fb12,mc10_06o: input06,28 input25,28
+fb12,mc10_07o: input07,28 input24,28
+fb12,mc10_08o: input08,28 input22,28 input30,28
+fb12,mc10_09o: input09,28 input39,28 input48,28
+fb12,mc10_10o: input10,28 input31,28
+fb12,mc10_11o: input11,28 input33,28 input38,28
+fb12,mc10_12o: input12,28
+fb12,mc10_13o: input13,28
+fb12,mc10_14o: input14,28
+fb12,mc10_15o: input15,28 input46,28 input47,28
+fb12,mc10_16o: input29,28
+fb12,mc10_17o: input17,28 input36,28 input49,28
+fb12,mc10_18o: input27,28
+fb12,mc11_01o: input01,21 input31,21
+fb12,mc11_02o: input02,21 input36,21 input52,21
+fb12,mc11_03o: input43,21
+fb12,mc11_04o: input04,21 input22,21 input47,21
+fb12,mc11_05o: input29,21
+fb12,mc11_06o: input06,21 input33,21
+fb12,mc11_07o: input07,21 input46,21
+fb12,mc11_08o: input08,21 input19,21
+fb12,mc11_09o: input09,21 input37,21
+fb12,mc11_10o: input39,21 input48,21
+fb12,mc11_11o: input11,21
+fb12,mc11_12o: input12,21 input24,21
+fb12,mc11_13o: input13,21
+fb12,mc11_14o: input14,21 input34,21
+fb12,mc11_15o: input15,21 input21,21 input38,21
+fb12,mc11_16o: input16,21 input54,21
+fb12,mc11_17o: input17,21 input26,21 input40,21
+fb12,mc11_18o: input27,21
+fb12,mc12_01o: input01,29 input21,29 input40,29
+fb12,mc12_02o: input02,29 input45,29 input47,29
+fb12,mc12_03o: input24,29 input37,29
+fb12,mc12_04o: input04,29 input51,29
+fb12,mc12_05o: input05,29 input31,29 input35,29
+fb12,mc12_06o: input06,29 input30,29
+fb12,mc12_07o: input07,29 input22,29 input54,29
+fb12,mc12_08o: input29,29
+fb12,mc12_09o: input09,29 input36,29 input48,29
+fb12,mc12_10o: input10,29 input43,29
+fb12,mc12_11o: input11,29 input26,29 input53,29
+fb12,mc12_12o: input12,29
+fb12,mc12_13o: input13,29 input33,29
+fb12,mc12_14o: input14,29 input19,29
+fb12,mc12_15o: input15,29 input39,29 input52,29
+fb12,mc12_16o: input27,29 input42,29
+fb12,mc12_17o: input17,29 input38,29 input41,29
+fb12,mc12_18o: input18,29 input28,29 input46,29
+fb12,mc13_01o: input25,22 input34,22
+fb12,mc13_02o: input02,22 input41,22
+fb12,mc13_03o: input30,22
+fb12,mc13_04o: input04,22 input26,22 input37,22
+fb12,mc13_05o: input31,22 input33,22
+fb12,mc13_06o: input06,22 input36,22 input40,22
+fb12,mc13_07o: input39,22 input43,22
+fb12,mc13_08o: input08,22 input21,22
+fb12,mc13_09o: input09,22
+fb12,mc13_10o: input10,22 input35,22 input47,22
+fb12,mc13_11o: input11,22 input48,22
+fb12,mc13_12o: input12,22
+fb12,mc13_13o: input13,22 input38,22
+fb12,mc13_14o: input14,22 input52,22
+fb12,mc13_15o: input29,22
+fb12,mc13_16o: input16,22 input24,22
+fb12,mc13_17o: input27,22
+fb12,mc13_18o: input18,22 input22,22 input54,22
+fb12,mc14_01o: input25,30 input42,30
+fb12,mc14_02o: input02,30 input48,30 input53,30
+fb12,mc14_03o: input30,30
+fb12,mc14_04o: input04,30 input33,30
+fb12,mc14_05o: input05,30 input37,30 input47,30
+fb12,mc14_06o: input06,30 input35,30 input38,30
+fb12,mc14_07o: input07,30
+fb12,mc14_08o: input08,30 input34,30
+fb12,mc14_09o: input09,30 input31,30
+fb12,mc14_10o: input10,30 input26,30 input36,30
+fb12,mc14_11o: input11,30 input22,30 input39,30
+fb12,mc14_12o: input12,30
+fb12,mc14_13o: input13,30 input27,30
+fb12,mc14_14o: input14,30 input52,30
+fb12,mc14_15o: input15,30 input23,30 input49,30
+fb12,mc14_16o: input43,30
+fb12,mc14_17o: input29,30
+fb12,mc14_18o: input18,30 input21,30
+fb12,mc15_01o: input27,23
+fb12,mc15_02o: input02,23 input23,23 input47,23
+fb12,mc15_03o: input20,23 input46,23
+fb12,mc15_04o: input04,23 input39,23
+fb12,mc15_05o: input31,23 input45,23
+fb12,mc15_06o: input06,23 input41,23
+fb12,mc15_07o: input29,23
+fb12,mc15_08o: input08,23 input51,23
+fb12,mc15_09o: input43,23
+fb12,mc15_10o: input10,23 input22,23 input52,23
+fb12,mc15_11o: input11,23 input40,23 input54,23
+fb12,mc15_12o: input12,23
+fb12,mc15_13o: input13,23 input24,23 input42,23
+fb12,mc15_14o: input14,23 input35,23
+fb12,mc15_15o: input15,23 input36,23
+fb12,mc15_16o: input33,23
+fb12,mc15_17o: input17,23 input21,23 input25,23
+fb12,mc15_18o: input18,23 input37,23 input48,23
+fb12,mc16_01o: input01,31
+fb12,mc16_02o: input02,31 input22,31 input52,31
+fb12,mc16_03o: input03,31 input35,31 input37,31
+fb12,mc16_04o: input04,31 input41,31 input46,31
+fb12,mc16_05o: input26,31 input36,31
+fb12,mc16_06o: input06,31 input39,31
+fb12,mc16_07o: input43,31
+fb12,mc16_08o: input08,31 input42,31
+fb12,mc16_09o: input29,31
+fb12,mc16_10o: input10,31 input34,31 input49,31
+fb12,mc16_11o: input11,31 input48,31 input54,31
+fb12,mc16_12o: input12,31
+fb12,mc16_13o: input13,31 input21,31
+fb12,mc16_14o: input14,31 input47,31
+fb12,mc16_15o: input15,31 input45,31
+fb12,mc16_16o: input16,31 input31,31 input40,31
+fb12,mc16_17o: input27,31
+fb12,mc16_18o: input18,31
 fb13,mc01_01i:
 fb13,mc01_02i: input12,6 input27,6
 fb13,mc01_03i: input14,6
@@ -3742,6 +7198,294 @@ fb13,mc16_15i: input08,5 input35,5
 fb13,mc16_16i:
 fb13,mc16_17i: input06,5 input21,5 input54,5
 fb13,mc16_18i:
+fb13,mc01_01o: input01,16 input48,16 input51,16
+fb13,mc01_02o: input02,16 input32,16 input39,16
+fb13,mc01_03o: input45,16
+fb13,mc01_04o: input04,16 input52,16
+fb13,mc01_05o: input23,16
+fb13,mc01_06o: input06,16 input36,16
+fb13,mc01_07o: input07,16 input53,16
+fb13,mc01_08o: input08,16 input19,16
+fb13,mc01_09o: input09,16 input31,16
+fb13,mc01_10o: input10,16 input25,16
+fb13,mc01_11o: input27,16
+fb13,mc01_12o: input12,16 input22,16
+fb13,mc01_13o: input13,16 input33,16 input49,16
+fb13,mc01_14o: input14,16 input43,16
+fb13,mc01_15o: input26,16
+fb13,mc01_16o: input16,16 input20,16
+fb13,mc01_17o: input21,16 input30,16
+fb13,mc01_18o: input29,16
+fb13,mc02_01o: input29,24
+fb13,mc02_02o: input02,24 input26,24 input53,24
+fb13,mc02_03o: input25,24 input27,24
+fb13,mc02_04o: input04,24 input54,24
+fb13,mc02_05o: input24,24
+fb13,mc02_06o: input43,24
+fb13,mc02_07o: input07,24 input20,24
+fb13,mc02_08o: input08,24 input45,24
+fb13,mc02_09o: input09,24 input48,24
+fb13,mc02_10o: input51,24
+fb13,mc02_11o: input11,24 input35,24
+fb13,mc02_12o: input12,24
+fb13,mc02_13o: input13,24
+fb13,mc02_14o: input14,24 input33,24
+fb13,mc02_15o: input19,24 input39,24
+fb13,mc02_16o: input23,24 input36,24
+fb13,mc02_17o: input22,24 input49,24
+fb13,mc02_18o: input18,24 input31,24
+fb13,mc03_01o: input01,17 input54,17
+fb13,mc03_02o: input02,17 input36,17 input45,17
+fb13,mc03_03o: input19,17 input52,17
+fb13,mc03_04o: input04,17
+fb13,mc03_05o: input25,17 input26,17
+fb13,mc03_06o: input27,17
+fb13,mc03_07o: input43,17
+fb13,mc03_08o: input08,17 input24,17 input35,17
+fb13,mc03_09o: input09,17 input22,17
+fb13,mc03_10o: input31,17 input39,17
+fb13,mc03_11o: input29,17
+fb13,mc03_12o: input12,17 input23,17
+fb13,mc03_13o: input13,17 input48,17
+fb13,mc03_14o: input14,17 input51,17
+fb13,mc03_15o: input33,17
+fb13,mc03_16o: input16,17 input32,17 input53,17
+fb13,mc03_17o: input42,17
+fb13,mc03_18o: input18,17
+fb13,mc04_01o: input01,25 input31,25
+fb13,mc04_02o: input02,25 input30,25
+fb13,mc04_03o: input45,25
+fb13,mc04_04o: input04,25
+fb13,mc04_05o: input33,25 input43,25
+fb13,mc04_06o: input27,25
+fb13,mc04_07o: input52,25
+fb13,mc04_08o: input08,25 input39,25
+fb13,mc04_09o: input09,25
+fb13,mc04_10o: input10,25 input19,25 input25,25
+fb13,mc04_11o: input11,25 input36,25 input54,25
+fb13,mc04_12o: input12,25
+fb13,mc04_13o: input13,25 input20,25 input49,25
+fb13,mc04_14o: input14,25 input53,25
+fb13,mc04_15o: input15,25 input35,25
+fb13,mc04_16o: input16,25 input21,25 input23,25
+fb13,mc04_17o: input41,25 input48,25
+fb13,mc04_18o: input29,25
+fb13,mc05_01o: input01,18 input53,18
+fb13,mc05_02o: input02,18 input52,18
+fb13,mc05_03o: input24,18
+fb13,mc05_04o: input43,18
+fb13,mc05_05o: input41,18
+fb13,mc05_06o: input06,18 input20,18 input49,18
+fb13,mc05_07o: input07,18 input31,18 input36,18
+fb13,mc05_08o: input33,18 input35,18
+fb13,mc05_09o: input23,18 input39,18
+fb13,mc05_10o: input10,18 input25,18
+fb13,mc05_11o: input11,18 input26,18 input45,18
+fb13,mc05_12o: input12,18 input30,18
+fb13,mc05_13o: input13,18
+fb13,mc05_14o: input14,18
+fb13,mc05_15o: input22,18 input32,18
+fb13,mc05_16o: input16,18 input51,18
+fb13,mc05_17o: input29,18
+fb13,mc05_18o: input27,18
+fb13,mc06_01o: input33,26 input48,26
+fb13,mc06_02o: input02,26 input35,26
+fb13,mc06_03o: input41,26
+fb13,mc06_04o: input04,26 input45,26 input53,26
+fb13,mc06_05o: input05,26 input20,26 input32,26
+fb13,mc06_06o: input06,26 input51,26 input54,26
+fb13,mc06_07o: input07,26
+fb13,mc06_08o: input08,26 input31,26
+fb13,mc06_09o: input43,26
+fb13,mc06_10o: input10,26 input22,26 input49,26
+fb13,mc06_11o: input29,26
+fb13,mc06_12o: input12,26 input23,26 input26,26
+fb13,mc06_13o: input13,26 input25,26
+fb13,mc06_14o: input27,26
+fb13,mc06_15o: input15,26
+fb13,mc06_16o: input16,26 input39,26 input52,26
+fb13,mc06_17o: input30,26
+fb13,mc06_18o: input18,26 input19,26 input36,26
+fb13,mc07_01o: input19,19 input25,19
+fb13,mc07_02o: input02,19 input23,19 input45,19
+fb13,mc07_03o: input31,19 input52,19
+fb13,mc07_04o: input04,19 input21,19
+fb13,mc07_05o: input29,19
+fb13,mc07_06o: input27,19
+fb13,mc07_07o: input26,19 input33,19
+fb13,mc07_08o: input43,19
+fb13,mc07_09o: input09,19 input20,19
+fb13,mc07_10o: input10,19 input41,19 input48,19
+fb13,mc07_11o: input11,19
+fb13,mc07_12o: input12,19 input51,19 input53,19
+fb13,mc07_13o: input13,19 input30,19
+fb13,mc07_14o: input14,19
+fb13,mc07_15o: input15,19 input49,19
+fb13,mc07_16o: input16,19 input39,19
+fb13,mc07_17o: input32,19 input36,19
+fb13,mc07_18o: input18,19
+fb13,mc08_01o: input01,27 input35,27 input51,27
+fb13,mc08_02o: input02,27
+fb13,mc08_03o: input41,27
+fb13,mc08_04o: input04,27 input22,27
+fb13,mc08_05o: input05,27 input32,27
+fb13,mc08_06o: input06,27 input21,27
+fb13,mc08_07o: input33,27 input36,27
+fb13,mc08_08o: input29,27
+fb13,mc08_09o: input43,27
+fb13,mc08_10o: input39,27
+fb13,mc08_11o: input27,27
+fb13,mc08_12o: input12,27 input19,27
+fb13,mc08_13o: input13,27 input30,27
+fb13,mc08_14o: input14,27 input23,27 input45,27
+fb13,mc08_15o: input25,27 input49,27
+fb13,mc08_16o: input16,27 input31,27
+fb13,mc08_17o: input20,27 input52,27
+fb13,mc08_18o: input18,27 input26,27
+fb13,mc09_01o: input01,20
+fb13,mc09_02o: input02,20 input30,20 input49,20
+fb13,mc09_03o: input34,20
+fb13,mc09_04o: input04,20 input35,20
+fb13,mc09_05o: input27,20 input39,20
+fb13,mc09_06o: input29,20
+fb13,mc09_07o: input19,20 input52,20
+fb13,mc09_08o: input25,20
+fb13,mc09_09o: input09,20 input54,20
+fb13,mc09_10o: input10,20 input32,20 input41,20
+fb13,mc09_11o: input11,20 input51,20
+fb13,mc09_12o: input12,20 input36,20
+fb13,mc09_13o: input13,20 input33,20
+fb13,mc09_14o: input14,20
+fb13,mc09_15o: input43,20
+fb13,mc09_16o: input16,20 input20,20
+fb13,mc09_17o: input48,20 input53,20
+fb13,mc09_18o: input18,20 input22,20
+fb13,mc10_01o: input01,28 input54,28
+fb13,mc10_02o: input02,28 input41,28
+fb13,mc10_03o: input52,28
+fb13,mc10_04o: input43,28
+fb13,mc10_05o: input32,28 input51,28
+fb13,mc10_06o: input06,28 input25,28 input26,28
+fb13,mc10_07o: input07,28
+fb13,mc10_08o: input08,28 input22,28 input30,28
+fb13,mc10_09o: input39,28 input48,28
+fb13,mc10_10o: input10,28 input20,28
+fb13,mc10_11o: input33,28
+fb13,mc10_12o: input12,28 input53,28
+fb13,mc10_13o: input13,28 input45,28
+fb13,mc10_14o: input14,28 input19,28
+fb13,mc10_15o: input15,28
+fb13,mc10_16o: input29,28
+fb13,mc10_17o: input36,28 input49,28
+fb13,mc10_18o: input27,28
+fb13,mc11_01o: input01,21 input23,21 input31,21
+fb13,mc11_02o: input02,21 input36,21 input52,21
+fb13,mc11_03o: input43,21
+fb13,mc11_04o: input04,21 input22,21
+fb13,mc11_05o: input29,21
+fb13,mc11_06o: input06,21 input33,21 input45,21
+fb13,mc11_07o: input07,21
+fb13,mc11_08o: input08,21 input19,21
+fb13,mc11_09o: input09,21 input53,21
+fb13,mc11_10o: input39,21 input48,21
+fb13,mc11_11o: input11,21 input20,21
+fb13,mc11_12o: input12,21
+fb13,mc11_13o: input13,21 input30,21
+fb13,mc11_14o: input14,21 input32,21
+fb13,mc11_15o: input21,21
+fb13,mc11_16o: input16,21 input54,21
+fb13,mc11_17o: input26,21
+fb13,mc11_18o: input25,21 input27,21
+fb13,mc12_01o: input01,29
+fb13,mc12_02o: input02,29 input45,29
+fb13,mc12_03o: input24,29
+fb13,mc12_04o: input04,29 input20,29 input51,29
+fb13,mc12_05o: input05,29 input31,29 input35,29
+fb13,mc12_06o: input06,29 input30,29
+fb13,mc12_07o: input07,29 input22,29 input54,29
+fb13,mc12_08o: input29,29
+fb13,mc12_09o: input09,29 input36,29 input48,29
+fb13,mc12_10o: input43,29
+fb13,mc12_11o: input11,29 input26,29 input53,29
+fb13,mc12_12o: input12,29 input23,29
+fb13,mc12_13o: input13,29 input33,29
+fb13,mc12_14o: input14,29 input19,29 input32,29
+fb13,mc12_15o: input39,29 input52,29
+fb13,mc12_16o: input27,29
+fb13,mc12_17o: input41,29
+fb13,mc12_18o: input18,29
+fb13,mc13_01o: input01,22 input25,22
+fb13,mc13_02o: input02,22 input41,22
+fb13,mc13_03o: input30,22
+fb13,mc13_04o: input04,22 input26,22
+fb13,mc13_05o: input31,22 input33,22
+fb13,mc13_06o: input06,22 input36,22 input40,22
+fb13,mc13_07o: input39,22 input43,22
+fb13,mc13_08o: input08,22 input21,22 input53,22
+fb13,mc13_09o: input09,22 input45,22 input51,22
+fb13,mc13_10o: input10,22
+fb13,mc13_11o: input11,22 input32,22 input48,22
+fb13,mc13_12o: input12,22
+fb13,mc13_13o: input13,22 input23,22
+fb13,mc13_14o: input52,22
+fb13,mc13_15o: input29,22
+fb13,mc13_16o: input16,22 input24,22
+fb13,mc13_17o: input17,22 input27,22
+fb13,mc13_18o: input18,22 input22,22
+fb13,mc14_01o: input25,30
+fb13,mc14_02o: input02,30 input48,30 input53,30
+fb13,mc14_03o: input19,30 input30,30
+fb13,mc14_04o: input04,30 input33,30
+fb13,mc14_05o: input05,30
+fb13,mc14_06o: input06,30 input35,30 input38,30
+fb13,mc14_07o: input07,30 input45,30
+fb13,mc14_08o: input08,30 input20,30
+fb13,mc14_09o: input09,30 input31,30 input51,30
+fb13,mc14_10o: input10,30 input26,30 input36,30
+fb13,mc14_11o: input22,30 input39,30
+fb13,mc14_12o: input12,30
+fb13,mc14_13o: input27,30
+fb13,mc14_14o: input14,30 input52,30
+fb13,mc14_15o: input23,30 input49,30
+fb13,mc14_16o: input43,30
+fb13,mc14_17o: input29,30
+fb13,mc14_18o: input18,30
+fb13,mc15_01o: input27,23
+fb13,mc15_02o: input02,23 input23,23
+fb13,mc15_03o: input20,23
+fb13,mc15_04o: input04,23 input39,23
+fb13,mc15_05o: input31,23 input45,23
+fb13,mc15_06o: input06,23 input19,23 input41,23
+fb13,mc15_07o: input29,23
+fb13,mc15_08o: input08,23 input51,23
+fb13,mc15_09o: input43,23
+fb13,mc15_10o: input10,23 input22,23 input52,23
+fb13,mc15_11o: input11,23 input54,23
+fb13,mc15_12o: input12,23 input30,23
+fb13,mc15_13o: input13,23
+fb13,mc15_14o: input14,23 input35,23
+fb13,mc15_15o: input36,23
+fb13,mc15_16o: input16,23 input33,23 input53,23
+fb13,mc15_17o: input25,23
+fb13,mc15_18o: input18,23 input48,23
+fb13,mc16_01o: input01,31
+fb13,mc16_02o: input02,31 input52,31
+fb13,mc16_03o: input03,31 input35,31
+fb13,mc16_04o: input04,31 input41,31
+fb13,mc16_05o: input26,31 input36,31
+fb13,mc16_06o: input06,31 input23,31 input39,31
+fb13,mc16_07o: input43,31
+fb13,mc16_08o: input08,31 input42,31 input51,31
+fb13,mc16_09o: input29,31
+fb13,mc16_10o: input10,31 input49,31
+fb13,mc16_11o: input11,31 input48,31
+fb13,mc16_12o: input12,31 input25,31
+fb13,mc16_13o: input13,31 input20,31
+fb13,mc16_14o: input14,31 input19,31
+fb13,mc16_15o: input45,31 input53,31
+fb13,mc16_16o: input16,31 input31,31
+fb13,mc16_17o: input27,31
+fb13,mc16_18o: input18,31 input30,31 input32,31
 fb14,mc01_01i:
 fb14,mc01_02i: input27,6 input43,6
 fb14,mc01_03i: input14,6 input21,6
@@ -4030,6 +7774,294 @@ fb14,mc16_15i: input08,5 input50,5
 fb14,mc16_16i:
 fb14,mc16_17i: input21,5 input54,5
 fb14,mc16_18i:
+fb14,mc01_01o: input01,16
+fb14,mc01_02o: input02,16 input32,16 input39,16
+fb14,mc01_03o: input03,16 input45,16
+fb14,mc01_04o: input04,16 input52,16
+fb14,mc01_05o: input05,16 input23,16 input44,16
+fb14,mc01_06o: input36,16 input46,16
+fb14,mc01_07o: input07,16 input42,16 input53,16
+fb14,mc01_08o: input19,16 input38,16
+fb14,mc01_09o: input09,16 input24,16
+fb14,mc01_10o: input25,16 input50,16
+fb14,mc01_11o: input27,16
+fb14,mc01_12o: input12,16 input22,16
+fb14,mc01_13o: input13,16
+fb14,mc01_14o: input43,16
+fb14,mc01_15o: input15,16 input26,16
+fb14,mc01_16o: input16,16
+fb14,mc01_17o: input17,16 input21,16
+fb14,mc01_18o: input29,16
+fb14,mc02_01o: input29,24
+fb14,mc02_02o: input02,24 input26,24 input53,24
+fb14,mc02_03o: input25,24 input27,24
+fb14,mc02_04o: input04,24 input54,24
+fb14,mc02_05o: input05,24 input24,24
+fb14,mc02_06o: input43,24
+fb14,mc02_07o: input07,24 input21,24
+fb14,mc02_08o: input45,24
+fb14,mc02_09o: input09,24 input44,24
+fb14,mc02_10o: input51,24
+fb14,mc02_11o: input11,24 input38,24
+fb14,mc02_12o: input12,24
+fb14,mc02_13o: input13,24
+fb14,mc02_14o: input33,24
+fb14,mc02_15o: input15,24 input19,24 input39,24
+fb14,mc02_16o: input16,24 input23,24 input36,24
+fb14,mc02_17o: input17,24 input22,24
+fb14,mc02_18o: input18,24 input42,24
+fb14,mc03_01o: input01,17 input50,17 input54,17
+fb14,mc03_02o: input36,17 input45,17
+fb14,mc03_03o: input19,17 input52,17
+fb14,mc03_04o: input04,17
+fb14,mc03_05o: input05,17 input25,17
+fb14,mc03_06o: input27,17
+fb14,mc03_07o: input07,17 input43,17
+fb14,mc03_08o: input24,17
+fb14,mc03_09o: input09,17
+fb14,mc03_10o: input39,17
+fb14,mc03_11o: input29,17
+fb14,mc03_12o: input12,17 input23,17
+fb14,mc03_13o: input13,17
+fb14,mc03_14o: input14,17
+fb14,mc03_15o: input15,17 input33,17 input38,17
+fb14,mc03_16o: input16,17 input32,17 input53,17
+fb14,mc03_17o: input17,17 input42,17 input47,17
+fb14,mc03_18o: input18,17 input21,17 input41,17
+fb14,mc04_01o: input01,25 input44,25
+fb14,mc04_02o: input02,25 input22,25 input30,25
+fb14,mc04_03o: input03,25 input45,25
+fb14,mc04_04o: input04,25 input32,25
+fb14,mc04_05o: input43,25
+fb14,mc04_06o: input27,25
+fb14,mc04_07o: input07,25 input52,25
+fb14,mc04_08o: input38,25 input39,25
+fb14,mc04_09o: input09,25 input42,25 input46,25
+fb14,mc04_10o: input19,25 input25,25
+fb14,mc04_11o: input11,25 input36,25 input54,25
+fb14,mc04_12o: input12,25 input24,25
+fb14,mc04_13o: input13,25
+fb14,mc04_14o: input14,25 input53,25
+fb14,mc04_15o: input15,25 input47,25
+fb14,mc04_16o: input16,25 input21,25 input23,25
+fb14,mc04_17o: input17,25 input41,25
+fb14,mc04_18o: input29,25
+fb14,mc05_01o: input01,18 input21,18 input53,18
+fb14,mc05_02o: input02,18 input52,18
+fb14,mc05_03o: input03,18 input24,18
+fb14,mc05_04o: input43,18
+fb14,mc05_05o: input05,18 input41,18
+fb14,mc05_06o: input20,18
+fb14,mc05_07o: input07,18 input36,18
+fb14,mc05_08o: input33,18
+fb14,mc05_09o: input09,18 input23,18 input39,18
+fb14,mc05_10o: input25,18
+fb14,mc05_11o: input11,18 input45,18
+fb14,mc05_12o: input12,18
+fb14,mc05_13o: input13,18
+fb14,mc05_14o: input14,18 input42,18 input46,18
+fb14,mc05_15o: input15,18 input22,18 input32,18
+fb14,mc05_16o: input16,18 input44,18 input51,18
+fb14,mc05_17o: input29,18
+fb14,mc05_18o: input27,18
+fb14,mc06_01o: input01,26 input33,26
+fb14,mc06_02o: input02,26
+fb14,mc06_03o: input24,26 input41,26
+fb14,mc06_04o: input04,26 input45,26 input53,26
+fb14,mc06_05o: input05,26 input32,26
+fb14,mc06_06o: input51,26 input54,26
+fb14,mc06_07o: input07,26 input42,26
+fb14,mc06_08o: input08,26 input44,26
+fb14,mc06_09o: input09,26 input43,26
+fb14,mc06_10o: input22,26
+fb14,mc06_11o: input29,26
+fb14,mc06_12o: input12,26 input23,26
+fb14,mc06_13o: input13,26 input25,26
+fb14,mc06_14o: input27,26
+fb14,mc06_15o: input15,26 input50,26
+fb14,mc06_16o: input16,26 input39,26 input52,26
+fb14,mc06_17o: input17,26 input30,26 input46,26
+fb14,mc06_18o: input18,26 input19,26 input36,26
+fb14,mc07_01o: input01,19 input19,19 input25,19
+fb14,mc07_02o: input23,19 input45,19
+fb14,mc07_03o: input52,19
+fb14,mc07_04o: input04,19 input21,19
+fb14,mc07_05o: input29,19
+fb14,mc07_06o: input27,19
+fb14,mc07_07o: input07,19 input33,19
+fb14,mc07_08o: input43,19
+fb14,mc07_09o: input09,19 input42,19
+fb14,mc07_10o: input41,19
+fb14,mc07_11o: input11,19 input24,19
+fb14,mc07_12o: input12,19
+fb14,mc07_13o: input13,19 input44,19
+fb14,mc07_14o: input14,19 input47,19 input50,19
+fb14,mc07_15o: input15,19 input38,19
+fb14,mc07_16o: input16,19 input39,19
+fb14,mc07_17o: input17,19 input32,19 input36,19
+fb14,mc07_18o: input18,19 input46,19 input54,19
+fb14,mc08_01o: input01,27
+fb14,mc08_02o: input02,27 input38,27
+fb14,mc08_03o: input41,27 input46,27
+fb14,mc08_04o: input04,27 input22,27
+fb14,mc08_05o: input05,27 input32,27
+fb14,mc08_06o: input21,27 input42,27
+fb14,mc08_07o: input07,27 input33,27 input36,27
+fb14,mc08_08o: input29,27
+fb14,mc08_09o: input09,27 input43,27
+fb14,mc08_10o: input24,27 input39,27
+fb14,mc08_11o: input27,27
+fb14,mc08_12o: input12,27 input19,27
+fb14,mc08_13o: input13,27 input44,27
+fb14,mc08_14o: input14,27 input23,27 input45,27
+fb14,mc08_15o: input15,27 input25,27
+fb14,mc08_16o: input16,27
+fb14,mc08_17o: input52,27
+fb14,mc08_18o: input18,27 input47,27
+fb14,mc09_01o: input01,20 input21,20
+fb14,mc09_02o: input02,20 input30,20
+fb14,mc09_03o: input03,20 input34,20 input38,20
+fb14,mc09_04o: input04,20 input46,20
+fb14,mc09_05o: input27,20
+fb14,mc09_06o: input29,20
+fb14,mc09_07o: input07,20 input19,20 input52,20
+fb14,mc09_08o: input25,20
+fb14,mc09_09o: input09,20 input42,20 input54,20
+fb14,mc09_10o: input32,20 input41,20
+fb14,mc09_11o: input11,20
+fb14,mc09_12o: input12,20 input36,20 input45,20
+fb14,mc09_13o: input13,20 input24,20
+fb14,mc09_14o: input14,20 input44,20
+fb14,mc09_15o: input43,20
+fb14,mc09_16o: input16,20
+fb14,mc09_17o: input17,20 input53,20
+fb14,mc09_18o: input18,20 input22,20 input50,20
+fb14,mc10_01o: input01,28 input54,28
+fb14,mc10_02o: input02,28 input41,28
+fb14,mc10_03o: input21,28 input52,28
+fb14,mc10_04o: input43,28
+fb14,mc10_05o: input05,28 input32,28 input51,28
+fb14,mc10_06o: input25,28
+fb14,mc10_07o: input07,28 input24,28
+fb14,mc10_08o: input22,28 input30,28
+fb14,mc10_09o: input09,28 input39,28
+fb14,mc10_10o: input10,28
+fb14,mc10_11o: input11,28 input33,28 input38,28
+fb14,mc10_12o: input12,28 input42,28
+fb14,mc10_13o: input13,28 input44,28 input45,28
+fb14,mc10_14o: input14,28 input19,28 input50,28
+fb14,mc10_15o: input15,28 input46,28 input47,28
+fb14,mc10_16o: input29,28
+fb14,mc10_17o: input17,28 input36,28
+fb14,mc10_18o: input27,28
+fb14,mc11_01o: input01,21 input23,21
+fb14,mc11_02o: input36,21 input52,21
+fb14,mc11_03o: input43,21
+fb14,mc11_04o: input04,21 input22,21
+fb14,mc11_05o: input29,21
+fb14,mc11_06o: input33,21 input45,21
+fb14,mc11_07o: input07,21 input41,21 input46,21
+fb14,mc11_08o: input19,21 input50,21
+fb14,mc11_09o: input09,21 input53,21
+fb14,mc11_10o: input39,21
+fb14,mc11_11o: input11,21 input42,21
+fb14,mc11_12o: input12,21 input24,21
+fb14,mc11_13o: input13,21
+fb14,mc11_14o: input14,21 input32,21
+fb14,mc11_15o: input15,21 input21,21 input38,21
+fb14,mc11_16o: input16,21 input44,21 input54,21
+fb14,mc11_17o: input17,21 input26,21
+fb14,mc11_18o: input25,21 input27,21
+fb14,mc12_01o: input01,29 input21,29
+fb14,mc12_02o: input45,29 input47,29
+fb14,mc12_03o: input03,29 input24,29
+fb14,mc12_04o: input04,29 input51,29
+fb14,mc12_05o: input05,29
+fb14,mc12_06o: input30,29 input50,29
+fb14,mc12_07o: input07,29 input22,29 input54,29
+fb14,mc12_08o: input29,29
+fb14,mc12_09o: input09,29 input36,29
+fb14,mc12_10o: input43,29
+fb14,mc12_11o: input11,29
+fb14,mc12_12o: input12,29 input23,29
+fb14,mc12_13o: input13,29 input44,29
+fb14,mc12_14o: input14,29 input19,29 input32,29
+fb14,mc12_15o: input15,29 input39,29 input52,29
+fb14,mc12_16o: input27,29
+fb14,mc12_17o: input38,29 input41,29
+fb14,mc12_18o: input18,29 input46,29
+fb14,mc13_01o: input01,22 input25,22
+fb14,mc13_02o: input02,22 input19,22 input41,22
+fb14,mc13_03o: input03,22 input30,22
+fb14,mc13_04o: input04,22 input26,22
+fb14,mc13_05o: input05,22 input33,22
+fb14,mc13_06o: input36,22
+fb14,mc13_07o: input07,22 input39,22 input43,22
+fb14,mc13_08o: input21,22 input53,22
+fb14,mc13_09o: input09,22 input45,22
+fb14,mc13_10o: input10,22 input47,22
+fb14,mc13_11o: input11,22 input32,22
+fb14,mc13_12o: input12,22 input42,22
+fb14,mc13_13o: input13,22 input23,22 input38,22
+fb14,mc13_14o: input52,22
+fb14,mc13_15o: input29,22
+fb14,mc13_16o: input16,22 input24,22 input44,22
+fb14,mc13_17o: input27,22
+fb14,mc13_18o: input18,22 input22,22 input54,22
+fb14,mc14_01o: input01,30 input25,30
+fb14,mc14_02o: input02,30 input53,30
+fb14,mc14_03o: input03,30 input19,30 input30,30
+fb14,mc14_04o: input04,30 input33,30
+fb14,mc14_05o: input05,30 input37,30 input47,30
+fb14,mc14_06o: input38,30
+fb14,mc14_07o: input07,30 input45,30 input50,30
+fb14,mc14_08o: input08,30 input34,30
+fb14,mc14_09o: input09,30 input31,30
+fb14,mc14_10o: input10,30 input26,30 input36,30
+fb14,mc14_11o: input22,30 input39,30
+fb14,mc14_12o: input12,30
+fb14,mc14_13o: input13,30 input27,30
+fb14,mc14_14o: input52,30
+fb14,mc14_15o: input23,30
+fb14,mc14_16o: input24,30 input43,30
+fb14,mc14_17o: input29,30
+fb14,mc14_18o: input18,30 input21,30
+fb14,mc15_01o: input27,23
+fb14,mc15_02o: input02,23 input23,23 input47,23
+fb14,mc15_03o: input03,23 input20,23 input46,23
+fb14,mc15_04o: input04,23 input39,23
+fb14,mc15_05o: input05,23 input45,23
+fb14,mc15_06o: input19,23 input41,23
+fb14,mc15_07o: input29,23
+fb14,mc15_08o: input51,23
+fb14,mc15_09o: input09,23 input43,23
+fb14,mc15_10o: input22,23 input52,23
+fb14,mc15_11o: input11,23 input54,23
+fb14,mc15_12o: input12,23
+fb14,mc15_13o: input13,23 input24,23 input42,23
+fb14,mc15_14o: input14,23
+fb14,mc15_15o: input15,23 input36,23 input44,23
+fb14,mc15_16o: input16,23 input33,23 input53,23
+fb14,mc15_17o: input17,23 input21,23 input25,23
+fb14,mc15_18o: input18,23
+fb14,mc16_01o: input01,31 input44,31
+fb14,mc16_02o: input02,31 input22,31 input52,31
+fb14,mc16_03o: input03,31
+fb14,mc16_04o: input04,31 input41,31 input46,31
+fb14,mc16_05o: input05,31 input26,31 input36,31
+fb14,mc16_06o: input23,31 input39,31
+fb14,mc16_07o: input07,31 input43,31
+fb14,mc16_08o: input42,31
+fb14,mc16_09o: input29,31
+fb14,mc16_10o: input10,31
+fb14,mc16_11o: input11,31 input54,31
+fb14,mc16_12o: input12,31 input25,31
+fb14,mc16_13o: input13,31
+fb14,mc16_14o: input14,31 input19,31 input47,31
+fb14,mc16_15o: input15,31 input45,31 input53,31
+fb14,mc16_16o: input16,31
+fb14,mc16_17o: input27,31
+fb14,mc16_18o: input18,31 input32,31
 fb15,mc01_01i:
 fb15,mc01_02i: input27,6 input43,6
 fb15,mc01_03i: input14,6 input52,6
@@ -4318,6 +8350,294 @@ fb15,mc16_15i: input08,5 input35,5 input50,5
 fb15,mc16_16i:
 fb15,mc16_17i: input06,5 input21,5 input54,5
 fb15,mc16_18i:
+fb15,mc01_01o: input01,16 input48,16 input51,16
+fb15,mc01_02o: input02,16 input32,16 input39,16
+fb15,mc01_03o: input37,16 input45,16
+fb15,mc01_04o: input04,16 input52,16
+fb15,mc01_05o: input23,16
+fb15,mc01_06o: input06,16 input36,16
+fb15,mc01_07o: input07,16 input53,16
+fb15,mc01_08o: input08,16 input19,16
+fb15,mc01_09o: input09,16 input24,16 input31,16
+fb15,mc01_10o: input10,16 input25,16 input50,16
+fb15,mc01_11o: input27,16
+fb15,mc01_12o: input12,16
+fb15,mc01_13o: input13,16
+fb15,mc01_14o: input14,16 input43,16
+fb15,mc01_15o: input15,16 input26,16
+fb15,mc01_16o: input16,16 input20,16 input34,16
+fb15,mc01_17o: input17,16 input21,16 input30,16
+fb15,mc01_18o: input29,16
+fb15,mc02_01o: input29,24
+fb15,mc02_02o: input02,24 input26,24 input53,24
+fb15,mc02_03o: input25,24 input27,24
+fb15,mc02_04o: input04,24 input54,24
+fb15,mc02_05o: input24,24 input34,24
+fb15,mc02_06o: input43,24
+fb15,mc02_07o: input07,24 input20,24
+fb15,mc02_08o: input08,24 input37,24 input45,24
+fb15,mc02_09o: input09,24 input48,24
+fb15,mc02_10o: input10,24 input51,24
+fb15,mc02_11o: input11,24 input35,24
+fb15,mc02_12o: input12,24 input52,24
+fb15,mc02_13o: input13,24
+fb15,mc02_14o: input14,24 input33,24
+fb15,mc02_15o: input15,24 input19,24 input39,24
+fb15,mc02_16o: input16,24 input23,24
+fb15,mc02_17o: input17,24 input22,24 input49,24
+fb15,mc02_18o: input18,24 input31,24
+fb15,mc03_01o: input01,17 input50,17
+fb15,mc03_02o: input02,17 input36,17 input45,17
+fb15,mc03_03o: input19,17 input52,17
+fb15,mc03_04o: input04,17
+fb15,mc03_05o: input25,17
+fb15,mc03_06o: input27,17
+fb15,mc03_07o: input43,17
+fb15,mc03_08o: input08,17 input24,17 input35,17
+fb15,mc03_09o: input09,17 input34,17
+fb15,mc03_10o: input10,17 input31,17 input39,17
+fb15,mc03_11o: input29,17
+fb15,mc03_12o: input12,17
+fb15,mc03_13o: input13,17 input48,17
+fb15,mc03_14o: input14,17 input51,17
+fb15,mc03_15o: input15,17 input33,17
+fb15,mc03_16o: input16,17 input32,17 input53,17
+fb15,mc03_17o: input17,17 input42,17 input47,17
+fb15,mc03_18o: input18,17
+fb15,mc04_01o: input01,25 input31,25
+fb15,mc04_02o: input02,25 input30,25
+fb15,mc04_03o: input34,25 input45,25
+fb15,mc04_04o: input04,25 input32,25
+fb15,mc04_05o: input43,25
+fb15,mc04_06o: input27,25
+fb15,mc04_07o: input52,25
+fb15,mc04_08o: input08,25 input39,25
+fb15,mc04_09o: input09,25
+fb15,mc04_10o: input10,25 input19,25 input25,25
+fb15,mc04_11o: input11,25 input54,25
+fb15,mc04_12o: input12,25 input24,25
+fb15,mc04_13o: input13,25 input20,25
+fb15,mc04_14o: input14,25 input53,25
+fb15,mc04_15o: input15,25 input35,25 input47,25
+fb15,mc04_16o: input16,25 input21,25
+fb15,mc04_17o: input17,25 input41,25 input48,25
+fb15,mc04_18o: input29,25
+fb15,mc05_01o: input01,18 input53,18
+fb15,mc05_02o: input52,18
+fb15,mc05_03o: input24,18 input34,18
+fb15,mc05_04o: input43,18
+fb15,mc05_05o: input41,18
+fb15,mc05_06o: input06,18 input20,18 input49,18
+fb15,mc05_07o: input07,18 input31,18
+fb15,mc05_08o: input08,18 input33,18 input35,18
+fb15,mc05_09o: input39,18
+fb15,mc05_10o: input10,18 input25,18 input37,18
+fb15,mc05_11o: input11,18 input45,18
+fb15,mc05_12o: input12,18 input30,18
+fb15,mc05_13o: input13,18
+fb15,mc05_14o: input14,18
+fb15,mc05_15o: input15,18 input22,18 input32,18
+fb15,mc05_16o: input16,18 input51,18
+fb15,mc05_17o: input29,18
+fb15,mc05_18o: input27,18
+fb15,mc06_01o: input33,26 input48,26
+fb15,mc06_02o: input02,26 input35,26
+fb15,mc06_03o: input24,26 input41,26
+fb15,mc06_04o: input04,26 input45,26 input53,26
+fb15,mc06_05o: input05,26 input20,26 input32,26
+fb15,mc06_06o: input06,26 input51,26 input54,26
+fb15,mc06_07o: input07,26
+fb15,mc06_08o: input08,26 input31,26
+fb15,mc06_09o: input43,26
+fb15,mc06_10o: input10,26 input22,26 input49,26
+fb15,mc06_11o: input29,26
+fb15,mc06_12o: input12,26
+fb15,mc06_13o: input13,26 input25,26
+fb15,mc06_14o: input27,26
+fb15,mc06_15o: input15,26 input50,26
+fb15,mc06_16o: input16,26 input52,26
+fb15,mc06_17o: input17,26 input30,26
+fb15,mc06_18o: input18,26 input19,26
+fb15,mc07_01o: input19,19 input25,19
+fb15,mc07_02o: input02,19 input23,19 input45,19
+fb15,mc07_03o: input31,19 input52,19
+fb15,mc07_04o: input04,19 input21,19 input34,19
+fb15,mc07_05o: input29,19
+fb15,mc07_06o: input27,19
+fb15,mc07_07o: input33,19
+fb15,mc07_08o: input43,19
+fb15,mc07_09o: input09,19 input20,19
+fb15,mc07_10o: input41,19 input48,19
+fb15,mc07_11o: input11,19 input24,19
+fb15,mc07_12o: input12,19 input53,19
+fb15,mc07_13o: input13,19 input30,19
+fb15,mc07_14o: input14,19 input47,19 input50,19
+fb15,mc07_15o: input15,19 input49,19
+fb15,mc07_16o: input16,19 input37,19 input39,19
+fb15,mc07_17o: input17,19 input32,19 input36,19
+fb15,mc07_18o: input18,19
+fb15,mc08_01o: input01,27 input35,27 input51,27
+fb15,mc08_02o: input02,27 input34,27
+fb15,mc08_03o: input41,27
+fb15,mc08_04o: input04,27 input22,27
+fb15,mc08_05o: input05,27 input32,27 input37,27
+fb15,mc08_06o: input06,27 input21,27
+fb15,mc08_07o: input33,27
+fb15,mc08_08o: input29,27
+fb15,mc08_09o: input43,27
+fb15,mc08_10o: input10,27 input24,27 input39,27
+fb15,mc08_11o: input27,27
+fb15,mc08_12o: input12,27 input19,27
+fb15,mc08_13o: input13,27 input30,27
+fb15,mc08_14o: input14,27 input45,27
+fb15,mc08_15o: input15,27 input25,27 input49,27
+fb15,mc08_16o: input16,27
+fb15,mc08_17o: input20,27 input52,27
+fb15,mc08_18o: input18,27 input47,27
+fb15,mc09_01o: input01,20
+fb15,mc09_02o: input02,20 input30,20 input49,20
+fb15,mc09_03o: input34,20
+fb15,mc09_04o: input04,20 input35,20
+fb15,mc09_05o: input27,20
+fb15,mc09_06o: input29,20
+fb15,mc09_07o: input19,20 input52,20
+fb15,mc09_08o: input25,20 input47,20
+fb15,mc09_09o: input09,20 input54,20
+fb15,mc09_10o: input10,20 input32,20 input41,20
+fb15,mc09_11o: input11,20 input37,20 input51,20
+fb15,mc09_12o: input12,20 input45,20
+fb15,mc09_13o: input13,20 input24,20
+fb15,mc09_14o: input14,20
+fb15,mc09_15o: input43,20
+fb15,mc09_16o: input16,20 input20,20
+fb15,mc09_17o: input53,20
+fb15,mc09_18o: input18,20
+fb15,mc10_01o: input01,28 input37,28 input54,28
+fb15,mc10_02o: input02,28 input41,28
+fb15,mc10_03o: input52,28
+fb15,mc10_04o: input43,28
+fb15,mc10_05o: input32,28 input51,28
+fb15,mc10_06o: input06,28 input25,28
+fb15,mc10_07o: input07,28 input24,28
+fb15,mc10_08o: input08,28 input30,28
+fb15,mc10_09o: input39,28 input48,28
+fb15,mc10_10o: input10,28 input20,28 input31,28
+fb15,mc10_11o: input33,28
+fb15,mc10_12o: input12,28 input53,28
+fb15,mc10_13o: input13,28 input45,28
+fb15,mc10_14o: input14,28 input19,28 input50,28
+fb15,mc10_15o: input15,28 input47,28
+fb15,mc10_16o: input29,28
+fb15,mc10_17o: input17,28 input36,28 input49,28
+fb15,mc10_18o: input27,28
+fb15,mc11_01o: input01,21 input31,21
+fb15,mc11_02o: input52,21
+fb15,mc11_03o: input43,21
+fb15,mc11_04o: input04,21 input22,21 input47,21
+fb15,mc11_05o: input29,21
+fb15,mc11_06o: input06,21 input33,21 input45,21
+fb15,mc11_07o: input07,21
+fb15,mc11_08o: input08,21 input19,21 input50,21
+fb15,mc11_09o: input09,21 input37,21 input53,21
+fb15,mc11_10o: input39,21 input48,21
+fb15,mc11_11o: input11,21 input20,21
+fb15,mc11_12o: input12,21 input24,21
+fb15,mc11_13o: input13,21 input30,21
+fb15,mc11_14o: input14,21 input32,21 input34,21
+fb15,mc11_15o: input15,21 input21,21
+fb15,mc11_16o: input16,21 input54,21
+fb15,mc11_17o: input17,21 input26,21
+fb15,mc11_18o: input25,21 input27,21
+fb15,mc12_01o: input01,29
+fb15,mc12_02o: input02,29 input45,29
+fb15,mc12_03o: input24,29
+fb15,mc12_04o: input04,29 input20,29 input51,29
+fb15,mc12_05o: input05,29 input31,29 input35,29
+fb15,mc12_06o: input06,29 input30,29 input50,29
+fb15,mc12_07o: input07,29 input54,29
+fb15,mc12_08o: input29,29
+fb15,mc12_09o: input09,29 input48,29
+fb15,mc12_10o: input43,29
+fb15,mc12_11o: input11,29 input53,29
+fb15,mc12_12o: input12,29
+fb15,mc12_13o: input13,29
+fb15,mc12_14o: input14,29 input19,29 input32,29
+fb15,mc12_15o: input15,29 input52,29
+fb15,mc12_16o: input27,29
+fb15,mc12_17o: input17,29 input41,29
+fb15,mc12_18o: input18,29
+fb15,mc13_01o: input25,22 input34,22
+fb15,mc13_02o: input02,22 input19,22 input41,22
+fb15,mc13_03o: input30,22 input50,22
+fb15,mc13_04o: input04,22 input26,22 input37,22
+fb15,mc13_05o: input31,22 input33,22
+fb15,mc13_06o: input06,22 input36,22
+fb15,mc13_07o: input43,22
+fb15,mc13_08o: input08,22 input21,22 input53,22
+fb15,mc13_09o: input09,22 input45,22 input51,22
+fb15,mc13_10o: input10,22 input35,22 input47,22
+fb15,mc13_11o: input11,22 input32,22 input48,22
+fb15,mc13_12o: input12,22
+fb15,mc13_13o: input13,22
+fb15,mc13_14o: input14,22 input52,22
+fb15,mc13_15o: input29,22
+fb15,mc13_16o: input16,22 input24,22
+fb15,mc13_17o: input27,22
+fb15,mc13_18o: input18,22
+fb15,mc14_01o: input25,30
+fb15,mc14_02o: input02,30 input53,30
+fb15,mc14_03o: input19,30 input30,30
+fb15,mc14_04o: input04,30 input33,30
+fb15,mc14_05o: input05,30 input37,30 input47,30
+fb15,mc14_06o: input06,30 input35,30 input38,30
+fb15,mc14_07o: input07,30 input45,30 input50,30
+fb15,mc14_08o: input08,30 input20,30 input34,30
+fb15,mc14_09o: input09,30 input31,30 input51,30
+fb15,mc14_10o: input10,30 input26,30
+fb15,mc14_11o: input39,30
+fb15,mc14_12o: input12,30
+fb15,mc14_13o: input13,30 input27,30
+fb15,mc14_14o: input14,30 input52,30
+fb15,mc14_15o: input15,30 input23,30 input49,30
+fb15,mc14_16o: input43,30
+fb15,mc14_17o: input29,30
+fb15,mc14_18o: input18,30
+fb15,mc15_01o: input01,23 input27,23
+fb15,mc15_02o: input02,23 input23,23
+fb15,mc15_03o: input03,23 input20,23
+fb15,mc15_04o: input39,23
+fb15,mc15_05o: input45,23
+fb15,mc15_06o: input06,23 input19,23 input41,23
+fb15,mc15_07o: input29,23
+fb15,mc15_08o: input08,23 input51,23
+fb15,mc15_09o: input43,23
+fb15,mc15_10o: input10,23 input52,23
+fb15,mc15_11o: input11,23 input40,23 input54,23
+fb15,mc15_12o: input12,23 input30,23
+fb15,mc15_13o: input13,23 input24,23
+fb15,mc15_14o: input14,23 input26,23 input35,23
+fb15,mc15_15o: input15,23 input44,23
+fb15,mc15_16o: input33,23 input53,23
+fb15,mc15_17o: input17,23 input25,23
+fb15,mc15_18o: input18,23 input37,23 input48,23
+fb15,mc16_01o: input01,31
+fb15,mc16_02o: input52,31
+fb15,mc16_03o: input03,31 input35,31 input37,31
+fb15,mc16_04o: input04,31 input41,31
+fb15,mc16_05o: input26,31
+fb15,mc16_06o: input06,31 input39,31
+fb15,mc16_07o: input43,31
+fb15,mc16_08o: input08,31 input42,31 input51,31
+fb15,mc16_09o: input29,31
+fb15,mc16_10o: input10,31 input34,31 input49,31
+fb15,mc16_11o: input11,31 input48,31 input54,31
+fb15,mc16_12o: input12,31 input25,31
+fb15,mc16_13o: input13,31 input20,31
+fb15,mc16_14o: input14,31 input19,31 input47,31
+fb15,mc16_15o: input15,31 input45,31 input53,31
+fb15,mc16_16o: input16,31
+fb15,mc16_17o: input27,31
+fb15,mc16_18o: input18,31 input30,31 input32,31
 fb16,mc01_01i:
 fb16,mc01_02i: input27,6 input43,6
 fb16,mc01_03i: input14,6 input21,6 input26,6
@@ -4606,3 +8926,291 @@ fb16,mc16_15i: input08,5
 fb16,mc16_16i:
 fb16,mc16_17i: input21,5 input54,5
 fb16,mc16_18i:
+fb16,mc01_01o: input01,16 input48,16 input51,16
+fb16,mc01_02o: input32,16 input39,16
+fb16,mc01_03o: input03,16 input45,16
+fb16,mc01_04o: input52,16
+fb16,mc01_05o: input05,16 input23,16 input44,16
+fb16,mc01_06o: input06,16 input36,16 input46,16
+fb16,mc01_07o: input07,16
+fb16,mc01_08o: input08,16 input19,16 input38,16
+fb16,mc01_09o: input09,16 input31,16
+fb16,mc01_10o: input10,16 input25,16 input50,16
+fb16,mc01_11o: input27,16
+fb16,mc01_12o: input12,16 input22,16
+fb16,mc01_13o: input13,16 input49,16
+fb16,mc01_14o: input14,16 input43,16
+fb16,mc01_15o: input26,16 input40,16
+fb16,mc01_16o: input16,16 input20,16
+fb16,mc01_17o: input21,16 input30,16
+fb16,mc01_18o: input29,16
+fb16,mc02_01o: input29,24
+fb16,mc02_02o: input26,24
+fb16,mc02_03o: input27,24
+fb16,mc02_04o: input04,24 input54,24
+fb16,mc02_05o: input05,24 input24,24
+fb16,mc02_06o: input43,24
+fb16,mc02_07o: input07,24 input20,24 input21,24
+fb16,mc02_08o: input08,24 input45,24
+fb16,mc02_09o: input09,24 input48,24
+fb16,mc02_10o: input40,24 input51,24
+fb16,mc02_11o: input11,24 input35,24
+fb16,mc02_12o: input12,24
+fb16,mc02_13o: input13,24
+fb16,mc02_14o: input14,24 input30,24 input33,24
+fb16,mc02_15o: input19,24 input39,24
+fb16,mc02_16o: input16,24 input23,24
+fb16,mc02_17o: input22,24 input49,24
+fb16,mc02_18o: input18,24 input31,24
+fb16,mc03_01o: input01,17 input50,17 input54,17
+fb16,mc03_02o: input36,17
+fb16,mc03_03o: input19,17 input52,17
+fb16,mc03_04o: input04,17 input40,17
+fb16,mc03_05o: input25,17 input26,17
+fb16,mc03_06o: input27,17
+fb16,mc03_07o: input07,17 input43,17
+fb16,mc03_08o: input08,17 input24,17
+fb16,mc03_09o: input09,17 input22,17
+fb16,mc03_10o: input10,17 input31,17 input39,17
+fb16,mc03_11o: input29,17
+fb16,mc03_12o: input12,17
+fb16,mc03_13o: input13,17 input48,17
+fb16,mc03_14o: input14,17 input30,17 input51,17
+fb16,mc03_15o: input33,17 input38,17
+fb16,mc03_16o: input16,17 input53,17
+fb16,mc03_17o: input42,17
+fb16,mc03_18o: input18,17 input21,17
+fb16,mc04_01o: input01,25 input44,25
+fb16,mc04_02o: input22,25 input30,25
+fb16,mc04_03o: input03,25 input45,25
+fb16,mc04_04o: input04,25 input32,25 input40,25
+fb16,mc04_05o: input43,25
+fb16,mc04_06o: input27,25
+fb16,mc04_07o: input07,25 input52,25
+fb16,mc04_08o: input08,25 input38,25 input39,25
+fb16,mc04_09o: input09,25 input46,25
+fb16,mc04_10o: input10,25 input19,25 input25,25
+fb16,mc04_11o: input11,25 input54,25
+fb16,mc04_12o: input12,25
+fb16,mc04_13o: input13,25 input20,25 input49,25
+fb16,mc04_14o: input14,25 input26,25
+fb16,mc04_15o: input15,25 input35,25
+fb16,mc04_16o: input16,25 input21,25
+fb16,mc04_17o: input41,25 input48,25
+fb16,mc04_18o: input29,25
+fb16,mc05_01o: input01,18 input21,18
+fb16,mc05_02o: input52,18
+fb16,mc05_03o: input03,18 input24,18
+fb16,mc05_04o: input43,18
+fb16,mc05_05o: input05,18 input41,18
+fb16,mc05_06o: input06,18 input20,18 input49,18
+fb16,mc05_07o: input07,18 input31,18
+fb16,mc05_08o: input08,18 input33,18
+fb16,mc05_09o: input39,18
+fb16,mc05_10o: input10,18 input25,18
+fb16,mc05_11o: input11,18 input26,18
+fb16,mc05_12o: input12,18 input30,18
+fb16,mc05_13o: input13,18
+fb16,mc05_14o: input14,18 input46,18
+fb16,mc05_15o: input22,18 input32,18
+fb16,mc05_16o: input16,18 input44,18 input51,18
+fb16,mc05_17o: input29,18
+fb16,mc05_18o: input27,18
+fb16,mc06_01o: input01,26 input33,26 input48,26
+fb16,mc06_02o: input02,26 input35,26
+fb16,mc06_03o: input03,26 input41,26
+fb16,mc06_04o: input45,26
+fb16,mc06_05o: input05,26 input20,26 input32,26
+fb16,mc06_06o: input06,26 input51,26 input54,26
+fb16,mc06_07o: input07,26 input40,26
+fb16,mc06_08o: input08,26 input31,26 input44,26
+fb16,mc06_09o: input43,26
+fb16,mc06_10o: input10,26 input22,26 input49,26
+fb16,mc06_11o: input29,26
+fb16,mc06_12o: input12,26
+fb16,mc06_13o: input13,26 input25,26
+fb16,mc06_14o: input27,26
+fb16,mc06_15o: input15,26 input50,26
+fb16,mc06_16o: input16,26 input39,26 input52,26
+fb16,mc06_17o: input30,26 input46,26
+fb16,mc06_18o: input18,26 input19,26
+fb16,mc07_01o: input01,19 input19,19 input25,19
+fb16,mc07_02o: input23,19
+fb16,mc07_03o: input31,19 input52,19
+fb16,mc07_04o: input21,19
+fb16,mc07_05o: input29,19
+fb16,mc07_06o: input27,19
+fb16,mc07_07o: input07,19 input26,19 input33,19
+fb16,mc07_08o: input43,19
+fb16,mc07_09o: input09,19 input20,19
+fb16,mc07_10o: input10,19 input41,19 input48,19
+fb16,mc07_11o: input11,19
+fb16,mc07_12o: input12,19 input51,19
+fb16,mc07_13o: input13,19 input30,19
+fb16,mc07_14o: input14,19 input50,19
+fb16,mc07_15o: input15,19 input38,19 input49,19
+fb16,mc07_16o: input16,19 input39,19
+fb16,mc07_17o: input32,19 input36,19
+fb16,mc07_18o: input18,19 input46,19 input54,19
+fb16,mc08_01o: input01,27 input35,27 input51,27
+fb16,mc08_02o: input02,27 input38,27
+fb16,mc08_03o: input03,27 input41,27 input46,27
+fb16,mc08_04o: input22,27
+fb16,mc08_05o: input05,27 input32,27
+fb16,mc08_06o: input21,27
+fb16,mc08_07o: input07,27 input33,27
+fb16,mc08_08o: input29,27
+fb16,mc08_09o: input43,27
+fb16,mc08_10o: input10,27 input39,27
+fb16,mc08_11o: input27,27
+fb16,mc08_12o: input12,27 input19,27
+fb16,mc08_13o: input13,27 input30,27
+fb16,mc08_14o: input14,27
+fb16,mc08_15o: input25,27 input49,27
+fb16,mc08_16o: input16,27 input31,27 input40,27
+fb16,mc08_17o: input20,27 input52,27
+fb16,mc08_18o: input18,27 input26,27
+fb16,mc09_01o: input01,20 input21,20
+fb16,mc09_02o: input30,20 input49,20
+fb16,mc09_03o: input03,20 input34,20 input38,20
+fb16,mc09_04o: input04,20 input35,20 input46,20
+fb16,mc09_05o: input27,20
+fb16,mc09_06o: input29,20
+fb16,mc09_07o: input07,20 input19,20 input52,20
+fb16,mc09_08o: input08,20 input25,20
+fb16,mc09_09o: input09,20 input54,20
+fb16,mc09_10o: input10,20 input32,20 input41,20
+fb16,mc09_11o: input11,20 input51,20
+fb16,mc09_12o: input12,20
+fb16,mc09_13o: input13,20
+fb16,mc09_14o: input14,20 input26,20 input44,20
+fb16,mc09_15o: input43,20
+fb16,mc09_16o: input16,20 input20,20
+fb16,mc09_17o: input48,20 input53,20
+fb16,mc09_18o: input18,20 input22,20 input50,20
+fb16,mc10_01o: input01,28 input54,28
+fb16,mc10_02o: input40,28 input41,28
+fb16,mc10_03o: input21,28 input52,28
+fb16,mc10_04o: input43,28
+fb16,mc10_05o: input05,28 input32,28 input51,28
+fb16,mc10_06o: input06,28 input25,28 input26,28
+fb16,mc10_07o: input07,28
+fb16,mc10_08o: input08,28 input22,28 input30,28
+fb16,mc10_09o: input39,28 input48,28
+fb16,mc10_10o: input10,28 input20,28
+fb16,mc10_11o: input11,28 input33,28
+fb16,mc10_12o: input12,28
+fb16,mc10_13o: input13,28
+fb16,mc10_14o: input14,28 input50,28
+fb16,mc10_15o: input15,28 input46,28
+fb16,mc10_16o: input29,28
+fb16,mc10_17o: input36,28 input49,28
+fb16,mc10_18o: input27,28
+fb16,mc11_01o: input01,21
+fb16,mc11_02o: input52,21
+fb16,mc11_03o: input43,21
+fb16,mc11_04o: input22,21
+fb16,mc11_05o: input29,21
+fb16,mc11_06o: input06,21 input33,21
+fb16,mc11_07o: input07,21 input46,21
+fb16,mc11_08o: input08,21 input19,21
+fb16,mc11_09o: input09,21
+fb16,mc11_10o: input10,21 input39,21 input48,21
+fb16,mc11_11o: input11,21 input20,21
+fb16,mc11_12o: input12,21
+fb16,mc11_13o: input13,21 input30,21
+fb16,mc11_14o: input14,21 input32,21
+fb16,mc11_15o: input21,21 input38,21
+fb16,mc11_16o: input16,21 input44,21 input54,21
+fb16,mc11_17o: input26,21 input40,21
+fb16,mc11_18o: input27,21
+fb16,mc12_01o: input01,29 input21,29 input40,29
+fb16,mc12_02o: input45,29
+fb16,mc12_03o: input03,29 input24,29
+fb16,mc12_04o: input20,29 input51,29
+fb16,mc12_05o: input05,29 input31,29 input35,29
+fb16,mc12_06o: input06,29 input30,29 input50,29
+fb16,mc12_07o: input07,29 input22,29 input54,29
+fb16,mc12_08o: input29,29
+fb16,mc12_09o: input09,29 input48,29
+fb16,mc12_10o: input43,29
+fb16,mc12_11o: input11,29 input26,29
+fb16,mc12_12o: input12,29
+fb16,mc12_13o: input13,29
+fb16,mc12_14o: input14,29 input32,29
+fb16,mc12_15o: input39,29 input52,29
+fb16,mc12_16o: input27,29
+fb16,mc12_17o: input38,29 input41,29
+fb16,mc12_18o: input18,29 input46,29
+fb16,mc13_01o: input01,22 input25,22
+fb16,mc13_02o: input19,22 input41,22
+fb16,mc13_03o: input03,22 input30,22 input50,22
+fb16,mc13_04o: input26,22
+fb16,mc13_05o: input05,22 input31,22 input33,22
+fb16,mc13_06o: input06,22 input36,22 input40,22
+fb16,mc13_07o: input07,22 input39,22 input43,22
+fb16,mc13_08o: input08,22 input21,22
+fb16,mc13_09o: input09,22 input51,22
+fb16,mc13_10o: input10,22 input35,22
+fb16,mc13_11o: input11,22 input32,22 input48,22
+fb16,mc13_12o: input12,22
+fb16,mc13_13o: input13,22 input38,22
+fb16,mc13_14o: input14,22 input52,22
+fb16,mc13_15o: input29,22
+fb16,mc13_16o: input16,22 input44,22
+fb16,mc13_17o: input27,22
+fb16,mc13_18o: input18,22 input22,22 input54,22
+fb16,mc14_01o: input01,30 input25,30
+fb16,mc14_02o: input48,30 input53,30
+fb16,mc14_03o: input03,30 input19,30 input30,30
+fb16,mc14_04o: input33,30
+fb16,mc14_05o: input05,30
+fb16,mc14_06o: input06,30 input35,30 input38,30
+fb16,mc14_07o: input07,30 input50,30
+fb16,mc14_08o: input08,30 input20,30
+fb16,mc14_09o: input09,30 input31,30 input51,30
+fb16,mc14_10o: input10,30 input26,30
+fb16,mc14_11o: input11,30 input22,30 input39,30
+fb16,mc14_12o: input12,30
+fb16,mc14_13o: input27,30
+fb16,mc14_14o: input14,30 input52,30
+fb16,mc14_15o: input23,30 input49,30
+fb16,mc14_16o: input43,30
+fb16,mc14_17o: input29,30
+fb16,mc14_18o: input18,30 input21,30
+fb16,mc15_01o: input27,23
+fb16,mc15_02o: input23,23
+fb16,mc15_03o: input03,23 input20,23 input46,23
+fb16,mc15_04o: input39,23
+fb16,mc15_05o: input05,23 input31,23 input45,23
+fb16,mc15_06o: input06,23 input19,23 input41,23
+fb16,mc15_07o: input29,23
+fb16,mc15_08o: input08,23 input51,23
+fb16,mc15_09o: input43,23
+fb16,mc15_10o: input10,23 input22,23 input52,23
+fb16,mc15_11o: input11,23 input40,23 input54,23
+fb16,mc15_12o: input12,23 input30,23
+fb16,mc15_13o: input13,23
+fb16,mc15_14o: input14,23 input26,23 input35,23
+fb16,mc15_15o: input36,23 input44,23
+fb16,mc15_16o: input16,23 input33,23
+fb16,mc15_17o: input21,23 input25,23
+fb16,mc15_18o: input18,23 input48,23
+fb16,mc16_01o: input01,31 input28,31 input44,31
+fb16,mc16_02o: input22,31 input52,31
+fb16,mc16_03o: input03,31 input35,31
+fb16,mc16_04o: input04,31 input41,31 input46,31
+fb16,mc16_05o: input05,31 input26,31
+fb16,mc16_06o: input39,31
+fb16,mc16_07o: input07,31 input43,31
+fb16,mc16_08o: input08,31 input51,31
+fb16,mc16_09o: input29,31
+fb16,mc16_10o: input10,31
+fb16,mc16_11o: input11,31 input48,31 input54,31
+fb16,mc16_12o: input12,31 input25,31
+fb16,mc16_13o: input13,31 input21,31
+fb16,mc16_14o: input14,31 input19,31
+fb16,mc16_15o: input45,31
+fb16,mc16_16o: input16,31 input31,31 input40,31
+fb16,mc16_17o: input27,31
+fb16,mc16_18o: input18,31 input30,31
