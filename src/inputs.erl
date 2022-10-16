@@ -2,6 +2,7 @@
 
 -export([merge/2]).
 -export([read/1]).
+-export([reverse_and_write_all/0]).
 -export([reverse/1]).
 -export([update/2]).
 -export([write/2]).
@@ -97,6 +98,13 @@ read_dir($o) -> output.
 %% reverse
 %%====================================================================
 
+reverse_and_write_all() ->
+    lists:foreach(fun (Density) ->
+        write(Density, reverse(read(Density)))
+    end, density:list()).
+
+%%--------------------------------------------------------------------
+
 reverse({input_choices, FBs}) ->
     {input_sources, maps:map(fun reverse_fb/2, FBs)}.
 
@@ -190,11 +198,16 @@ write_choices_entry(Slot, [{Slot, {MC, Dir}} | Slots], Line) ->
 
 write_sources_fb(FB, FBs, MCs) ->
     Sources = maps:get(FB, FBs, #{}),
-    [
+    [[
         write_sources_line(FB, MC, input, Sources)
         ||
         MC <- MCs
-    ].
+     ],
+     [
+        write_sources_line(FB, MC, output, Sources)
+        ||
+        MC <- MCs
+    ]].
 
 %%--------------------------------------------------------------------
 
