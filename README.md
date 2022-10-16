@@ -24,6 +24,7 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `power_experiment` - Confirm std power fuses per logic and product-term.
  - [x] `gts_enable_experiment` - Confirm the fuse location for global GTS enables.
  - [x] `outputs_experiment` - Mapping of input MUX bits to source macro cell's output (i.e. internal feedback).
+ - [x] `inputs_repeat_per_function_block` - Does the input mapping pattern repeat per function block? ***YES***
 
 
 ## TODO: guessed fuses

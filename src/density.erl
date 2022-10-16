@@ -6,6 +6,7 @@
 -export([function_block_count/1]).
 -export([function_blocks/1]).
 -export([input_choice_count/1]).
+-export([input_choices/1]).
 -export([macro_cell_count/1]).
 -export([macro_cells/1]).
 -export([fuse_count/1]).
@@ -99,6 +100,25 @@ input_choice_count(xc95144xl) -> 8;
 input_choice_count(xc95288xl) -> 11;
 input_choice_count(Device) ->
     input_choice_count(device:density(Device)).
+
+%%====================================================================
+%% input_choices
+%%====================================================================
+
+input_choices(xc9536xl) ->
+    [1, 2,
+     16, 17];
+input_choices(xc9572xl) ->
+    [1, 2, 3, 4,
+     16, 17, 18, 19];
+input_choices(xc95144xl) ->
+    [1, 2, 3, 4, 5, 6, 7, 8,
+     16, 17, 18, 19, 20, 21, 22, 23];
+input_choices(xc95288xl) ->
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+     16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+input_choices(Device) ->
+    input_choices(device:density(Device)).
 
 %%====================================================================
 %% macro_cell_count
