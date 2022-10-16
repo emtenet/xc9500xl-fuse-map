@@ -6,6 +6,7 @@
 -export([compile/1]).
 -export([run/1]).
 -export([cache/1]).
+-export([cache_in/2]).
 -export([cache_refresh/1]).
 -export([cached_imux/1]).
 -export([cached_jed/1]).
@@ -511,20 +512,20 @@ compile_t_type(#{}) ->
 %% internal
 %%====================================================================
 
-internal(With = #{device := Device}) ->
-    Dir = dir(),
-    make_dir(Dir),
-    clear_dir(Dir),
-    make_tmp(Dir),
-    make_prj(Dir),
-    make_xst(Dir),
-    make_ucf(Dir, With),
-    make_vhdl(Dir, With),
-    ok = exec(Dir, "xst", [
+internal(RunIn, With = #{device := Device}) ->
+    RunDir = filename:join("experiment", RunIn),
+    make_dir(RunDir),
+    clear_dir(RunDir),
+    make_tmp(RunDir),
+    make_prj(RunDir),
+    make_xst(RunDir),
+    make_ucf(RunDir, With),
+    make_vhdl(RunDir, With),
+    ok = exec(RunDir, "xst", [
         "-intstyle", "ise",
         "-ifn", "experiment.xst"
     ]),
-    ok = exec(Dir, "ngdbuild", [
+    ok = exec(RunDir, "ngdbuild", [
         "experiment.ngc",
         "experiment.ngd",
         "-intstyle", "ise",
@@ -532,7 +533,7 @@ internal(With = #{device := Device}) ->
         "-uc", "experiment.ucf",
         "-p", device:name(Device)
     ]),
-    ok = exec(Dir, "cpldfit", [
+    ok = exec(RunDir, "cpldfit", [
         "experiment.ngd",
         "-intstyle", "ise",
         "-p", device:name(Device),
@@ -552,7 +553,7 @@ internal(With = #{device := Device}) ->
         |
         with_optimize(With)
     ]),
-    ok = exec(Dir, "hprep6", [
+    ok = exec(RunDir, "hprep6", [
         "-s", "IEEE1149",
         "-n", maps:get(usercode, With),
         "-i", "experiment.vm6"
@@ -612,46 +613,51 @@ with_unused(#{unused := ground}) -> "ground".
 %%====================================================================
 
 run(With) ->
-    internal(with_defaults(With)).
+    internal("manual", with_defaults(With)).
 
 %%====================================================================
 %% cache
 %%====================================================================
 
-cache(With0) ->
+cache(With) ->
+    cache_in("cache", With).
+
+%%--------------------------------------------------------------------
+
+cache_in(RunIn, With0) ->
     With = with_defaults(With0),
     Query = cache_query(With),
-    Dir = cache_dir(Query),
-    %io:format("CACHE ~s~n", [Dir]),
-    case cache_read_query(Dir) of
+    CacheDir = cache_dir(Query),
+    %io:format("CACHE ~s~n", [CacheDir]),
+    case cache_read_query(CacheDir) of
         {ok, Query} ->
-            {cache, hit, With, Dir};
+            {cache, hit, With, CacheDir};
 
         {error, enoent} ->
-            cache_miss(With, Dir, Query)
+            cache_miss(RunIn, With, CacheDir, Query)
     end.
 
 %%--------------------------------------------------------------------
 
 cache_refresh(Cache = {cache, miss, _, _, _}) ->
     Cache;
-cache_refresh({cache, hit, With, Dir}) ->
-    cache_delete_query(Dir),
+cache_refresh({cache, hit, With, CacheDir}) ->
+    cache_delete_query(CacheDir),
     Query = cache_query(With),
-    cache_miss(With, Dir, Query).
+    cache_miss("refresh", With, CacheDir, Query).
 
 %%--------------------------------------------------------------------
 
-cache_miss(With, Dir, Query) ->
-    internal(With),
-    cache_copy(Dir, "experiment.jed"),
-    cache_copy(Dir, "experiment_pad.csv"),
-    cache_copy(Dir, "experiment.rpt"),
-    cache_copy(Dir, "experiment.vm6"),
-    JED = jed(),
-    cache_write_jed(Dir, JED),
-    cache_write_query(Dir, Query),
-    {cache, miss, With, Dir, JED}.
+cache_miss(RunIn, With, CacheDir, Query) ->
+    internal(RunIn, With),
+    cache_copy(RunIn, CacheDir, "experiment.jed"),
+    cache_copy(RunIn, CacheDir, "experiment_pad.csv"),
+    cache_copy(RunIn, CacheDir, "experiment.rpt"),
+    cache_copy(RunIn, CacheDir, "experiment.vm6"),
+    JED = jed(RunIn),
+    cache_write_jed(CacheDir, JED),
+    cache_write_query(CacheDir, Query),
+    {cache, miss, With, CacheDir, JED}.
 
 %%--------------------------------------------------------------------
 
@@ -667,19 +673,19 @@ cache_dir(Query) ->
 
 %%--------------------------------------------------------------------
 
-cache_make_dir(Dir) ->
-    case file:make_dir(Dir) of
+cache_make_dir(CacheDir) ->
+    case file:make_dir(CacheDir) of
         ok ->
-            Dir;
+            CacheDir;
 
         {error, eexist} ->
-            Dir
+            CacheDir
     end.
 
 %%--------------------------------------------------------------------
 
-cache_consult_query(Dir) ->
-    File = filename:join(Dir, "with"),
+cache_consult_query(CacheDir) ->
+    File = filename:join(CacheDir, "with"),
     case file:consult(File) of
         {ok, [With]} ->
             {ok, With};
@@ -690,45 +696,45 @@ cache_consult_query(Dir) ->
 
 %%--------------------------------------------------------------------
 
-cache_delete_query(Dir) ->
-    File = filename:join(Dir, "with"),
+cache_delete_query(CacheDir) ->
+    File = filename:join(CacheDir, "with"),
     ok = file:delete(File).
 
 %%--------------------------------------------------------------------
 
-cache_read_query(Dir) ->
-    File = filename:join(Dir, "with"),
+cache_read_query(CacheDir) ->
+    File = filename:join(CacheDir, "with"),
     file:read_file(File).
 
 %%--------------------------------------------------------------------
 
-cache_copy(Dir, Name) ->
-    Source = filename:join(dir(), Name),
-    Destination = filename:join(Dir, Name),
+cache_copy(RunIn, CacheDir, Name) ->
+    Source = filename:join(["experiment", RunIn, Name]),
+    Destination = filename:join(CacheDir, Name),
     {ok, _} = file:copy(Source, Destination),
     ok.
 
 %%--------------------------------------------------------------------
 
-cache_write_jed(Dir, JED) ->
-    File = filename:join(Dir, "jed"),
+cache_write_jed(CacheDir, JED) ->
+    File = filename:join(CacheDir, "jed"),
     Data = io_lib:format("~p.", [JED]),
     ok = file:write_file(File, Data).
 
 %%--------------------------------------------------------------------
 
-cache_write_query(Dir, Query) ->
-    File = filename:join(Dir, "with"),
+cache_write_query(CacheDir, Query) ->
+    File = filename:join(CacheDir, "with"),
     ok = file:write_file(File, Query).
 
 %%====================================================================
 %% cached_dir
 %%====================================================================
 
-cached_dir({cache, hit, _With, Dir}) ->
-    Dir;
-cached_dir({cache, miss, _With, Dir, _JED}) ->
-    Dir.
+cached_dir({cache, hit, _With, CacheDir}) ->
+    CacheDir;
+cached_dir({cache, miss, _With, CacheDir, _JED}) ->
+    CacheDir.
 
 %%====================================================================
 %% cached_imux
@@ -742,20 +748,20 @@ cached_imux(Cache) ->
 %% cached_jed
 %%====================================================================
 
-cached_jed({cache, hit, _With, Dir}) ->
-    File = filename:join(Dir, "jed"),
+cached_jed({cache, hit, _With, CacheDir}) ->
+    File = filename:join(CacheDir, "jed"),
     {ok, [JED]} = file:consult(File),
     JED;
-cached_jed({cache, miss, _With, _Dir, JED}) ->
+cached_jed({cache, miss, _With, _CacheDir, JED}) ->
     JED.
 
 %%====================================================================
 %% cached_with
 %%====================================================================
 
-cached_with({cache, hit, With, _Dir}) ->
+cached_with({cache, hit, With, _CacheDir}) ->
     With;
-cached_with({cache, miss, With, _Dir, _JED}) ->
+cached_with({cache, miss, With, _CacheDir, _JED}) ->
     With.
 
 %%====================================================================
@@ -767,36 +773,36 @@ cached_with({cache, miss, With, _Dir, _JED}) ->
 -spec cache_iterate() -> false | {cache(), cache_iterate()}.
 
 cache_iterate() ->
-    {ok, Dirs} = file:list_dir("cache"),
-    cache_iterate_dirs(Dirs).
+    {ok, CacheDirs} = file:list_dir("cache"),
+    cache_iterate_dirs(CacheDirs).
 
 %%--------------------------------------------------------------------
 
 -spec cache_iterate(cache_iterate()) -> false | {cache(), cache_iterate()}.
 
-cache_iterate({cache_iterate, Dirs}) ->
-    cache_iterate_dirs(Dirs).
+cache_iterate({cache_iterate, CacheDirs}) ->
+    cache_iterate_dirs(CacheDirs).
 
 %%--------------------------------------------------------------------
 
 cache_iterate_dirs([]) ->
     false;
-cache_iterate_dirs([Dir | Dirs]) ->
-    case cache_iterate_dir(Dir) of
+cache_iterate_dirs([CacheDir | CacheDirs]) ->
+    case cache_iterate_dir(CacheDir) of
         {ok, Cache} ->
-            {Cache, {cache_iterate, Dirs}};
+            {Cache, {cache_iterate, CacheDirs}};
 
         false ->
-            cache_iterate_dirs(Dirs)
+            cache_iterate_dirs(CacheDirs)
     end.
 
 %%--------------------------------------------------------------------
 
 cache_iterate_dir(Hash) ->
-    Dir = filename:join("cache", Hash),
-    case cache_consult_query(Dir) of
+    CacheDir = filename:join("cache", Hash),
+    case cache_consult_query(CacheDir) of
         {ok, With} ->
-            {ok, {cache, hit, With, Dir}};
+            {ok, {cache, hit, With, CacheDir}};
 
         _ ->
             false
@@ -807,28 +813,33 @@ cache_iterate_dir(Hash) ->
 %%====================================================================
 
 pins() ->
-    File = filename:join(dir(), "experiment_pad.csv"),
+    pins("manual").
+
+%%--------------------------------------------------------------------
+
+pins(RunIn) ->
+    File = filename:join(["experiment", RunIn, "experiment_pad.csv"]),
     {ok, Data} = file:read_file(File),
     Lines = binary:split(Data, <<"\n">>, [global]),
-    pins(Lines).
+    pin_lines(Lines).
 
 %%--------------------------------------------------------------------
 
-pins([<<"Pin Number,Signal Name,Pin Usage,Pin Name,Direction,", _/binary>> | Lines]) ->
-    pins(Lines, []);
-pins([_ | Lines]) ->
-    pins(Lines).
+pin_lines([<<"Pin Number,Signal Name,Pin Usage,Pin Name,Direction,", _/binary>> | Lines]) ->
+    pin_lines(Lines, []);
+pin_lines([_ | Lines]) ->
+    pin_lines(Lines).
 
 %%--------------------------------------------------------------------
 
-pins([<<>> | _], Pads) ->
+pin_lines([<<>> | _], Pads) ->
     lists:reverse(Pads);
-pins([Line | Lines], Pads) ->
-    pins(Lines, [pin(Line) | Pads]).
+pin_lines([Line | Lines], Pads) ->
+    pin_lines(Lines, [pin_line(Line) | Pads]).
 
 %%--------------------------------------------------------------------
 
-pin(Line) ->
+pin_line(Line) ->
     Fields = binary:split(Line, <<",">>, [global]),
     [Pin, Signal, Usage, Name, Direction | _] = Fields,
     #{
@@ -844,7 +855,8 @@ pin(Line) ->
 %%====================================================================
 
 fuse_count() ->
-    File = filename:join(dir(), "experiment.jed"),
+    RunIn = "manual",
+    File = filename:join(["experiment", RunIn, "experiment.jed"]),
     {ok, Data} = file:read_file(File),
     Lines = binary:split(Data, <<"\n">>, [global]),
     fuse_count(Lines, 0).
@@ -875,7 +887,12 @@ fuse_count(Fuse, <<"1", Line/binary>>, Lines) ->
 %%====================================================================
 
 imux() ->
-    File = filename:join(dir(), "experiment.vm6"),
+    imux("manual").
+
+%%--------------------------------------------------------------------
+
+imux(RunIn) ->
+    File = filename:join(["experiment", RunIn, "experiment.vm6"]),
     experiment_vm6:imux(File).
 
 %%====================================================================
@@ -883,7 +900,12 @@ imux() ->
 %%====================================================================
 
 jed() ->
-    File = filename:join(dir(), "experiment.jed"),
+    jed("manual").
+
+%%--------------------------------------------------------------------
+
+jed(RunIn) ->
+    File = filename:join(["experiment", RunIn, "experiment.jed"]),
     {ok, Data} = file:read_file(File),
     Lines = binary:split(Data, <<"\n">>, [global]),
     jed(Lines, []).
@@ -933,19 +955,12 @@ clear_file(File) ->
 
 %%--------------------------------------------------------------------
 
-dir() ->
-    %{ok, Dir} = file:get_cwd(),
-    %filename:join(Dir, "experiment").
-    "experiment".
-
-%%--------------------------------------------------------------------
-
-exec(Dir, Arg0, Args) ->
+exec(RunDir, Arg0, Args) ->
     Path = "/home/Xilinx/12.4/ISE_DS/ISE/bin/lin64",
     Exec = {spawn_executable, filename:join(Path, Arg0)},
     Opts = [
         {args, Args},
-        {cd, Dir},
+        {cd, RunDir},
         stream,
         exit_status,
         use_stdio,
