@@ -1,11 +1,51 @@
 -module(inputs).
 
+-export([common/1]).
 -export([merge/2]).
 -export([read/1]).
 -export([reverse_and_write_all/0]).
 -export([reverse/1]).
 -export([update/2]).
 -export([write/2]).
+
+%%====================================================================
+%% common
+%%====================================================================
+
+common({input_choices, FBs}) ->
+    Init = maps:from_list([
+        {Input, #{}}
+        ||
+        Input <- input:list()
+    ]),
+    Inputs = maps:fold(fun common_function_block/3, Init, FBs),
+    {common_input_choices, Inputs}.
+
+%%--------------------------------------------------------------------
+
+common_function_block(_FB, Inputs, CommonInputs) ->
+    maps:fold(fun common_input/3, Inputs, CommonInputs).
+
+%%--------------------------------------------------------------------
+
+common_input(Input, Choices, CommonInputs) ->
+    CommonChoices0 = maps:get(Input, CommonInputs, #{}),
+    CommonChoices = maps:fold(fun common_choice/3, Choices, CommonChoices0),
+    CommonInputs#{Input => CommonChoices}.
+
+%%--------------------------------------------------------------------
+
+common_choice(Choice, Source, CommonChoices) ->
+    case CommonChoices of
+        #{Choice := Existing} when Existing =:= Source ->
+            CommonChoices;
+
+        #{Choice := Existing} ->
+            throw({Choice, existing, Existing, merge, Source});
+
+        _ ->
+            CommonChoices#{Choice => Source}
+    end.
 
 %%====================================================================
 %% merge
@@ -106,7 +146,9 @@ reverse_and_write_all() ->
 %%--------------------------------------------------------------------
 
 reverse({input_choices, FBs}) ->
-    {input_sources, maps:map(fun reverse_fb/2, FBs)}.
+    {input_sources, maps:map(fun reverse_fb/2, FBs)};
+reverse({common_input_choices, Inputs}) ->
+    {common_input_sources, reverse_fb(undefined, Inputs)}.
 
 %%--------------------------------------------------------------------
 
