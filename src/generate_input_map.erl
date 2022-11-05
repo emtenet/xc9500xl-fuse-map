@@ -15,7 +15,7 @@ run(Density) ->
     Module = io_lib:format("~s_input_map", [Density]),
     Name = lists:flatten(io_lib:format("~s.erl", [Module])),
     File = filename:join("src", Name),
-    Inputs = inputs:common(inputs:read(Density)),
+    Inputs = read(Density),
     {common_input_choices, InputMap} = Inputs,
     {common_input_sources, SourceMap} = inputs:reverse(Inputs),
     Choices = density:input_choices(Density),
@@ -24,6 +24,18 @@ run(Density) ->
     IOs = device:io_macro_cells(Device),
     Source = source(Module, InputMap, SourceMap, Choices, MCs, IOs),
     ok = file:write_file(File, Source).
+
+%%--------------------------------------------------------------------
+
+read(Density) ->
+    inputs:common(inputs:merge(inputs:read(Density), manual(Density))).
+
+%%--------------------------------------------------------------------
+
+manual(xc9572xl) ->
+    [{fb01, input29, 19, {mc04_13, output}}];
+manual(_) ->
+    [].
 
 %%====================================================================
 %% source
