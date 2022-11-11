@@ -4,6 +4,7 @@
 Documentation of the [fuse map](doc/fuse-map.md) layout.
 
 ![Macro Cell](/doc/macro-cell.svg)
+![fuse-layout](/doc/fuse-layout.svg)
 
 ## Experiments
 
