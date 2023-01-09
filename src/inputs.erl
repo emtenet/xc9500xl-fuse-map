@@ -7,6 +7,7 @@
 -export([reverse/1]).
 -export([update/2]).
 -export([write/2]).
+-export([names/2]).
 
 %%====================================================================
 %% common
@@ -229,7 +230,7 @@ write_choices_line(FB, Input, Inputs) ->
 %%--------------------------------------------------------------------
 
 write_choices_entry(_, [], Line) ->
-    lists:reverse(Line, <<"\n">>);
+    lists:reverse(Line, [<<"\n">>]);
 write_choices_entry(Next, Slots = [{Slot, _} | _], Line) when Next < Slot ->
     write_choices_entry(Next + 1, Slots, [<<"         ">> | Line]);
 write_choices_entry(Slot, [{Slot, {MC, Dir}} | Slots], Line) ->
@@ -270,6 +271,24 @@ write_sources_line(FB, MC, Dir, Sources) ->
 
 write_dir(input) -> i;
 write_dir(output) -> o.
+
+%%====================================================================
+%% names
+%%====================================================================
+
+names(Inputs, {common_input_choices, Choices}) ->
+    maps:map(fun (_, Is) ->
+        maps:map(fun (I, N) ->
+            #{I := Ns} = Choices,
+            case Ns of
+                #{N := S} ->
+                    S;
+
+                _ ->
+                    N
+            end
+        end, Is)
+    end, Inputs).
 
 %%====================================================================
 %% helpers
