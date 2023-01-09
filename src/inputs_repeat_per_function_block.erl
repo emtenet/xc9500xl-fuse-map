@@ -20,7 +20,7 @@ run() ->
 
 density(Density) ->
     io:format("inputs-repeat-per-funcion-block ~p~n", [Density]),
-    repeat_per_function_block(Density),
+    _ = repeat_per_function_block(Density),
     io:format("OK~n", []),
     ok.
 
