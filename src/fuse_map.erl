@@ -5,6 +5,12 @@
 -export([inputs/2]).
 -export([name/2]).
 
+-export_type([fuse/0]).
+-export_type([name/0]).
+-export_type([global_feature/0]).
+-export_type([function_block_feature/0]).
+-export_type([macro_cell_feature/0]).
+
 -type density() :: density:density().
 -type fb() :: function_block:function_block().
 -type input() :: input:input().
@@ -16,8 +22,8 @@
 -type name() ::
     global_feature() |
     user() |
-    {fb(), fb_feature()} |
-    {fb(), mc(), mc_feature()} |
+    {fb(), function_block_feature()} |
+    {fb(), mc(), macro_cell_feature()} |
     {fb(), mc(), pt(), input()} |
     {fb(), mc(), pt(), input()} |
     undefined.
@@ -33,12 +39,12 @@
     gts4_enable |
     keeper_disable.
 
--type fb_feature() ::
+-type function_block_feature() ::
     always |
     enable |
     forward.
 
--type mc_feature() ::
+-type macro_cell_feature() ::
     bypass |
     ce_or_r |
     ce_or_s |
@@ -441,6 +447,8 @@ fuse_user_lower(FB, Row, Column) ->
 %%====================================================================
 %% fuses
 %%====================================================================
+
+-spec fuses(density(), [fuse()]) -> [name()].
 
 fuses(Density, Fuses) ->
     [ fuse(Density, Fuse) || Fuse <- Fuses ].

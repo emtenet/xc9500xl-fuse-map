@@ -12,9 +12,22 @@
 -export([fuse_count/1]).
 -export([or_device/1]).
 
+-export_type([density/0]).
+
+-type density() ::
+    xc9536xl |
+    xc9572xl |
+    xc95144xl |
+    xc95288xl.
+
+-type device() :: device:device().
+-type function_block() :: function_block:function_block().
+
 %%====================================================================
 %% list
 %%====================================================================
+
+-spec list() -> [density()].
 
 list() ->
     [
@@ -27,6 +40,8 @@ list() ->
 %%====================================================================
 %% devices
 %%====================================================================
+
+-spec devices(density()) -> [device()].
 
 devices(xc9536xl) ->
     [
@@ -59,6 +74,8 @@ devices(xc95288xl) ->
 %% largest_device
 %%====================================================================
 
+-spec largest_device(density()) -> device().
+
 largest_device(xc9536xl) -> xc9536xl_cs48; % 36 io pins
 largest_device(xc9572xl) -> xc9572xl_tq100; % 72 io pins
 largest_device(xc95144xl) -> xc95144xl_cs144; % 117 io pins
@@ -67,6 +84,8 @@ largest_device(xc95288xl) -> xc95288xl_cs280. % 192 io pins
 %%====================================================================
 %% function_block_count
 %%====================================================================
+
+-spec function_block_count(density() | device()) -> non_neg_integer().
 
 function_block_count(xc9536xl) -> 2;
 function_block_count(xc9572xl) -> 4;
@@ -78,6 +97,8 @@ function_block_count(Device) ->
 %%====================================================================
 %% function_blocks
 %%====================================================================
+
+-spec function_blocks(density() | device()) -> [function_block()].
 
 function_blocks(xc9536xl) ->
     [fb01, fb02];
@@ -94,6 +115,8 @@ function_blocks(Device) ->
 %% input_choice_count
 %%====================================================================
 
+-spec input_choice_count(density() | device()) -> non_neg_integer().
+
 input_choice_count(xc9536xl) -> 2;
 input_choice_count(xc9572xl) -> 4;
 input_choice_count(xc95144xl) -> 8;
@@ -104,6 +127,8 @@ input_choice_count(Device) ->
 %%====================================================================
 %% input_choices
 %%====================================================================
+
+-spec input_choices(density() | device()) -> [non_neg_integer()].
 
 input_choices(xc9536xl) ->
     [1, 2,
@@ -124,6 +149,8 @@ input_choices(Device) ->
 %% macro_cell_count
 %%====================================================================
 
+-spec macro_cell_count(density() | device()) -> non_neg_integer().
+
 macro_cell_count(xc9536xl) -> 36;
 macro_cell_count(xc9572xl) -> 72;
 macro_cell_count(xc95144xl) -> 144;
@@ -134,6 +161,8 @@ macro_cell_count(Device) ->
 %%====================================================================
 %% macro_cells
 %%====================================================================
+
+-spec macro_cells(density() | device()) -> [macro_cell:absolute()].
 
 macro_cells(xc9536xl) ->
     [
@@ -694,6 +723,8 @@ macro_cells(Device) ->
 %% fuse_count
 %%====================================================================
 
+-spec fuse_count(density() | device()) -> non_neg_integer().
+
 fuse_count(xc9536xl) -> 23328;
 fuse_count(xc9572xl) -> 46656;
 fuse_count(xc95144xl) -> 93312;
@@ -704,6 +735,8 @@ fuse_count(Device) ->
 %%====================================================================
 %% or_device
 %%====================================================================
+
+-spec or_device(density() | device()) -> density().
 
 or_device(Density = xc9536xl) -> Density;
 or_device(Density = xc9572xl) -> Density;

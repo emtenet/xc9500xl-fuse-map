@@ -6,9 +6,31 @@
 -export([number/1]).
 -export([macro_cells/1]).
 
+-export_type([function_block/0]).
+
+-type function_block() ::
+    fb01 |
+    fb02 |
+    fb03 |
+    fb04 |
+    fb05 |
+    fb06 |
+    fb07 |
+    fb08 |
+    fb09 |
+    fb10 |
+    fb11 |
+    fb12 |
+    fb13 |
+    fb14 |
+    fb15 |
+    fb16.
+
 %%====================================================================
 %% assert
 %%====================================================================
+
+-spec assert(function_block()) -> ok.
 
 assert(fb01) -> ok;
 assert(fb02) -> ok;
@@ -31,6 +53,8 @@ assert(fb16) -> ok.
 %% from
 %%====================================================================
 
+-spec from(1..16) -> function_block().
+
 from( 1) -> fb01;
 from( 2) -> fb02;
 from( 3) -> fb03;
@@ -51,6 +75,8 @@ from(16) -> fb16.
 %%====================================================================
 %% name
 %%====================================================================
+
+-spec name(function_block()) -> string().
 
 name(fb01) -> "FB1";
 name(fb02) -> "FB2";
@@ -73,6 +99,8 @@ name(fb16) -> "FB16".
 %% number
 %%====================================================================
 
+-spec number(function_block()) -> non_neg_integer().
+
 number(fb01) ->  1;
 number(fb02) ->  2;
 number(fb03) ->  3;
@@ -93,6 +121,8 @@ number(fb16) -> 16.
 %%====================================================================
 %% macro_cells
 %%====================================================================
+
+-spec macro_cells(function_block()) -> [macro_cell:absolute()].
 
 macro_cells(fb01) ->
     [mc01_01,

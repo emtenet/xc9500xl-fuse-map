@@ -1,6 +1,7 @@
 -module(device_io_pins).
 
 -export([generate/0]).
+-export([generate_type/0]).
 
 -define(IS_DIGIT(C), (C >= $0 andalso C =< $9)).
 -define(IS_UPPER(C), (C >= $A andalso C =< $Z)).
@@ -106,4 +107,33 @@ output_pins([Pin | Pins]) ->
 
 output_pin({_Sorting, Pin, Cell}, End) ->
     io:format("        {~s, ~s}~s~n", [Pin, Cell, End]).
+
+%%====================================================================
+%% generate_type
+%%====================================================================
+
+generate_type() ->
+    Devices = lists:map(fun device/1, device:list()),
+    Pins = just_pins(Devices),
+    io:format("-type pins() ::~n", []),
+    generate_type(Pins),
+    ok.
+
+%%--------------------------------------------------------------------
+
+generate_type([{_Sort, Name}]) ->
+    io:format("    ~p.~n", [Name]),
+    ok;
+generate_type([{_Sort, Name} | Pins]) ->
+    io:format("    ~p |~n", [Name]),
+    generate_type(Pins).
+
+%%--------------------------------------------------------------------
+
+just_pins(Devices) ->
+    lists:umerge([
+        [ {Sort, Name} || {Sort, Name, _} <- Pins ]
+        ||
+        {_, Pins} <- Devices
+    ]).
 
