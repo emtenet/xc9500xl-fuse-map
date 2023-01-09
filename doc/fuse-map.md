@@ -159,27 +159,31 @@ The following features have been identified so far:
 
 | Band  | Feature |
 | :---: | ---     |
-| 13    | ?? PT3 MUX bit-1 |
-| 14    | ?? PT3 MUX bit-0 |
-| 15    | ?? PT5 MUX bit-1 |
-| 16    | ?? PT5 MUX bit-0 |
-| 17    | ?? PT4 MUX bit-1 |
-| 18    | ?? PT4 MUX bit-0 |
-| 19    | ?? PT1 MUX bit-1 |
-| 20    | ?? PT1 MUX bit-0 |
-| 21    | ?? PT2 MUX bit-1 |
-| 22    | ?? PT2 MUX bit-0 |
-| 23    | ?? invert |
+| 13    | PT3 MUX bit-1 |
+| 14    | PT3 MUX bit-0 |
+| 15    | PT5 MUX bit-1 |
+| 16    | PT5 MUX bit-0 |
+| 17    | PT4 MUX bit-1 |
+| 18    | PT4 MUX bit-0 |
+| 19    | PT1 MUX bit-1 |
+| 20    | PT1 MUX bit-0 |
+| 21    | PT2 MUX bit-1 |
+| 22    | PT2 MUX bit-0 |
+| 23    | invert |
+| 24    | feedback from upper |
+| 25    | feedback from lower |
+| 26    | feedback to upper |
 | 27    | STD power (logic & flip-flop) |
 | 28    | OE via GTS |
 | 29    | OE GTS MUX bit-0 |
 | 30    | OE GTS MUX bit-1 |
 | 31    | OE invert |
 | 33    | bypass |
-| 34    | GCK MUX bit-1 |
-| 35    | GCK MUX bit-0 |
-| 37    | ?? CE MUX bit-1 |
-| 38    | ?? CE MUX bit-0 |
+| 34    | CLK MUX bit-1 |
+| 35    | CLK MUX bit-0 |
+| 36    | CLK invert |
+| 37    | CE or R |
+| 38    | CE or S |
 | 40    | T-type flip-flop |
 | 41    | Reset via GSR |
 | 42    | Set via GSR |
@@ -194,7 +198,8 @@ The following features have been identified so far:
 
 ## FastCONNECT input MUX
 
-The side A-bits and B-bits are MUX bits selecting one of the pin inputs or macro cell outputs
+The side A-bits and B-bits are MUX bits selecting
+one of the pin inputs (external) or macro cell outputs (internal)
 for a partucilar input to a function block.
 
 The function block is determined by the location of the page in the band.
@@ -231,19 +236,23 @@ The input is determined by the following placement:
 |  56   | input-26 | input-53 |
 |  57   | input-27 | input-54 |
 
-It is assumed that the 9 MUX bits lookup one of the possible pin inputs.
+Only 5 of the MUX bits are used.
 
-Most of the time these fuses are off,
-it is assumed that when none of the 9 fuses are on that no selection is made.
+The MUX bits can only select from a limited set of sources
+(macro cell + internal/external)
+via a density specific lookup table.
 
-With 9 bits, 512 items can be selected,
-that is enought to select all of the 288 pin inputs in
-the largest xc95288xl device that has 288 macro cells.
+For example *input 14* on an *xc9572xl* device can select from the following
+sources:
 
-But the 9 bits are not enough to
-select from the 288 pin inputs plus the 288 macro cell outputs,
-so it is assumed that additional set of A & B-bits select
-from macro cell outputs
-just like the above select pin inputs.
-These additional bits (and corresponding bands) have not been identified.
+| IMUX bits |    Input source    |
+|   :---:   |       :---:        |
+|     1     | FB04 MC10 external |
+|     2     | FB04 MC05 external |
+|     3     | FB03 MC17 external |
+|     4     | FB03 MC01 external |
+|    16     | FB01 MC14 internal |
+|    17     | FB03 MC14 internal |
+|    18     | FB02 MC14 internal |
+|    19     | FB04 MC14 internal |
 
