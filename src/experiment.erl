@@ -17,6 +17,7 @@
 -export([fuse_count/0]).
 -export([imux/0]).
 -export([jed/0]).
+-export([jed_file/1]).
 
 -type with() :: #{
     device := device:device(),
@@ -901,6 +902,13 @@ imux(RunIn) ->
 
 jed() ->
     jed("manual").
+
+%%--------------------------------------------------------------------
+
+jed_file(File) ->
+    {ok, Data} = file:read_file(File),
+    Lines = binary:split(Data, <<"\n">>, [global]),
+    jed(Lines, []).
 
 %%--------------------------------------------------------------------
 
