@@ -100,7 +100,7 @@ Known fuses at the moment are:
  - A6 ***GTS2 enable***,
  - A7 ***GTS3 enable***,
  - A8 ***GTS4 enable***,
- - A9 **keeper disable***.
+ - A9 ***keeper disable***.
 
 All other fuses in this band are unused.
 
@@ -112,12 +112,12 @@ The side fuses of FB1-band-7 are the following USER bits:
 | :---:  | :---:  |
 | bit-30 | bit-31 |
 | bit-28 | bit-29 |
-| bit-25 | bit-24 |
-| bit-27 | bit-26 |
+| bit-26 | bit-27 |
+| bit-24 | bit-25 |
 | bit-22 | bit-23 |
 | bit-20 | bit-21 |
-| bit-17 | bit-16 |
-| bit-19 | bit-18 |
+| bit-18 | bit-19 |
+| bit-16 | bit-17 |
 
 The side fuses of FB1-band-8 are the following USER bits:
 
@@ -125,12 +125,12 @@ The side fuses of FB1-band-8 are the following USER bits:
 | :---:  | :---:  |
 | bit-14 | bit-15 |
 | bit-12 | bit-13 |
-| bit-9  | bit-8  |
-| bit-11 | bit-10 |
+| bit-10 | bit-11 |
+| bit-8  | bit-9  |
 | bit-6  | bit-7  |
 | bit-4  | bit-5  |
-| bit-1  | bit-0  |
-| bit-3  | bit-2  |
+| bit-2  | bit-3  |
+| bit-0  | bit-1  |
 
 All other fuses in these bands are unused.
 
