@@ -14,6 +14,15 @@
 
 -type fuse() :: non_neg_integer().
 -type name() ::
+    global_feature() |
+    user() |
+    {fb(), fb_feature()} |
+    {fb(), mc(), mc_feature()} |
+    {fb(), mc(), pt(), input()} |
+    {fb(), mc(), pt(), input()} |
+    undefined.
+
+-type global_feature() ::
     gsr_invert |
     gck1_enable |
     gck2_enable |
@@ -22,15 +31,14 @@
     gts2_enable |
     gts3_enable |
     gts4_enable |
-    keeper_disable |
-    user() |
-    {fb(), mc(), pt(), input()} |
-    {fb(), mc(), pt(), input()} |
-    {fb(), mc(), feature()} |
-    undefined.
+    keeper_disable.
 
--type feature() ::
+-type fb_feature() ::
     always |
+    enable |
+    forward.
+
+-type mc_feature() ::
     bypass |
     ce_or_r |
     ce_or_s |
@@ -241,12 +249,12 @@ fuse( 16, FB, Row, Column) -> fuse_feature(pt4_mux0, FB, Row, Column);
 fuse( 17, FB, Row, Column) -> fuse_feature(pt4_mux1, FB, Row, Column);
 fuse( 18, FB, Row, Column) -> fuse_feature(pt1_mux0, FB, Row, Column);
 fuse( 19, FB, Row, Column) -> fuse_feature(pt1_mux1, FB, Row, Column);
-fuse( 20, FB, Row, Column) -> fuse_guess(pt2_mux0, FB, Row, Column);
-fuse( 21, FB, Row, Column) -> fuse_guess(pt2_mux1, FB, Row, Column);
-fuse( 22, FB, Row, Column) -> fuse_guess(invert, FB, Row, Column);
-fuse( 23, FB, Row, Column) -> fuse_guess(from_upper, FB, Row, Column);
-fuse( 24, FB, Row, Column) -> fuse_guess(from_lower, FB, Row, Column);
-fuse( 25, FB, Row, Column) -> fuse_guess(to_upper, FB, Row, Column);
+fuse( 20, FB, Row, Column) -> fuse_feature(pt2_mux0, FB, Row, Column);
+fuse( 21, FB, Row, Column) -> fuse_feature(pt2_mux1, FB, Row, Column);
+fuse( 22, FB, Row, Column) -> fuse_feature(invert, FB, Row, Column);
+fuse( 23, FB, Row, Column) -> fuse_feature(from_upper, FB, Row, Column);
+fuse( 24, FB, Row, Column) -> fuse_feature(from_lower, FB, Row, Column);
+fuse( 25, FB, Row, Column) -> fuse_feature(to_upper, FB, Row, Column);
 fuse( 26, FB, Row, Column) -> fuse_feature(std_power, FB, Row, Column);
 fuse( 27, FB, Row, Column) -> fuse_feature(oe_gts, FB, Row, Column);
 fuse( 28, FB, Row, Column) -> fuse_feature(oe_gts_mux0, FB, Row, Column);
@@ -360,9 +368,9 @@ fuse_feature(Feature, FB, Row, Column) ->
 %%--------------------------------------------------------------------
 
 fuse_function_block(FB, 0, 6) ->
-    {FB, guess, enable};
+    {FB, enable};
 fuse_function_block(FB, 1, 6) ->
-    {FB, guess, forward};
+    {FB, forward};
 fuse_function_block(FB, 6, 6) ->
     {FB, always};
 fuse_function_block(FB, Row, Column) ->
@@ -381,12 +389,6 @@ fuse_global(fb01, 7, 6) -> gts4_enable;
 fuse_global(fb01, 8, 6) -> keeper_disable;
 fuse_global(FB, Row, Column) ->
     fuse_unknown(band003, FB, Row, Column).
-
-%%--------------------------------------------------------------------
-
-fuse_guess(Guess, FB, Row, Column) ->
-    MC = feature_to_macro_cell(Row, Column),
-    {FB, MC, guess, Guess}.
 
 %%--------------------------------------------------------------------
 
@@ -555,8 +557,8 @@ name(Density, user03) -> name(Density, 7, fb01, 6, 7);
 name(Density, user00) -> name(Density, 7, fb01, 7, 6);
 name(Density, user01) -> name(Density, 7, fb01, 7, 7);
 % function block fuses
-name(Density, {FB, guess, enable}) -> name(Density, 78, FB, 0, 6);
-name(Density, {FB, guess, forward}) -> name(Density, 78, FB, 1, 6);
+name(Density, {FB, enable}) -> name(Density, 78, FB, 0, 6);
+name(Density, {FB, forward}) -> name(Density, 78, FB, 1, 6);
 name(Density, {FB, always}) -> name(Density, 78, FB, 6, 6);
 % input fuses
 name(Density, {FB, Input, mux0}) -> name_input(Density, FB, Input, 0);
@@ -570,10 +572,6 @@ name(Density, {FB, Input, mux7}) -> name_input(Density, FB, Input, 7);
 name(Density, {FB, Input, mux8}) -> name_input(Density, FB, Input, 8);
 % feature fuses
 name(Density, {FB, MC, Feature}) ->
-    Band = feature_band(Feature),
-    {Row, Col} = feature_from_macro_cell(MC),
-    name(Density, Band, FB, Row, Col);
-name(Density, {FB, MC, guess, Feature}) ->
     Band = feature_band(Feature),
     {Row, Col} = feature_from_macro_cell(MC),
     name(Density, Band, FB, Row, Col);
