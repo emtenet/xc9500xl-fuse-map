@@ -5,6 +5,11 @@
 -export([list/0]).
 -export([number/1]).
 
+-export_type([input/0]).
+-export_type([choice/0]).
+-export_type([realm/0]).
+-export_type([source/0]).
+
 -type input() ::
     input01 |
     input02 |
@@ -60,14 +65,18 @@
     input52 |
     input53 |
     input54.
--export_type([input/0]).
 
 -type choice() :: non_neg_integer().
--export_type([choice/0]).
+
+-type realm() :: external | internal.
+
+-type source() :: {macro_cell:absolute(), realm()}.
 
 %%====================================================================
 %% assert
 %%====================================================================
+
+-spec assert(input()) -> ok.
 
 assert(input01) -> ok;
 assert(input02) -> ok;
@@ -128,6 +137,8 @@ assert(input54) -> ok.
 %% from
 %%====================================================================
 
+-spec from(1..54) -> input().
+
 from( 1) -> input01;
 from( 2) -> input02;
 from( 3) -> input03;
@@ -186,6 +197,8 @@ from(54) -> input54.
 %%====================================================================
 %% list
 %%====================================================================
+
+-spec list() -> [input()].
 
 list() ->
     [
@@ -248,6 +261,8 @@ list() ->
 %%====================================================================
 %% number
 %%====================================================================
+
+-spec number(input()) -> 1..54.
 
 number(input01) ->  1;
 number(input02) ->  2;

@@ -18,7 +18,7 @@ Documentation of the [fuse map](doc/fuse-map.md) layout.
  - [x] `gsr_invert_experiment` - global GSR invert
  - [x] `product_term_experiment` - which product term (of 5) is the default? 3!
  - [x] `and_array_experiment` - AND-array true and compliement terms of product term 3
- - [x] `inputs_experiment` - Mapping of input MUX bits to source macro cell's input.
+ - [x] `inputs_experiment` - Mapping of input MUX bits to source macro cell's input (external pad).
  - [x] `always_experiment` - Confirm that some fuses are always on!
  - [x] `gck_enable_experiment` - Confirm the fuse location for global GCK enables.
  - [x] `keeper_disable_experiment` - Confirm the fuse for global keeper disable.

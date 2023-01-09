@@ -60,8 +60,8 @@ experiment(Density, Device, Input, Output) ->
     Fuses = experiment:cached_jed(Cache),
     IMUX = experiment:cached_imux(Cache),
     FB = macro_cell:function_block(Output),
-    #{FB := #{input := #{Input := Index}}} = IMUX,
+    #{FB := #{external := #{Input := Index}}} = IMUX,
     Inputs = fuse_map:inputs(Density, Fuses),
     #{FB := #{Index := MUX}} = Inputs,
-    {FB, Index, MUX, {Input, input}}.
+    {FB, Index, MUX, {Input, external}}.
 

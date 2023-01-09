@@ -8,8 +8,9 @@
 -type input() :: input:input().
 -type choice() :: non_neg_integer().
 
--type macro_cell() :: macro_cell:macro_cell().
--type direction() :: input | output.
+-type macro_cell() :: macro_cell:absolute().
+-type realm() :: input:realm().
+-type source() :: input:source().
 
 %%====================================================================
 %% choices
@@ -29,7 +30,7 @@ choices(xc95288xl) -> xc95288xl_input_map:choices().
 %%====================================================================
 
 -spec choice(density(), input(), choice())
-    -> {macro_cell(), direction()} | unknown.
+    -> source() | unknown.
 
 choice(xc9536xl, Input, Choice) -> xc9536xl_input_map:choice(Input, Choice);
 choice(xc9572xl, Input, Choice) -> xc9572xl_input_map:choice(Input, Choice);
@@ -40,7 +41,7 @@ choice(xc95288xl, Input, Choice) -> xc95288xl_input_map:choice(Input, Choice).
 %% sources
 %%====================================================================
 
--spec sources(density(), macro_cell(), direction())
+-spec sources(density(), macro_cell(), realm())
     -> {choice(), [input()]} | no_pin | unknown.
 
 sources(xc9536xl, MC, Dir) -> xc9536xl_input_map:sources(MC, Dir);

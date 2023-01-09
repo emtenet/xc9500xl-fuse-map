@@ -2,7 +2,7 @@
 
 -export([run/0]).
 
-%%  Detect mapping of input MUX bit fuses to feedback (output) source.
+%%  Detect mapping of input MUX bit fuses to feedback (internal) source.
 %%
 %%  Save mapping in the inputs:update/0 database
 
@@ -64,8 +64,8 @@ experiment(Density, Device, GCKs, Internal, Output, IOs) ->
     Fuses = experiment:cached_jed(Cache),
     IMUX = experiment:cached_imux(Cache),
     FB = macro_cell:function_block(Output),
-    #{FB := #{output := #{Internal := Index}}} = IMUX,
+    #{FB := #{internal := #{Internal := Index}}} = IMUX,
     Inputs = fuse_map:inputs(Density, Fuses),
     #{FB := #{Index := MUX}} = Inputs,
-    {FB, Index, MUX, {Internal, output}}.
+    {FB, Index, MUX, {Internal, internal}}.
 

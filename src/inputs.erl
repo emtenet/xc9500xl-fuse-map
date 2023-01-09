@@ -9,9 +9,41 @@
 -export([write/2]).
 -export([names/2]).
 
+-export_type([common_input_choices/0]).
+-export_type([common_input_sources/0]).
+-export_type([raw_input_choices/0]).
+-export_type([raw_input_sources/0]).
+-export_type([merge/0]).
+
+-type choice() :: input:choice().
+-type density() :: density:density().
+-type device() :: device:device().
+-type function_block() :: function_block:function_block().
+-type input() :: input:input().
+-type realm() :: input:realm().
+-type source() :: input:source().
+
+-type merge() :: {function_block(), input(), choice(), source()}.
+
+-type raw_input_choices() :: {input_choices, function_block_choices()}.
+-type common_input_choices() :: {common_input_choices, input_choices()}.
+
+-type function_block_choices() :: #{ function_block() => input_choices() }.
+-type input_choices() :: #{ input() => choices() }.
+-type choices() :: #{ choice() => source() }.
+
+-type raw_input_sources() :: {input_sources, function_block_sources()}.
+-type common_input_sources() :: {common_input_sources, source_sources()}.
+
+-type function_block_sources() :: #{ function_block() => source_sources() }.
+-type source_sources() :: #{ source() => input_sources() }.
+-type input_sources() :: #{ input() => choice() }.
+
 %%====================================================================
 %% common
 %%====================================================================
+
+-spec common(raw_input_choices()) -> common_input_choices().
 
 common({input_choices, FBs}) ->
     Init = maps:from_list([
@@ -52,6 +84,8 @@ common_choice(Choice, Source, CommonChoices) ->
 %% merge
 %%====================================================================
 
+-spec merge(raw_input_choices(), [merge()]) -> raw_input_choices().
+
 merge(Inputs = {input_choices, _}, []) ->
     Inputs;
 merge({input_choices, FBs}, Items) when is_list(Items) ->
@@ -87,6 +121,8 @@ merge_item(FBs, {FB, Input, Choice, Source}) ->
 %%====================================================================
 %% read
 %%====================================================================
+
+-spec read(density() | device()) -> raw_input_choices().
 
 read(DensityOrDevice) ->
     Density = density:or_device(DensityOrDevice),
@@ -125,26 +161,36 @@ read_choices(_, <<>>, Choices) ->
 read_choices(Choice, <<"         ", Rest/binary>>, Choices) ->
     read_choices(Choice + 1, Rest, Choices);
 read_choices(Choice, Line, Choices) ->
-    <<" mc", FB_:2/binary, "_", MC_:2/binary, Dir_, Rest/binary>> = Line,
+    <<" mc", FB_:2/binary, "_", MC_:2/binary, Realm_, Rest/binary>> = Line,
     MC = macro_cell:from(binary_to_integer(FB_), binary_to_integer(MC_)), 
-    Dir = read_dir(Dir_),
-    read_choices(Choice + 1, Rest, Choices#{Choice => {MC, Dir}}).
+    Realm = read_realm(Realm_),
+    read_choices(Choice + 1, Rest, Choices#{Choice => {MC, Realm}}).
 
 %%--------------------------------------------------------------------
 
-read_dir($i) -> input;
-read_dir($o) -> output.
+-spec read_realm(char()) -> realm().
+
+read_realm($e) -> external;
+read_realm($i) -> internal.
 
 %%====================================================================
 %% reverse
 %%====================================================================
 
+-spec reverse_and_write_all() -> ok.
+
 reverse_and_write_all() ->
     lists:foreach(fun (Density) ->
-        write(Density, reverse(read(Density)))
+        Choices = read(Density),
+        Sources = reverse(Choices),
+        write(Density, Sources)
     end, density:list()).
 
 %%--------------------------------------------------------------------
+
+-spec reverse
+    (raw_input_choices()) -> raw_input_sources();
+    (common_input_choices()) -> common_input_sources().
 
 reverse({input_choices, FBs}) ->
     {input_sources, maps:map(fun reverse_fb/2, FBs)};
@@ -179,12 +225,17 @@ reverse_slot(Input, Choice, Source, Sources) ->
 %% update
 %%====================================================================
 
+-spec update(density() | device(), [merge()]) -> ok.
+
 update(DensityOrDevice, Items) ->
     write(DensityOrDevice, merge(read(DensityOrDevice), Items)).
 
 %%====================================================================
 %% write
 %%====================================================================
+
+-spec write(density() | device(), raw_input_choices() | raw_input_sources())
+    -> ok.
 
 write(DensityOrDevice, {input_choices, FBs}) ->
     Density = density:or_device(DensityOrDevice),
@@ -233,8 +284,8 @@ write_choices_entry(_, [], Line) ->
     lists:reverse(Line, [<<"\n">>]);
 write_choices_entry(Next, Slots = [{Slot, _} | _], Line) when Next < Slot ->
     write_choices_entry(Next + 1, Slots, [<<"         ">> | Line]);
-write_choices_entry(Slot, [{Slot, {MC, Dir}} | Slots], Line) ->
-    Head = io_lib:format(" ~p~p", [MC, write_dir(Dir)]),
+write_choices_entry(Slot, [{Slot, {MC, Realm}} | Slots], Line) ->
+    Head = io_lib:format(" ~p~p", [MC, write_realm(Realm)]),
     write_choices_entry(Slot + 1, Slots, [Head | Line]).
 
 %%--------------------------------------------------------------------
@@ -242,23 +293,23 @@ write_choices_entry(Slot, [{Slot, {MC, Dir}} | Slots], Line) ->
 write_sources_fb(FB, FBs, MCs) ->
     Sources = maps:get(FB, FBs, #{}),
     [[
-        write_sources_line(FB, MC, input, Sources)
+        write_sources_line(FB, MC, external, Sources)
         ||
         MC <- MCs
      ],
      [
-        write_sources_line(FB, MC, output, Sources)
+        write_sources_line(FB, MC, internal, Sources)
         ||
         MC <- MCs
     ]].
 
 %%--------------------------------------------------------------------
 
-write_sources_line(FB, MC, Dir, Sources) ->
-    Inputs = maps:get({MC, Dir}, Sources, #{}),
+write_sources_line(FB, MC, Realm, Sources) ->
+    Inputs = maps:get({MC, Realm}, Sources, #{}),
     % fb01,mc01_01i: input01,3 input27,3
     [
-        io_lib:format("~p,~p~p:", [FB, MC, write_dir(Dir)]),
+        io_lib:format("~p,~p~p:", [FB, MC, write_realm(Realm)]),
         [
             io_lib:format(" ~p,~p", [Input, Choice])
             ||
@@ -269,8 +320,8 @@ write_sources_line(FB, MC, Dir, Sources) ->
 
 %%--------------------------------------------------------------------
 
-write_dir(input) -> i;
-write_dir(output) -> o.
+write_realm(external) -> e;
+write_realm(internal) -> i.
 
 %%====================================================================
 %% names

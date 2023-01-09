@@ -1,432 +1,432 @@
-fb01,input01:                   mc02_02i mc02_10i mc08_05i                   mc03_12i                                                                         mc03_01o mc05_01o mc07_01o
-fb01,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb01,input03: mc04_06i mc04_10i                                     mc07_02i mc03_07i                                                                                                             mc04_03o mc06_03o mc08_03o
-fb01,input04: mc06_17i                            mc01_05i mc07_10i mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o                   mc08_04o
-fb01,input05: mc04_08i mc04_14i                   mc07_17i mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o          mc04_05o
-fb01,input06:          mc06_10i mc06_02i mc08_11i          mc07_08i mc03_08i                                                                                  mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb01,input07:          mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o
-fb01,input08: mc06_14i mc06_08i                                     mc03_01i                                                                                                                                        mc08_08o
-fb01,input09: mc04_11i          mc02_04i                                                                                                             mc01_09o mc03_09o          mc07_09o mc02_09o
-fb01,input10: mc06_12i          mc08_15i mc08_09i                                                                                                    mc01_10o          mc05_10o                   mc04_10o
-fb01,input11: mc04_03i mc04_16i mc02_08i          mc07_12i                                                                                           mc01_11o mc03_11o          mc07_11o                   mc06_11o
-fb01,input12:          mc06_06i          mc08_03i                   mc03_03i mc05_08i                                                                mc01_12o mc03_12o                   mc02_12o
-fb01,input13: mc04_12i                                                       mc03_15i                                                                                  mc05_13o          mc02_13o          mc06_13o mc08_13o
-fb01,input14:          mc06_04i mc08_14i                                                                                                                      mc03_14o                   mc02_14o mc04_14o
-fb01,input15:                                                                                                                                                          mc05_15o                   mc04_15o
-fb01,input16: mc06_16i mc06_05i mc08_10i mc08_06i                   mc03_04i                                                                         mc01_16o          mc05_16o mc07_16o          mc04_16o          mc08_16o
-fb01,input17: mc04_08i mc06_06i                   mc07_13i                                                                                           mc01_17o                            mc02_17o
-fb01,input18:          mc04_17i                   mc07_17i mc01_15i mc01_16i mc03_07i                                                                mc01_18o          mc05_18o                   mc04_18o
-fb01,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i mc03_11i                                                                         mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o mc04_04o mc06_01o mc08_07o
+fb01,input01:                   mc02_02e mc02_10e mc08_05e                   mc03_12e                                                                         mc03_01i mc05_01i mc07_01i
+fb01,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb01,input03: mc04_06e mc04_10e                                     mc07_02e mc03_07e                                                                                                             mc04_03i mc06_03i mc08_03i
+fb01,input04: mc06_17e                            mc01_05e mc07_10e mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i                   mc08_04i
+fb01,input05: mc04_08e mc04_14e                   mc07_17e mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i          mc04_05i
+fb01,input06:          mc06_10e mc06_02e mc08_11e          mc07_08e mc03_08e                                                                                  mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb01,input07:          mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i
+fb01,input08: mc06_14e mc06_08e                                     mc03_01e                                                                                                                                        mc08_08i
+fb01,input09: mc04_11e          mc02_04e                                                                                                             mc01_09i mc03_09i          mc07_09i mc02_09i
+fb01,input10: mc06_12e          mc08_15e mc08_09e                                                                                                    mc01_10i          mc05_10i                   mc04_10i
+fb01,input11: mc04_03e mc04_16e mc02_08e          mc07_12e                                                                                           mc01_11i mc03_11i          mc07_11i                   mc06_11i
+fb01,input12:          mc06_06e          mc08_03e                   mc03_03e mc05_08e                                                                mc01_12i mc03_12i                   mc02_12i
+fb01,input13: mc04_12e                                                       mc03_15e                                                                                  mc05_13i          mc02_13i          mc06_13i mc08_13i
+fb01,input14:          mc06_04e mc08_14e                                                                                                                      mc03_14i                   mc02_14i mc04_14i
+fb01,input15:                                                                                                                                                          mc05_15i                   mc04_15i
+fb01,input16: mc06_16e mc06_05e mc08_10e mc08_06e                   mc03_04e                                                                         mc01_16i          mc05_16i mc07_16i          mc04_16i          mc08_16i
+fb01,input17: mc04_08e mc06_06e                   mc07_13e                                                                                           mc01_17i                            mc02_17i
+fb01,input18:          mc04_17e                   mc07_17e mc01_15e mc01_16e mc03_07e                                                                mc01_18i          mc05_18i                   mc04_18i
+fb01,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e mc03_11e                                                                         mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i mc04_04i mc06_01i mc08_07i
 fb01,input20:
-fb01,input21: mc04_09i          mc08_16i mc02_16i mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o mc04_01o mc06_04o mc08_01o
+fb01,input21: mc04_09e          mc08_16e mc02_16e mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i mc04_01i mc06_04i mc08_01i
 fb01,input22:
-fb01,input23:                                                                                                                                        mc01_02o
+fb01,input23:                                                                                                                                        mc01_02i
 fb01,input24:
-fb01,input25: mc04_11i          mc08_15i                   mc01_15i mc07_02i                                                                                                                      mc04_10o          mc08_08o
-fb01,input26: mc06_17i          mc08_17i mc08_06i                   mc03_08i mc05_05i                                                                mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb01,input27: mc04_11i mc04_16i mc02_08i                            mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o
-fb01,input28: mc04_06i mc06_08i                                     mc03_01i
-fb01,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o          mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb01,input30: mc06_16i                            mc07_16i                   mc03_12i                                                                                                                      mc06_13o
-fb01,input31: mc04_11i mc04_17i mc02_09i          mc07_16i mc01_12i mc03_08i                                                                                  mc03_09o mc05_10o mc07_09o                   mc06_03o mc08_16o
-fb01,input32:          mc04_10i mc02_04i
-fb01,input33:          mc06_10i mc02_05i          mc08_05i                   mc05_11i                                                                mc01_07o mc03_03o          mc07_13o mc02_15o mc04_08o          mc08_13o
-fb01,input34: mc04_06i                   mc08_09i                                                                                                    mc01_09o                   mc07_16o          mc04_03o          mc08_03o
-fb01,input35: mc06_12i mc06_04i          mc08_11i          mc03_02i mc05_14i                                                                         mc01_18o                   mc07_11o mc02_08o                   mc08_04o
-fb01,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o mc03_15o mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb01,input37:          mc04_17i          mc08_04i          mc03_05i          mc03_14i                                                                                           mc07_03o          mc04_10o          mc08_11o
-fb01,input38:                   mc02_04i                                                                                                                                                                            mc08_03o
-fb01,input39:          mc06_10i mc08_16i          mc01_01i          mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o          mc02_10o mc04_09o mc06_16o mc08_05o
-fb01,input40: mc04_12i                                                                                                                               mc01_11o                            mc02_04o          mc06_06o
-fb01,input41:          mc02_01i mc02_09i          mc07_14i mc07_10i                                                                                                                               mc04_05o mc06_10o mc08_10o
-fb01,input42: mc04_08i mc06_06i          mc02_13i                   mc03_03i                                                                                  mc03_11o mc05_08o          mc02_17o mc04_14o mc06_09o
-fb01,input43: mc06_11i mc04_15i mc08_13i mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
+fb01,input25: mc04_11e          mc08_15e                   mc01_15e mc07_02e                                                                                                                      mc04_10i          mc08_08i
+fb01,input26: mc06_17e          mc08_17e mc08_06e                   mc03_08e mc05_05e                                                                mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb01,input27: mc04_11e mc04_16e mc02_08e                            mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i
+fb01,input28: mc04_06e mc06_08e                                     mc03_01e
+fb01,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i          mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb01,input30: mc06_16e                            mc07_16e                   mc03_12e                                                                                                                      mc06_13i
+fb01,input31: mc04_11e mc04_17e mc02_09e          mc07_16e mc01_12e mc03_08e                                                                                  mc03_09i mc05_10i mc07_09i                   mc06_03i mc08_16i
+fb01,input32:          mc04_10e mc02_04e
+fb01,input33:          mc06_10e mc02_05e          mc08_05e                   mc05_11e                                                                mc01_07i mc03_03i          mc07_13i mc02_15i mc04_08i          mc08_13i
+fb01,input34: mc04_06e                   mc08_09e                                                                                                    mc01_09i                   mc07_16i          mc04_03i          mc08_03i
+fb01,input35: mc06_12e mc06_04e          mc08_11e          mc03_02e mc05_14e                                                                         mc01_18i                   mc07_11i mc02_08i                   mc08_04i
+fb01,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i mc03_15i mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb01,input37:          mc04_17e          mc08_04e          mc03_05e          mc03_14e                                                                                           mc07_03i          mc04_10i          mc08_11i
+fb01,input38:                   mc02_04e                                                                                                                                                                            mc08_03i
+fb01,input39:          mc06_10e mc08_16e          mc01_01e          mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i          mc02_10i mc04_09i mc06_16i mc08_05i
+fb01,input40: mc04_12e                                                                                                                               mc01_11i                            mc02_04i          mc06_06i
+fb01,input41:          mc02_01e mc02_09e          mc07_14e mc07_10e                                                                                                                               mc04_05i mc06_10i mc08_10i
+fb01,input42: mc04_08e mc06_06e          mc02_13e                   mc03_03e                                                                                  mc03_11i mc05_08i          mc02_17i mc04_14i mc06_09i
+fb01,input43: mc06_11e mc04_15e mc08_13e mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
 fb01,input44:
-fb01,input45:                   mc06_02i mc01_02i                   mc05_14i mc05_08i                                                                         mc03_01o mc05_18o mc07_03o
-fb01,input46: mc04_12i          mc08_10i mc02_10i          mc01_14i                                                                                  mc01_17o
-fb01,input47: mc06_14i mc06_05i mc02_02i mc08_03i          mc07_08i                                                                                  mc01_16o          mc05_18o          mc02_17o                   mc08_08o
-fb01,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o mc07_01o mc02_13o mc04_18o mc06_10o
-fb01,input49:          mc04_14i                   mc01_04i mc03_02i mc07_02i mc05_03i                                                                                  mc05_08o mc07_13o mc02_06o mc04_06o mc06_15o
-fb01,input50: mc04_09i mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o          mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb01,input51:                   mc08_14i          mc01_09i mc01_10i mc03_03i mc05_09i                                                                mc01_16o          mc05_07o mc07_01o mc02_14o mc04_16o          mc08_11o
-fb01,input52:          mc04_10i                                                                                                                      mc01_10o
-fb01,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb01,input54: mc04_01i          mc08_13i mc02_12i                   mc05_12i mc05_02i                                                                         mc03_17o mc05_14o mc07_12o mc02_01o mc04_12o mc06_18o mc08_09o
-fb02,input01:                   mc02_02i mc02_10i mc08_05i mc01_12i          mc03_12i                                                                         mc03_01o mc05_01o mc07_01o
-fb02,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb02,input03: mc04_06i mc04_10i                                     mc07_02i mc03_07i                                                                                                             mc04_03o mc06_03o mc08_03o
-fb02,input04:                                     mc01_05i          mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o                   mc08_04o
-fb02,input05: mc04_08i mc04_14i                   mc07_17i mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o          mc04_05o
-fb02,input06:                                              mc07_08i                                                                                           mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb02,input07: mc04_09i mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o mc07_07o mc02_07o mc04_07o mc06_07o mc08_07o
+fb01,input45:                   mc06_02e mc01_02e                   mc05_14e mc05_08e                                                                         mc03_01i mc05_18i mc07_03i
+fb01,input46: mc04_12e          mc08_10e mc02_10e          mc01_14e                                                                                  mc01_17i
+fb01,input47: mc06_14e mc06_05e mc02_02e mc08_03e          mc07_08e                                                                                  mc01_16i          mc05_18i          mc02_17i                   mc08_08i
+fb01,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i mc07_01i mc02_13i mc04_18i mc06_10i
+fb01,input49:          mc04_14e                   mc01_04e mc03_02e mc07_02e mc05_03e                                                                                  mc05_08i mc07_13i mc02_06i mc04_06i mc06_15i
+fb01,input50: mc04_09e mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i          mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb01,input51:                   mc08_14e          mc01_09e mc01_10e mc03_03e mc05_09e                                                                mc01_16i          mc05_07i mc07_01i mc02_14i mc04_16i          mc08_11i
+fb01,input52:          mc04_10e                                                                                                                      mc01_10i
+fb01,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb01,input54: mc04_01e          mc08_13e mc02_12e                   mc05_12e mc05_02e                                                                         mc03_17i mc05_14i mc07_12i mc02_01i mc04_12i mc06_18i mc08_09i
+fb02,input01:                   mc02_02e mc02_10e mc08_05e mc01_12e          mc03_12e                                                                         mc03_01i mc05_01i mc07_01i
+fb02,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb02,input03: mc04_06e mc04_10e                                     mc07_02e mc03_07e                                                                                                             mc04_03i mc06_03i mc08_03i
+fb02,input04:                                     mc01_05e          mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i                   mc08_04i
+fb02,input05: mc04_08e mc04_14e                   mc07_17e mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i          mc04_05i
+fb02,input06:                                              mc07_08e                                                                                           mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb02,input07: mc04_09e mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i mc07_07i mc02_07i mc04_07i mc06_07i mc08_07i
 fb02,input08:
-fb02,input09: mc04_11i          mc02_04i                                     mc03_14i                                                                mc01_09o mc03_09o          mc07_09o mc02_09o          mc06_09o
-fb02,input10: mc06_12i          mc08_15i mc08_09i                                                                                                    mc01_10o
-fb02,input11: mc04_03i mc04_16i mc02_08i          mc07_12i mc01_10i                                                                                  mc01_11o mc03_11o          mc07_11o                   mc06_11o mc08_11o
-fb02,input12:                            mc08_03i                            mc05_08i                                                                mc01_12o mc03_12o                   mc02_12o
-fb02,input13: mc04_12i mc04_17i                   mc07_16i mc03_02i          mc03_15i                                                                                  mc05_13o mc07_13o mc02_13o          mc06_13o mc08_13o
+fb02,input09: mc04_11e          mc02_04e                                     mc03_14e                                                                mc01_09i mc03_09i          mc07_09i mc02_09i          mc06_09i
+fb02,input10: mc06_12e          mc08_15e mc08_09e                                                                                                    mc01_10i
+fb02,input11: mc04_03e mc04_16e mc02_08e          mc07_12e mc01_10e                                                                                  mc01_11i mc03_11i          mc07_11i                   mc06_11i mc08_11i
+fb02,input12:                            mc08_03e                            mc05_08e                                                                mc01_12i mc03_12i                   mc02_12i
+fb02,input13: mc04_12e mc04_17e                   mc07_16e mc03_02e          mc03_15e                                                                                  mc05_13i mc07_13i mc02_13i          mc06_13i mc08_13i
 fb02,input14:
-fb02,input15:          mc02_01i mc02_09i                   mc03_05i mc05_14i mc03_17i                                                                                  mc05_15o          mc02_15o mc04_15o mc06_15o
-fb02,input16:          mc06_05i mc08_10i                                                                                                                                        mc07_16o
-fb02,input17:                                     mc07_13i                                                                                           mc01_17o
-fb02,input18:          mc04_17i                   mc07_17i mc01_15i mc01_16i mc03_07i                                                                mc01_18o          mc05_18o                   mc04_18o
-fb02,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i mc03_11i                                                                         mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o mc04_04o mc06_01o mc08_07o
+fb02,input15:          mc02_01e mc02_09e                   mc03_05e mc05_14e mc03_17e                                                                                  mc05_15i          mc02_15i mc04_15i mc06_15i
+fb02,input16:          mc06_05e mc08_10e                                                                                                                                        mc07_16i
+fb02,input17:                                     mc07_13e                                                                                           mc01_17i
+fb02,input18:          mc04_17e                   mc07_17e mc01_15e mc01_16e mc03_07e                                                                mc01_18i          mc05_18i                   mc04_18i
+fb02,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e mc03_11e                                                                         mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i mc04_04i mc06_01i mc08_07i
 fb02,input20:
-fb02,input21: mc04_09i          mc08_16i          mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o mc04_01o mc06_04o mc08_01o
+fb02,input21: mc04_09e          mc08_16e          mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i mc04_01i mc06_04i mc08_01i
 fb02,input22:
-fb02,input23:                                     mc07_13i mc07_08i mc05_14i mc03_17i                                                                                  mc05_15o mc07_05o mc02_12o
-fb02,input24: mc06_12i mc06_05i                                     mc03_01i                                                                         mc01_10o                            mc02_08o mc04_03o mc06_11o
+fb02,input23:                                     mc07_13e mc07_08e mc05_14e mc03_17e                                                                                  mc05_15i mc07_05i mc02_12i
+fb02,input24: mc06_12e mc06_05e                                     mc03_01e                                                                         mc01_10i                            mc02_08i mc04_03i mc06_11i
 fb02,input25:
-fb02,input26: mc06_17i          mc08_17i mc08_06i                   mc03_08i                                                                         mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb02,input27: mc04_11i mc04_16i mc02_08i          mc08_05i          mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o mc02_06o mc04_18o mc06_06o
-fb02,input28: mc04_06i mc06_08i                                     mc03_01i
-fb02,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o          mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb02,input30: mc06_16i          mc08_14i          mc07_16i          mc03_04i mc03_12i                                                                         mc03_06o mc05_05o          mc02_14o          mc06_13o
-fb02,input31: mc04_11i mc04_17i                   mc07_16i mc01_12i mc03_08i                                                                                  mc03_09o mc05_10o mc07_09o mc02_10o          mc06_03o mc08_16o
-fb02,input32:          mc04_10i mc02_04i
-fb02,input33: mc06_15i mc06_10i mc02_05i          mc08_05i mc07_06i mc07_05i mc05_11i                                                                mc01_07o mc03_03o          mc07_13o mc02_15o mc04_08o mc06_07o mc08_13o
-fb02,input34: mc04_06i                   mc08_09i                                                                                                                               mc07_16o mc02_09o mc04_03o          mc08_03o
-fb02,input35: mc06_12i                                     mc03_02i mc05_14i                                                                                                             mc02_08o
-fb02,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o          mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb02,input37:          mc04_17i          mc08_04i          mc03_05i          mc03_14i                                                                         mc03_11o          mc07_03o          mc04_10o          mc08_11o
-fb02,input38:                                                                                                                                                                                                       mc08_03o
-fb02,input39:          mc06_10i mc08_16i          mc01_01i          mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o mc07_02o mc02_10o mc04_09o mc06_16o mc08_05o
-fb02,input40: mc04_12i                                              mc05_13i                                                                         mc01_11o                            mc02_04o          mc06_06o
-fb02,input41:          mc02_01i mc02_09i mc02_11i mc07_14i mc07_10i mc05_15i                                                                         mc01_01o mc03_17o mc05_14o          mc02_18o mc04_05o mc06_10o mc08_10o
-fb02,input42: mc04_08i mc06_06i mc08_17i mc02_13i mc07_14i          mc03_03i                                                                         mc01_12o mc03_11o mc05_08o          mc02_17o mc04_14o mc06_09o mc08_09o
-fb02,input43: mc06_11i mc04_15i mc08_13i mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
-fb02,input44:          mc06_08i                   mc07_13i                   mc03_07i                                                                         mc03_01o mc05_16o mc07_05o          mc04_16o mc06_13o
-fb02,input45:                            mc01_02i                   mc05_14i                                                                                  mc03_01o mc05_18o
-fb02,input46: mc04_12i          mc08_10i                   mc01_14i                                                                                  mc01_17o
-fb02,input47: mc06_14i mc06_05i          mc08_03i mc01_05i mc07_08i                                                                                  mc01_16o          mc05_18o          mc02_17o                   mc08_08o
-fb02,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o          mc02_13o mc04_18o
-fb02,input49:                                     mc01_04i mc03_02i mc07_02i                                                                                                                               mc06_15o
-fb02,input50: mc04_09i mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o          mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb02,input51:                   mc08_14i          mc01_09i mc01_10i                                                                                  mc01_16o                   mc07_01o mc02_14o mc04_16o
-fb02,input52:          mc04_10i
-fb02,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb02,input54: mc04_01i          mc08_13i mc02_12i mc01_06i          mc05_12i mc05_02i                                                                         mc03_17o mc05_14o mc07_12o mc02_01o mc04_12o mc06_18o mc08_09o
-fb03,input01:                   mc02_02i mc02_10i mc08_05i mc01_12i                                                                                           mc03_01o mc05_01o mc07_01o
-fb03,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb03,input03: mc04_06i mc04_10i                                     mc07_02i                                                                                                                      mc04_03o mc06_03o mc08_03o
-fb03,input04:                                     mc01_05i          mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o                   mc08_04o
-fb03,input05: mc04_08i mc04_14i                   mc07_17i mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o          mc04_05o
-fb03,input06:          mc06_10i mc06_02i mc08_11i          mc07_08i                                                                                           mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb03,input07:          mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o
-fb03,input08: mc06_14i                                                                                                                                                                   mc02_08o                   mc08_08o
-fb03,input09: mc04_11i          mc02_04i                                                                                                             mc01_09o mc03_09o          mc07_09o mc02_09o          mc06_09o
-fb03,input10: mc06_12i          mc08_15i mc08_09i mc01_09i                                                                                           mc01_10o          mc05_10o                   mc04_10o
-fb03,input11: mc04_03i                            mc07_12i                                                                                           mc01_11o                                              mc06_11o
-fb03,input12:                   mc08_13i mc08_03i mc01_01i                   mc05_08i                                                                mc01_12o mc03_12o mc05_12o mc07_12o mc02_12o mc04_12o mc06_12o mc08_12o
-fb03,input13: mc04_12i mc04_17i                   mc07_16i mc03_02i          mc03_15i                                                                                  mc05_13o mc07_13o mc02_13o          mc06_13o mc08_13o
-fb03,input14:          mc06_04i mc08_14i                                                                                                                      mc03_14o                   mc02_14o mc04_14o
-fb03,input15:          mc02_01i mc02_09i                   mc03_05i mc05_14i mc03_17i                                                                                  mc05_15o          mc02_15o mc04_15o mc06_15o
-fb03,input16:          mc06_05i mc08_10i mc08_06i mc01_04i                                                                                           mc01_16o                   mc07_16o          mc04_16o          mc08_16o
-fb03,input17: mc04_08i mc06_06i          mc01_02i mc07_13i                                                                                           mc01_17o                            mc02_17o
-fb03,input18:          mc04_17i                   mc07_17i mc01_15i mc01_16i mc03_07i                                                                mc01_18o          mc05_18o                   mc04_18o
-fb03,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i                                                                                  mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o mc04_04o mc06_01o mc08_07o
+fb02,input26: mc06_17e          mc08_17e mc08_06e                   mc03_08e                                                                         mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb02,input27: mc04_11e mc04_16e mc02_08e          mc08_05e          mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i mc02_06i mc04_18i mc06_06i
+fb02,input28: mc04_06e mc06_08e                                     mc03_01e
+fb02,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i          mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb02,input30: mc06_16e          mc08_14e          mc07_16e          mc03_04e mc03_12e                                                                         mc03_06i mc05_05i          mc02_14i          mc06_13i
+fb02,input31: mc04_11e mc04_17e                   mc07_16e mc01_12e mc03_08e                                                                                  mc03_09i mc05_10i mc07_09i mc02_10i          mc06_03i mc08_16i
+fb02,input32:          mc04_10e mc02_04e
+fb02,input33: mc06_15e mc06_10e mc02_05e          mc08_05e mc07_06e mc07_05e mc05_11e                                                                mc01_07i mc03_03i          mc07_13i mc02_15i mc04_08i mc06_07i mc08_13i
+fb02,input34: mc04_06e                   mc08_09e                                                                                                                               mc07_16i mc02_09i mc04_03i          mc08_03i
+fb02,input35: mc06_12e                                     mc03_02e mc05_14e                                                                                                             mc02_08i
+fb02,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i          mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb02,input37:          mc04_17e          mc08_04e          mc03_05e          mc03_14e                                                                         mc03_11i          mc07_03i          mc04_10i          mc08_11i
+fb02,input38:                                                                                                                                                                                                       mc08_03i
+fb02,input39:          mc06_10e mc08_16e          mc01_01e          mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i mc07_02i mc02_10i mc04_09i mc06_16i mc08_05i
+fb02,input40: mc04_12e                                              mc05_13e                                                                         mc01_11i                            mc02_04i          mc06_06i
+fb02,input41:          mc02_01e mc02_09e mc02_11e mc07_14e mc07_10e mc05_15e                                                                         mc01_01i mc03_17i mc05_14i          mc02_18i mc04_05i mc06_10i mc08_10i
+fb02,input42: mc04_08e mc06_06e mc08_17e mc02_13e mc07_14e          mc03_03e                                                                         mc01_12i mc03_11i mc05_08i          mc02_17i mc04_14i mc06_09i mc08_09i
+fb02,input43: mc06_11e mc04_15e mc08_13e mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
+fb02,input44:          mc06_08e                   mc07_13e                   mc03_07e                                                                         mc03_01i mc05_16i mc07_05i          mc04_16i mc06_13i
+fb02,input45:                            mc01_02e                   mc05_14e                                                                                  mc03_01i mc05_18i
+fb02,input46: mc04_12e          mc08_10e                   mc01_14e                                                                                  mc01_17i
+fb02,input47: mc06_14e mc06_05e          mc08_03e mc01_05e mc07_08e                                                                                  mc01_16i          mc05_18i          mc02_17i                   mc08_08i
+fb02,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i          mc02_13i mc04_18i
+fb02,input49:                                     mc01_04e mc03_02e mc07_02e                                                                                                                               mc06_15i
+fb02,input50: mc04_09e mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i          mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb02,input51:                   mc08_14e          mc01_09e mc01_10e                                                                                  mc01_16i                   mc07_01i mc02_14i mc04_16i
+fb02,input52:          mc04_10e
+fb02,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb02,input54: mc04_01e          mc08_13e mc02_12e mc01_06e          mc05_12e mc05_02e                                                                         mc03_17i mc05_14i mc07_12i mc02_01i mc04_12i mc06_18i mc08_09i
+fb03,input01:                   mc02_02e mc02_10e mc08_05e mc01_12e                                                                                           mc03_01i mc05_01i mc07_01i
+fb03,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb03,input03: mc04_06e mc04_10e                                     mc07_02e                                                                                                                      mc04_03i mc06_03i mc08_03i
+fb03,input04:                                     mc01_05e          mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i                   mc08_04i
+fb03,input05: mc04_08e mc04_14e                   mc07_17e mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i          mc04_05i
+fb03,input06:          mc06_10e mc06_02e mc08_11e          mc07_08e                                                                                           mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb03,input07:          mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i
+fb03,input08: mc06_14e                                                                                                                                                                   mc02_08i                   mc08_08i
+fb03,input09: mc04_11e          mc02_04e                                                                                                             mc01_09i mc03_09i          mc07_09i mc02_09i          mc06_09i
+fb03,input10: mc06_12e          mc08_15e mc08_09e mc01_09e                                                                                           mc01_10i          mc05_10i                   mc04_10i
+fb03,input11: mc04_03e                            mc07_12e                                                                                           mc01_11i                                              mc06_11i
+fb03,input12:                   mc08_13e mc08_03e mc01_01e                   mc05_08e                                                                mc01_12i mc03_12i mc05_12i mc07_12i mc02_12i mc04_12i mc06_12i mc08_12i
+fb03,input13: mc04_12e mc04_17e                   mc07_16e mc03_02e          mc03_15e                                                                                  mc05_13i mc07_13i mc02_13i          mc06_13i mc08_13i
+fb03,input14:          mc06_04e mc08_14e                                                                                                                      mc03_14i                   mc02_14i mc04_14i
+fb03,input15:          mc02_01e mc02_09e                   mc03_05e mc05_14e mc03_17e                                                                                  mc05_15i          mc02_15i mc04_15i mc06_15i
+fb03,input16:          mc06_05e mc08_10e mc08_06e mc01_04e                                                                                           mc01_16i                   mc07_16i          mc04_16i          mc08_16i
+fb03,input17: mc04_08e mc06_06e          mc01_02e mc07_13e                                                                                           mc01_17i                            mc02_17i
+fb03,input18:          mc04_17e                   mc07_17e mc01_15e mc01_16e mc03_07e                                                                mc01_18i          mc05_18i                   mc04_18i
+fb03,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e                                                                                  mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i mc04_04i mc06_01i mc08_07i
 fb03,input20:
-fb03,input21: mc04_09i          mc08_16i          mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o          mc06_04o mc08_01o
+fb03,input21: mc04_09e          mc08_16e          mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i          mc06_04i mc08_01i
 fb03,input22:
-fb03,input23:                                     mc07_13i mc07_08i                                                                                                             mc07_05o
-fb03,input24: mc06_12i mc06_05i          mc02_10i                   mc03_01i                                                                         mc01_10o                            mc02_08o mc04_03o mc06_11o
+fb03,input23:                                     mc07_13e mc07_08e                                                                                                             mc07_05i
+fb03,input24: mc06_12e mc06_05e          mc02_10e                   mc03_01e                                                                         mc01_10i                            mc02_08i mc04_03i mc06_11i
 fb03,input25:
-fb03,input26: mc06_17i          mc08_17i mc08_06i mc01_01i mc07_03i mc03_08i mc05_05i                                                                mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb03,input27: mc04_11i mc04_16i mc02_08i          mc08_05i          mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o mc02_06o mc04_18o mc06_06o
-fb03,input28: mc04_06i mc06_08i mc08_10i          mc07_14i          mc03_01i mc03_15i                                                                                  mc05_15o mc07_04o mc02_04o mc04_05o mc06_11o
-fb03,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o mc05_02o mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb03,input30: mc06_16i mc02_01i mc08_14i          mc07_16i          mc03_04i mc03_12i                                                                         mc03_06o mc05_05o          mc02_14o          mc06_13o
-fb03,input31: mc04_11i mc04_17i mc02_09i          mc07_16i mc01_12i                                                                                           mc03_09o mc05_10o mc07_09o                   mc06_03o mc08_16o
-fb03,input32:          mc04_10i mc02_04i
-fb03,input33:          mc06_10i mc02_05i          mc08_05i                   mc05_11i                                                                         mc03_03o          mc07_13o mc02_15o mc04_08o          mc08_13o
-fb03,input34: mc04_06i                   mc08_09i                                                                                                                               mc07_16o          mc04_03o          mc08_03o
-fb03,input35: mc06_12i mc06_04i          mc08_11i                   mc05_14i                                                                         mc01_18o                   mc07_11o mc02_08o                   mc08_04o
-fb03,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o          mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb03,input37:          mc04_17i mc02_05i mc08_04i          mc03_05i          mc03_14i                                                                         mc03_11o          mc07_03o          mc04_10o          mc08_11o
-fb03,input38:                   mc02_04i                                                                                                                               mc05_13o                                     mc08_03o
-fb03,input39:                                                       mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o          mc02_10o mc04_09o mc06_16o mc08_05o
+fb03,input26: mc06_17e          mc08_17e mc08_06e mc01_01e mc07_03e mc03_08e mc05_05e                                                                mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb03,input27: mc04_11e mc04_16e mc02_08e          mc08_05e          mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i mc02_06i mc04_18i mc06_06i
+fb03,input28: mc04_06e mc06_08e mc08_10e          mc07_14e          mc03_01e mc03_15e                                                                                  mc05_15i mc07_04i mc02_04i mc04_05i mc06_11i
+fb03,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i mc05_02i mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb03,input30: mc06_16e mc02_01e mc08_14e          mc07_16e          mc03_04e mc03_12e                                                                         mc03_06i mc05_05i          mc02_14i          mc06_13i
+fb03,input31: mc04_11e mc04_17e mc02_09e          mc07_16e mc01_12e                                                                                           mc03_09i mc05_10i mc07_09i                   mc06_03i mc08_16i
+fb03,input32:          mc04_10e mc02_04e
+fb03,input33:          mc06_10e mc02_05e          mc08_05e                   mc05_11e                                                                         mc03_03i          mc07_13i mc02_15i mc04_08i          mc08_13i
+fb03,input34: mc04_06e                   mc08_09e                                                                                                                               mc07_16i          mc04_03i          mc08_03i
+fb03,input35: mc06_12e mc06_04e          mc08_11e                   mc05_14e                                                                         mc01_18i                   mc07_11i mc02_08i                   mc08_04i
+fb03,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i          mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb03,input37:          mc04_17e mc02_05e mc08_04e          mc03_05e          mc03_14e                                                                         mc03_11i          mc07_03i          mc04_10i          mc08_11i
+fb03,input38:                   mc02_04e                                                                                                                               mc05_13i                                     mc08_03i
+fb03,input39:                                                       mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i          mc02_10i mc04_09i mc06_16i mc08_05i
 fb03,input40:
-fb03,input41:          mc02_01i mc02_09i          mc07_14i mc07_10i                                                                                                                               mc04_05o mc06_10o mc08_10o
-fb03,input42: mc04_08i mc06_06i mc08_17i mc02_13i mc07_14i          mc03_03i                                                                                  mc03_11o mc05_08o          mc02_17o mc04_14o mc06_09o mc08_09o
-fb03,input43:          mc04_15i          mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
-fb03,input44:          mc06_08i                   mc07_13i                                                                                                    mc03_01o mc05_16o mc07_05o          mc04_16o mc06_13o
-fb03,input45:                            mc01_02i                   mc05_14i                                                                                  mc03_01o mc05_18o
+fb03,input41:          mc02_01e mc02_09e          mc07_14e mc07_10e                                                                                                                               mc04_05i mc06_10i mc08_10i
+fb03,input42: mc04_08e mc06_06e mc08_17e mc02_13e mc07_14e          mc03_03e                                                                                  mc03_11i mc05_08i          mc02_17i mc04_14i mc06_09i mc08_09i
+fb03,input43:          mc04_15e          mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
+fb03,input44:          mc06_08e                   mc07_13e                                                                                                    mc03_01i mc05_16i mc07_05i          mc04_16i mc06_13i
+fb03,input45:                            mc01_02e                   mc05_14e                                                                                  mc03_01i mc05_18i
 fb03,input46:
-fb03,input47: mc06_14i                                                                                                                                                                                              mc08_08o
-fb03,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o mc07_01o mc02_13o mc04_18o mc06_10o
-fb03,input49:          mc04_14i                   mc01_04i mc03_02i mc07_02i mc05_03i                                                                                  mc05_08o mc07_13o mc02_06o mc04_06o mc06_15o
-fb03,input50:          mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o          mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb03,input51:                   mc08_14i          mc01_09i mc01_10i          mc05_09i                                                                mc01_16o          mc05_07o mc07_01o mc02_14o mc04_16o          mc08_11o
-fb03,input52:          mc04_10i          mc08_03i mc07_12i          mc07_02i                                                                         mc01_10o mc03_05o                                     mc06_03o
-fb03,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb03,input54:                   mc08_13i mc02_12i                            mc05_02i                                                                         mc03_17o mc05_14o mc07_12o          mc04_12o mc06_18o mc08_09o
-fb04,input01:                   mc02_02i mc02_10i mc08_05i mc01_12i          mc03_12i                                                                         mc03_01o mc05_01o mc07_01o
-fb04,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb04,input03: mc04_06i mc04_10i                                     mc07_02i mc03_07i                                                                                                             mc04_03o mc06_03o mc08_03o
-fb04,input04:                                     mc01_05i          mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o                   mc08_04o
-fb04,input05: mc04_08i mc04_14i                   mc07_17i mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o          mc04_05o
-fb04,input06:                                              mc07_08i                                                                                           mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb04,input07: mc04_09i mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o mc07_07o mc02_07o mc04_07o mc06_07o mc08_07o
+fb03,input47: mc06_14e                                                                                                                                                                                              mc08_08i
+fb03,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i mc07_01i mc02_13i mc04_18i mc06_10i
+fb03,input49:          mc04_14e                   mc01_04e mc03_02e mc07_02e mc05_03e                                                                                  mc05_08i mc07_13i mc02_06i mc04_06i mc06_15i
+fb03,input50:          mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i          mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb03,input51:                   mc08_14e          mc01_09e mc01_10e          mc05_09e                                                                mc01_16i          mc05_07i mc07_01i mc02_14i mc04_16i          mc08_11i
+fb03,input52:          mc04_10e          mc08_03e mc07_12e          mc07_02e                                                                         mc01_10i mc03_05i                                     mc06_03i
+fb03,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb03,input54:                   mc08_13e mc02_12e                            mc05_02e                                                                         mc03_17i mc05_14i mc07_12i          mc04_12i mc06_18i mc08_09i
+fb04,input01:                   mc02_02e mc02_10e mc08_05e mc01_12e          mc03_12e                                                                         mc03_01i mc05_01i mc07_01i
+fb04,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb04,input03: mc04_06e mc04_10e                                     mc07_02e mc03_07e                                                                                                             mc04_03i mc06_03i mc08_03i
+fb04,input04:                                     mc01_05e          mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i                   mc08_04i
+fb04,input05: mc04_08e mc04_14e                   mc07_17e mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i          mc04_05i
+fb04,input06:                                              mc07_08e                                                                                           mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb04,input07: mc04_09e mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i mc07_07i mc02_07i mc04_07i mc06_07i mc08_07i
 fb04,input08:
-fb04,input09: mc04_11i          mc02_04i                                     mc03_14i                                                                mc01_09o mc03_09o          mc07_09o mc02_09o          mc06_09o
-fb04,input10: mc06_12i          mc08_15i mc08_09i                                                                                                    mc01_10o
-fb04,input11: mc04_03i mc04_16i mc02_08i          mc07_12i mc01_10i                                                                                  mc01_11o mc03_11o          mc07_11o                   mc06_11o mc08_11o
-fb04,input12:                            mc08_03i                            mc05_08i                                                                mc01_12o mc03_12o                   mc02_12o
-fb04,input13: mc04_12i mc04_17i                   mc07_16i mc03_02i          mc03_15i                                                                                  mc05_13o mc07_13o mc02_13o          mc06_13o mc08_13o
-fb04,input14:          mc06_04i mc08_14i                                                                                                                      mc03_14o                   mc02_14o mc04_14o
-fb04,input15:                                                                                                                                                          mc05_15o                   mc04_15o
-fb04,input16:          mc06_05i mc08_10i                                                                                                                                        mc07_16o          mc04_16o
-fb04,input17:                            mc01_02i mc07_13i                                                                                           mc01_17o
-fb04,input18:          mc04_17i                   mc07_17i mc01_15i mc01_16i mc03_07i                                                                mc01_18o          mc05_18o                   mc04_18o
-fb04,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i                                                                                  mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o          mc06_01o mc08_07o
+fb04,input09: mc04_11e          mc02_04e                                     mc03_14e                                                                mc01_09i mc03_09i          mc07_09i mc02_09i          mc06_09i
+fb04,input10: mc06_12e          mc08_15e mc08_09e                                                                                                    mc01_10i
+fb04,input11: mc04_03e mc04_16e mc02_08e          mc07_12e mc01_10e                                                                                  mc01_11i mc03_11i          mc07_11i                   mc06_11i mc08_11i
+fb04,input12:                            mc08_03e                            mc05_08e                                                                mc01_12i mc03_12i                   mc02_12i
+fb04,input13: mc04_12e mc04_17e                   mc07_16e mc03_02e          mc03_15e                                                                                  mc05_13i mc07_13i mc02_13i          mc06_13i mc08_13i
+fb04,input14:          mc06_04e mc08_14e                                                                                                                      mc03_14i                   mc02_14i mc04_14i
+fb04,input15:                                                                                                                                                          mc05_15i                   mc04_15i
+fb04,input16:          mc06_05e mc08_10e                                                                                                                                        mc07_16i          mc04_16i
+fb04,input17:                            mc01_02e mc07_13e                                                                                           mc01_17i
+fb04,input18:          mc04_17e                   mc07_17e mc01_15e mc01_16e mc03_07e                                                                mc01_18i          mc05_18i                   mc04_18i
+fb04,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e                                                                                  mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i          mc06_01i mc08_07i
 fb04,input20:
-fb04,input21: mc04_09i          mc08_16i mc02_16i mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o mc04_01o mc06_04o mc08_01o
+fb04,input21: mc04_09e          mc08_16e mc02_16e mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i mc04_01i mc06_04i mc08_01i
 fb04,input22:
-fb04,input23:                                     mc07_13i mc07_08i          mc03_17i                                                                                  mc05_15o mc07_05o
+fb04,input23:                                     mc07_13e mc07_08e          mc03_17e                                                                                  mc05_15i mc07_05i
 fb04,input24:
-fb04,input25: mc04_11i          mc08_15i          mc01_05i mc01_15i mc07_02i                                                                                                                      mc04_10o          mc08_08o
-fb04,input26: mc06_17i          mc08_17i mc08_06i                   mc03_08i                                                                         mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb04,input27: mc04_11i mc04_16i mc02_08i          mc08_05i          mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o mc02_06o mc04_18o mc06_06o
-fb04,input28: mc04_06i mc06_08i mc08_10i          mc07_14i          mc03_01i mc03_15i                                                                                  mc05_15o mc07_04o mc02_04o mc04_05o mc06_11o
-fb04,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o mc05_02o mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb04,input30: mc06_16i                            mc07_16i                   mc03_12i                                                                                                                      mc06_13o
-fb04,input31: mc04_11i mc04_17i mc02_09i          mc07_16i mc01_12i mc03_08i                                                                                  mc03_09o mc05_10o mc07_09o                   mc06_03o mc08_16o
-fb04,input32:          mc04_10i mc02_04i
-fb04,input33:          mc06_10i mc02_05i          mc08_05i                   mc05_11i                                                                         mc03_03o          mc07_13o mc02_15o mc04_08o          mc08_13o
-fb04,input34:                            mc08_09i                                                                                                                               mc07_16o
-fb04,input35:                                                                                                                                                                            mc02_08o
-fb04,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o          mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb04,input37:          mc04_17i mc02_05i mc08_04i          mc03_05i          mc03_14i                                                                         mc03_11o          mc07_03o          mc04_10o          mc08_11o
-fb04,input38:                   mc02_04i                                                                                                                                                                            mc08_03o
-fb04,input39:                                                       mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o          mc02_10o mc04_09o mc06_16o mc08_05o
-fb04,input40:                            mc08_04i          mc01_15i mc05_13i                                                                         mc01_11o                            mc02_04o          mc06_06o
-fb04,input41:          mc02_01i mc02_09i          mc07_14i mc07_10i                                                                                                                               mc04_05o mc06_10o mc08_10o
-fb04,input42: mc04_08i mc06_06i mc08_17i mc02_13i mc07_14i          mc03_03i                                                                         mc01_12o mc03_11o mc05_08o          mc02_17o mc04_14o mc06_09o mc08_09o
-fb04,input43: mc06_11i mc04_15i mc08_13i mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
+fb04,input25: mc04_11e          mc08_15e          mc01_05e mc01_15e mc07_02e                                                                                                                      mc04_10i          mc08_08i
+fb04,input26: mc06_17e          mc08_17e mc08_06e                   mc03_08e                                                                         mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb04,input27: mc04_11e mc04_16e mc02_08e          mc08_05e          mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i mc02_06i mc04_18i mc06_06i
+fb04,input28: mc04_06e mc06_08e mc08_10e          mc07_14e          mc03_01e mc03_15e                                                                                  mc05_15i mc07_04i mc02_04i mc04_05i mc06_11i
+fb04,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i mc05_02i mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb04,input30: mc06_16e                            mc07_16e                   mc03_12e                                                                                                                      mc06_13i
+fb04,input31: mc04_11e mc04_17e mc02_09e          mc07_16e mc01_12e mc03_08e                                                                                  mc03_09i mc05_10i mc07_09i                   mc06_03i mc08_16i
+fb04,input32:          mc04_10e mc02_04e
+fb04,input33:          mc06_10e mc02_05e          mc08_05e                   mc05_11e                                                                         mc03_03i          mc07_13i mc02_15i mc04_08i          mc08_13i
+fb04,input34:                            mc08_09e                                                                                                                               mc07_16i
+fb04,input35:                                                                                                                                                                            mc02_08i
+fb04,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i          mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb04,input37:          mc04_17e mc02_05e mc08_04e          mc03_05e          mc03_14e                                                                         mc03_11i          mc07_03i          mc04_10i          mc08_11i
+fb04,input38:                   mc02_04e                                                                                                                                                                            mc08_03i
+fb04,input39:                                                       mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i          mc02_10i mc04_09i mc06_16i mc08_05i
+fb04,input40:                            mc08_04e          mc01_15e mc05_13e                                                                         mc01_11i                            mc02_04i          mc06_06i
+fb04,input41:          mc02_01e mc02_09e          mc07_14e mc07_10e                                                                                                                               mc04_05i mc06_10i mc08_10i
+fb04,input42: mc04_08e mc06_06e mc08_17e mc02_13e mc07_14e          mc03_03e                                                                         mc01_12i mc03_11i mc05_08i          mc02_17i mc04_14i mc06_09i mc08_09i
+fb04,input43: mc06_11e mc04_15e mc08_13e mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
 fb04,input44:
-fb04,input45:                   mc06_02i mc01_02i                   mc05_14i mc05_08i                                                                         mc03_01o mc05_18o mc07_03o
-fb04,input46:                   mc08_10i mc02_10i          mc01_14i                                                                                  mc01_17o          mc05_01o                                     mc08_04o
-fb04,input47: mc06_14i                                                                                                                                                                                              mc08_08o
-fb04,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o          mc02_13o mc04_18o
-fb04,input49:          mc04_14i                   mc01_04i mc03_02i mc07_02i mc05_03i                                                                                  mc05_08o mc07_13o mc02_06o mc04_06o mc06_15o
-fb04,input50:          mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o          mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb04,input51:                   mc08_14i          mc01_09i mc01_10i mc03_03i mc05_09i                                                                mc01_16o                   mc07_01o mc02_14o mc04_16o          mc08_11o
-fb04,input52:          mc04_10i          mc08_03i mc07_12i          mc07_02i mc03_15i                                                                mc01_10o mc03_05o          mc07_04o                   mc06_03o
-fb04,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb04,input54:                   mc08_13i mc02_12i mc01_06i          mc05_12i mc05_02i                                                                         mc03_17o mc05_14o mc07_12o mc02_01o mc04_12o mc06_18o mc08_09o
-fb05,input01:                   mc02_02i mc02_10i
-fb05,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb05,input03:                                                                                                                                                                                     mc04_03o          mc08_03o
-fb05,input04: mc06_17i                            mc01_05i mc07_10i mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o                   mc08_04o
-fb05,input05: mc04_08i mc04_14i                   mc07_17i mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o          mc04_05o
-fb05,input06:                                              mc07_08i                                                                                           mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb05,input07: mc04_09i mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o mc07_07o mc02_07o mc04_07o mc06_07o mc08_07o
-fb05,input08: mc06_14i mc06_08i                                     mc03_01i                                                                                                             mc02_08o
-fb05,input09: mc04_11i          mc02_04i                                     mc03_14i                                                                mc01_09o mc03_09o          mc07_09o mc02_09o          mc06_09o
-fb05,input10: mc06_12i          mc08_15i mc08_09i                                                                                                    mc01_10o          mc05_10o                   mc04_10o
-fb05,input11: mc04_03i mc04_16i mc02_08i          mc07_12i mc01_10i                                                                                  mc01_11o mc03_11o          mc07_11o                   mc06_11o mc08_11o
-fb05,input12:          mc06_06i mc08_13i mc08_03i mc01_01i          mc03_03i mc05_08i                                                                mc01_12o mc03_12o mc05_12o mc07_12o mc02_12o mc04_12o mc06_12o mc08_12o
-fb05,input13: mc04_12i mc04_17i                   mc07_16i mc03_02i          mc03_15i                                                                                  mc05_13o mc07_13o mc02_13o          mc06_13o mc08_13o
-fb05,input14:          mc06_04i mc08_14i                                                                                                                      mc03_14o                   mc02_14o mc04_14o
-fb05,input15:                                              mc03_05i          mc03_17i                                                                                  mc05_15o                   mc04_15o mc06_15o
-fb05,input16: mc06_16i mc06_05i mc08_10i          mc01_04i          mc03_04i                                                                         mc01_16o          mc05_16o mc07_16o          mc04_16o          mc08_16o
-fb05,input17: mc04_08i mc06_06i          mc01_02i mc07_13i                                                                                           mc01_17o                            mc02_17o
-fb05,input18:                                                                mc03_07i
-fb05,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i                                                                                  mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o          mc06_01o mc08_07o
+fb04,input45:                   mc06_02e mc01_02e                   mc05_14e mc05_08e                                                                         mc03_01i mc05_18i mc07_03i
+fb04,input46:                   mc08_10e mc02_10e          mc01_14e                                                                                  mc01_17i          mc05_01i                                     mc08_04i
+fb04,input47: mc06_14e                                                                                                                                                                                              mc08_08i
+fb04,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i          mc02_13i mc04_18i
+fb04,input49:          mc04_14e                   mc01_04e mc03_02e mc07_02e mc05_03e                                                                                  mc05_08i mc07_13i mc02_06i mc04_06i mc06_15i
+fb04,input50:          mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i          mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb04,input51:                   mc08_14e          mc01_09e mc01_10e mc03_03e mc05_09e                                                                mc01_16i                   mc07_01i mc02_14i mc04_16i          mc08_11i
+fb04,input52:          mc04_10e          mc08_03e mc07_12e          mc07_02e mc03_15e                                                                mc01_10i mc03_05i          mc07_04i                   mc06_03i
+fb04,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb04,input54:                   mc08_13e mc02_12e mc01_06e          mc05_12e mc05_02e                                                                         mc03_17i mc05_14i mc07_12i mc02_01i mc04_12i mc06_18i mc08_09i
+fb05,input01:                   mc02_02e mc02_10e
+fb05,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb05,input03:                                                                                                                                                                                     mc04_03i          mc08_03i
+fb05,input04: mc06_17e                            mc01_05e mc07_10e mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i                   mc08_04i
+fb05,input05: mc04_08e mc04_14e                   mc07_17e mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i          mc04_05i
+fb05,input06:                                              mc07_08e                                                                                           mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb05,input07: mc04_09e mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i mc07_07i mc02_07i mc04_07i mc06_07i mc08_07i
+fb05,input08: mc06_14e mc06_08e                                     mc03_01e                                                                                                             mc02_08i
+fb05,input09: mc04_11e          mc02_04e                                     mc03_14e                                                                mc01_09i mc03_09i          mc07_09i mc02_09i          mc06_09i
+fb05,input10: mc06_12e          mc08_15e mc08_09e                                                                                                    mc01_10i          mc05_10i                   mc04_10i
+fb05,input11: mc04_03e mc04_16e mc02_08e          mc07_12e mc01_10e                                                                                  mc01_11i mc03_11i          mc07_11i                   mc06_11i mc08_11i
+fb05,input12:          mc06_06e mc08_13e mc08_03e mc01_01e          mc03_03e mc05_08e                                                                mc01_12i mc03_12i mc05_12i mc07_12i mc02_12i mc04_12i mc06_12i mc08_12i
+fb05,input13: mc04_12e mc04_17e                   mc07_16e mc03_02e          mc03_15e                                                                                  mc05_13i mc07_13i mc02_13i          mc06_13i mc08_13i
+fb05,input14:          mc06_04e mc08_14e                                                                                                                      mc03_14i                   mc02_14i mc04_14i
+fb05,input15:                                              mc03_05e          mc03_17e                                                                                  mc05_15i                   mc04_15i mc06_15i
+fb05,input16: mc06_16e mc06_05e mc08_10e          mc01_04e          mc03_04e                                                                         mc01_16i          mc05_16i mc07_16i          mc04_16i          mc08_16i
+fb05,input17: mc04_08e mc06_06e          mc01_02e mc07_13e                                                                                           mc01_17i                            mc02_17i
+fb05,input18:                                                                mc03_07e
+fb05,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e                                                                                  mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i          mc06_01i mc08_07i
 fb05,input20:
-fb05,input21: mc04_09i          mc08_16i mc02_16i mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o mc04_01o mc06_04o mc08_01o
+fb05,input21: mc04_09e          mc08_16e mc02_16e mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i mc04_01i mc06_04i mc08_01i
 fb05,input22:
-fb05,input23:                                     mc07_13i mc07_08i                                                                                                             mc07_05o
-fb05,input24: mc06_12i                                                                                                                               mc01_10o                                     mc04_03o
-fb05,input25: mc04_11i          mc08_15i          mc01_05i mc01_15i mc07_02i                                                                                                                      mc04_10o          mc08_08o
-fb05,input26: mc06_17i          mc08_17i mc08_06i mc01_01i          mc03_08i                                                                         mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb05,input27: mc04_11i mc04_16i mc02_08i                            mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o
-fb05,input28: mc04_06i mc06_08i                                     mc03_01i
-fb05,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o mc05_02o mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb05,input30: mc06_16i                            mc07_16i                   mc03_12i                                                                                                                      mc06_13o
-fb05,input31:                                              mc01_12i                                                                                                    mc05_10o                            mc06_03o mc08_16o
-fb05,input32:          mc04_10i
-fb05,input33: mc06_15i mc06_10i mc02_05i          mc08_05i mc07_06i mc07_05i mc05_11i                                                                mc01_07o mc03_03o          mc07_13o mc02_15o mc04_08o mc06_07o mc08_13o
+fb05,input23:                                     mc07_13e mc07_08e                                                                                                             mc07_05i
+fb05,input24: mc06_12e                                                                                                                               mc01_10i                                     mc04_03i
+fb05,input25: mc04_11e          mc08_15e          mc01_05e mc01_15e mc07_02e                                                                                                                      mc04_10i          mc08_08i
+fb05,input26: mc06_17e          mc08_17e mc08_06e mc01_01e          mc03_08e                                                                         mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb05,input27: mc04_11e mc04_16e mc02_08e                            mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i
+fb05,input28: mc04_06e mc06_08e                                     mc03_01e
+fb05,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i mc05_02i mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb05,input30: mc06_16e                            mc07_16e                   mc03_12e                                                                                                                      mc06_13i
+fb05,input31:                                              mc01_12e                                                                                                    mc05_10i                            mc06_03i mc08_16i
+fb05,input32:          mc04_10e
+fb05,input33: mc06_15e mc06_10e mc02_05e          mc08_05e mc07_06e mc07_05e mc05_11e                                                                mc01_07i mc03_03i          mc07_13i mc02_15i mc04_08i mc06_07i mc08_13i
 fb05,input34:
-fb05,input35: mc06_12i mc06_04i          mc08_11i          mc03_02i                                                                                  mc01_18o                   mc07_11o mc02_08o                   mc08_04o
-fb05,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o mc03_15o mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb05,input37:          mc04_17i          mc08_04i          mc03_05i          mc03_14i                                                                                           mc07_03o          mc04_10o          mc08_11o
-fb05,input38:                   mc02_04i                                                                                                                                                                            mc08_03o
-fb05,input39:          mc06_10i mc08_16i          mc01_01i          mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o mc07_02o mc02_10o mc04_09o mc06_16o mc08_05o
-fb05,input40: mc04_12i                   mc08_04i          mc01_15i mc05_13i                                                                         mc01_11o                            mc02_04o          mc06_06o
-fb05,input41:          mc02_01i mc02_09i mc02_11i mc07_14i mc07_10i                                                                                  mc01_01o mc03_17o mc05_14o          mc02_18o mc04_05o mc06_10o mc08_10o
-fb05,input42: mc04_08i mc06_06i          mc02_13i                   mc03_03i                                                                                  mc03_11o mc05_08o          mc02_17o mc04_14o mc06_09o
-fb05,input43:          mc04_15i          mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
-fb05,input44:          mc06_08i                   mc07_13i                   mc03_07i                                                                         mc03_01o mc05_16o mc07_05o          mc04_16o mc06_13o
-fb05,input45:                   mc06_02i mc01_02i                   mc05_14i mc05_08i                                                                         mc03_01o mc05_18o mc07_03o
-fb05,input46: mc04_12i          mc08_10i mc02_10i          mc01_14i                                                                                  mc01_17o
-fb05,input47: mc06_14i mc06_05i mc02_02i mc08_03i mc01_05i mc07_08i                                                                                  mc01_16o          mc05_18o                                     mc08_08o
-fb05,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o mc07_01o mc02_13o mc04_18o mc06_10o
-fb05,input49:          mc04_14i                   mc01_04i mc03_02i mc07_02i                                                                                           mc05_08o mc07_13o mc02_06o mc04_06o mc06_15o
-fb05,input50: mc04_09i mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o mc05_17o mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb05,input51:                   mc08_14i          mc01_09i mc01_10i mc03_03i                                                                         mc01_16o          mc05_07o mc07_01o mc02_14o mc04_16o          mc08_11o
-fb05,input52:          mc04_10i
-fb05,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb05,input54: mc04_01i          mc08_13i mc02_12i mc01_06i          mc05_12i mc05_02i                                                                         mc03_17o mc05_14o mc07_12o mc02_01o mc04_12o mc06_18o mc08_09o
-fb06,input01:                   mc02_02i mc02_10i
-fb06,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb06,input03:                                                                                                                                                                                     mc04_03o          mc08_03o
-fb06,input04: mc06_17i                            mc01_05i mc07_10i mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o          mc06_04o mc08_04o
-fb06,input05:          mc04_14i                            mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o
-fb06,input06:          mc06_10i mc06_02i mc08_11i          mc07_08i mc03_08i                                                                                  mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb06,input07:          mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o
-fb06,input08: mc06_14i mc06_08i                                     mc03_01i                                                                                                             mc02_08o                   mc08_08o
-fb06,input09:                   mc02_04i                                                                                                             mc01_09o mc03_09o          mc07_09o mc02_09o
-fb06,input10: mc06_12i          mc08_15i mc08_09i mc01_09i                                                                                           mc01_10o          mc05_10o                   mc04_10o
-fb06,input11: mc04_03i                            mc07_12i                                                                                           mc01_11o                                              mc06_11o
-fb06,input12:          mc06_06i          mc08_03i mc01_01i          mc03_03i mc05_08i                                                                mc01_12o mc03_12o mc05_12o mc07_12o mc02_12o mc04_12o mc06_12o mc08_12o
-fb06,input13: mc04_12i                                                       mc03_15i                                                                                  mc05_13o
-fb06,input14:                   mc08_14i                                                                                                                      mc03_14o                   mc02_14o
-fb06,input15:                                                                                                                                                          mc05_15o                   mc04_15o
-fb06,input16: mc06_16i mc06_05i mc08_10i mc08_06i mc01_04i          mc03_04i                                                                         mc01_16o          mc05_16o mc07_16o          mc04_16o          mc08_16o
-fb06,input17:                            mc01_02i mc07_13i                                                                                           mc01_17o
-fb06,input18:                                                                mc03_07i
-fb06,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i mc03_11i                                                                         mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o          mc06_01o mc08_07o
+fb05,input35: mc06_12e mc06_04e          mc08_11e          mc03_02e                                                                                  mc01_18i                   mc07_11i mc02_08i                   mc08_04i
+fb05,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i mc03_15i mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb05,input37:          mc04_17e          mc08_04e          mc03_05e          mc03_14e                                                                                           mc07_03i          mc04_10i          mc08_11i
+fb05,input38:                   mc02_04e                                                                                                                                                                            mc08_03i
+fb05,input39:          mc06_10e mc08_16e          mc01_01e          mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i mc07_02i mc02_10i mc04_09i mc06_16i mc08_05i
+fb05,input40: mc04_12e                   mc08_04e          mc01_15e mc05_13e                                                                         mc01_11i                            mc02_04i          mc06_06i
+fb05,input41:          mc02_01e mc02_09e mc02_11e mc07_14e mc07_10e                                                                                  mc01_01i mc03_17i mc05_14i          mc02_18i mc04_05i mc06_10i mc08_10i
+fb05,input42: mc04_08e mc06_06e          mc02_13e                   mc03_03e                                                                                  mc03_11i mc05_08i          mc02_17i mc04_14i mc06_09i
+fb05,input43:          mc04_15e          mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
+fb05,input44:          mc06_08e                   mc07_13e                   mc03_07e                                                                         mc03_01i mc05_16i mc07_05i          mc04_16i mc06_13i
+fb05,input45:                   mc06_02e mc01_02e                   mc05_14e mc05_08e                                                                         mc03_01i mc05_18i mc07_03i
+fb05,input46: mc04_12e          mc08_10e mc02_10e          mc01_14e                                                                                  mc01_17i
+fb05,input47: mc06_14e mc06_05e mc02_02e mc08_03e mc01_05e mc07_08e                                                                                  mc01_16i          mc05_18i                                     mc08_08i
+fb05,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i mc07_01i mc02_13i mc04_18i mc06_10i
+fb05,input49:          mc04_14e                   mc01_04e mc03_02e mc07_02e                                                                                           mc05_08i mc07_13i mc02_06i mc04_06i mc06_15i
+fb05,input50: mc04_09e mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i mc05_17i mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb05,input51:                   mc08_14e          mc01_09e mc01_10e mc03_03e                                                                         mc01_16i          mc05_07i mc07_01i mc02_14i mc04_16i          mc08_11i
+fb05,input52:          mc04_10e
+fb05,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb05,input54: mc04_01e          mc08_13e mc02_12e mc01_06e          mc05_12e mc05_02e                                                                         mc03_17i mc05_14i mc07_12i mc02_01i mc04_12i mc06_18i mc08_09i
+fb06,input01:                   mc02_02e mc02_10e
+fb06,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb06,input03:                                                                                                                                                                                     mc04_03i          mc08_03i
+fb06,input04: mc06_17e                            mc01_05e mc07_10e mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i          mc06_04i mc08_04i
+fb06,input05:          mc04_14e                            mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i
+fb06,input06:          mc06_10e mc06_02e mc08_11e          mc07_08e mc03_08e                                                                                  mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb06,input07:          mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i
+fb06,input08: mc06_14e mc06_08e                                     mc03_01e                                                                                                             mc02_08i                   mc08_08i
+fb06,input09:                   mc02_04e                                                                                                             mc01_09i mc03_09i          mc07_09i mc02_09i
+fb06,input10: mc06_12e          mc08_15e mc08_09e mc01_09e                                                                                           mc01_10i          mc05_10i                   mc04_10i
+fb06,input11: mc04_03e                            mc07_12e                                                                                           mc01_11i                                              mc06_11i
+fb06,input12:          mc06_06e          mc08_03e mc01_01e          mc03_03e mc05_08e                                                                mc01_12i mc03_12i mc05_12i mc07_12i mc02_12i mc04_12i mc06_12i mc08_12i
+fb06,input13: mc04_12e                                                       mc03_15e                                                                                  mc05_13i
+fb06,input14:                   mc08_14e                                                                                                                      mc03_14i                   mc02_14i
+fb06,input15:                                                                                                                                                          mc05_15i                   mc04_15i
+fb06,input16: mc06_16e mc06_05e mc08_10e mc08_06e mc01_04e          mc03_04e                                                                         mc01_16i          mc05_16i mc07_16i          mc04_16i          mc08_16i
+fb06,input17:                            mc01_02e mc07_13e                                                                                           mc01_17i
+fb06,input18:                                                                mc03_07e
+fb06,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e mc03_11e                                                                         mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i          mc06_01i mc08_07i
 fb06,input20:
-fb06,input21: mc04_09i          mc08_16i          mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o          mc06_04o mc08_01o
+fb06,input21: mc04_09e          mc08_16e          mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i          mc06_04i mc08_01i
 fb06,input22:
-fb06,input23:                                     mc07_13i          mc05_14i mc03_17i                                                                                  mc05_15o mc07_05o
-fb06,input24: mc06_12i mc06_05i          mc02_10i                   mc03_01i                                                                         mc01_10o                            mc02_08o mc04_03o mc06_11o
+fb06,input23:                                     mc07_13e          mc05_14e mc03_17e                                                                                  mc05_15i mc07_05i
+fb06,input24: mc06_12e mc06_05e          mc02_10e                   mc03_01e                                                                         mc01_10i                            mc02_08i mc04_03i mc06_11i
 fb06,input25:
-fb06,input26: mc06_17i          mc08_17i mc08_06i mc01_01i mc07_03i mc03_08i mc05_05i                                                                mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb06,input27: mc04_11i mc04_16i mc02_08i                            mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o                   mc06_06o
-fb06,input28: mc04_06i mc06_08i mc08_10i          mc07_14i          mc03_01i mc03_15i                                                                                  mc05_15o mc07_04o mc02_04o mc04_05o mc06_11o
-fb06,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o          mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb06,input30: mc06_16i mc02_01i mc08_14i          mc07_16i          mc03_04i mc03_12i                                                                         mc03_06o mc05_05o          mc02_14o          mc06_13o
-fb06,input31:                                              mc01_12i                                                                                                    mc05_10o                            mc06_03o mc08_16o
+fb06,input26: mc06_17e          mc08_17e mc08_06e mc01_01e mc07_03e mc03_08e mc05_05e                                                                mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb06,input27: mc04_11e mc04_16e mc02_08e                            mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i                   mc06_06i
+fb06,input28: mc04_06e mc06_08e mc08_10e          mc07_14e          mc03_01e mc03_15e                                                                                  mc05_15i mc07_04i mc02_04i mc04_05i mc06_11i
+fb06,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i          mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb06,input30: mc06_16e mc02_01e mc08_14e          mc07_16e          mc03_04e mc03_12e                                                                         mc03_06i mc05_05i          mc02_14i          mc06_13i
+fb06,input31:                                              mc01_12e                                                                                                    mc05_10i                            mc06_03i mc08_16i
 fb06,input32:
-fb06,input33: mc06_15i mc06_10i mc02_05i          mc08_05i mc07_06i mc07_05i mc05_11i                                                                mc01_07o mc03_03o          mc07_13o mc02_15o mc04_08o mc06_07o mc08_13o
-fb06,input34:                            mc08_09i                                                                                                                                                 mc04_03o          mc08_03o
-fb06,input35: mc06_12i mc06_04i          mc08_11i          mc03_02i mc05_14i                                                                         mc01_18o                   mc07_11o mc02_08o                   mc08_04o
-fb06,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o mc03_15o mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb06,input37:          mc04_17i          mc08_04i          mc03_05i          mc03_14i                                                                         mc03_11o          mc07_03o          mc04_10o mc06_16o mc08_11o
-fb06,input38:                   mc02_04i                                                                                                                                                                            mc08_03o
-fb06,input39:                   mc08_16i          mc01_01i          mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o mc07_02o mc02_10o mc04_09o mc06_16o mc08_05o
-fb06,input40: mc04_12i                                     mc01_15i mc05_13i                                                                         mc01_11o                                              mc06_06o
-fb06,input41:          mc02_01i mc02_09i          mc07_14i mc07_10i                                                                                                                               mc04_05o mc06_10o mc08_10o
-fb06,input42: mc04_08i mc06_06i mc08_17i mc02_13i mc07_14i          mc03_03i                                                                                  mc03_11o mc05_08o          mc02_17o mc04_14o mc06_09o mc08_09o
-fb06,input43:          mc04_15i mc08_13i mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
-fb06,input44:          mc06_08i                   mc07_13i                   mc03_07i                                                                         mc03_01o mc05_16o mc07_05o          mc04_16o mc06_13o
-fb06,input45:                            mc01_02i                   mc05_14i mc05_08i                                                                         mc03_01o mc05_18o mc07_03o
+fb06,input33: mc06_15e mc06_10e mc02_05e          mc08_05e mc07_06e mc07_05e mc05_11e                                                                mc01_07i mc03_03i          mc07_13i mc02_15i mc04_08i mc06_07i mc08_13i
+fb06,input34:                            mc08_09e                                                                                                                                                 mc04_03i          mc08_03i
+fb06,input35: mc06_12e mc06_04e          mc08_11e          mc03_02e mc05_14e                                                                         mc01_18i                   mc07_11i mc02_08i                   mc08_04i
+fb06,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i mc03_15i mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb06,input37:          mc04_17e          mc08_04e          mc03_05e          mc03_14e                                                                         mc03_11i          mc07_03i          mc04_10i mc06_16i mc08_11i
+fb06,input38:                   mc02_04e                                                                                                                                                                            mc08_03i
+fb06,input39:                   mc08_16e          mc01_01e          mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i mc07_02i mc02_10i mc04_09i mc06_16i mc08_05i
+fb06,input40: mc04_12e                                     mc01_15e mc05_13e                                                                         mc01_11i                                              mc06_06i
+fb06,input41:          mc02_01e mc02_09e          mc07_14e mc07_10e                                                                                                                               mc04_05i mc06_10i mc08_10i
+fb06,input42: mc04_08e mc06_06e mc08_17e mc02_13e mc07_14e          mc03_03e                                                                                  mc03_11i mc05_08i          mc02_17i mc04_14i mc06_09i mc08_09i
+fb06,input43:          mc04_15e mc08_13e mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
+fb06,input44:          mc06_08e                   mc07_13e                   mc03_07e                                                                         mc03_01i mc05_16i mc07_05i          mc04_16i mc06_13i
+fb06,input45:                            mc01_02e                   mc05_14e mc05_08e                                                                         mc03_01i mc05_18i mc07_03i
 fb06,input46:
-fb06,input47: mc06_14i mc06_05i mc02_02i mc08_03i mc01_05i mc07_08i                                                                                  mc01_16o          mc05_18o          mc02_17o                   mc08_08o
-fb06,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o mc07_01o mc02_13o mc04_18o mc06_10o
-fb06,input49:                                     mc01_04i mc03_02i mc07_02i                                                                                                                               mc06_15o
-fb06,input50: mc04_09i mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o          mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb06,input51:                   mc08_14i          mc01_09i mc01_10i mc03_03i mc05_09i                                                                mc01_16o                   mc07_01o mc02_14o mc04_16o          mc08_11o
-fb06,input52:          mc04_10i
-fb06,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb06,input54:                   mc08_13i mc02_12i                            mc05_02i                                                                         mc03_17o mc05_14o mc07_12o          mc04_12o mc06_18o mc08_09o
-fb07,input01:                   mc02_02i mc02_10i          mc01_12i          mc03_12i                                                                         mc03_01o mc05_01o mc07_01o
-fb07,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb07,input03: mc04_06i                                                       mc03_07i                                                                                                             mc04_03o          mc08_03o
-fb07,input04: mc06_17i                            mc01_05i          mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o                   mc08_04o
-fb07,input05: mc04_08i mc04_14i                            mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o          mc04_05o
-fb07,input06:          mc06_10i mc06_02i mc08_11i          mc07_08i mc03_08i                                                                                  mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb07,input07: mc04_09i mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o mc07_07o mc02_07o mc04_07o mc06_07o mc08_07o
-fb07,input08: mc06_14i mc06_08i                                     mc03_01i                                                                                                             mc02_08o                   mc08_08o
-fb07,input09: mc04_11i          mc02_04i                                                                                                             mc01_09o mc03_09o          mc07_09o mc02_09o
-fb07,input10: mc06_12i          mc08_15i mc08_09i mc01_09i                                                                                           mc01_10o          mc05_10o                   mc04_10o
-fb07,input11: mc04_03i mc04_16i mc02_08i          mc07_12i mc01_10i                                                                                  mc01_11o mc03_11o          mc07_11o                   mc06_11o mc08_11o
-fb07,input12:                            mc08_03i                            mc05_08i                                                                mc01_12o mc03_12o                   mc02_12o
-fb07,input13: mc04_12i                                     mc03_02i          mc03_15i                                                                                  mc05_13o mc07_13o mc02_13o                   mc08_13o
-fb07,input14:          mc06_04i mc08_14i                                                                                                                      mc03_14o                   mc02_14o
-fb07,input15:          mc02_01i mc02_09i                            mc05_14i mc03_17i                                                                                  mc05_15o          mc02_15o mc04_15o mc06_15o
-fb07,input16:          mc06_05i mc08_10i                                                                                                                                        mc07_16o
-fb07,input17: mc04_08i mc06_06i          mc01_02i mc07_13i                                                                                           mc01_17o                            mc02_17o
-fb07,input18:          mc04_17i                                     mc01_16i mc03_07i                                                                mc01_18o          mc05_18o
-fb07,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i mc03_11i                                                                         mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o mc04_04o mc06_01o mc08_07o
+fb06,input47: mc06_14e mc06_05e mc02_02e mc08_03e mc01_05e mc07_08e                                                                                  mc01_16i          mc05_18i          mc02_17i                   mc08_08i
+fb06,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i mc07_01i mc02_13i mc04_18i mc06_10i
+fb06,input49:                                     mc01_04e mc03_02e mc07_02e                                                                                                                               mc06_15i
+fb06,input50: mc04_09e mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i          mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb06,input51:                   mc08_14e          mc01_09e mc01_10e mc03_03e mc05_09e                                                                mc01_16i                   mc07_01i mc02_14i mc04_16i          mc08_11i
+fb06,input52:          mc04_10e
+fb06,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb06,input54:                   mc08_13e mc02_12e                            mc05_02e                                                                         mc03_17i mc05_14i mc07_12i          mc04_12i mc06_18i mc08_09i
+fb07,input01:                   mc02_02e mc02_10e          mc01_12e          mc03_12e                                                                         mc03_01i mc05_01i mc07_01i
+fb07,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb07,input03: mc04_06e                                                       mc03_07e                                                                                                             mc04_03i          mc08_03i
+fb07,input04: mc06_17e                            mc01_05e          mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i                   mc08_04i
+fb07,input05: mc04_08e mc04_14e                            mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i          mc04_05i
+fb07,input06:          mc06_10e mc06_02e mc08_11e          mc07_08e mc03_08e                                                                                  mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb07,input07: mc04_09e mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i mc07_07i mc02_07i mc04_07i mc06_07i mc08_07i
+fb07,input08: mc06_14e mc06_08e                                     mc03_01e                                                                                                             mc02_08i                   mc08_08i
+fb07,input09: mc04_11e          mc02_04e                                                                                                             mc01_09i mc03_09i          mc07_09i mc02_09i
+fb07,input10: mc06_12e          mc08_15e mc08_09e mc01_09e                                                                                           mc01_10i          mc05_10i                   mc04_10i
+fb07,input11: mc04_03e mc04_16e mc02_08e          mc07_12e mc01_10e                                                                                  mc01_11i mc03_11i          mc07_11i                   mc06_11i mc08_11i
+fb07,input12:                            mc08_03e                            mc05_08e                                                                mc01_12i mc03_12i                   mc02_12i
+fb07,input13: mc04_12e                                     mc03_02e          mc03_15e                                                                                  mc05_13i mc07_13i mc02_13i                   mc08_13i
+fb07,input14:          mc06_04e mc08_14e                                                                                                                      mc03_14i                   mc02_14i
+fb07,input15:          mc02_01e mc02_09e                            mc05_14e mc03_17e                                                                                  mc05_15i          mc02_15i mc04_15i mc06_15i
+fb07,input16:          mc06_05e mc08_10e                                                                                                                                        mc07_16i
+fb07,input17: mc04_08e mc06_06e          mc01_02e mc07_13e                                                                                           mc01_17i                            mc02_17i
+fb07,input18:          mc04_17e                                     mc01_16e mc03_07e                                                                mc01_18i          mc05_18i
+fb07,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e mc03_11e                                                                         mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i mc04_04i mc06_01i mc08_07i
 fb07,input20:
-fb07,input21: mc04_09i          mc08_16i mc02_16i mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o mc04_01o mc06_04o mc08_01o
+fb07,input21: mc04_09e          mc08_16e mc02_16e mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i mc04_01i mc06_04i mc08_01i
 fb07,input22:
-fb07,input23:                                     mc07_13i mc07_08i mc05_14i mc03_17i                                                                                  mc05_15o mc07_05o
-fb07,input24: mc06_12i mc06_05i          mc02_10i                   mc03_01i                                                                         mc01_10o                   mc07_09o mc02_08o mc04_03o mc06_11o
-fb07,input25: mc04_11i          mc08_15i                                                                                                                                                                            mc08_08o
-fb07,input26: mc06_17i          mc08_17i mc08_06i mc01_01i          mc03_08i mc05_05i                                                                mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb07,input27: mc04_11i mc04_16i mc02_08i                            mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o
-fb07,input28: mc04_06i mc06_08i mc08_10i                            mc03_01i mc03_15i                                                                                  mc05_15o mc07_04o mc02_04o          mc06_11o
-fb07,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o          mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb07,input30: mc06_16i mc02_01i mc08_14i          mc07_16i          mc03_04i mc03_12i                                                                         mc03_06o mc05_05o          mc02_14o          mc06_13o
-fb07,input31: mc04_11i mc04_17i mc02_09i                   mc01_12i mc03_08i                                                                                  mc03_09o mc05_10o mc07_09o                   mc06_03o mc08_16o
-fb07,input32:          mc04_10i mc02_04i
-fb07,input33: mc06_15i mc06_10i mc02_05i          mc08_05i mc07_06i mc07_05i mc05_11i                                                                mc01_07o mc03_03o mc05_11o mc07_13o mc02_15o mc04_08o mc06_07o mc08_13o
+fb07,input23:                                     mc07_13e mc07_08e mc05_14e mc03_17e                                                                                  mc05_15i mc07_05i
+fb07,input24: mc06_12e mc06_05e          mc02_10e                   mc03_01e                                                                         mc01_10i                   mc07_09i mc02_08i mc04_03i mc06_11i
+fb07,input25: mc04_11e          mc08_15e                                                                                                                                                                            mc08_08i
+fb07,input26: mc06_17e          mc08_17e mc08_06e mc01_01e          mc03_08e mc05_05e                                                                mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb07,input27: mc04_11e mc04_16e mc02_08e                            mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i
+fb07,input28: mc04_06e mc06_08e mc08_10e                            mc03_01e mc03_15e                                                                                  mc05_15i mc07_04i mc02_04i          mc06_11i
+fb07,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i          mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb07,input30: mc06_16e mc02_01e mc08_14e          mc07_16e          mc03_04e mc03_12e                                                                         mc03_06i mc05_05i          mc02_14i          mc06_13i
+fb07,input31: mc04_11e mc04_17e mc02_09e                   mc01_12e mc03_08e                                                                                  mc03_09i mc05_10i mc07_09i                   mc06_03i mc08_16i
+fb07,input32:          mc04_10e mc02_04e
+fb07,input33: mc06_15e mc06_10e mc02_05e          mc08_05e mc07_06e mc07_05e mc05_11e                                                                mc01_07i mc03_03i mc05_11i mc07_13i mc02_15i mc04_08i mc06_07i mc08_13i
 fb07,input34:
-fb07,input35:                                                                                                                                                                            mc02_08o
-fb07,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o mc03_15o mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb07,input37:          mc04_17i mc02_05i mc08_04i          mc03_05i          mc03_14i                                                                         mc03_11o          mc07_03o          mc04_10o          mc08_11o
+fb07,input35:                                                                                                                                                                            mc02_08i
+fb07,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i mc03_15i mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb07,input37:          mc04_17e mc02_05e mc08_04e          mc03_05e          mc03_14e                                                                         mc03_11i          mc07_03i          mc04_10i          mc08_11i
 fb07,input38:
-fb07,input39:                                                       mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o          mc02_10o mc04_09o mc06_16o mc08_05o
-fb07,input40: mc04_12i                   mc08_04i          mc01_15i mc05_13i                                                                         mc01_11o                            mc02_04o          mc06_06o
-fb07,input41:          mc02_01i mc02_09i mc02_11i mc07_14i mc07_10i mc05_15i                                                                         mc01_01o mc03_17o mc05_14o          mc02_18o mc04_05o mc06_10o mc08_10o
-fb07,input42: mc04_08i mc06_06i mc08_17i mc02_13i mc07_14i          mc03_03i                                                                         mc01_12o mc03_11o mc05_08o mc07_07o mc02_17o mc04_14o mc06_09o mc08_09o
-fb07,input43: mc06_11i mc04_15i mc08_13i mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
-fb07,input44:          mc06_08i                                              mc03_07i                                                                         mc03_01o mc05_16o mc07_05o          mc04_16o mc06_13o
-fb07,input45:                            mc01_02i                   mc05_14i                                                                                  mc03_01o mc05_18o
+fb07,input39:                                                       mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i          mc02_10i mc04_09i mc06_16i mc08_05i
+fb07,input40: mc04_12e                   mc08_04e          mc01_15e mc05_13e                                                                         mc01_11i                            mc02_04i          mc06_06i
+fb07,input41:          mc02_01e mc02_09e mc02_11e mc07_14e mc07_10e mc05_15e                                                                         mc01_01i mc03_17i mc05_14i          mc02_18i mc04_05i mc06_10i mc08_10i
+fb07,input42: mc04_08e mc06_06e mc08_17e mc02_13e mc07_14e          mc03_03e                                                                         mc01_12i mc03_11i mc05_08i mc07_07i mc02_17i mc04_14i mc06_09i mc08_09i
+fb07,input43: mc06_11e mc04_15e mc08_13e mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
+fb07,input44:          mc06_08e                                              mc03_07e                                                                         mc03_01i mc05_16i mc07_05i          mc04_16i mc06_13i
+fb07,input45:                            mc01_02e                   mc05_14e                                                                                  mc03_01i mc05_18i
 fb07,input46:
-fb07,input47: mc06_14i mc06_05i mc02_02i mc08_03i mc01_05i                                                                                           mc01_16o          mc05_18o          mc02_17o                   mc08_08o
-fb07,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o mc07_01o mc02_13o mc04_18o mc06_10o
-fb07,input49:          mc04_14i                   mc01_04i mc03_02i mc07_02i mc05_03i                                                                                  mc05_08o mc07_13o mc02_06o mc04_06o mc06_15o
-fb07,input50: mc04_09i mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o          mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb07,input51:                   mc08_14i          mc01_09i mc01_10i                                                                                  mc01_16o                            mc02_14o mc04_16o
-fb07,input52:          mc04_10i          mc08_03i mc07_12i          mc07_02i mc03_15i                                                                mc01_10o mc03_05o          mc07_04o                   mc06_03o
-fb07,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb07,input54:                   mc08_13i mc02_12i                            mc05_02i                                                                         mc03_17o mc05_14o mc07_12o          mc04_12o mc06_18o mc08_09o
-fb08,input01:                   mc02_02i mc02_10i          mc01_12i          mc03_12i                                                                         mc03_01o mc05_01o mc07_01o
-fb08,input02: mc04_02i                   mc08_12i mc01_03i mc07_09i                                                                                  mc01_02o mc03_02o mc05_02o mc07_02o mc02_02o mc04_02o mc06_02o mc08_02o
-fb08,input03: mc04_06i mc04_10i                                     mc07_02i mc03_07i                                                                                                             mc04_03o mc06_03o mc08_03o
-fb08,input04: mc06_17i                            mc01_05i mc07_10i mc01_16i mc05_03i                                                                                           mc07_04o mc02_04o                   mc08_04o
-fb08,input05:          mc04_14i                            mc01_15i mc05_13i mc03_10i                                                                         mc03_05o mc05_05o mc07_05o                            mc08_05o
-fb08,input06:          mc06_10i mc06_02i                   mc07_08i mc03_08i                                                                                  mc03_06o                   mc02_06o mc04_06o mc06_06o
-fb08,input07:          mc04_13i mc02_06i mc02_14i mc07_15i          mc05_17i                                                                         mc01_07o mc03_07o mc05_07o                                     mc08_07o
-fb08,input08: mc06_14i mc06_08i                                     mc03_01i                                                                                                             mc02_08o                   mc08_08o
-fb08,input09:                   mc02_04i                                                                                                             mc01_09o mc03_09o          mc07_09o mc02_09o
-fb08,input10: mc06_12i          mc08_15i mc08_09i mc01_09i                                                                                           mc01_10o          mc05_10o                   mc04_10o
-fb08,input11: mc04_03i                            mc07_12i                                                                                           mc01_11o                                              mc06_11o
-fb08,input12:          mc06_06i mc08_13i mc08_03i mc01_01i          mc03_03i mc05_08i                                                                mc01_12o mc03_12o mc05_12o mc07_12o mc02_12o mc04_12o mc06_12o mc08_12o
-fb08,input13: mc04_12i                                                       mc03_15i                                                                                  mc05_13o
-fb08,input14:          mc06_04i                                                                                                                               mc03_14o
-fb08,input15:                                                                                                                                                          mc05_15o                   mc04_15o
-fb08,input16: mc06_16i mc06_05i mc08_10i mc08_06i mc01_04i          mc03_04i                                                                         mc01_16o          mc05_16o mc07_16o          mc04_16o          mc08_16o
-fb08,input17: mc04_08i mc06_06i          mc01_02i mc07_13i                                                                                           mc01_17o                            mc02_17o
-fb08,input18:                                                                mc03_07i
-fb08,input19: mc06_11i                   mc02_16i mc01_11i mc07_07i                                                                                  mc01_14o mc03_10o mc05_11o mc07_08o mc02_03o          mc06_01o mc08_07o
+fb07,input47: mc06_14e mc06_05e mc02_02e mc08_03e mc01_05e                                                                                           mc01_16i          mc05_18i          mc02_17i                   mc08_08i
+fb07,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i mc07_01i mc02_13i mc04_18i mc06_10i
+fb07,input49:          mc04_14e                   mc01_04e mc03_02e mc07_02e mc05_03e                                                                                  mc05_08i mc07_13i mc02_06i mc04_06i mc06_15i
+fb07,input50: mc04_09e mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i          mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb07,input51:                   mc08_14e          mc01_09e mc01_10e                                                                                  mc01_16i                            mc02_14i mc04_16i
+fb07,input52:          mc04_10e          mc08_03e mc07_12e          mc07_02e mc03_15e                                                                mc01_10i mc03_05i          mc07_04i                   mc06_03i
+fb07,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb07,input54:                   mc08_13e mc02_12e                            mc05_02e                                                                         mc03_17i mc05_14i mc07_12i          mc04_12i mc06_18i mc08_09i
+fb08,input01:                   mc02_02e mc02_10e          mc01_12e          mc03_12e                                                                         mc03_01i mc05_01i mc07_01i
+fb08,input02: mc04_02e                   mc08_12e mc01_03e mc07_09e                                                                                  mc01_02i mc03_02i mc05_02i mc07_02i mc02_02i mc04_02i mc06_02i mc08_02i
+fb08,input03: mc04_06e mc04_10e                                     mc07_02e mc03_07e                                                                                                             mc04_03i mc06_03i mc08_03i
+fb08,input04: mc06_17e                            mc01_05e mc07_10e mc01_16e mc05_03e                                                                                           mc07_04i mc02_04i                   mc08_04i
+fb08,input05:          mc04_14e                            mc01_15e mc05_13e mc03_10e                                                                         mc03_05i mc05_05i mc07_05i                            mc08_05i
+fb08,input06:          mc06_10e mc06_02e                   mc07_08e mc03_08e                                                                                  mc03_06i                   mc02_06i mc04_06i mc06_06i
+fb08,input07:          mc04_13e mc02_06e mc02_14e mc07_15e          mc05_17e                                                                         mc01_07i mc03_07i mc05_07i                                     mc08_07i
+fb08,input08: mc06_14e mc06_08e                                     mc03_01e                                                                                                             mc02_08i                   mc08_08i
+fb08,input09:                   mc02_04e                                                                                                             mc01_09i mc03_09i          mc07_09i mc02_09i
+fb08,input10: mc06_12e          mc08_15e mc08_09e mc01_09e                                                                                           mc01_10i          mc05_10i                   mc04_10i
+fb08,input11: mc04_03e                            mc07_12e                                                                                           mc01_11i                                              mc06_11i
+fb08,input12:          mc06_06e mc08_13e mc08_03e mc01_01e          mc03_03e mc05_08e                                                                mc01_12i mc03_12i mc05_12i mc07_12i mc02_12i mc04_12i mc06_12i mc08_12i
+fb08,input13: mc04_12e                                                       mc03_15e                                                                                  mc05_13i
+fb08,input14:          mc06_04e                                                                                                                               mc03_14i
+fb08,input15:                                                                                                                                                          mc05_15i                   mc04_15i
+fb08,input16: mc06_16e mc06_05e mc08_10e mc08_06e mc01_04e          mc03_04e                                                                         mc01_16i          mc05_16i mc07_16i          mc04_16i          mc08_16i
+fb08,input17: mc04_08e mc06_06e          mc01_02e mc07_13e                                                                                           mc01_17i                            mc02_17i
+fb08,input18:                                                                mc03_07e
+fb08,input19: mc06_11e                   mc02_16e mc01_11e mc07_07e                                                                                  mc01_14i mc03_10i mc05_11i mc07_08i mc02_03i          mc06_01i mc08_07i
 fb08,input20:
-fb08,input21: mc04_09i          mc08_16i mc02_16i mc01_06i mc07_03i mc05_07i                                                                         mc01_05o mc03_13o mc05_03o mc07_17o mc02_18o mc04_01o mc06_04o mc08_01o
+fb08,input21: mc04_09e          mc08_16e mc02_16e mc01_06e mc07_03e mc05_07e                                                                         mc01_05i mc03_13i mc05_03i mc07_17i mc02_18i mc04_01i mc06_04i mc08_01i
 fb08,input22:
 fb08,input23:
-fb08,input24: mc06_12i                                              mc03_01i                                                                         mc01_10o                            mc02_08o mc04_03o mc06_11o
-fb08,input25: mc04_11i          mc08_15i          mc01_05i mc01_15i mc07_02i                                                                                                                      mc04_10o          mc08_08o
-fb08,input26: mc06_17i          mc08_17i mc08_06i mc01_01i mc07_03i mc03_08i mc05_05i                                                                mc01_03o          mc05_09o mc07_15o mc02_05o mc04_11o mc06_07o mc08_14o
-fb08,input27: mc04_11i mc04_16i mc02_08i                            mc03_04i mc03_17i                                                                mc01_18o mc03_14o mc05_16o mc07_11o mc02_06o mc04_18o mc06_06o
-fb08,input28: mc04_06i mc06_08i mc08_10i          mc07_14i          mc03_01i mc03_15i                                                                                  mc05_15o mc07_04o mc02_04o mc04_05o mc06_11o
-fb08,input29: mc04_05i                            mc08_02i mc01_17i mc03_11i mc05_06i                                                                mc01_04o mc03_18o mc05_02o mc07_18o mc02_11o mc04_17o mc06_05o mc08_06o
-fb08,input30: mc06_16i mc02_01i mc08_14i          mc07_16i          mc03_04i mc03_12i                                                                         mc03_06o mc05_05o          mc02_14o          mc06_13o
-fb08,input31: mc04_11i mc04_17i mc02_09i          mc07_16i mc01_12i mc03_08i                                                                                  mc03_09o mc05_10o mc07_09o                   mc06_03o mc08_16o
+fb08,input24: mc06_12e                                              mc03_01e                                                                         mc01_10i                            mc02_08i mc04_03i mc06_11i
+fb08,input25: mc04_11e          mc08_15e          mc01_05e mc01_15e mc07_02e                                                                                                                      mc04_10i          mc08_08i
+fb08,input26: mc06_17e          mc08_17e mc08_06e mc01_01e mc07_03e mc03_08e mc05_05e                                                                mc01_03i          mc05_09i mc07_15i mc02_05i mc04_11i mc06_07i mc08_14i
+fb08,input27: mc04_11e mc04_16e mc02_08e                            mc03_04e mc03_17e                                                                mc01_18i mc03_14i mc05_16i mc07_11i mc02_06i mc04_18i mc06_06i
+fb08,input28: mc04_06e mc06_08e mc08_10e          mc07_14e          mc03_01e mc03_15e                                                                                  mc05_15i mc07_04i mc02_04i mc04_05i mc06_11i
+fb08,input29: mc04_05e                            mc08_02e mc01_17e mc03_11e mc05_06e                                                                mc01_04i mc03_18i mc05_02i mc07_18i mc02_11i mc04_17i mc06_05i mc08_06i
+fb08,input30: mc06_16e mc02_01e mc08_14e          mc07_16e          mc03_04e mc03_12e                                                                         mc03_06i mc05_05i          mc02_14i          mc06_13i
+fb08,input31: mc04_11e mc04_17e mc02_09e          mc07_16e mc01_12e mc03_08e                                                                                  mc03_09i mc05_10i mc07_09i                   mc06_03i mc08_16i
 fb08,input32:
-fb08,input33: mc06_15i mc06_10i mc02_05i          mc08_05i mc07_06i mc07_05i mc05_11i                                                                mc01_07o mc03_03o          mc07_13o mc02_15o mc04_08o mc06_07o mc08_13o
-fb08,input34: mc04_06i                   mc08_09i                                                                                                                               mc07_16o          mc04_03o          mc08_03o
-fb08,input35: mc06_12i                                     mc03_02i mc05_14i                                                                         mc01_18o                   mc07_11o mc02_08o                   mc08_04o
-fb08,input36: mc06_15i                   mc08_08i                   mc05_15i mc05_05i                                                                mc01_06o mc03_15o mc05_12o mc07_06o          mc04_07o mc06_17o mc08_12o
-fb08,input37:          mc04_17i mc02_05i mc08_04i          mc03_05i          mc03_14i                                                                         mc03_11o          mc07_03o          mc04_10o          mc08_11o
-fb08,input38:                   mc02_04i
-fb08,input39:          mc06_10i                   mc01_01i          mc05_10i mc05_09i                                                                mc01_08o mc03_04o mc05_17o mc07_02o mc02_10o mc04_09o mc06_16o mc08_05o
-fb08,input40: mc04_12i                                     mc01_15i mc05_13i                                                                         mc01_11o                            mc02_04o          mc06_06o
-fb08,input41:          mc02_01i mc02_09i          mc07_14i mc07_10i                                                                                                                               mc04_05o mc06_10o mc08_10o
-fb08,input42: mc04_08i mc06_06i          mc02_13i mc07_14i          mc03_03i                                                                         mc01_12o mc03_11o mc05_08o          mc02_17o mc04_14o mc06_09o mc08_09o
-fb08,input43: mc06_11i mc04_15i          mc02_17i mc01_01i          mc07_05i                                                                         mc01_01o mc03_15o mc05_06o mc07_14o mc02_07o mc04_04o mc06_08o mc08_15o
-fb08,input44:                                                                                                                                                 mc03_01o mc05_16o mc07_05o          mc04_16o mc06_13o
-fb08,input45:                            mc01_02i                   mc05_14i                                                                                  mc03_01o mc05_18o
-fb08,input46: mc04_12i                   mc02_10i          mc01_14i                                                                                  mc01_17o                                                       mc08_04o
-fb08,input47: mc06_14i mc06_05i mc02_02i          mc01_05i mc07_08i                                                                                  mc01_16o          mc05_18o          mc02_17o                   mc08_08o
-fb08,input48:          mc06_04i mc06_02i mc08_11i mc07_17i mc01_14i                                                                                                    mc05_01o mc07_01o mc02_13o mc04_18o mc06_10o
-fb08,input49:          mc04_14i                   mc01_04i mc03_02i mc07_02i mc05_03i                                                                                  mc05_08o          mc02_06o mc04_06o mc06_15o
-fb08,input50:          mc06_09i          mc02_11i mc01_08i mc07_06i mc05_12i                                                                         mc01_15o mc03_08o          mc07_10o mc02_01o mc04_13o mc06_14o mc08_18o
-fb08,input51:                   mc08_14i          mc01_09i mc01_10i mc03_03i mc05_09i                                                                mc01_16o                   mc07_01o mc02_14o mc04_16o          mc08_11o
-fb08,input52:          mc04_10i                   mc07_12i          mc07_02i mc03_15i                                                                mc01_10o mc03_05o          mc07_04o                   mc06_03o
-fb08,input53: mc04_01i                   mc02_15i mc07_11i mc03_06i mc03_09i                                                                         mc01_13o mc03_16o mc05_04o mc07_07o mc02_16o mc04_01o mc06_12o mc08_17o
-fb08,input54: mc04_01i          mc08_13i mc02_12i mc01_06i          mc05_12i mc05_02i                                                                         mc03_17o mc05_14o mc07_12o mc02_01o mc04_12o mc06_18o mc08_09o
+fb08,input33: mc06_15e mc06_10e mc02_05e          mc08_05e mc07_06e mc07_05e mc05_11e                                                                mc01_07i mc03_03i          mc07_13i mc02_15i mc04_08i mc06_07i mc08_13i
+fb08,input34: mc04_06e                   mc08_09e                                                                                                                               mc07_16i          mc04_03i          mc08_03i
+fb08,input35: mc06_12e                                     mc03_02e mc05_14e                                                                         mc01_18i                   mc07_11i mc02_08i                   mc08_04i
+fb08,input36: mc06_15e                   mc08_08e                   mc05_15e mc05_05e                                                                mc01_06i mc03_15i mc05_12i mc07_06i          mc04_07i mc06_17i mc08_12i
+fb08,input37:          mc04_17e mc02_05e mc08_04e          mc03_05e          mc03_14e                                                                         mc03_11i          mc07_03i          mc04_10i          mc08_11i
+fb08,input38:                   mc02_04e
+fb08,input39:          mc06_10e                   mc01_01e          mc05_10e mc05_09e                                                                mc01_08i mc03_04i mc05_17i mc07_02i mc02_10i mc04_09i mc06_16i mc08_05i
+fb08,input40: mc04_12e                                     mc01_15e mc05_13e                                                                         mc01_11i                            mc02_04i          mc06_06i
+fb08,input41:          mc02_01e mc02_09e          mc07_14e mc07_10e                                                                                                                               mc04_05i mc06_10i mc08_10i
+fb08,input42: mc04_08e mc06_06e          mc02_13e mc07_14e          mc03_03e                                                                         mc01_12i mc03_11i mc05_08i          mc02_17i mc04_14i mc06_09i mc08_09i
+fb08,input43: mc06_11e mc04_15e          mc02_17e mc01_01e          mc07_05e                                                                         mc01_01i mc03_15i mc05_06i mc07_14i mc02_07i mc04_04i mc06_08i mc08_15i
+fb08,input44:                                                                                                                                                 mc03_01i mc05_16i mc07_05i          mc04_16i mc06_13i
+fb08,input45:                            mc01_02e                   mc05_14e                                                                                  mc03_01i mc05_18i
+fb08,input46: mc04_12e                   mc02_10e          mc01_14e                                                                                  mc01_17i                                                       mc08_04i
+fb08,input47: mc06_14e mc06_05e mc02_02e          mc01_05e mc07_08e                                                                                  mc01_16i          mc05_18i          mc02_17i                   mc08_08i
+fb08,input48:          mc06_04e mc06_02e mc08_11e mc07_17e mc01_14e                                                                                                    mc05_01i mc07_01i mc02_13i mc04_18i mc06_10i
+fb08,input49:          mc04_14e                   mc01_04e mc03_02e mc07_02e mc05_03e                                                                                  mc05_08i          mc02_06i mc04_06i mc06_15i
+fb08,input50:          mc06_09e          mc02_11e mc01_08e mc07_06e mc05_12e                                                                         mc01_15i mc03_08i          mc07_10i mc02_01i mc04_13i mc06_14i mc08_18i
+fb08,input51:                   mc08_14e          mc01_09e mc01_10e mc03_03e mc05_09e                                                                mc01_16i                   mc07_01i mc02_14i mc04_16i          mc08_11i
+fb08,input52:          mc04_10e                   mc07_12e          mc07_02e mc03_15e                                                                mc01_10i mc03_05i          mc07_04i                   mc06_03i
+fb08,input53: mc04_01e                   mc02_15e mc07_11e mc03_06e mc03_09e                                                                         mc01_13i mc03_16i mc05_04i mc07_07i mc02_16i mc04_01i mc06_12i mc08_17i
+fb08,input54: mc04_01e          mc08_13e mc02_12e mc01_06e          mc05_12e mc05_02e                                                                         mc03_17i mc05_14i mc07_12i mc02_01i mc04_12i mc06_18i mc08_09i

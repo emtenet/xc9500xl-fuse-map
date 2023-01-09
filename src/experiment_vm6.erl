@@ -2,6 +2,17 @@
 
 -export([imux/1]).
 
+-export_type([imux/0]).
+
+-type function_block() :: function_block:function_block().
+-type input() :: input:input().
+-type macro_cell() :: macro_cell:absolute().
+-type realm() :: input:realm().
+
+-type imux() :: #{ function_block() => imux_realms() }.
+-type imux_realms() :: #{ realm() => imux_macro_cells() }.
+-type imux_macro_cells() :: #{ macro_cell() => input() }.
+
 % Example experiment.vm6 file:
 %
 %   ...
@@ -39,6 +50,8 @@
 %%====================================================================
 %% imux
 %%====================================================================
+
+-spec imux(file:name_all()) -> imux().
 
 imux(File) ->
     {ok, Data} = file:read_file(File),
@@ -147,12 +160,12 @@ imux_inputs([Index_, Name_, <<"NULL">> | Inputs], FB, FBs, Pins) ->
     Input = input:from(1 + binary_to_integer(Index_)),
     Name = imux_input_trim(Name_),
     {#{Name := MC}, _} = {Pins, Name},
-    imux_inputs(Inputs, FB, imux_input(FB, output, MC, Input, FBs), Pins);
+    imux_inputs(Inputs, FB, imux_input(FB, internal, MC, Input, FBs), Pins);
 imux_inputs([Index_, _Name, Pin | Inputs], FB, FBs, Pins) ->
     % convert index from 0-based to 1-based
     Input = input:from(1 + binary_to_integer(Index_)),
     #{Pin := MC} = Pins,
-    imux_inputs(Inputs, FB, imux_input(FB, input, MC, Input, FBs), Pins).
+    imux_inputs(Inputs, FB, imux_input(FB, external, MC, Input, FBs), Pins).
 
 %%--------------------------------------------------------------------
 
@@ -168,15 +181,15 @@ imux_input_trim(Name) ->
 
 %%--------------------------------------------------------------------
 
-imux_input(FB, Type, MC, Input, FBs) ->
+imux_input(FB, Realm, MC, Input, FBs) ->
     case FBs of
-        #{FB := Types = #{Type := MCs}} ->
-            FBs#{FB => Types#{Type => MCs#{MC => Input}}};
+        #{FB := Realms = #{Realm := MCs}} ->
+            FBs#{FB => Realms#{Realm => MCs#{MC => Input}}};
 
-        #{FB := Types} ->
-            FBs#{FB => Types#{Type => #{MC => Input}}};
+        #{FB := Realms} ->
+            FBs#{FB => Realms#{Realm => #{MC => Input}}};
 
         _ ->
-            FBs#{FB => #{Type => #{MC => Input}}}
+            FBs#{FB => #{Realm => #{MC => Input}}}
     end.
 

@@ -33,7 +33,7 @@ read(Density) ->
 %%--------------------------------------------------------------------
 
 manual(xc9572xl) ->
-    [{fb01, input29, 19, {mc04_13, output}}];
+    [{fb01, input29, 19, {mc04_13, internal}}];
 manual(_) ->
     [].
 
@@ -50,10 +50,10 @@ source(Module, InputMap, SourceMap, Choices, MCs, IOs) ->
     "-export([sources/2]).\n"
     "\n"
     "-type input() :: input:input().\n"
-    "-type macro_cell() :: macro_cell:macro_cell().\n"
-    "\n"
-    "-type choice() :: non_neg_integer().\n"
-    "-type direction() :: input | output.\n"
+    "-type macro_cell() :: macro_cell:absolute().\n"
+    "-type choice() :: input:choice().\n"
+    "-type realm() :: input:realm().\n"
+    "-type source() :: input:source().\n"
     "\n">>,
     choices(Choices),
     choice(InputMap, Choices),
@@ -107,8 +107,7 @@ choice(InputMap, Choices) ->
     [
     section(<<"choice">>), <<
     "\n"
-    "-spec choice(input(), choice())\n"
-    "    -> {macro_cell(), direction()} | unknown.\n"
+    "-spec choice(input(), choice()) -> source() | unknown.\n"
     "\n">>,
     Clauses, <<
     "\n">>
@@ -132,6 +131,13 @@ choice_choice(Input, Choice, ChoiceMap, Clauses) ->
 
 %%--------------------------------------------------------------------
 
+choice_clause(Input, Choice, {MC, Realm}) ->
+    clause(io_lib:format("choice(~s, ~2b) -> {~s, ~s}", [
+        Input,
+        Choice,
+        MC,
+        Realm
+    ]));
 choice_clause(Input, Choice, Source) ->
     clause(io_lib:format("choice(~s, ~2b) -> ~p", [Input, Choice, Source])).
 
@@ -147,7 +153,7 @@ sources(SourceMap, MCs, IOs) ->
     [
     section(<<"sources">>), <<
     "\n"
-    "-spec sources(macro_cell(), direction())\n"
+    "-spec sources(macro_cell(), realm())\n"
     "    -> {choice(), [input()]} | no_pin | unknown.\n"
     "\n">>,
     Clauses, <<
@@ -160,16 +166,16 @@ sources_mc(MC, SourceMap, IOs, Clauses) ->
     case lists:member(MC, IOs) of
         true ->
             [
-                sources_dir(MC, input, SourceMap),
-                sources_dir(MC, output, SourceMap)
+                sources_realm(MC, external, SourceMap, unknown),
+                sources_realm(MC, internal, SourceMap, unknown)
                 |
                 Clauses
             ];
 
         false ->
             [
-                sources_dir(MC, input, SourceMap),
-                sources_clause(MC, output, no_pin)
+                sources_realm(MC, external, SourceMap, no_pin),
+                sources_realm(MC, internal, SourceMap, unknown)
                 |
                 Clauses
             ]
@@ -177,15 +183,15 @@ sources_mc(MC, SourceMap, IOs, Clauses) ->
 
 %%--------------------------------------------------------------------
 
-sources_dir(MC, Dir, SourceMap) ->
-    case maps:get({MC, Dir}, SourceMap, #{}) of
+sources_realm(MC, Realm, SourceMap, Default) ->
+    case maps:get({MC, Realm}, SourceMap, #{}) of
         InputMap when map_size(InputMap) =:= 0 ->
-            sources_clause(MC, Dir, unknown);
+            sources_clause(MC, Realm, Default);
 
         InputMap ->
             Inputs = lists:sort(maps:keys(InputMap)),
             Choice = sources_choice(maps:values(InputMap)),
-            sources_clause(MC, Dir, {Choice, Inputs})
+            sources_clause(MC, Realm, {Choice, Inputs})
     end.
 
 %%--------------------------------------------------------------------
@@ -197,6 +203,34 @@ sources_choice([C, C, C, C]) -> C.
 
 %%--------------------------------------------------------------------
 
-sources_clause(MC, Dir, Sources) ->
-    clause(io_lib:format("sources(~s, ~s) -> ~p", [MC, Dir, Sources])).
+sources_clause(MC, Realm, {Choice, [A]}) ->
+    clause(io_lib:format("sources(~s, ~s) -> {~2b, [~s]}", [
+        MC,
+        Realm,
+        Choice,
+        A
+    ]));
+sources_clause(MC, Realm, {Choice, [A, B]}) ->
+    clause(io_lib:format("sources(~s, ~s) -> {~2b, [~s, ~s]}", [
+        MC,
+        Realm,
+        Choice,
+        A, B
+    ]));
+sources_clause(MC, Realm, {Choice, [A, B, C]}) ->
+    clause(io_lib:format("sources(~s, ~s) -> {~2b, [~s, ~s, ~s]}", [
+        MC,
+        Realm,
+        Choice,
+        A, B, C
+    ]));
+sources_clause(MC, Realm, {Choice, [A, B, C, D]}) ->
+    clause(io_lib:format("sources(~s, ~s) -> {~2b, [~s, ~s, ~s, ~s]}", [
+        MC,
+        Realm,
+        Choice,
+        A, B, C, D
+    ]));
+sources_clause(MC, Realm, Sources) ->
+    clause(io_lib:format("sources(~s, ~s) -> ~p", [MC, Realm, Sources])).
 
