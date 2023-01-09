@@ -76,8 +76,6 @@ clause(Clause) ->
 
 %%--------------------------------------------------------------------
 
-clauses([]) ->
-    [];
 clauses([[Clause, <<";\n">>] | Clauses]) ->
     lists:reverse(Clauses, [Clause, <<".\n">>]).
 
