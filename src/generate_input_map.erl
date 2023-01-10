@@ -28,14 +28,10 @@ run(Density) ->
 %%--------------------------------------------------------------------
 
 read(Density) ->
-    inputs:common(inputs:merge(inputs:read(Density), manual(Density))).
-
-%%--------------------------------------------------------------------
-
-manual(xc9572xl) ->
-    [{fb01, input29, 19, {mc04_13, internal}}];
-manual(_) ->
-    [].
+    Read = inputs:read(Density),
+    Manual = input_map_physical:results(Density),
+    Merged = inputs:merge(Read, Manual),
+    inputs:common(Merged).
 
 %%====================================================================
 %% source
