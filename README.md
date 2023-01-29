@@ -1,5 +1,5 @@
 
-# AMD Xilinx XC9500XL CPLD Bitstream Documentation (Reverse Engineered)
+# Xilinx XC9500XL Fuse Map (by experiment)
 
 Documentation of the [fuse map](doc/fuse-map.md) layout.
 
