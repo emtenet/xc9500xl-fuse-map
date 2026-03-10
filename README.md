@@ -68,6 +68,18 @@ Disable keeper globally.
 
 These fuses seem to be always on!
 
+### `{fb##, enable}`
+
+On when the function block is used.
+
+### `{fb##, forward}`
+
+On when one of the `to_upper`, `from_lower` or `from_upper` fuses is used.
+
+It appears that this forwarding is within the function block.
+So forwarding via `to_upper` from `mc01`
+comes in to `mc18` via `from_lower`.
+
 ### `{fb##, mc##, ground}`
 
 Ground pin to help reduce system noise, i.e when pin is unused.

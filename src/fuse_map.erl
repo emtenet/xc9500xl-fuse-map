@@ -25,7 +25,7 @@
     {fb(), function_block_feature()} |
     {fb(), mc(), macro_cell_feature()} |
     {fb(), mc(), pt(), input()} |
-    {fb(), mc(), pt(), input()} |
+    {fb(), mc(), pt(), input(), invert} |
     undefined.
 
 -type global_feature() ::
