@@ -932,6 +932,8 @@ jed([_ | Lines], Fuses) ->
 
 jed(_, <<"*">>, Lines, Fuses) ->
     jed(Lines, Fuses);
+jed(_, <<"*\r">>, Lines, Fuses) ->
+    jed(Lines, Fuses);
 jed(Fuse, <<" ", Line/binary>>, Lines, Fuses) ->
     jed(Fuse, Line, Lines, Fuses);
 jed(Fuse, <<"0", Line/binary>>, Lines, Fuses) ->
