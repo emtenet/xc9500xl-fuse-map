@@ -1,0 +1,2 @@
+NET "i" LOC = "FB1_5";
+NET "o" LOC = "FB1_6";

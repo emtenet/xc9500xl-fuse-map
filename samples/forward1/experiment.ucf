@@ -1,0 +1,3 @@
+#INST "x_FF" LOC = "FB3_1";
+#INST "y_FF" LOC = "FB3_2";
+#INST "z_FF" LOC = "FB3_3";

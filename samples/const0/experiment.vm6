@@ -1,0 +1,67 @@
+NDS Database:  version M.81d
+
+NDS_INFO | xc9500xl | 95288XL144 | XC95288XL-10-TQ144
+
+DEVICE | 95288XL | 95288XL144 | 
+
+NETWORK | experiment | 0 | 0 | 4276231
+
+MACROCELL_INSTANCE | FbkInv+Merge+OptxMapped | o_OBUF | experiment_COPY_0_COPY_0 | 2155907072 | 0 | 1
+OUTPUT_NODE_TYPE | 0 | 0 | MC_Q
+NODE | o_OBUF | 15 | ? | 0 | 0 | experiment_COPY_0_COPY_0 | NULL | o_OBUF.Q | o_OBUF | 0 | 0 | MC_Q
+
+SIGNAL_INSTANCE | o_OBUF.SI | o_OBUF | 0 | 0 | 2
+OUTPUT_NODE_TYPE | 1 | 9 | MC_SI_D1
+SIGNAL | NODE | o_OBUF.D1 | 18 | ? | 0 | 4096 | o_OBUF | NULL | NULL | o_OBUF.SI | 1 | 9 | MC_SI_D1
+SPPTERM | 0 | IV_ZERO
+OUTPUT_NODE_TYPE | 2 | 9 | MC_SI_D2
+SIGNAL | NODE | o_OBUF.D2 | 19 | ? | 0 | 4096 | o_OBUF | NULL | NULL | o_OBUF.SI | 2 | 9 | MC_SI_D2
+SPPTERM | 0 | IV_ZERO
+
+SRFF_INSTANCE | o_OBUF.REG | o_OBUF | 0 | 1 | 1
+INPUT_NODE_TYPE | 0 | 8 | SRFF_D
+NODE | o_OBUF.D | 17 | ? | 0 | 0 | o_OBUF | NULL | NULL | o_OBUF.XOR | 0 | 7 | ALU_F
+OUTPUT_NODE_TYPE | 0 | 8 | SRFF_Q
+NODE | o_OBUF.Q | 20 | ? | 0 | 0 | o_OBUF | NULL | NULL | o_OBUF.REG | 0 | 8 | SRFF_Q
+
+OUTPUT_INSTANCE | 0 | o | experiment_COPY_0_COPY_0 | 1 | 1 | 1
+INPUT_NODE_TYPE | 0 | 6 | OI_IN
+NODE | o_OBUF | 15 | ? | 0 | 0 | experiment_COPY_0_COPY_0 | NULL | o_OBUF.Q | o_OBUF | 0 | 0 | MC_Q
+OUTPUT_NODE_TYPE | 0 | 6 | OI_OUT
+NODE | o | 16 | PO | 0 | 0 | experiment_COPY_0_COPY_0 | NULL | NULL | o | 0 | 6 | OI_OUT
+
+FB_INSTANCE | FOOBAR1_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR2_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+FBPIN | 2 | o_OBUF | 1 | NULL | 0 | o | 1 | 9 | 49152
+
+FB_INSTANCE | FOOBAR3_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR4_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR5_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR6_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR7_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR8_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR9_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR10_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR11_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR12_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR13_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR14_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR15_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | FOOBAR16_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+
+FB_INSTANCE | INPUTPINS_FOOBAR17_ | experiment_COPY_0_COPY_0 | 0 | 0 | 0
+

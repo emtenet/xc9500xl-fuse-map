@@ -1,0 +1,3 @@
+NET "a" LOC = "FB1_17";
+NET "b" LOC = "FB3_12";
+NET "q" LOC = "FB7_15";
