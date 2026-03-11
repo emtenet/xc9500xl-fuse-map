@@ -271,7 +271,10 @@ names(Density, Collect = #{global := Global}) ->
     Names6 = maps:map(fun (Key, Value) ->
         internal_name(Key, Value, Names5)
     end, Names5),
-    Names6.
+    Names7 = maps:map(fun (Key, Value) ->
+        logic_name(Key, Value, Names6)
+    end, Names6),
+    Names7.
 
 %%--------------------------------------------------------------------
 
@@ -306,21 +309,59 @@ output_names(Collect, Names0) ->
 output_name({FB, cell, MC}, Cell, Names) ->
     case oe(Cell) of
         never ->
-            Names;
+            Pin = macro_cell:join(FB, MC),
+            case Names of
+                #{{Pin, external} := in, {Pin, internal} := internal} ->
+                    % input
+                    %   ... <= ... mc_pin ...
+                    % AND logic
+                    %   mc <= ...;
+                    %   ... <= ... mc ...
+                    Names#{
+                        {Pin, logic} => internal
+                    };
+
+                #{{Pin, external} := in} ->
+                    % input ONLY
+                    %   ... <= ... mc_pin ...
+                    Names;
+
+                #{{Pin, internal} := internal} ->
+                    % logic ONLY
+                    %   mc <= ...;
+                    %   ... <= ... mc ...
+                    Names#{
+                        {Pin, logic} => internal
+                    };
+
+                _ ->
+                    % Cell just forwards
+                    Names
+            end;
 
         always ->
             Pin = macro_cell:join(FB, MC),
             case Names of
                 #{{Pin, external} := in} ->
+                    % output ALWAYS, why read from external?
+                    throw({output, always, read, from, external});
+
+                #{{Pin, internal} := internal} ->
+                    % output (read from internal)
+                    %   mc_pin <= ...;
+                    %   ... <= ... mc_pin ...
                     Names#{
-                        {Pin, external} => inout,
-                        {Pin, internal} => external
+                        {Pin, external} => out,
+                        {Pin, internal} => external,
+                        {Pin, logic} => external
                     };
 
                 _ ->
+                    % output ONLY
+                    %   mc_pin <= ...;
                     Names#{
                         {Pin, external} => out,
-                        {Pin, internal} => external
+                        {Pin, logic} => external
                     }
             end;
 
@@ -328,10 +369,38 @@ output_name({FB, cell, MC}, Cell, Names) ->
             Pin = macro_cell:join(FB, MC),
             case Names of
                 #{{Pin, external} := in} ->
-                    Names#{{Pin, external} => inout};
+                    % input & OE & internal
+                    %   mc_ibuf : IBUF port map (
+                    %     I => mc_pin,
+                    %     O => mc_in
+                    %   );
+                    %   mc <= ...;
+                    %   mc_obuf : OBUFE port map (
+                    %     I >= mc,
+                    %     O => mc_pin,
+                    %     E => ...
+                    %   );
+                    %   ... <= ... mc_in ...
+                    %   ... <= ... mc ...
+                    Names#{
+                        {Pin, external} => inout,
+                        {Pin, inout} => external,
+                        {Pin, logic} => external
+                    };
 
                 _ ->
-                    Names#{{Pin, external} => out}
+                    % OE & internal
+                    %   mc <= ...;
+                    %   mc_obuf : OBUFE port map (
+                    %     I => mc,
+                    %     O => mc_pin,
+                    %     E => ...
+                    %   );
+                    %   ... <= ... mc ...
+                    Names#{
+                        {Pin, external} => out,
+                        {Pin, logic} => external
+                    }
             end
     end;
 output_name(_Key, _Value, Names) ->
@@ -342,6 +411,7 @@ output_name(_Key, _Value, Names) ->
 global_name(true, MC, Global, Names) ->
     case Names of
         #{{MC, external} := Dir} ->
+            in = Dir,
             Names#{{MC, external} => {Global, Dir}};
 
         _ ->
@@ -457,13 +527,23 @@ external_name({Pin, external}, {Global0, Dir}, PinNames) ->
     Global = atom_to_binary(Global0, latin1),
     Name = atom_to_binary(Name0, latin1),
     {<<Global/binary, "_", Name/binary>>, Dir};
+external_name({Pin0, external}, Dir = inout, _PinNames) ->
+    Pin = atom_to_binary(Pin0, latin1),
+    {<<Pin/binary, "_in">>, Dir};
 external_name({Pin0, external}, Dir, PinNames) ->
     #{Pin0 := Name0} = PinNames,
     Pin = atom_to_binary(Pin0, latin1),
     Name = atom_to_binary(Name0, latin1),
     {<<Pin/binary, "_", Name/binary>>, Dir};
 external_name({_, internal}, Name, _PinNames) ->
-    Name.
+    Name;
+external_name({_, logic}, Name, _PinNames) ->
+    Name;
+external_name({Pin0, inout}, external, PinNames) ->
+    #{Pin0 := Name0} = PinNames,
+    Pin = atom_to_binary(Pin0, latin1),
+    Name = atom_to_binary(Name0, latin1),
+    <<Pin/binary, "_", Name/binary>>.
 
 %%--------------------------------------------------------------------
 
@@ -473,6 +553,24 @@ internal_name({Pin, internal}, internal, _Names) ->
     atom_to_binary(Pin, latin1);
 internal_name({Pin, internal}, external, Names) ->
     #{{Pin, external} := {Name, _Dir}} = Names,
+    Name;
+internal_name({_, logic}, Name, _Names) ->
+    Name;
+internal_name({_, inout}, Name, _Names) ->
+    Name.
+
+%%--------------------------------------------------------------------
+
+logic_name({_, external}, Name, _Names) ->
+    Name;
+logic_name({_, internal}, Name, _Names) ->
+    Name;
+logic_name({Pin, logic}, internal, _Names) ->
+    atom_to_binary(Pin, latin1);
+logic_name({Pin, logic}, external, Names) ->
+    #{{Pin, external} := {Name, _Dir}} = Names,
+    Name;
+logic_name({_, inout}, Name, _Names) ->
     Name.
 
 %%====================================================================
@@ -548,16 +646,17 @@ compile_type_add(FB, MC, Type, Names, Cells) ->
     Key = macro_cell:join(FB, MC),
     Base = atom_to_binary(Key, latin1),
     case Names of
-        #{{Key, internal} := Name} ->
+        #{{Key, logic} := Name, {Key, inout} := Pin} ->
             Cell = #{
                 base => Base,
                 name => Name,
                 type => Type,
-                terms => []
+                terms => [],
+                inout => Pin
             },
             Cells#{Key => Cell};
 
-        #{{Key, external} := {Name, _}} ->
+        #{{Key, logic} := Name} ->
             Cell = #{
                 base => Base,
                 name => Name,
@@ -993,10 +1092,30 @@ output_port({{_, external}, {Name, inout}}) ->
 output_port({{_, external}, {Name, out}}) ->
     {true, [<<"    ">>, Name, <<" : out STD_LOGIC">>]};
 output_port({{_, internal}, _}) ->
+    false;
+output_port({{_, logic}, _}) ->
+    false;
+output_port({{_, inout}, _}) ->
     false.
 
 %%--------------------------------------------------------------------
 
+output_cell_oe({_MC, Cell = #{base := Base, name := Name, oe := OE, inout := Pin}}) ->
+    Term = output_cell_term(Base, Cell),
+    {LineE, NameE} = output_term([Base, <<"_oe">>], OE),
+    [
+        <<"  ">>, Base, <<"_ibuf : IBUF port map (\n">>,
+        <<"      I => ">>, Pin, <<",\n">>,
+        <<"      O => ">>, Base, <<"_in\n">>,
+        <<"  );\n">>,
+        Term,
+        LineE,
+        <<"  ">>, Base, <<"_obuf : OBUFE port map (\n">>,
+        <<"    I => ">>, Base, <<",\n">>,
+        <<"    O => ">>, Pin, <<",\n">>,
+        <<"    E => ">>, NameE, <<"\n">>,
+        <<"  );\n">>
+    ];
 output_cell_oe({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
     Term = output_cell_term(Base, Cell),
     {LineE, NameE} = output_term([Base, <<"_oe">>], OE),
