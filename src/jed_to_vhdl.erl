@@ -1006,7 +1006,7 @@ output_cell_oe({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
         <<"  ">>, Base, <<"_obuf : OBUFE port map (\n">>,
         <<"    I => ">>, Base, <<",\n">>,
         <<"    O => ">>, Name, <<",\n">>,
-        <<"    E => ">>, NameE, <<",\n">>,
+        <<"    E => ">>, NameE, <<"\n">>,
         <<"  );\n">>
     ];
 output_cell_oe({_MC, Cell = #{name := Name}}) ->
@@ -1030,7 +1030,8 @@ output_cell_term(Name, Cell = #{base := Base, type := d_type}) ->
         output_ff_port(Cell, s, <<"_pre">>, <<"PRE">>, <<"P">>),
     {LineCE, NameCE, TypeCE} =
         output_ff_port(Cell, ce, <<"_ce">>, <<"CE">>, <<"E">>),
-    Type = [<<"FD">>, TypeCLR, TypePRE, TypeCE],
+    {NameCLR0, TypeCLR0} = output_ff_e_only(TypeCLR, TypePRE, TypeCE),
+    Type = [<<"FD">>, TypeCLR0, TypeCLR, TypePRE, TypeCE],
     output_ff(Name, Cell, Type, [
         LineD,
         LineCLR,
@@ -1038,6 +1039,7 @@ output_cell_term(Name, Cell = #{base := Base, type := d_type}) ->
         LineCE
     ], [
         <<"    D => ">>, NameD, <<",\n">>,
+        NameCLR0,
         NameCLR,
         NamePRE,
         NameCE
@@ -1097,6 +1099,14 @@ output_ff_port(Cell, Key, Under, Port, Letter) ->
         _ ->
             {<<>>, <<>>, <<>>}
     end.
+
+%%--------------------------------------------------------------------
+
+output_ff_e_only(<<>>, <<>>, <<"E">>) ->
+    Name = [<<"    CLR => '0',\n">>],
+    {Name, <<"C">>};
+output_ff_e_only(_CLR, _PRE, _CE) ->
+    {<<>>, <<>>}.
 
 %%--------------------------------------------------------------------
 
