@@ -26,7 +26,14 @@ run(Device, JEDFile, VHDLFile) ->
     Inputs = inputs(Density, Collect, Names),
     Cells = compile(Collect, Inputs, Names),
     Output = output(Cells, Names),
-    file:write_file(VHDLFile, Output).
+    write_to(Output, VHDLFile).
+
+%%--------------------------------------------------------------------
+
+write_to(Output, screen) ->
+    io:format("~s", [Output]);
+write_to(Output, VHDLFile) ->
+    ok = file:write_file(VHDLFile, Output).
 
 %%====================================================================
 %% collect
