@@ -5,7 +5,7 @@ use UNISIM.vcomponents.ALL;
 
 entity experiment is
   port (
-    data : inout STD_LOGIC;
+    data_pin : inout STD_LOGIC;
     w : in STD_LOGIC;
     clk : in STD_LOGIC;
     oe : in STD_LOGIC
@@ -13,23 +13,23 @@ entity experiment is
 end experiment;
 
 architecture behavioral of experiment is
-  signal d : STD_LOGIC;
-  signal q : STD_LOGIC;
+  signal data_in : STD_LOGIC;
+  signal data : STD_LOGIC;
 begin
   ibuf : IBUF port map (
-      I => data,
-      O => d
+      I => data_pin,
+      O => data_in
   );
   ff: FDCE port map (
     CLR => '0',
-    D => d,
-    Q => q,
+    D => data_in,
+    Q => data,
     CE => w,
     C => clk
   );
   obuf : OBUFE port map (
-    I => q,
-    O => data,
+    I => data,
+    O => data_pin,
     E => oe
   );
 end behavioral;
