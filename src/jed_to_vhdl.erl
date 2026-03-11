@@ -1070,8 +1070,9 @@ output(Cells, Names) ->
         "\n"
         "architecture behavioral of experiment is\n"
         >>,
+        lists:map(fun output_signal/1, lists:sort(maps:to_list(Cells))),
         <<"begin\n">>,
-        lists:map(fun output_cell_oe/1, lists:sort(maps:to_list(Cells))),
+        lists:map(fun output_cell/1, lists:sort(maps:to_list(Cells))),
         <<"end behavioral;\n">>
     ].
 
@@ -1100,8 +1101,113 @@ output_port({{_, inout}, _}) ->
 
 %%--------------------------------------------------------------------
 
-output_cell_oe({_MC, Cell = #{base := Base, name := Name, oe := OE, inout := Pin}}) ->
-    Term = output_cell_term(Base, Cell),
+output_signal({_MC, Cell = #{base := Base, oe := OE, inout := _}}) ->
+    SignalPin = output_signal_for([Base, <<"_in">>]),
+    SignalE = output_signal_term([Base, <<"_oe">>], OE),
+    Logic = output_signal_logic(Base, Cell),
+    [
+        SignalPin,
+        SignalE,
+        Logic
+    ];
+output_signal({_MC, Cell = #{base := Base, oe := OE}}) ->
+    SignalE = output_signal_term([Base, <<"_oe">>], OE),
+    Logic = output_signal_logic(Base, Cell),
+    [
+        SignalE,
+        Logic
+    ];
+output_signal({_MC, Cell = #{name := Name}}) ->
+    output_signal_logic(Name, Cell).
+
+%%--------------------------------------------------------------------
+
+output_signal_logic(_Name, Cell = #{type := bypass}) ->
+    output_signal_internal(Cell);
+output_signal_logic(_Name, Cell = #{base := Base, type := d_type}) ->
+    SignalQ = output_signal_internal(Cell),
+    SignalD = output_signal_terms([Base, <<"_d">>], Cell),
+    SignalCLR = output_signal_port(Cell, s, <<"_clr">>),
+    SignalPRE = output_signal_port(Cell, s, <<"_pre">>),
+    SignalCE = output_signal_port(Cell, ce, <<"_ce">>),
+    [
+        SignalQ,
+        SignalD,
+        SignalCLR,
+        SignalPRE,
+        SignalCE
+    ];
+output_signal_logic(_Name, Cell = #{base := Base, type := t_type}) ->
+    SignalQ = output_signal_internal(Cell),
+    SignalT = output_signal_terms([Base, <<"_t">>], Cell),
+    SignalCLR = output_signal_port(Cell, s, <<"_clr">>),
+    SignalPRE = output_signal_port(Cell, s, <<"_pre">>),
+    SignalCE = output_signal_port(Cell, ce, <<"_ce">>),
+    [
+        SignalQ,
+        SignalT,
+        SignalCLR,
+        SignalPRE,
+        SignalCE
+    ].
+
+%%--------------------------------------------------------------------
+
+output_signal_internal(#{base := Base, name := Base}) ->
+    output_signal_for(Base);
+output_signal_internal(_Cell) ->
+    <<>>.
+
+%%--------------------------------------------------------------------
+
+output_signal_term(_Name, Term) when is_binary(Term) ->
+    <<>>;
+output_signal_term(Name, _Term) ->
+    output_signal_for(Name).
+
+%%--------------------------------------------------------------------
+
+output_signal_terms(_Name, #{terms := [], term_invert := yes}) ->
+    <<>>;
+output_signal_terms(_Name, #{terms := []}) ->
+    <<>>;
+output_signal_terms(Name, #{terms := [_], term_xor := _}) ->
+    output_signal_for(Name);
+output_signal_terms(Name, #{terms := Terms, term_xor := Xor, term_invert := yes}) ->
+    throw({Name, terms, Terms, x_or, Xor, invert});
+output_signal_terms(Name, #{terms := Terms, term_xor := Xor}) ->
+    throw({Name, terms, Terms, x_or, Xor});
+output_signal_terms(Name, #{terms := [_], term_invert := yes}) ->
+    output_signal_for(Name);
+output_signal_terms(_Name, #{terms := [Term]}) when is_binary(Term) ->
+    <<>>;
+output_signal_terms(Name, #{terms := [_]}) ->
+    output_signal_for(Name);
+output_signal_terms(Name, #{terms := _, term_invert := yes}) ->
+    output_signal_for(Name);
+output_signal_terms(Name, _Cell) ->
+    output_signal_for(Name).
+
+%%--------------------------------------------------------------------
+
+output_signal_port(Cell, Key, Under) ->
+    case Cell of
+        #{Key := Term, base := Base} ->
+            output_signal_term([Base, Under], Term);
+
+        _ ->
+            <<>>
+    end.
+
+%%--------------------------------------------------------------------
+
+output_signal_for(Name) ->
+    [<<"  signal ">>, Name, <<" : STD_LOGIC;\n">>].
+
+%%--------------------------------------------------------------------
+
+output_cell({_MC, Cell = #{base := Base, oe := OE, inout := Pin}}) ->
+    Term = output_logic(Base, Cell),
     {LineE, NameE} = output_term([Base, <<"_oe">>], OE),
     [
         <<"  ">>, Base, <<"_ibuf : IBUF port map (\n">>,
@@ -1116,8 +1222,8 @@ output_cell_oe({_MC, Cell = #{base := Base, name := Name, oe := OE, inout := Pin
         <<"    E => ">>, NameE, <<"\n">>,
         <<"  );\n">>
     ];
-output_cell_oe({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
-    Term = output_cell_term(Base, Cell),
+output_cell({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
+    Term = output_logic(Base, Cell),
     {LineE, NameE} = output_term([Base, <<"_oe">>], OE),
     [
         Term,
@@ -1128,12 +1234,12 @@ output_cell_oe({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
         <<"    E => ">>, NameE, <<"\n">>,
         <<"  );\n">>
     ];
-output_cell_oe({_MC, Cell = #{name := Name}}) ->
-    output_cell_term(Name, Cell).
+output_cell({_MC, Cell = #{name := Name}}) ->
+    output_logic(Name, Cell).
 
 %%--------------------------------------------------------------------
 
-output_cell_term(Name, Cell = #{type := bypass}) ->
+output_logic(Name, Cell = #{type := bypass}) ->
     case output_terms(Name, Cell) of
         {<<>>, Value} ->
             [<<"  ">>, Name, <<" <= ">>, Value, <<";\n">>];
@@ -1141,7 +1247,7 @@ output_cell_term(Name, Cell = #{type := bypass}) ->
         {Line, _Name} ->
             Line
     end;
-output_cell_term(Name, Cell = #{base := Base, type := d_type}) ->
+output_logic(Name, Cell = #{base := Base, type := d_type}) ->
     {LineD, NameD} = output_terms([Base, <<"_d">>], Cell),
     {LineCLR, NameCLR, TypeCLR} =
         output_ff_port(Cell, s, <<"_clr">>, <<"CLR">>, <<"C">>),
@@ -1149,7 +1255,7 @@ output_cell_term(Name, Cell = #{base := Base, type := d_type}) ->
         output_ff_port(Cell, s, <<"_pre">>, <<"PRE">>, <<"P">>),
     {LineCE, NameCE, TypeCE} =
         output_ff_port(Cell, ce, <<"_ce">>, <<"CE">>, <<"E">>),
-    {NameCLR0, TypeCLR0} = output_ff_e_only(TypeCLR, TypePRE, TypeCE),
+    {NameCLR0, TypeCLR0} = output_special_d_type(TypeCLR, TypePRE, TypeCE),
     Type = [<<"FD">>, TypeCLR0, TypeCLR, TypePRE, TypeCE],
     output_ff(Name, Cell, Type, [
         LineD,
@@ -1163,7 +1269,7 @@ output_cell_term(Name, Cell = #{base := Base, type := d_type}) ->
         NamePRE,
         NameCE
     ]);
-output_cell_term(Name, Cell = #{base := Base, type := t_type}) ->
+output_logic(Name, Cell = #{base := Base, type := t_type}) ->
     {LineT, NameT} = output_terms([Base, <<"_t">>], Cell),
     {LineCLR, NameCLR, TypeCLR} =
         output_ff_port(Cell, s, <<"_clr">>, <<"CLR">>, <<"C">>),
@@ -1171,7 +1277,8 @@ output_cell_term(Name, Cell = #{base := Base, type := t_type}) ->
         output_ff_port(Cell, s, <<"_pre">>, <<"PRE">>, <<"P">>),
     {LineCE, NameCE, TypeCE} =
         output_ff_port(Cell, ce, <<"_ce">>, <<"CE">>, <<"E">>),
-    Type = [<<"FT">>, TypeCLR, TypePRE, TypeCE],
+    {NameCLR0, TypeCLR0} = output_special_t_type(TypeCLR, TypePRE, TypeCE),
+    Type = [<<"FT">>, TypeCLR0, TypeCLR, TypePRE, TypeCE],
     output_ff(Name, Cell, Type, [
         LineT,
         LineCLR,
@@ -1179,6 +1286,7 @@ output_cell_term(Name, Cell = #{base := Base, type := t_type}) ->
         LineCE
     ], [
         <<"    T => ">>, NameT, <<",\n">>,
+        NameCLR0,
         NameCLR,
         NamePRE,
         NameCE
@@ -1221,10 +1329,18 @@ output_ff_port(Cell, Key, Under, Port, Letter) ->
 
 %%--------------------------------------------------------------------
 
-output_ff_e_only(<<>>, <<>>, <<"E">>) ->
+output_special_d_type(<<>>, <<>>, <<"E">>) ->
     Name = [<<"    CLR => '0',\n">>],
     {Name, <<"C">>};
-output_ff_e_only(_CLR, _PRE, _CE) ->
+output_special_d_type(_CLR, _PRE, _CE) ->
+    {<<>>, <<>>}.
+
+%%--------------------------------------------------------------------
+
+output_special_t_type(<<>>, <<>>, <<>>) ->
+    Name = [<<"    CLR => '0',\n">>],
+    {Name, <<"C">>};
+output_special_t_type(_CLR, _PRE, _CE = <<>>) ->
     {<<>>, <<>>}.
 
 %%--------------------------------------------------------------------
