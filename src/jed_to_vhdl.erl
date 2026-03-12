@@ -307,11 +307,16 @@ output_names(Collect, Names0) ->
 %%--------------------------------------------------------------------
 
 output_name({FB, cell, MC}, Cell, Names) ->
+    %
+    % See /jed_to_vhdl/types/source/experiment.vhd
+    % for explanation of types
+    %
     case oe(Cell) of
         never ->
             Pin = macro_cell:join(FB, MC),
             case Names of
                 #{{Pin, external} := in, {Pin, internal} := internal} ->
+                    % type 3 - input AND logic
                     % input
                     %   ... <= ... mc_pin ...
                     % AND logic
@@ -322,12 +327,12 @@ output_name({FB, cell, MC}, Cell, Names) ->
                     };
 
                 #{{Pin, external} := in} ->
-                    % input ONLY
+                    % type 2 - input ONLY
                     %   ... <= ... mc_pin ...
                     Names;
 
                 #{{Pin, internal} := internal} ->
-                    % logic ONLY
+                    % type 1 - logic ONLY
                     %   mc <= ...;
                     %   ... <= ... mc ...
                     Names#{
@@ -347,18 +352,19 @@ output_name({FB, cell, MC}, Cell, Names) ->
                     throw({output, always, read, from, external});
 
                 #{{Pin, internal} := internal} ->
-                    % output (read from internal)
+                    % type 6 - output USED internally
                     %   mc <= ...;
                     %   mc_pin <= mc;
                     %   ... <= ... mc ...
                     Names#{
                         {Pin, external} => out,
                         {Pin, internal} => external,
-                        {Pin, logic} => external
+                        {Pin, logic} => external,
+                        {Pin, pin} => external
                     };
 
                 _ ->
-                    % output ONLY
+                    % type 5 - output ONLY
                     %   mc_pin <= ...;
                     Names#{
                         {Pin, external} => out,
@@ -370,7 +376,8 @@ output_name({FB, cell, MC}, Cell, Names) ->
             Pin = macro_cell:join(FB, MC),
             case Names of
                 #{{Pin, external} := in} ->
-                    % input & OE & internal
+                    % type 9 - input AND oe ONLY
+                    % type 10 - input AND oe USED internally
                     %   mc_ibuf : IBUF port map (
                     %     I => mc_pin,
                     %     O => mc_in
@@ -385,12 +392,13 @@ output_name({FB, cell, MC}, Cell, Names) ->
                     %   ... <= ... mc ...
                     Names#{
                         {Pin, external} => inout,
-                        {Pin, inout} => external,
-                        {Pin, logic} => external
+                        {Pin, logic} => external,
+                        {Pin, pin} => external
                     };
 
                 _ ->
-                    % OE & internal
+                    % type 7 - oe ONLY
+                    % type 8 - oe USED internally
                     %   mc <= ...;
                     %   mc_obuf : OBUFE port map (
                     %     I => mc,
@@ -540,7 +548,7 @@ external_name({_, internal}, Name, _PinNames) ->
     Name;
 external_name({_, logic}, Name, _PinNames) ->
     Name;
-external_name({Pin0, inout}, external, PinNames) ->
+external_name({Pin0, pin}, external, PinNames) ->
     #{Pin0 := Name0} = PinNames,
     Pin = atom_to_binary(Pin0, latin1),
     Name = atom_to_binary(Name0, latin1),
@@ -557,7 +565,7 @@ internal_name({Pin, internal}, external, Names) ->
     Name;
 internal_name({_, logic}, Name, _Names) ->
     Name;
-internal_name({_, inout}, Name, _Names) ->
+internal_name({_, pin}, Name, _Names) ->
     Name.
 
 %%--------------------------------------------------------------------
@@ -571,7 +579,7 @@ logic_name({Pin, logic}, internal, _Names) ->
 logic_name({Pin, logic}, external, Names) ->
     #{{Pin, external} := {Name, _Dir}} = Names,
     Name;
-logic_name({_, inout}, Name, _Names) ->
+logic_name({_, pin}, Name, _Names) ->
     Name.
 
 %%====================================================================
@@ -647,13 +655,13 @@ compile_type_add(FB, MC, Type, Names, Cells) ->
     Key = macro_cell:join(FB, MC),
     Base = atom_to_binary(Key, latin1),
     case Names of
-        #{{Key, logic} := Name, {Key, inout} := Pin} ->
+        #{{Key, logic} := Name, {Key, pin} := Pin} ->
             Cell = #{
                 base => Base,
                 name => Name,
                 type => Type,
                 terms => [],
-                inout => Pin
+                pin => Pin
             },
             Cells#{Key => Cell};
 
@@ -1097,12 +1105,12 @@ output_port({{_, internal}, _}) ->
     false;
 output_port({{_, logic}, _}) ->
     false;
-output_port({{_, inout}, _}) ->
+output_port({{_, pin}, _}) ->
     false.
 
 %%--------------------------------------------------------------------
 
-output_signal({_MC, Cell = #{base := Base, oe := OE, inout := _}}) ->
+output_signal({_MC, Cell = #{base := Base, oe := OE, pin := _}}) ->
     SignalPin = output_signal_for([Base, <<"_in">>]),
     SignalE = output_signal_term([Base, <<"_oe">>], OE),
     Logic = output_signal_logic(Base, Cell),
@@ -1116,6 +1124,13 @@ output_signal({_MC, Cell = #{base := Base, oe := OE}}) ->
     Logic = output_signal_logic(Base, Cell),
     [
         SignalE,
+        Logic
+    ];
+output_signal({_MC, Cell = #{base := Base, name := Name, pin := _}}) ->
+    Signal = output_signal_for(Base),
+    Logic = output_signal_logic(Base, Cell),
+    [
+        Signal,
         Logic
     ];
 output_signal({_MC, Cell = #{name := Name}}) ->
@@ -1207,7 +1222,7 @@ output_signal_for(Name) ->
 
 %%--------------------------------------------------------------------
 
-output_cell({_MC, Cell = #{base := Base, oe := OE, inout := Pin}}) ->
+output_cell({_MC, Cell = #{base := Base, oe := OE, pin := Pin}}) ->
     Term = output_logic(Base, Cell),
     {LineE, NameE} = output_term([Base, <<"_oe">>], OE),
     [
@@ -1234,6 +1249,12 @@ output_cell({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
         <<"    O => ">>, Name, <<",\n">>,
         <<"    E => ">>, NameE, <<"\n">>,
         <<"  );\n">>
+    ];
+output_cell({_MC, Cell = #{base := Base, name := Name, pin := _}}) ->
+    Term = output_logic(Base, Cell),
+    [
+        Term,
+        <<"  ">>, Name, <<" <= ">>, Base, <<";\n">>
     ];
 output_cell({_MC, Cell = #{name := Name}}) ->
     output_logic(Name, Cell).

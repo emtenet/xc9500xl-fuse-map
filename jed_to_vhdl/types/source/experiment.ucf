@@ -1,0 +1,38 @@
+# 1: logic ONLY
+INST "type1_ff" LOC = "FB2_01";
+
+# 2: input ONLY
+NET "type2_pin" LOC = "FB2_02";
+
+# 3: input AND logic
+INST "type3_ff" LOC = "FB2_03";
+NET "type3_pin" LOC = "FB2_03";
+
+# 4: input UNUSED
+NET "type4_pin" LOC = "FB2_05";
+
+# 5: output ONLY
+NET "type5_pin" LOC = "FB2_06";
+
+# 6: output USED internally
+NET "type6_pin" LOC = "FB2_08";
+
+# 7: oe ONLY
+NET "type7_pin" LOC = "FB2_10";
+
+# 8: oe USED
+NET "type8_pin" LOC = "FB2_12";
+INST "type8_ff" LOC = "FB2_12";
+
+# 9: oe ONLY AND input
+NET "type9_pin" LOC = "FB2_14";
+
+# 10: oe USED AND input
+NET "type10_pin" LOC = "FB2_15";
+INST "type10_ff" LOC = "FB2_15";
+
+# helpers
+NET "clk" LOC = "FB3_10" | BUFG=CLK;
+NET "oe" LOC = "FB4_2" | BUFG=OE;
+NET "d" LOC = "FB16_11";
+NET "q" LOC = "FB16_12";
