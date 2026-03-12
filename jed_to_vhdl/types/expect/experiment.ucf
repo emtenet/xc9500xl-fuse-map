@@ -1,0 +1,12 @@
+NET "mc02_02_p9" LOC = "FB2_02";
+NET "mc02_03_p10" LOC = "FB2_03";
+NET "mc02_06_p12" LOC = "FB2_06";
+NET "mc02_08_p13" LOC = "FB2_08";
+NET "mc02_10_p14" LOC = "FB2_10";
+NET "mc02_12_p15" LOC = "FB2_12";
+NET "mc02_14_p16" LOC = "FB2_14";
+NET "mc02_15_p17" LOC = "FB2_15";
+NET "gck1_p30" LOC = "FB3_10" | BUFG = CLK;
+NET "gts3_p2" LOC = "FB4_2" | BUFG = OE;
+NET "mc16_11_p97" LOC = "FB16_11";
+NET "mc16_12_p98" LOC = "FB16_12";

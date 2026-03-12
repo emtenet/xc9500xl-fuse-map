@@ -358,7 +358,7 @@ output_name({FB, cell, MC}, Cell, Names) ->
                     %   ... <= ... mc ...
                     Names#{
                         {Pin, external} => out,
-                        {Pin, internal} => external,
+                        {Pin, internal} => internal,
                         {Pin, logic} => external,
                         {Pin, pin} => external
                     };
@@ -1089,23 +1089,24 @@ output(Cells, Names) ->
 
 output_ports(Names) ->
     Ports = lists:filtermap(fun (Name) ->
-        output_port(Name)
+        output_port(Name, Names)
     end, lists:sort(maps:to_list(Names))),
     [lists:join(<<";\n">>, Ports), <<"\n">>].
 
 %%--------------------------------------------------------------------
 
-output_port({{_, external}, {Name, in}}) ->
+output_port({{_, external}, {Name, in}}, _Names) ->
     {true, [<<"    ">>, Name, <<" : in STD_LOGIC">>]};
-output_port({{_, external}, {Name, inout}}) ->
+output_port({{MC, external}, {_, inout}}, Names) ->
+    #{{MC, pin} := Name} = Names,
     {true, [<<"    ">>, Name, <<" : inout STD_LOGIC">>]};
-output_port({{_, external}, {Name, out}}) ->
+output_port({{_, external}, {Name, out}}, _Names) ->
     {true, [<<"    ">>, Name, <<" : out STD_LOGIC">>]};
-output_port({{_, internal}, _}) ->
+output_port({{_, internal}, _}, _Names) ->
     false;
-output_port({{_, logic}, _}) ->
+output_port({{_, logic}, _}, _Names) ->
     false;
-output_port({{_, pin}, _}) ->
+output_port({{_, pin}, _}, _Names) ->
     false.
 
 %%--------------------------------------------------------------------
@@ -1126,7 +1127,7 @@ output_signal({_MC, Cell = #{base := Base, oe := OE}}) ->
         SignalE,
         Logic
     ];
-output_signal({_MC, Cell = #{base := Base, name := Name, pin := _}}) ->
+output_signal({_MC, Cell = #{base := Base, pin := _}}) ->
     Signal = output_signal_for(Base),
     Logic = output_signal_logic(Base, Cell),
     [
@@ -1170,6 +1171,8 @@ output_signal_logic(_Name, Cell = #{base := Base, type := t_type}) ->
 %%--------------------------------------------------------------------
 
 output_signal_internal(#{base := Base, name := Base}) ->
+    output_signal_for(Base);
+output_signal_internal(#{base := Base, oe := _}) ->
     output_signal_for(Base);
 output_signal_internal(_Cell) ->
     <<>>.
