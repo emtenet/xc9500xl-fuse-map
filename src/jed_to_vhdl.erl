@@ -348,8 +348,9 @@ output_name({FB, cell, MC}, Cell, Names) ->
 
                 #{{Pin, internal} := internal} ->
                     % output (read from internal)
-                    %   mc_pin <= ...;
-                    %   ... <= ... mc_pin ...
+                    %   mc <= ...;
+                    %   mc_pin <= mc;
+                    %   ... <= ... mc ...
                     Names#{
                         {Pin, external} => out,
                         {Pin, internal} => external,
