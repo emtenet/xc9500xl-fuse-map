@@ -1,5 +1,5 @@
 NET "i" LOC = "FB1_5";
 NET "gck" LOC = "FB3_10" | BUFG=CLK;
-NET "q" LOC = "FB1_6";
+NET "q_pin" LOC = "FB1_6";
 NET "x" LOC = "FB4_8";
 NET "o" LOC = "FB3_12";

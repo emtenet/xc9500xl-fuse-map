@@ -8,6 +8,7 @@ entity experiment is
     i : in STD_LOGIC;
     gck : in STD_LOGIC;
     x : in STD_LOGIC;
+    q_pin : out STD_LOGIC;
     o : out STD_LOGIC
   );
 end experiment;
@@ -15,10 +16,11 @@ end experiment;
 architecture behavioral of experiment is
   signal q : STD_LOGIC;
 begin
-  q_FF: FD generic map ('1') port map (
+  q_FF: FD generic map (INIT => '1') port map (
     D => i,
     Q => q,
     C => gck
   );
+  q_pin <= q;
   o <= q XOR x;
 end behavioral;
