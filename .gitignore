@@ -3,4 +3,5 @@
 cache/*
 ebin/
 experiment/
+jed_to_vhdl/types/output
 xc9500xl.d

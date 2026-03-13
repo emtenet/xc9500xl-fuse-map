@@ -9,7 +9,7 @@
 %%====================================================================
 
 run() ->
-    run("jed_to_vhdl.jed", "jed_to_vhdl.vhd").
+    run("sample.jed", "sample").
 
 %%--------------------------------------------------------------------
 
@@ -18,22 +18,48 @@ run(JEDFile, VHDLFile) ->
 
 %%--------------------------------------------------------------------
 
-run(Device, JEDFile, VHDLFile) ->
+run(Device, JEDFile, WriteTo) ->
+    write_to(WriteTo),
+    {UCF, VHDL} = internal(Device, JEDFile),
+    write_to(UCF, WriteTo, "experiment.ucf"),
+    write_to(VHDL, WriteTo, "experiment.vhd"),
+    ok.
+
+%%--------------------------------------------------------------------
+
+write_to(screen) ->
+    ok;
+write_to(Dir) ->
+    case file:make_dir(Dir) of
+        ok ->
+            ok;
+
+        {error, eexist} ->
+            ok
+    end.
+
+%%--------------------------------------------------------------------
+
+write_to(Output, screen, _FileName) ->
+    io:format("~s", [Output]);
+write_to(Output, Dir, FileName) ->
+    File = filename:join(Dir, FileName),
+    ok = file:write_file(File, Output).
+
+%%====================================================================
+%% internal
+%%====================================================================
+
+internal(Device, JEDFile) ->
     Fuses = experiment:jed_file(JEDFile),
     Density = device:density(Device),
     Collect = collect(Device, Density, Fuses),
     Names = names(Density, Collect),
     Inputs = inputs(Density, Collect, Names),
     Cells = compile(Collect, Inputs, Names),
-    Output = output(Cells, Names),
-    write_to(Output, VHDLFile).
-
-%%--------------------------------------------------------------------
-
-write_to(Output, screen) ->
-    io:format("~s", [Output]);
-write_to(Output, VHDLFile) ->
-    ok = file:write_file(VHDLFile, Output).
+    UCF = ucf(Names),
+    VHDL = vhdl(Cells, Names),
+    {UCF, VHDL}.
 
 %%====================================================================
 %% collect
@@ -261,7 +287,7 @@ oe(_) ->
 names(Density, Collect = #{global := Global}) ->
     #{pins := PinNames} = Global,
     Names0 = input_names(Density, Collect),
-    Names1 = output_names(Collect, Names0),
+    Names1 = vhdl_names(Collect, Names0),
     Names2 = gck_names(Global, Collect, Names1),
     Names3 = gsr_name(Global, Collect, Names2),
     Names4 = gts_names(Global, Collect, Names3),
@@ -299,14 +325,14 @@ input_name(_Density, _Key, _Value, Names) ->
 
 %%--------------------------------------------------------------------
 
-output_names(Collect, Names0) ->
+vhdl_names(Collect, Names0) ->
     maps:fold(fun (Key, Value, Names) ->
-        output_name(Key, Value, Names)
+        vhdl_name(Key, Value, Names)
     end, Names0, Collect).
 
 %%--------------------------------------------------------------------
 
-output_name({FB, cell, MC}, Cell, Names) ->
+vhdl_name({FB, cell, MC}, Cell, Names) ->
     %
     % See /jed_to_vhdl/types/source/experiment.vhd
     % for explanation of types
@@ -412,21 +438,21 @@ output_name({FB, cell, MC}, Cell, Names) ->
                     }
             end
     end;
-output_name(_Key, _Value, Names) ->
+vhdl_name(_Key, _Value, Names) ->
     Names.
 
 %%--------------------------------------------------------------------
 
-global_name(true, MC, Global, Names) ->
+global_name(true, MC, Global, BufG, Names) ->
     case Names of
         #{{MC, external} := Dir} ->
             in = Dir,
-            Names#{{MC, external} => {Global, Dir}};
+            Names#{{MC, external} => {Global, BufG}};
 
         _ ->
-            Names#{{MC, external} => {Global, in}}
+            Names#{{MC, external} => {Global, BufG}}
     end;
-global_name(false, _MC, _Global, Names) ->
+global_name(false, _MC, _Global, _BufG, Names) ->
     Names.
 
 %%--------------------------------------------------------------------
@@ -434,9 +460,9 @@ global_name(false, _MC, _Global, Names) ->
 gck_names(Global, Collect, Names0) ->
     {Used1, Used2, Used3} = gck_used(Collect),
     #{gcks := [MC1, MC2, MC3]} = Global,
-    Names1 = global_name(Used1, MC1, gck1, Names0),
-    Names2 = global_name(Used2, MC2, gck2, Names1),
-    Names3 = global_name(Used3, MC3, gck3, Names2),
+    Names1 = global_name(Used1, MC1, gck1, bufg_clk, Names0),
+    Names2 = global_name(Used2, MC2, gck2, bufg_clk, Names1),
+    Names3 = global_name(Used3, MC3, gck3, bufg_clk, Names2),
     Names3.
 
 %%--------------------------------------------------------------------
@@ -468,7 +494,7 @@ gck_used(_Key, _Value, Used) ->
 gsr_name(Global, Collect, Names) ->
     Used = gsr_used(Collect),
     #{gsr := MC} = Global,
-    global_name(Used, MC, gsr, Names).
+    global_name(Used, MC, gsr, bufg_sr, Names).
 
 %%--------------------------------------------------------------------
 
@@ -492,15 +518,15 @@ gts_names(Global, Collect, Names0) ->
     {Used1, Used2, Used3, Used4} = gts_used(Collect),
     case Global of
         #{gtss := [MC1, MC2]} ->
-            Names1 = global_name(Used1, MC1, gts1, Names0),
-            Names2 = global_name(Used2, MC2, gts2, Names1),
+            Names1 = global_name(Used1, MC1, gts1, bufg_oe, Names0),
+            Names2 = global_name(Used2, MC2, gts2, bufg_oe, Names1),
             Names2;
 
         #{gtss := [MC1, MC2, MC3, MC4]} ->
-            Names1 = global_name(Used1, MC1, gts1, Names0),
-            Names2 = global_name(Used2, MC2, gts2, Names1),
-            Names3 = global_name(Used3, MC3, gts3, Names2),
-            Names4 = global_name(Used4, MC4, gts4, Names3),
+            Names1 = global_name(Used1, MC1, gts1, bufg_oe, Names0),
+            Names2 = global_name(Used2, MC2, gts2, bufg_oe, Names1),
+            Names3 = global_name(Used3, MC3, gts3, bufg_oe, Names2),
+            Names4 = global_name(Used4, MC4, gts4, bufg_oe, Names3),
             Names4
     end.
 
@@ -709,9 +735,9 @@ compile_inputs([{invert, Input}], Inputs) ->
     #{Input := Name} = Inputs,
     [<<"NOT ">>, Name];
 compile_inputs(Terms = [_ | _], Inputs) ->
-    lists:join(<<" AND ">>, lists:map(fun (Term) ->
+    lists:join(<<" AND ">>, lists:sort(lists:map(fun (Term) ->
         compile_input(Term, Inputs)
-    end, Terms)).
+    end, Terms))).
 
 %%--------------------------------------------------------------------
 
@@ -720,7 +746,7 @@ compile_input(Input, Inputs) when is_atom(Input) ->
     Name;
 compile_input({invert, Input}, Inputs) ->
     #{Input := Name} = Inputs,
-    [<<"(NOT ">>, Name, <<")">>].
+    <<"(NOT ", Name/binary, ")">>.
 
 %%--------------------------------------------------------------------
 
@@ -1059,10 +1085,45 @@ compile_gts(FB, MC, #{}, N, Enable, Global, Names, Cells) ->
     compile_port(FB, MC, oe, Name, Cells).
 
 %%====================================================================
-%% output
+%% UCF
 %%====================================================================
 
-output(Cells, Names) ->
+ucf(Constraints) ->
+    lists:map(fun (Name) ->
+        ucf(Name, Constraints)
+    end, lists:sort(maps:to_list(Constraints))).
+
+%%--------------------------------------------------------------------
+
+ucf({{MC, external}, {Net, bufg_clk}}, _Names) ->
+    LOC = macro_cell:name(MC),
+    <<"NET \"", Net/binary, "\" LOC = \"", LOC/binary, "\" | BUFG = CLK;\n">>;
+ucf({{MC, external}, {Net, bufg_sr}}, _Names) ->
+    LOC = macro_cell:name(MC),
+    <<"NET \"", Net/binary, "\" LOC = \"", LOC/binary, "\" | BUFG = SR;\n">>;
+ucf({{MC, external}, {Net, bufg_oe}}, _Names) ->
+    LOC = macro_cell:name(MC),
+    <<"NET \"", Net/binary, "\" LOC = \"", LOC/binary, "\" | BUFG = OE;\n">>;
+ucf({{MC, external}, {_, inout}}, Names) ->
+    #{{MC, pin} := Net} = Names,
+    LOC = macro_cell:name(MC),
+    <<"NET \"", Net/binary, "\" LOC = \"", LOC/binary, "\";\n">>;
+ucf({{MC, external}, {Net, _}}, _Names) ->
+    LOC = macro_cell:name(MC),
+    <<"NET \"", Net/binary, "\" LOC = \"", LOC/binary, "\";\n">>;
+ucf({{_, internal}, _}, _Names) ->
+    <<>>;
+ucf({{_, logic}, _}, _Names) ->
+    <<>>;
+ucf({{_, pin}, _}, _Names) ->
+    <<>>.
+
+
+%%====================================================================
+%% VHDL
+%%====================================================================
+
+vhdl(Cells, Names) ->
     [   <<
         "library IEEE;\n"
         "use IEEE.STD_LOGIC_1164.ALL;\n"
@@ -1072,81 +1133,85 @@ output(Cells, Names) ->
         "entity experiment is\n"
         "  port (\n"
         >>,
-        output_ports(Names),
+        vhdl_ports(Names),
         <<
         "  );\n"
         "end experiment;\n"
         "\n"
         "architecture behavioral of experiment is\n"
         >>,
-        lists:map(fun output_signal/1, lists:sort(maps:to_list(Cells))),
+        lists:map(fun vhdl_signal/1, lists:sort(maps:to_list(Cells))),
         <<"begin\n">>,
-        lists:map(fun output_cell/1, lists:sort(maps:to_list(Cells))),
+        lists:map(fun vhdl_cell/1, lists:sort(maps:to_list(Cells))),
         <<"end behavioral;\n">>
     ].
 
 %%--------------------------------------------------------------------
 
-output_ports(Names) ->
+vhdl_ports(Names) ->
     Ports = lists:filtermap(fun (Name) ->
-        output_port(Name, Names)
+        vhdl_port(Name, Names)
     end, lists:sort(maps:to_list(Names))),
     [lists:join(<<";\n">>, Ports), <<"\n">>].
 
 %%--------------------------------------------------------------------
 
-output_port({{_, external}, {Name, in}}, _Names) ->
+vhdl_port({{_, external}, {Name, Dir}}, _Names)
+        when Dir =:= in;
+             Dir =:= bufg_clk;
+             Dir =:= bufg_sr;
+             Dir =:= bufg_oe ->
     {true, [<<"    ">>, Name, <<" : in STD_LOGIC">>]};
-output_port({{MC, external}, {_, inout}}, Names) ->
+vhdl_port({{MC, external}, {_, inout}}, Names) ->
     #{{MC, pin} := Name} = Names,
     {true, [<<"    ">>, Name, <<" : inout STD_LOGIC">>]};
-output_port({{_, external}, {Name, out}}, _Names) ->
+vhdl_port({{_, external}, {Name, out}}, _Names) ->
     {true, [<<"    ">>, Name, <<" : out STD_LOGIC">>]};
-output_port({{_, internal}, _}, _Names) ->
+vhdl_port({{_, internal}, _}, _Names) ->
     false;
-output_port({{_, logic}, _}, _Names) ->
+vhdl_port({{_, logic}, _}, _Names) ->
     false;
-output_port({{_, pin}, _}, _Names) ->
+vhdl_port({{_, pin}, _}, _Names) ->
     false.
 
 %%--------------------------------------------------------------------
 
-output_signal({_MC, Cell = #{base := Base, oe := OE, pin := _}}) ->
-    SignalPin = output_signal_for([Base, <<"_in">>]),
-    SignalE = output_signal_term([Base, <<"_oe">>], OE),
-    Logic = output_signal_logic(Base, Cell),
+vhdl_signal({_MC, Cell = #{base := Base, oe := OE, pin := _}}) ->
+    SignalPin = vhdl_signal_for([Base, <<"_in">>]),
+    SignalE = vhdl_signal_term([Base, <<"_oe">>], OE),
+    Logic = vhdl_signal_logic(Base, Cell),
     [
         SignalPin,
         SignalE,
         Logic
     ];
-output_signal({_MC, Cell = #{base := Base, oe := OE}}) ->
-    SignalE = output_signal_term([Base, <<"_oe">>], OE),
-    Logic = output_signal_logic(Base, Cell),
+vhdl_signal({_MC, Cell = #{base := Base, oe := OE}}) ->
+    SignalE = vhdl_signal_term([Base, <<"_oe">>], OE),
+    Logic = vhdl_signal_logic(Base, Cell),
     [
         SignalE,
         Logic
     ];
-output_signal({_MC, Cell = #{base := Base, pin := _}}) ->
-    Signal = output_signal_for(Base),
-    Logic = output_signal_logic(Base, Cell),
+vhdl_signal({_MC, Cell = #{base := Base, pin := _}}) ->
+    Signal = vhdl_signal_for(Base),
+    Logic = vhdl_signal_logic(Base, Cell),
     [
         Signal,
         Logic
     ];
-output_signal({_MC, Cell = #{name := Name}}) ->
-    output_signal_logic(Name, Cell).
+vhdl_signal({_MC, Cell = #{name := Name}}) ->
+    vhdl_signal_logic(Name, Cell).
 
 %%--------------------------------------------------------------------
 
-output_signal_logic(_Name, Cell = #{type := bypass}) ->
-    output_signal_internal(Cell);
-output_signal_logic(_Name, Cell = #{base := Base, type := d_type}) ->
-    SignalQ = output_signal_internal(Cell),
-    SignalD = output_signal_terms([Base, <<"_d">>], Cell),
-    SignalCLR = output_signal_port(Cell, s, <<"_clr">>),
-    SignalPRE = output_signal_port(Cell, s, <<"_pre">>),
-    SignalCE = output_signal_port(Cell, ce, <<"_ce">>),
+vhdl_signal_logic(_Name, Cell = #{type := bypass}) ->
+    vhdl_signal_internal(Cell);
+vhdl_signal_logic(_Name, Cell = #{base := Base, type := d_type}) ->
+    SignalQ = vhdl_signal_internal(Cell),
+    SignalD = vhdl_signal_terms([Base, <<"_d">>], Cell),
+    SignalCLR = vhdl_signal_port(Cell, s, <<"_clr">>),
+    SignalPRE = vhdl_signal_port(Cell, s, <<"_pre">>),
+    SignalCE = vhdl_signal_port(Cell, ce, <<"_ce">>),
     [
         SignalQ,
         SignalD,
@@ -1154,12 +1219,12 @@ output_signal_logic(_Name, Cell = #{base := Base, type := d_type}) ->
         SignalPRE,
         SignalCE
     ];
-output_signal_logic(_Name, Cell = #{base := Base, type := t_type}) ->
-    SignalQ = output_signal_internal(Cell),
-    SignalT = output_signal_terms([Base, <<"_t">>], Cell),
-    SignalCLR = output_signal_port(Cell, s, <<"_clr">>),
-    SignalPRE = output_signal_port(Cell, s, <<"_pre">>),
-    SignalCE = output_signal_port(Cell, ce, <<"_ce">>),
+vhdl_signal_logic(_Name, Cell = #{base := Base, type := t_type}) ->
+    SignalQ = vhdl_signal_internal(Cell),
+    SignalT = vhdl_signal_terms([Base, <<"_t">>], Cell),
+    SignalCLR = vhdl_signal_port(Cell, s, <<"_clr">>),
+    SignalPRE = vhdl_signal_port(Cell, s, <<"_pre">>),
+    SignalCE = vhdl_signal_port(Cell, ce, <<"_ce">>),
     [
         SignalQ,
         SignalT,
@@ -1170,49 +1235,49 @@ output_signal_logic(_Name, Cell = #{base := Base, type := t_type}) ->
 
 %%--------------------------------------------------------------------
 
-output_signal_internal(#{base := Base, name := Base}) ->
-    output_signal_for(Base);
-output_signal_internal(#{base := Base, oe := _}) ->
-    output_signal_for(Base);
-output_signal_internal(_Cell) ->
+vhdl_signal_internal(#{base := Base, name := Base}) ->
+    vhdl_signal_for(Base);
+vhdl_signal_internal(#{base := Base, oe := _}) ->
+    vhdl_signal_for(Base);
+vhdl_signal_internal(_Cell) ->
     <<>>.
 
 %%--------------------------------------------------------------------
 
-output_signal_term(_Name, Term) when is_binary(Term) ->
+vhdl_signal_term(_Name, Term) when is_binary(Term) ->
     <<>>;
-output_signal_term(Name, _Term) ->
-    output_signal_for(Name).
+vhdl_signal_term(Name, _Term) ->
+    vhdl_signal_for(Name).
 
 %%--------------------------------------------------------------------
 
-output_signal_terms(_Name, #{terms := [], term_invert := yes}) ->
+vhdl_signal_terms(_Name, #{terms := [], term_invert := yes}) ->
     <<>>;
-output_signal_terms(_Name, #{terms := []}) ->
+vhdl_signal_terms(_Name, #{terms := []}) ->
     <<>>;
-output_signal_terms(Name, #{terms := [_], term_xor := _}) ->
-    output_signal_for(Name);
-output_signal_terms(Name, #{terms := Terms, term_xor := Xor, term_invert := yes}) ->
+vhdl_signal_terms(Name, #{terms := [_], term_xor := _}) ->
+    vhdl_signal_for(Name);
+vhdl_signal_terms(Name, #{terms := Terms, term_xor := Xor, term_invert := yes}) ->
     throw({Name, terms, Terms, x_or, Xor, invert});
-output_signal_terms(Name, #{terms := Terms, term_xor := Xor}) ->
+vhdl_signal_terms(Name, #{terms := Terms, term_xor := Xor}) ->
     throw({Name, terms, Terms, x_or, Xor});
-output_signal_terms(Name, #{terms := [_], term_invert := yes}) ->
-    output_signal_for(Name);
-output_signal_terms(_Name, #{terms := [Term]}) when is_binary(Term) ->
+vhdl_signal_terms(Name, #{terms := [_], term_invert := yes}) ->
+    vhdl_signal_for(Name);
+vhdl_signal_terms(_Name, #{terms := [Term]}) when is_binary(Term) ->
     <<>>;
-output_signal_terms(Name, #{terms := [_]}) ->
-    output_signal_for(Name);
-output_signal_terms(Name, #{terms := _, term_invert := yes}) ->
-    output_signal_for(Name);
-output_signal_terms(Name, _Cell) ->
-    output_signal_for(Name).
+vhdl_signal_terms(Name, #{terms := [_]}) ->
+    vhdl_signal_for(Name);
+vhdl_signal_terms(Name, #{terms := _, term_invert := yes}) ->
+    vhdl_signal_for(Name);
+vhdl_signal_terms(Name, _Cell) ->
+    vhdl_signal_for(Name).
 
 %%--------------------------------------------------------------------
 
-output_signal_port(Cell, Key, Under) ->
+vhdl_signal_port(Cell, Key, Under) ->
     case Cell of
         #{Key := Term, base := Base} ->
-            output_signal_term([Base, Under], Term);
+            vhdl_signal_term([Base, Under], Term);
 
         _ ->
             <<>>
@@ -1220,18 +1285,18 @@ output_signal_port(Cell, Key, Under) ->
 
 %%--------------------------------------------------------------------
 
-output_signal_for(Name) ->
+vhdl_signal_for(Name) ->
     [<<"  signal ">>, Name, <<" : STD_LOGIC;\n">>].
 
 %%--------------------------------------------------------------------
 
-output_cell({_MC, Cell = #{base := Base, oe := OE, pin := Pin}}) ->
-    Term = output_logic(Base, Cell),
-    {LineE, NameE} = output_term([Base, <<"_oe">>], OE),
+vhdl_cell({_MC, Cell = #{base := Base, oe := OE, pin := Pin}}) ->
+    Term = vhdl_logic(Base, Cell),
+    {LineE, NameE} = vhdl_term([Base, <<"_oe">>], OE),
     [
         <<"  ">>, Base, <<"_ibuf : IBUF port map (\n">>,
-        <<"      I => ">>, Pin, <<",\n">>,
-        <<"      O => ">>, Base, <<"_in\n">>,
+        <<"    I => ">>, Pin, <<",\n">>,
+        <<"    O => ">>, Base, <<"_in\n">>,
         <<"  );\n">>,
         Term,
         LineE,
@@ -1241,9 +1306,9 @@ output_cell({_MC, Cell = #{base := Base, oe := OE, pin := Pin}}) ->
         <<"    E => ">>, NameE, <<"\n">>,
         <<"  );\n">>
     ];
-output_cell({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
-    Term = output_logic(Base, Cell),
-    {LineE, NameE} = output_term([Base, <<"_oe">>], OE),
+vhdl_cell({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
+    Term = vhdl_logic(Base, Cell),
+    {LineE, NameE} = vhdl_term([Base, <<"_oe">>], OE),
     [
         Term,
         LineE,
@@ -1253,36 +1318,36 @@ output_cell({_MC, Cell = #{base := Base, name := Name, oe := OE}}) ->
         <<"    E => ">>, NameE, <<"\n">>,
         <<"  );\n">>
     ];
-output_cell({_MC, Cell = #{base := Base, name := Name, pin := _}}) ->
-    Term = output_logic(Base, Cell),
+vhdl_cell({_MC, Cell = #{base := Base, name := Name, pin := _}}) ->
+    Term = vhdl_logic(Base, Cell),
     [
         Term,
         <<"  ">>, Name, <<" <= ">>, Base, <<";\n">>
     ];
-output_cell({_MC, Cell = #{name := Name}}) ->
-    output_logic(Name, Cell).
+vhdl_cell({_MC, Cell = #{name := Name}}) ->
+    vhdl_logic(Name, Cell).
 
 %%--------------------------------------------------------------------
 
-output_logic(Name, Cell = #{type := bypass}) ->
-    case output_terms(Name, Cell) of
+vhdl_logic(Name, Cell = #{type := bypass}) ->
+    case vhdl_terms(Name, Cell) of
         {<<>>, Value} ->
             [<<"  ">>, Name, <<" <= ">>, Value, <<";\n">>];
 
         {Line, _Name} ->
             Line
     end;
-output_logic(Name, Cell = #{base := Base, type := d_type}) ->
-    {LineD, NameD} = output_terms([Base, <<"_d">>], Cell),
+vhdl_logic(Name, Cell = #{base := Base, type := d_type}) ->
+    {LineD, NameD} = vhdl_terms([Base, <<"_d">>], Cell),
     {LineCLR, NameCLR, TypeCLR} =
-        output_ff_port(Cell, s, <<"_clr">>, <<"CLR">>, <<"C">>),
+        vhdl_ff_port(Cell, s, <<"_clr">>, <<"CLR">>, <<"C">>),
     {LinePRE, NamePRE, TypePRE} =
-        output_ff_port(Cell, s, <<"_pre">>, <<"PRE">>, <<"P">>),
+        vhdl_ff_port(Cell, s, <<"_pre">>, <<"PRE">>, <<"P">>),
     {LineCE, NameCE, TypeCE} =
-        output_ff_port(Cell, ce, <<"_ce">>, <<"CE">>, <<"E">>),
-    {NameCLR0, TypeCLR0} = output_special_d_type(TypeCLR, TypePRE, TypeCE),
+        vhdl_ff_port(Cell, ce, <<"_ce">>, <<"CE">>, <<"E">>),
+    {NameCLR0, TypeCLR0} = vhdl_special_d_type(TypeCLR, TypePRE, TypeCE),
     Type = [<<"FD">>, TypeCLR0, TypeCLR, TypePRE, TypeCE],
-    output_ff(Name, Cell, Type, [
+    vhdl_ff(Name, Cell, Type, [
         LineD,
         LineCLR,
         LinePRE,
@@ -1294,17 +1359,17 @@ output_logic(Name, Cell = #{base := Base, type := d_type}) ->
         NamePRE,
         NameCE
     ]);
-output_logic(Name, Cell = #{base := Base, type := t_type}) ->
-    {LineT, NameT} = output_terms([Base, <<"_t">>], Cell),
+vhdl_logic(Name, Cell = #{base := Base, type := t_type}) ->
+    {LineT, NameT} = vhdl_terms([Base, <<"_t">>], Cell),
     {LineCLR, NameCLR, TypeCLR} =
-        output_ff_port(Cell, s, <<"_clr">>, <<"CLR">>, <<"C">>),
+        vhdl_ff_port(Cell, s, <<"_clr">>, <<"CLR">>, <<"C">>),
     {LinePRE, NamePRE, TypePRE} =
-        output_ff_port(Cell, s, <<"_pre">>, <<"PRE">>, <<"P">>),
+        vhdl_ff_port(Cell, s, <<"_pre">>, <<"PRE">>, <<"P">>),
     {LineCE, NameCE, TypeCE} =
-        output_ff_port(Cell, ce, <<"_ce">>, <<"CE">>, <<"E">>),
-    {NameCLR0, TypeCLR0} = output_special_t_type(TypeCLR, TypePRE, TypeCE),
+        vhdl_ff_port(Cell, ce, <<"_ce">>, <<"CE">>, <<"E">>),
+    {NameCLR0, TypeCLR0} = vhdl_special_t_type(TypeCLR, TypePRE, TypeCE),
     Type = [<<"FT">>, TypeCLR0, TypeCLR, TypePRE, TypeCE],
-    output_ff(Name, Cell, Type, [
+    vhdl_ff(Name, Cell, Type, [
         LineT,
         LineCLR,
         LinePRE,
@@ -1319,7 +1384,7 @@ output_logic(Name, Cell = #{base := Base, type := t_type}) ->
 
 %%--------------------------------------------------------------------
 
-output_ff(Name, Cell, Type, Lines, Names) ->
+vhdl_ff(Name, Cell, Type, Lines, Names) ->
     #{base := Base, clk := Clk} = Cell,
     Init = case Cell of
         #{preset := yes} ->
@@ -1328,7 +1393,7 @@ output_ff(Name, Cell, Type, Lines, Names) ->
         _ ->
             <<>>
     end,
-    {LineC, NameC} = output_term([Base, <<"_c">>], Clk),
+    {LineC, NameC} = vhdl_term([Base, <<"_c">>], Clk),
     [
         LineC,
         Lines,
@@ -1341,10 +1406,10 @@ output_ff(Name, Cell, Type, Lines, Names) ->
 
 %%--------------------------------------------------------------------
 
-output_ff_port(Cell, Key, Under, Port, Letter) ->
+vhdl_ff_port(Cell, Key, Under, Port, Letter) ->
     case Cell of
         #{Key := Term, base := Base} ->
-            {Line, Name0} = output_term([Base, Under], Term),
+            {Line, Name0} = vhdl_term([Base, Under], Term),
             Name = [<<"    ">>, Port, <<" => ">>, Name0, <<",\n">>],
             {Line, Name, Letter};
 
@@ -1354,67 +1419,67 @@ output_ff_port(Cell, Key, Under, Port, Letter) ->
 
 %%--------------------------------------------------------------------
 
-output_special_d_type(<<>>, <<>>, <<"E">>) ->
+vhdl_special_d_type(<<>>, <<>>, <<"E">>) ->
     Name = [<<"    CLR => '0',\n">>],
     {Name, <<"C">>};
-output_special_d_type(_CLR, _PRE, _CE) ->
+vhdl_special_d_type(_CLR, _PRE, _CE) ->
     {<<>>, <<>>}.
 
 %%--------------------------------------------------------------------
 
-output_special_t_type(<<>>, <<>>, <<>>) ->
+vhdl_special_t_type(<<>>, <<>>, <<>>) ->
     Name = [<<"    CLR => '0',\n">>],
     {Name, <<"C">>};
-output_special_t_type(_CLR, _PRE, _CE = <<>>) ->
+vhdl_special_t_type(_CLR, _PRE, _CE = <<>>) ->
     {<<>>, <<>>}.
 
 %%--------------------------------------------------------------------
 
-output_terms(_Name, #{terms := [], term_invert := yes}) ->
+vhdl_terms(_Name, #{terms := [], term_invert := yes}) ->
     {<<>>, <<"'1'">>};
-output_terms(_Name, #{terms := []}) ->
+vhdl_terms(_Name, #{terms := []}) ->
     {<<>>, <<"'0'">>};
-output_terms(Name, #{terms := [Term0], term_xor := Xor0}) ->
-    Term = output_term_bracket(Term0),
-    Xor = output_term_bracket(Xor0),
+vhdl_terms(Name, #{terms := [Term0], term_xor := Xor0}) ->
+    Term = vhdl_term_bracket(Term0),
+    Xor = vhdl_term_bracket(Xor0),
     {[<<"  ">>, Name, <<" <= ">>, Term, <<" XOR ">>, Xor, <<";\n">>], Name};
-output_terms(Name, #{terms := Terms, term_xor := Xor, term_invert := yes}) ->
+vhdl_terms(Name, #{terms := Terms, term_xor := Xor, term_invert := yes}) ->
     throw({Name, terms, Terms, x_or, Xor, invert});
-output_terms(Name, #{terms := Terms, term_xor := Xor}) ->
+vhdl_terms(Name, #{terms := Terms, term_xor := Xor}) ->
     throw({Name, terms, Terms, x_or, Xor});
-output_terms(Name, #{terms := [Term0], term_invert := yes}) ->
-    Term = output_term_bracket(Term0),
+vhdl_terms(Name, #{terms := [Term0], term_invert := yes}) ->
+    Term = vhdl_term_bracket(Term0),
     {[<<"  ">>, Name, <<" <= NOT ">>, Term, <<";\n">>], Name};
-output_terms(_Name, #{terms := [Term]}) when is_binary(Term) ->
+vhdl_terms(_Name, #{terms := [Term]}) when is_binary(Term) ->
     {<<>>, Term};
-output_terms(Name, #{terms := [Term]}) ->
+vhdl_terms(Name, #{terms := [Term]}) ->
     {[<<"  ">>, Name, <<" <= ">>, Term, <<";\n">>], Name};
-output_terms(Name, #{terms := Terms, term_invert := yes}) ->
+vhdl_terms(Name, #{terms := Terms, term_invert := yes}) ->
     Head = [<<"  ">>, Name, <<" <= NOT (\n">>],
     Lines = lists:map(fun (Term) ->
-        [<<"    ">>, output_term_bracket(Term)]
-    end, Terms),
+        [<<"    ">>, vhdl_term_bracket(Term)]
+    end, lists:sort(Terms)),
     Tail = <<"\n  );\n">>,
     {[Head, lists:join(<<" OR\n">>, Lines), Tail], Name};
-output_terms(Name, #{terms := Terms}) ->
+vhdl_terms(Name, #{terms := Terms}) ->
     Head = [<<"  ">>, Name, <<" <= (\n">>],
     Lines = lists:map(fun (Term) ->
-        [<<"    ">>, output_term_bracket(Term)]
-    end, Terms),
+        [<<"    ">>, vhdl_term_bracket(Term)]
+    end, lists:sort(Terms)),
     Tail = <<"\n  );\n">>,
     {[Head, lists:join(<<" OR\n">>, Lines), Tail], Name}.
 
 %%--------------------------------------------------------------------
 
-output_term_bracket(Term) when is_binary(Term) ->
+vhdl_term_bracket(Term) when is_binary(Term) ->
     Term;
-output_term_bracket(Term) ->
+vhdl_term_bracket(Term) ->
     [<<"(">>, Term, <<")">>].
 
 %%--------------------------------------------------------------------
 
-output_term(_Name, Term) when is_binary(Term) ->
+vhdl_term(_Name, Term) when is_binary(Term) ->
     {<<>>, Term};
-output_term(Name, Term) ->
+vhdl_term(Name, Term) ->
     {[<<"  ">>, Name, <<" <= ">>, Term, <<";\n">>], Name}.
 
